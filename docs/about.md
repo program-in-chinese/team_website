@@ -1,19 +1,12 @@
 ---
 layout: page
-title: About
+title: 关于
 permalink: /about/
 ---
-[讨论组周报](周报)
+作为最熟悉的母语，用来编写代码会让代码更容易被自己和母语相同的其他开发者理解。
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+基于英文的编程语言和相关框架中，有时使用中文会有技术问题(乱码等等)。希望这里为后人趟雷，填坑。
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+多数现有API是英文的，这里也会对其中一些常用的进行汉化。
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+当然，这里也会对基于中文的编程语言进行探讨。包括汉化基于英文的编程语言，以及创造新的编程语言。
