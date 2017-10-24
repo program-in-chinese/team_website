@@ -8,7 +8,27 @@ categories: 命名
 
 关键词为英文的编程语言对中文代码的支持(字母排序)
 
-[C](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E4%BD%A0%E5%A5%BD.c), [C++](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E9%97%AE%E5%A5%BD.cpp), [C#](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E5%A4%A7%E5%AE%B6%E5%A5%BD.cs), [CoffeeScript](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.coffee), [Common Lisp](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.lisp), [FASM](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E4%BD%A0%E5%A5%BD.asm), [Go](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.go), [Haskell](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/Haskell%E7%A4%BA%E4%BE%8B.hs), [Java](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E5%A4%A7%E5%AE%B6%E5%A5%BD.java), [JavaScript](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.js), [Kotlin](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E4%BD%A0%E5%A5%BD.kt), MySQL, [Objective-C](示例代码/你好.m),[Perl](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.pl), [PHP](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.php), [Python 3](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.py), [R](https://github.com/dushoff/Generation_distributions/blob/master/chinese.R), [Ruby](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.rb), [Scala](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.scala), [Sqlite3](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/sqlite%E8%84%9A%E6%9C%AC), [Swfit](%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E5%8F%98%E9%87%8F.swift)
+[C](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.c),
+[C++](https://github.com/program-in-chinese/overview/blob/master/示例代码/问好.cpp),
+[C#](https://github.com/program-in-chinese/overview/blob/master/示例代码/大家好.cs),
+[CoffeeScript](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.coffee),
+[Common Lisp](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.lisp),
+[FASM](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.asm),
+[Go](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.go),
+[Haskell](https://github.com/program-in-chinese/overview/blob/master/示例代码/Haskell示例.hs),
+[Java](https://github.com/program-in-chinese/overview/blob/master/示例代码/大家好.java),
+[JavaScript](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.js),
+[Kotlin](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.kt),
+MySQL,
+[Objective-C](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.m),
+[Perl](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.pl),
+[PHP](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.php),
+[Python 3](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.py),
+[R](https://github.com/dushoff/Generation_distributions/blob/master/chinese.R),
+[Ruby](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.rb),
+[Scala](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.scala),
+[Sqlite3](https://github.com/program-in-chinese/overview/blob/master/示例代码/sqlite脚本),
+[Swfit](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift)
 
 上面仅为测试证实过的编程语言版本。更早版本和其他语言很可能已经支持，如: HTML/CSS，Visual Basic，Dart，Closure，Groovy，Delphi
 
