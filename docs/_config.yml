@@ -16,6 +16,9 @@
 title: 用中文编程
 description: >- # this means to ignore newlines until "baseurl:"
   尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等.
+  Program in Chinese wherever possible. Including using Chinese naming in code,
+  making API in Chinese, supporting Chinese keywords in existing programming languages,
+  and creating new programming languages with Chinese grammar.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  program-in-chinese
@@ -25,6 +28,7 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
