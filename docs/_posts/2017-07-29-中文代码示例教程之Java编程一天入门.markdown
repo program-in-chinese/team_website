@@ -1,0 +1,54 @@
+---
+layout: post
+title:  中文代码示例教程之Java编程一天入门
+description: 以中文编写示例代码的Java入门短教程. Short beginner's tutorial of Java programming with sample codes using Chinese naming.
+date:   2017-10-17 00:00:00 -0700
+categories: 命名 教程
+---
+
+# Java编程一天入门 v0.0.1 alpha
+
+共享协议 本作使用[署名-非商业使用-禁止演绎](https://creativecommons.org/licenses/by-nc-nd/4.0/)协议共享。
+
+## 前言
+
+Java入门代码用中文写更能被新手理解, 可惜没有看到类似教程. 本作纯属抛砖引玉, 希望各位多指出错误, 欢迎批评/意见/建议.
+
+编程语言的语法是最机械的, 在阅读过程中, 请尽量关注于程序做了些什么, 而一些语法细节可以暂时忽略. 入门之后, 在接下去的写和读代码过程中, 语法自然会熟练起来.
+
+每一讲建议时间30分钟左右. 如果卡住(比如超过一小时), 请在代码库开issue. 目的是让总时间控制在8小时左右, 让"一天入门"更符合实际.
+
+## 目录
+一 [准备编程](https://github.com/program-in-chinese/java_in_hours_chn#%E4%B8%80-%E5%87%86%E5%A4%87%E7%BC%96%E7%A8%8B)
+
+二 [问个好吧](https://github.com/program-in-chinese/java_in_hours_chn#%E4%BA%8C-%E9%97%AE%E4%B8%AA%E5%A5%BD%E5%90%A7)
+
+三 [Java的现状](https://github.com/program-in-chinese/java_in_hours_chn#%E4%B8%89-java%E7%9A%84%E7%8E%B0%E7%8A%B6)
+
+四 [用Java算术](https://github.com/program-in-chinese/java_in_hours_chn#%E5%9B%9B-%E7%94%A8java%E7%AE%97%E6%9C%AF)
+
+五 [变量-在程序中保存修改信息](https://github.com/program-in-chinese/java_in_hours_chn#%E4%BA%94-%E5%8F%98%E9%87%8F-%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BF%9D%E5%AD%98%E4%BF%AE%E6%94%B9%E4%BF%A1%E6%81%AF)
+
+六 [文字](https://github.com/program-in-chinese/java_in_hours_chn#%E5%85%AD-%E6%96%87%E5%AD%97)
+
+七 [如果...就...不然...](https://github.com/program-in-chinese/java_in_hours_chn#%E4%B8%83-%E5%A6%82%E6%9E%9C%E5%B0%B1%E4%B8%8D%E7%84%B6)
+
+八 [直到...一直...](https://github.com/program-in-chinese/java_in_hours_chn#%E5%85%AB-%E7%9B%B4%E5%88%B0%E4%B8%80%E7%9B%B4)
+
+九 [造个人](https://github.com/program-in-chinese/java_in_hours_chn#%E4%B9%9D-%E9%80%A0%E4%B8%AA%E4%BA%BA)
+
+十 [让它更像人](https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81-%E8%AE%A9%E5%AE%83%E6%9B%B4%E5%83%8F%E4%BA%BA)
+
+十一 [数据排排站-数组](https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%B8%80-%E6%95%B0%E6%8D%AE%E6%8E%92%E6%8E%92%E7%AB%99-%E6%95%B0%E7%BB%84)
+
+十二 [更多结构](https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%BA%8C-%E6%9B%B4%E5%A4%9A%E7%BB%93%E6%9E%84)
+
+十三 [活久见](https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%B8%89-%E6%B4%BB%E4%B9%85%E8%A7%81)
+
+十四 [为人民服务](https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E5%9B%9B-%E4%B8%BA%E4%BA%BA%E6%B0%91%E6%9C%8D%E5%8A%A1)
+
+十五 [自我肯定 - 测试](https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%BA%94-%E8%87%AA%E6%88%91%E8%82%AF%E5%AE%9A---%E6%B5%8B%E8%AF%95)
+
+零 [没有规矩, 不成方圆 - 代码风格](https://github.com/program-in-chinese/java_in_hours_chn#%E9%9B%B6-%E6%B2%A1%E6%9C%89%E8%A7%84%E7%9F%A9-%E4%B8%8D%E6%88%90%E6%96%B9%E5%9C%86---%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+
+(完)
