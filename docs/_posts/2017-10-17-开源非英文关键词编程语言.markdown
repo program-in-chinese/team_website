@@ -1,0 +1,22 @@
+---
+layout: post
+title:  开源非英文关键词编程语言
+description: 非英文关键词的编程语言, 只列出了开源的. Open source Non-English-based programming languages 
+date:   2017-10-17 00:00:00 -0700
+categories: 关键词
+---
+
+世界各国的开发者都进行了基于母语设计编程语言语法的尝试. 有些已经商用且活跃至今. 这里搜集了一些开源的实现, 也许能够获取一些借鉴和启发.
+
+在[Wiki](https://en.wikipedia.org/wiki/Non-English-based_programming_languages)上有更全面的链接.
+
+下面只列出了已确认开源的, 且不包含中文编程语言, 排序不分先后:
+
+| 语法使用何种自然语言 | 编程语言 | 
+| ------------- | ------------- |
+日语 | [Nadesiko, なでしこ(抚子)](https://nadesi.com/): [源码库](https://github.com/kujirahand/nadesiko3) 
+阿拉伯语 | [قلب](https://github.com/nasser/---) |
+法语 | [Linotte](http://langagelinotte.free.fr/wordpress/): [源码库](https://bitbucket.org/metalm/langagelinotte/) [v2.07 source zip](https://bitbucket.org/metalm/langagelinotte/downloads/Linotte_2.07.00_source.zip)
+拉脱维亚语 | [Dzintars](https://github.com/dzintars-valoda/dzintars)
+泰米尔语 | [Ezhil](https://sourceforge.net/p/ezhillang/code/ci/master/tree/)
+葡萄牙语 | [Potigol](https://github.com/potigol/Potigol)
