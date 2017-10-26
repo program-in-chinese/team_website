@@ -20,7 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   making API in Chinese, supporting Chinese keywords in existing programming languages,
   and creating new programming languages with Chinese grammar.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://codeinchinese.com" # the base hostname & protocol for your site
 github_username:  program-in-chinese
 
 # Build settings
@@ -29,6 +29,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
