@@ -32,5 +32,3 @@ UTF8表示 | e5 bc 80 | e5 a7 8b | e6 a3 80 | e6 9f a5 | e2 80 a6 | e2 80 a6
 直觉是也是类似问题, 但想用编码互转的方式重现未果, 参考上面的例子试了几种2次转码, 都没有重现. [JDBC连接MySQL抛出异常信息乱码 - insist的专栏 - CSDN博客](http://blog.csdn.net/zyf814/article/details/17021949)提到了CP1252编码, 又经过几次尝试, 才[试出了这个过程](https://github.com/program-in-chinese/overview/issues/26#issuecomment-335617311): "utf-8"->"windows-1252"->"iso-8859-1"->"utf-8".
 
 阶段总结一下, 乱码问题的缘由都是编码互转. 全部乱码, 部分乱码都可能. 随着国外代码库/软件的编码方式更多地使用UTF8, 类似第二个问题的可能会变少, 但类似第一个的UTF8<->GBK互转的问题也许会存在很长一段时间.
-
-{% include disqus.html %}

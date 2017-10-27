@@ -21,5 +21,3 @@ categories: 关键词
 拉脱维亚语 | [Dzintars](https://github.com/dzintars-valoda/dzintars)
 泰米尔语 | [Ezhil](https://sourceforge.net/p/ezhillang/code/ci/master/tree/)
 葡萄牙语 | [Potigol](https://github.com/potigol/Potigol)
-
-{% include disqus.html %}
