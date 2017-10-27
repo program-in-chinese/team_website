@@ -26,5 +26,3 @@ categories: 命名
 两个问题都是生态环境对中文(或者说非英文)的支持, 这需要更多在源码/文件名中使用中文来推动解决.
 
 关于中文输入法, 理想的解决方式是支持多种输入法(不仅是拼音), 而且与IDE原有的代码自动补全功能无缝集成. 通过插件在主流IDE中实现这一功能。 最近发现了一个开源实现，在TypeScript+VSCode中实现了[根据拼音首字母或者拼音的部分来匹配中文标识符](https://github.com/program-in-chinese/overview/issues/11#issuecomment-320431936)。虽然随着VSCode的新版本发布而失效，反映了IDE插件对IDE的依赖性问题，但仍证实了可行性，有不少借鉴意义。
-
-{% include disqus_comments.html %}
