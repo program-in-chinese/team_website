@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  中文代码示例教程之Java编程一天入门
 description: 以中文编写示例代码的Java入门短教程. Short beginner's tutorial of Java programming with sample codes using Chinese naming.
 date:   2017-07-29 00:00:00 -0700
@@ -52,3 +53,5 @@ Java入门代码用中文写更能被新手理解, 可惜没有看到类似教�
 零 [没有规矩, 不成方圆 - 代码风格](https://github.com/program-in-chinese/java_in_hours_chn#%E9%9B%B6-%E6%B2%A1%E6%9C%89%E8%A7%84%E7%9F%A9-%E4%B8%8D%E6%88%90%E6%96%B9%E5%9C%86---%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
 
 (完)
+
+{% include disqus.html %}

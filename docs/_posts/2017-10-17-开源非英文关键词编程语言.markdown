@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  开源非英文关键词编程语言
 description: 非英文关键词的编程语言, 只列出了开源的. Open source Non-English-based programming languages 
 date:   2017-10-17 00:00:00 -0700
@@ -20,3 +21,5 @@ categories: 关键词
 拉脱维亚语 | [Dzintars](https://github.com/dzintars-valoda/dzintars)
 泰米尔语 | [Ezhil](https://sourceforge.net/p/ezhillang/code/ci/master/tree/)
 葡萄牙语 | [Potigol](https://github.com/potigol/Potigol)
+
+{% include disqus.html %}
