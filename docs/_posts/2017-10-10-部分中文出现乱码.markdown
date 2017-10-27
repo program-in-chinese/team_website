@@ -1,0 +1,33 @@
+---
+layout: post
+title:  编码问题之“部分“中文出现乱码
+date:   2017-10-10 00:00:00 -0700
+categories: 编码
+---
+
+事情起源于项目另一开发者在中文Windows下构建时遇到的[部分中文出现乱码问题](https://github.com/program-in-chinese/junit4_in_chinese/pull/11#issuecomment-324548860).
+
+当时很不解的是, 为什么会只有部分出现乱码. 第一感觉是, 如果编码转换不正确, 要么全乱码, 要么全正确. 为何会"部分"出现乱码.
+
+初步分析[在此](https://github.com/program-in-chinese/junit4_in_chinese/pull/12#issuecomment-333757123). 简单说, 就是在转码过程中, Java会把某些它不认识的部分直接用某个值代替. 至于为何不默认保留原数据, 是个好的考古研究课题.
+
+示例如下(除了"开始检", 其他都乱码了):
+
+编码 | 原字1 | 原字2 | 原字3 | 原字4 |  原字5 | 原字6
+ ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
+原字 | 开 | 始 | 检 | 查 | … | …
+UTF8表示 | e5 bc 80 | e5 a7 8b | e6 a3 80 | e6 9f a5 | e2 80 a6 | e2 80 a6
+转为GBK后 | e5 bc 3f | e5 a7 8b | e6 a3 80 | e6 9f a5 | e2 3f a6 | e2 3f 3f
+转回UTF8 | �? | 开 | 始 | 检 | �?� | �??
+
+网上很多资源提到字符数是奇数会有问题, 这是没错. 但实际上即使偶数也可能会有问题. 上面的转换过程中, `80`不是合法GBK字符, 就被替换成`3f`. 而替换过后再转回UTF8当然就挂了.
+
+这个问题里的插件就是把输出字符串指定编码成了UTF8格式的数据, 但输出/解码时又用了系统默认的编码格式(GBK). 详见 [GBK<->UTF8 互转问题: Maven checkstyle输出乱码 · Issue #26](https://github.com/program-in-chinese/overview/issues/26#issuecomment-334206209) · [program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/26#issuecomment-334206209), [zh-cn ,,,, cmd gbk encode · Issue #3569 · checkstyle/checkstyle](https://github.com/checkstyle/checkstyle/issues/3569#issuecomment-334245633).
+
+个人觉得这种转码问题是除了亚洲/非洲之外的开发者很容易忽视的. UTF8的字符除了亚洲(包括中日韩)和非洲语言的字符用三字节数据表示外, 其他多数语言的字符都是用单字节或双字节. [来源](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane)). 这些UTF8中三字节的字符和GBK之类的双字节码转码时会更容易出问题.
+
+在调查过程中, 还发现了其他一些类似疑问, 比如[UTF-8编码，部分中文正常，部分为乱码的问题？-CSDN论坛](http://bbs.csdn.net/topics/390010852).
+
+直觉是也是类似问题, 但想用编码互转的方式重现未果, 参考上面的例子试了几种2次转码, 都没有重现. [JDBC连接MySQL抛出异常信息乱码 - insist的专栏 - CSDN博客](http://blog.csdn.net/zyf814/article/details/17021949)提到了CP1252编码, 又经过几次尝试, 才[试出了这个过程](https://github.com/program-in-chinese/overview/issues/26#issuecomment-335617311): "utf-8"->"windows-1252"->"iso-8859-1"->"utf-8".
+
+阶段总结一下, 乱码问题的缘由都是编码互转. 全部乱码, 部分乱码都可能. 随着国外代码库/软件的编码方式更多地使用UTF8, 类似第二个问题的可能会变少, 但类似第一个的UTF8<->GBK互转的问题也许会存在很长一段时间.
