@@ -10,8 +10,8 @@ categories: 命名
 
 首先请看一个[实例](https://github.com/program-in-chinese/p5js_in_chinese/blob/master/%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%BD%A2/%E6%BC%94%E7%A4%BA.js), 演示效果在[此](https://p5js.org/examples/hello-p5-simple-shapes.html):
 
-![p5js英文演示代码]({{ "/assets/p5js英文演示代码.png" | absolute_url }})
-![p5js中文演示代码]({{ "/assets/p5js中文演示代码.png" | absolute_url }})
+![p5js英文演示代码]({{ "/assets/p5js_eng.png" | absolute_url }})
+![p5js中文演示代码]({{ "/assets/p5js_zh.png" | absolute_url }})
 
 这个库提供了一系列绘图相关的API. 后者是笔者将这些API[封装](https://github.com/program-in-chinese/p5js_in_chinese/blob/master/p5js%E4%B8%AD%E6%96%87.js)成了中文之后的对应代码.
 
