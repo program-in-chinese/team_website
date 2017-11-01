@@ -1,0 +1,37 @@
+---
+layout: post
+comments: true
+title:  中文代码示例教程之Vuejs入门&后续计划
+description: 中文代码示例教程之Vuejs入门, 之后对其他主流框架进行类似实践. Rewrite  sample codes in Vuejs official guide by using Chinese naming as much as possible. Will continue with other frameworks afterwards.
+date:   2017-10-31 00:00:00 -0700
+categories: 命名 教程
+---
+
+为了检验中文命名在主流框架中的支持程度, [这里](https://github.com/program-in-chinese/vuejs_guide_zh)把vuejs[官方入门教程](https://cn.vuejs.org/v2/guide/)第一部分的示例代码中尽量使用了中文命名.
+
+过程中有一些发现, 初步看来Vuejs对中文命名的支持不错. 个别改进建议已经在Vue的github库以issue的方式提出, 社区的活跃度很高, 开发者对这些issue的反应很快, 标记上了"改进"标签, 并针对一个不支持中文命名的问题提供了解决方案.
+
+感觉此类实践可以促进与其他开源社区的交流, 并推进框架的业务代码中对中文(Unicode)命名的支持程度. 考虑按照框架的流行程度继续开展.
+
+根据2016年后端[市场比例](https://w3techs.com/technologies/overview/programming_language/all), 考虑从占据最大份额的PHP入手, 之后的顺序看情况定:
+- PHP([参考](http://www.developersfeed.com/top-3-php-frameworks-in-2016/))
+  - Laravel
+  - Codeigniter
+  - Symfony
+- ASP.NET
+- Java
+  - Struts
+  - 基于之前的[实验项目](https://github.com/program-in-chinese/jinxiaocun), Spring Boot
+  - hibernate
+  - [Play Framework](https://playframework.com/)
+- Ruby
+  - Rails
+- Python
+  - flask
+  - Django
+- Javascript
+  - NodeJS/Express
+
+前端框架可能目标:
+- Bootstrap
+- Angularjs
