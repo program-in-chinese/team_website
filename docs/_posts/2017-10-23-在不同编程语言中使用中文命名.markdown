@@ -35,6 +35,6 @@ MySQL,
 [Sqlite3](https://github.com/program-in-chinese/overview/blob/master/示例代码/sqlite脚本),
 [Swfit](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift)
 
-上面仅为测试证实过的编程语言版本。更早版本和其他语言很可能已经支持，如: HTML/CSS，Visual Basic，Dart，Closure，Groovy，Delphi
+上面仅为测试证实过的编程语言版本。更早版本和其他语言很可能已经支持. [Unicode strings - Rosetta Code](http://rosettacode.org/wiki/Unicode_strings)列出了更多编程语言对Unicode的支持程度, 可以逐个检验.
 
 现在很欠缺的是中文代码风格文档。有些英文代码风格是没有中文替代的，比如Camel case。以后将会尝试探讨。
