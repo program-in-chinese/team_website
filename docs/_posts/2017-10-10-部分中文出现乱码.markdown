@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title:  编码问题之“部分“中文出现乱码
+description: 只有部分中文出现乱码的编码问题分析. Analysing encoding issue where only part of text displays incorrectly.
 date:   2017-10-10 00:00:00 -0700
 categories: 编码
 ---

@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title:  13年后的共鸣-在代码中用中文命名的优势和问题
+description: 与13年前的博文有同感, 分析在代码中用中文命名的优势和问题. Echoing a blog article 13 years ago, with the topic of pro and cons of Chinese naming in code.
 date:   2017-10-26 00:00:00 -0700
 categories: 命名
 ---

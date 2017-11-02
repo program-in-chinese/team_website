@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title:  对在代码中使用中文命名的质疑与回应
+description: Q&A of programming with naming in Chinese.
 date:   2017-10-27 00:00:00 -0700
 categories: 命名
 ---
