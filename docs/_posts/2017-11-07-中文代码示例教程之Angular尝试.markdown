@@ -7,7 +7,7 @@ date:   2017-11-07 00:00:00 -0700
 categories: 命名 教程
 ---
 
-为了检验中文命名在Angular中的支持程度, 把Angular[官方入门教程](https://angular.io/tutorial)的示例代码中尽量使用了中文命名.
+为了检验中文命名在Angular中的支持程度, 把Angular[官方入门教程](https://angular.io/tutorial)的示例代码中尽量使用了中文命名. 以下源码库在[此](https://github.com/program-in-chinese/angular_official_tutorial_zh).
 
 ### 创建项目
 不支持中文命名:
@@ -115,4 +115,4 @@ Parser Error: Lexer Error: Unexpected character [们] at column 15 in expression
 ```
 
 ### 小结
-至此, 限于时间评测只能暂告一段落. 在尝试的很小一部分功能中, 比较纯粹的TypeScript部分允许中文命名, 但牵涉到模板(Template)的部分对中文命名的支持非常有限.
+限于时间, 评测只能暂告一段落. 在尝试的很小一部分功能中, 比较纯粹的TypeScript部分允许中文命名, 但牵涉到模板(Template)的部分对中文命名的支持非常有限.
