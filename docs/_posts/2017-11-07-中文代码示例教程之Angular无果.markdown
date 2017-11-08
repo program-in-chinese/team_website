@@ -1,0 +1,65 @@
+---
+layout: post
+comments: true
+title:  中文代码示例教程之Angular尝试
+description: 试图用中文命名Angular入门代码, 刚开始就无法继续. Rewrite  sample codes in Angular official tutorial by using Chinese naming as much as possible. Fail from beginning pitifully.
+date:   2017-11-07 00:00:00 -0700
+categories: 命名 教程
+---
+
+从开始的创建项目就不顺:
+```
+$ ng new 英雄榜
+Project name "英雄榜" is not valid. New project names must start with a letter, and must contain only alphanumeric characters or dashes. When adding a dash the segment after the dash must also start with a letter.
+英雄榜
+^
+```
+第一个最简单的文本绑定. app.component.ts:
+```
+export class AppComponent {
+  题目 = '示例';
+}
+```
+app.component.html:
+{% raw %}
+```
+<h1>{{题目}}</h1>
+```
+{% endraw %}
+报错:
+{% raw %}
+```
+compiler.js:466 Uncaught Error: Template parse errors:
+Parser Error: Unexpected token Lexer Error: Unexpected character [题] at column 1 in expression [题目] at column 2 in [{{题目}}] in ng:///AppModule/AppComponent.html@0:4 ("<h1>[ERROR ->]{{题目}}</h1>"): ng:///AppModule/AppComponent.html@0:4
+Parser Error: Lexer Error: Unexpected character [题] at column 1 in expression [题目] at column 2 in [{{题目}}] in ng:///AppModule/AppComponent.html@0:4 ("<h1>[ERROR ->]{{题目}}</h1>"): ng:///AppModule/AppComponent.html@0:4
+Parser Error: Lexer Error: Unexpected character [目] at column 2 in expression [题目] at column 3 in [{{题目}}] in ng:///AppModule/AppComponent.html@0:4 ("<h1>[ERROR ->]{{题目}}</h1>"): ng:///AppModule/AppComponent.html@0:4
+```
+{% endraw %}
+犹豫了一下继续测.
+
+创建新component, 貌似支持中文:
+```
+$ ng generate component 英雄
+  create src/app/英雄/英雄.component.css (0 bytes)
+  create src/app/英雄/英雄.component.html (25 bytes)
+  create src/app/英雄/英雄.component.spec.ts (628 bytes)
+  create src/app/英雄/英雄.component.ts (310 bytes)
+  update src/app/app.module.ts (398 bytes)
+```
+但是报错:
+```
+英雄.component.ts:7 Uncaught ReferenceError: ViewEncapsulation is not defined
+    at eval (英雄.component.ts:7)
+    at eval (英雄.component.ts:18)
+    at Object.../../../../../src/app/英雄/英雄.component.ts (main.bundle.js:58)
+    at __webpack_require__ (inline.bundle.js:55)
+    at eval (app.module.ts:5)
+    at Object.../../../../../src/app/app.module.ts (main.bundle.js:36)
+    at __webpack_require__ (inline.bundle.js:55)
+    at eval (main.ts:4)
+    at Object.../../../../../src/main.ts (main.bundle.js:74)
+    at __webpack_require__ (inline.bundle.js:55)
+```
+已向Angular项目提交bug report: [Avoid creating component with unicode naming, instead of throwing error after finishing creation.](https://github.com/angular/angular/issues/20263)
+
+(待续)
