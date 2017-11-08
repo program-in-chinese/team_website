@@ -2,25 +2,32 @@
 layout: post
 comments: true
 title:  中文代码示例教程之Angular尝试
-description: 试图用中文命名Angular入门代码, 刚开始就无法继续. Rewrite  sample codes in Angular official tutorial by using Chinese naming as much as possible. Fail from beginning pitifully.
+description: 试图用中文命名Angular入门代码, 模板部分对中文命名的支持非常有限. Rewrite  sample codes in Angular official tutorial by using Chinese naming as much as possible. Parts related with template has very limited support for unicode naming.
 date:   2017-11-07 00:00:00 -0700
 categories: 命名 教程
 ---
 
-从开始的创建项目就不顺:
+为了检验中文命名在Angular中的支持程度, 把Angular[官方入门教程](https://angular.io/tutorial)的示例代码中尽量使用了中文命名.
+
+### 创建项目
+不支持中文命名:
 ```
 $ ng new 英雄榜
 Project name "英雄榜" is not valid. New project names must start with a letter, and must contain only alphanumeric characters or dashes. When adding a dash the segment after the dash must also start with a letter.
 英雄榜
 ^
 ```
-第一个最简单的文本绑定. app.component.ts:
+
+### 文本绑定
+不支持中文命名变量
+
+`app.component.ts`:
 ```
 export class AppComponent {
   题目 = '示例';
 }
 ```
-app.component.html:
+`app.component.html`:
 {% raw %}
 ```
 <h1>{{题目}}</h1>
@@ -35,7 +42,8 @@ Parser Error: Lexer Error: Unexpected character [题] at column 1 in expression 
 Parser Error: Lexer Error: Unexpected character [目] at column 2 in expression [题目] at column 3 in [{{题目}}] in ng:///AppModule/AppComponent.html@0:4 ("<h1>[ERROR ->]{{题目}}</h1>"): ng:///AppModule/AppComponent.html@0:4
 ```
 {% endraw %}
-犹豫了一下继续测.
+
+### 创建component
 
 创建新component, 貌似支持中文:
 ```
@@ -62,4 +70,49 @@ $ ng generate component 英雄
 ```
 已向Angular项目提交bug report: [Avoid creating component with unicode naming, instead of throwing error after finishing creation.](https://github.com/angular/angular/issues/20263)
 
-(待续)
+后经[指出](https://github.com/angular/angular-cli/issues/8397#issuecomment-342840475), 上面的错误并不是由中文命名导致. 但由于HTML tag不支持中文(vuejs中也有[类似问题](({{ site.baseurl }}{% link _posts/2017-10-31-中文代码示例教程之Vuejs入门.markdown %}))), 需要将`英雄.component.ts`中:
+```
+selector: 'app-英雄',
+```
+改为:
+```
+selector: 'app-heroes',
+```
+在"app.component.html"中添加:
+```
+<app-heroes></app-heroes>
+```
+显示正常. 
+鉴于Angular在创建Component时自动生成selector代码, 之前的bug report仍然成立, 可以认为Angular本身不支持Component使用中文命名, 但自己修改selector后似乎仍然可用(以观后效).
+
+### 添加类型
+支持中文命名!
+
+添加`src/app/英雄.ts`:
+```
+export class 英雄 {
+  id: number;
+  name: string;
+}
+```
+`英雄.component.ts`中:
+```
+  hero: 英雄 = {
+    id: 1,
+    name: '小明'
+  };
+```
+
+### 显示列表
+由于{{}}中不能用中文命名, 因此`<li *ngFor="let hero of heroes">`中的`hero`不能用中文命名, 而`heroes`如果改为`英雄们`, 会报错:
+```
+Parser Error: Lexer Error: Unexpected character [们] at column 15 in expression [let hero of 英雄们] at column 16 in [let hero of 英雄们] in ng:///AppModule/__Component.html@2:6 ("
+<ul class="heroes">
+  <li *ngFor="let hero of 英雄们">
+    <span class="badge">{{hero.id}}</span>[ERROR ->] {{hero.name}}
+  </li>
+</ul>"): ng:///AppModule/__Component.html@3:42
+```
+
+### 小结
+至此, 限于时间评测只能暂告一段落. 在尝试的很小一部分功能中, 比较纯粹的TypeScript部分允许中文命名, 但牵涉到模板(Template)的部分对中文命名的支持非常有限.
