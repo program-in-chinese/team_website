@@ -1,0 +1,53 @@
+---
+layout: post
+comments: true
+title:  中英文代码对比系列之Java一例
+description: 比较同一段代码使用中文和英文命名的效果, 讨论代码风格. Compare one piece of code using Chinese and English namings. Discuss related code style issues.
+date:   2017-11-09 00:00:00 -0700
+categories: 命名 示例
+---
+中英文代码对比系列之Java一例 - 吴烜的文章 - 知乎
+http://zhuanlan.zhihu.com/p/30905033
+
+这个系列将对同一段代码进行中文命名和英文命名两个版本的比较. 目的包括, 演示中文命名, 发现命名时可能遇到的问题, 探讨代码风格(中文命名的'套路')等. 示例中的命名风格仅基于个人非常有限的实践, 希望抛砖引玉.
+
+不在讨论范围内的是:
+- 中英文代码的可读性孰高孰低. 个人相信用英文和中文都能写出可读性很好的代码. 区别仅在于母语不同的开发者对哪个版本更敏感, 读写维护起来更省工.
+- 原代码本身的优化/风格问题. 如果认为有更有代表性的代码, 请不吝推荐.
+- 代码输入的便捷性. 前作[对在代码中使用中文命名的质疑与回应](https://zhuanlan.zhihu.com/p/30529835?group_id=911950917898534912)'中文输入太慢, 降低开发效率'一节中有所涉及, 打算另开题探讨. 
+
+下面一段代码选自Clean Code: A Handbook of Agile Software Craftsmanship一书, 19页. 已经经过了作者的命名改进. 由于本人也没有看过全书, 如果此段代码在此书之后某节仍有命名改进, 请麻烦指出.
+
+```
+  public List<Cell> getFlaggedCells() {
+    List<Cell> flaggedCells = new ArrayList<Cell>();
+    for (Cell cell : gameBoard)
+      if (cell.isFlagged())
+        flaggedCells.add(cell);
+    return flaggedCells;
+  }
+```
+中文命名版:
+```
+  public List<格类> 取被标的格() {
+    List<格类> 被标的格 = new ArrayList<格类>();
+    for (格类 某格 : 雷区)
+      if (某格.是被标的())
+        被标的格.add(某格);
+    return 被标的格;
+  }
+```
+
+这里触及了几处典型的中文命名问题. 首先, 是没有大小写区分类和变量名(Cell cell). 个人采用的是在类名中使用后缀'类'. 暂时没有发现有类名本身就用'类'结尾的情况(那样会出现`XXX类类`的命名), 即使如此, 应该可以用改为`类型`结尾来规避(就成为`XXX类型类`). 变量名也与类名有一致之处, 就是所有关于格类的变量都用xx格命名, 与英文命名方法相同.
+
+下面, 是单复数的区别. `flaggedCells`是个List, 它用复数命名的意思是"可能包含多个格". 而实际上这个变量可能只包含一个格. 中文中的名词不分单复数, 正好符合"这个变量有可能含有单个或多个元素"这个语义. 因此命名为`被标的格`感觉可行. 假如语义需要强调有多个(不可能只有单个或没有), 可以考虑加上修饰如`多个`前缀等等.
+
+相比之下, 如何在for循环中表示单数有些麻烦. 这个for循环的语义大概是:`for one/each cell in the gameboard, if the cell is flagged, add the cell to...`, 原代码中没对`one/each cell`和`the cell`作出区分. 对应中文大约是`对于雷区中的每一格, 如果这一格是被标的, 就把这一格加到...`. 同样也很难在代码中用一个词体现`每一格`和`这一格`这两个有差别的语义. 另外可能的命名有`一格`, `每格`, `此格`, 在不需突出单数的情况下直接用`格`等等.
+
+get前缀的方法名, 中文采用了对应的`取`, 用动词短语可以和变量名区分, 这和英文命名类似. 有个潜在的技术问题, 就是Bean中get的特殊规则. 个人认为在这种情况下可以采用混用, 即`get被标的格`. 这个Spring Boot的[演示程序](https://github.com/program-in-chinese/jinxiaocun/blob/master/src/main/java/com/example/%E8%BF%9B%E5%87%BA%E5%8D%95.java)中就是如此.
+
+is前缀的方法名, 一般认为是返回布尔值的方法. 这里采用的命名`是被标的`是个很直白的对应命名. 既保留了`是`作为表示返回布尔值, 也保留了被动语态. 个人觉得稍显累赘, 但与其他命名一致(取'被标的'格, '被标的'格), 并且易于使用在其他情况, 比如`isRunning`->`是运行中的`, `isTerriblyDamaged`->`是被严重损坏的`等等. 不失为一种可行的风格. 这里原本使用了`是被标记的`, 但感觉去掉一字也可以接受.
+
+此外, `gameBoard`没有采用直译, 而是用`雷区`, 因为这个代码在原作中是假想从一个mine sweeper game(扫雷游戏)中选取的, 因此感觉比较适合. 当然, 原代码中`gameBoard`也可以用`mineField`使这一段单独出来的代码更有语境. 但正如开头声明, 此文并不对中英文代码之间的可读性进行比较. 这里也就不拘泥于找到`gameBoard`的对应中文了.
+
+再次欢迎各种推敲.
