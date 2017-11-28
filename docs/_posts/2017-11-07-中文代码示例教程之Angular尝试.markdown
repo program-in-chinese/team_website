@@ -104,7 +104,7 @@ export class 英雄 {
 ```
 
 ### 显示列表
-由于{{}}中不能用中文命名, 因此`<li *ngFor="let hero of heroes">`中的`hero`不能用中文命名, 而`heroes`如果改为`英雄们`, 会报错:
+由于{% raw %}{{}}{% endraw %}中不能用中文命名, 因此`<li *ngFor="let hero of heroes">`中的`hero`不能用中文命名, 而`heroes`如果改为`英雄们`, 会报错:
 ```
 Parser Error: Lexer Error: Unexpected character [们] at column 15 in expression [let hero of 英雄们] at column 16 in [let hero of 英雄们] in ng:///AppModule/__Component.html@2:6 ("
 <ul class="heroes">

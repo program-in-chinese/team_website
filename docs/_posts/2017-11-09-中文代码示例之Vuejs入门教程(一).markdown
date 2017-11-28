@@ -1,0 +1,185 @@
+---
+layout: post
+comments: true
+title:  中文代码示例之Vuejs入门教程(一)
+description: 中文代码示例教程之Vuejs入门, 记录过程中碰到的问题. Rewrite  sample codes in Vuejs official guide by using Chinese naming as much as possible, and take notes of issues found.
+date:   2017-11-09 00:00:00 -0700
+categories: 命名 教程
+---
+
+为了检验中文命名在主流框架中的支持程度, 在vuejs官方入门教程第一部分的示例代码中尽量使用了中文命名. 所有演示都在本地测试通过, 源码在这里. 下面省略了很多原教程的说明内容, 而着重于代码示例本身. 欢迎问题/批评.
+声明式渲染
+{% raw %}
+```html
+  <div id="元素id">
+      <p>{{ 问候 }}</p>
+    </div> 
+```
+{% endraw %}
+```javascript
+var 应用1 = new Vue({
+  el: '#元素id',
+  data: {
+    问候: '吃了么?'
+  }
+})
+```
+打开你的浏览器的控制台 (就在这个页面打开)，并修改 应用1.问候，你将看到上例相应地更新。
+```html
+  <div id="元素id2">
+      <span v-bind:title="动态绑定信息">
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+      </span>
+    </div> 
+```
+```javascript
+var 应用2 = new Vue({
+  el: '#元素id2',
+  data: {
+    动态绑定信息: '页面加载于 ' + new Date().toLocaleString()
+  }
+})
+```
+再次打开浏览器的 JavaScript 控制台输入 应用2.动态绑定信息 = '新消息'，就会再一次看到这个绑定了 title 属性的 HTML 已经进行了更新
+条件与循环
+```html
+  <div id="元素id3">
+      <p v-if="看得到">现在你看到我了</p>
+    </div> 
+```
+```javascript
+var 应用3 = new Vue({
+  el: '#元素id3',
+  data: {
+    看得到: true
+  }
+})
+```
+继续在控制台设置 应用3.看得到 = false，你会发现“现在你看到我了”消失了。
+{% raw %}
+```html
+  <div id="元素id4">
+      <ol>
+        <li v-for="任务 in 任务表">
+          {{ 任务.内容 }}
+        </li>
+      </ol>
+    </div> 
+```
+{% endraw %}
+```javascript
+var 应用4 = new Vue({
+  el: '#元素id4',
+  data: {
+    任务表: [
+      { 内容: '学习 JavaScript' },
+      { 内容: '学习 Vue' },
+      { 内容: '整个牛项目' }
+    ]
+  }
+})
+```
+警告如下, 但列表仍然显示. 已经在Vue项目新建issue
+
+```
+[Vue warn]: Error compiling template:
+{% raw %}
+<div id="元素id4">
+      <ol>
+        <li v-for="任务 in 任务表">
+          {{ 任务.内容 }}
+        </li>
+      </ol>
+    </div>
+{% endraw %}
+- invalid v-for alias "任务" in expression: v-for="任务 in 任务表"
+
+
+(found in <Root>)
+```
+在控制台里，输入 应用4.任务表.push({ 内容: '新项目' })，你会发现列表中添加了一个新项。
+处理用户输入
+
+v-on:click支持中文方法名, 但需要(). 为此在Vue项目新建issue, 经社区建议得知并检验, 另一种方式@click也支持中文命名, 同样需要().
+{% raw %}
+```html
+  <div id="元素id5">
+      <p>{{ 问好 }}</p>
+      <button @click="倒着说()">@click有效</button>
+      <button v-on:click="倒着说()">v-on:click有效</button>
+    </div> 
+```
+{% endraw %}
+```javascript
+var 应用5 = new Vue({
+  el: '#元素id5',
+  data: {
+    问好: '你好'
+  },
+  methods: {
+    倒着说: function () {
+      this.问好 = this.问好.split('').reverse().join('')
+    }
+  }
+})
+```
+表单输入和应用状态之间的双向绑定:
+{% raw %}
+```html
+  <div id="元素id6">
+      <p>{{ 问好 }}</p>
+      <input v-model="问好">
+    </div> 
+```
+{% endraw %}
+```javascript
+var 应用6 = new Vue({
+  el: '#元素id6',
+  data: {
+    问好: '你好!'
+  }
+})
+```
+组件化应用构建
+```html
+  <div id="元素id7">
+      <ol>
+        <todo-item
+          v-for="物品 in 购物单"
+          v-bind:待购="物品"
+          v-bind:key="物品.序号">
+        </todo-item>
+      </ol>
+    </div> 
+```
+{% raw %}
+```javascript
+Vue.component('todo-item', {
+  props: ['待购'],
+  template: '<li>{{ 待购.名称 }}</li>'
+})
+var 应用7 = new Vue({
+  el: '#元素id7',
+  data: {
+    购物单: [
+      { 序号: 0, 名称: '蔬菜' },
+      { 序号: 1, 名称: '肉' },
+      { 序号: 2, 名称: '随便啥' }
+    ]
+  }
+})
+```
+{% endraw %}
+这里的HTML标签todo-item和其他标签(如div, ol)一样, 不支持中文命名.
+
+核心基本功能介绍结束.
+后记
+
+初步看来Vuejs对中文命名的支持不错, 尤其是模板的部分. 个别改进建议已经在Vue的github库以issue的方式提出, 社区的活跃度很高, 开发者对这些issue的反应很快, 标记上了”改进”标签, 并针对一个不支持中文命名的问题提供了解决方案.
+
+感觉此类实践可以促进与其他开源社区的交流, 并推进框架的业务代码中对中文(Unicode)命名的支持程度.
+
+
+11/20/2017 补记:
+
+中文代码示例之Vuejs入门教程(一)问题后续

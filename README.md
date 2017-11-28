@@ -5,3 +5,7 @@
 $ bundle exec jekyll serve
 ```
 
+遇到问题`bundler: command not found: jekyll`解决方法:
+```
+$ rvm install ruby
+```
