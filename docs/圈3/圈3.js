@@ -12884,7 +12884,7 @@ function 生成路径表(指令序列) {
 };
 
 定制监听器.prototype.enter循环 = function(上下文) {
-  循环次数 = 上下文.getChild(1).getText();
+  循环次数 = parseInt(上下文.getChild(1).getText());
 }
 
 定制监听器.prototype.exit循环 = function(上下文) {
@@ -12899,12 +12899,7 @@ function 生成路径表(指令序列) {
 
 定制监听器.prototype.exit前进 = function(上下文) {
   var 前进量 = 上下文.getChild(1).getText()
-  var 指令 = {名称: 常量_指令名_前进, 参数: parseInt(前进量)};
-  if (循环次数 > 0) {
-    当前循环的指令序列.push(指令);
-  } else {
-    指令序列.push(指令);
-  }
+  添加指令({名称: 常量_指令名_前进, 参数: parseInt(前进量)});
 };
 
 定制监听器.prototype.exit转向 = function(上下文) {
@@ -12912,13 +12907,16 @@ function 生成路径表(指令序列) {
   var 角度 = parseInt(上下文.getChild(2).getText());
 
   角度 = 角度 * (方向 === "左" ? 1 : -1);
-  var 指令 = {名称: 常量_指令名_转向, 参数: 角度};
+  添加指令({名称: 常量_指令名_转向, 参数: 角度});
+};
+
+function 添加指令(指令) {
   if (循环次数 > 0) {
     当前循环的指令序列.push(指令);
   } else {
     指令序列.push(指令);
   }
-};
+}
 
 exports.定制监听器 = 定制监听器;
 },{"./圈3Listener.js":49,"antlr4/index":42}],52:[function(require,module,exports){
