@@ -1,0 +1,45 @@
+---
+layout: post
+comments: true
+title:  为clang添加中文关键字
+description: 通过修改clang编译器源码, 使之支持中文关键词. Add Chinese keywords to clang compiler.
+date:   2017-11-17 00:00:00 -0700
+categories: 语言设计 汉化关键词
+---
+
+[知乎原文地址](https://zhuanlan.zhihu.com/p/31158537) 作者:@狗屎咖啡
+
+以clang为基础做了一个与C++、C兼容中英文关键字的编译器
+
+[swizl/cnlang](https://github.com/swizl/cnlang)
+
+原理就是加与英文关键字等效的中文关键字
+
+在/include/clang/Basic/TokenKinds.def 中
+
+用ALIAS添加中文关键字
+
+例如
+```
+KEYWORD(char, KEYALL)
+ALIAS("字", char, KEYALL)
+```
+在 /lib/Basic/IdentifierTable.cpp 中
+
+加个头文件 #include "llvm/ADT/StringSwitch.h"
+
+在 tok::PPKeywordKind IdentifierInfo::getPPKeywordID() const 里
+
+用 llvm::StringSwitch 添加 中文宏
+
+例如
+```
+//default: return tok::pp_not_keyword;
+default: return llvm::StringSwitch<tok::PPKeywordKind>(Name)
+.Case("如", tok::pp_if)
+.Case("定义", tok::pp_define)
+.Default(tok::pp_not_keyword);
+```
+用上面的方式将中文关键字，编译完成后，就可以编译中文源代码了。
+
+llvm/clang的编译方法参照官网。
