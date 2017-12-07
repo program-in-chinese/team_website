@@ -1,0 +1,91 @@
+---
+layout: post
+comments: true
+title:  为Python添加中文关键字
+description: 通过修改Python编译器源码, 使之支持中文关键词. Add Chinese keywords to Python compiler.
+date:   2017-11-17 06:34:00 -0700
+categories: 语言设计 汉化关键词
+---
+
+[知乎原文地址](https://zhuanlan.zhihu.com/p/31158537) 作者:@狗屎咖啡
+
+[swizl/cnpython](https://github.com/swizl/cnpython)
+
+1.大部分语法，可以按下面方法加同义的中文token
+第1步. 编译pgen
+cd到python的源代码目录下，
+```
+./configure
+make Parser/pgen
+```
+第2步. 修改 ./Grammar/Grammar，添加同义词并生成语法代码。
+
+以while，else为例
+原文：
+```
+while_stmt: 'while' test ':' suite ['else' ':' suite]
+```
+改为：
+```
+while_stmt: ('while'|当) test ':' suite [('else'|另) ':' suite]
+```
+保存 ./Grammar/Grammar为UTF-8格式
+
+执行
+```
+./Parser/pgen ./Grammar/Grammar ./Include/graminit.h ./Python/graminit.c
+```
+虽然会提示错误，但输出是有效正确的。
+
+其实pgen不支持UTF-8，这里 中文名 不需要用单引号或双引号，利用pgen的容错性，减少工作量。
+
+
+2.还有一较复杂语法在/Python/ast.c 里有辅助解析
+
+例如
+```
+comp_op: ... |'in'|'not' 'in'|'is'|'is' 'not'
+```
+改为
+```
+comp_op: ... |('in'|在)|('not' 'in'|不在)|('is'|为)|('is' 'not'|不为)
+```
+
+在ast.c里的 ast_for_comp_op 中
+```
+if (NCH(n) == 1)
+ switch (TYPE(n))
+     case NAME:
+/******添加如下代码*******/
+         if (strcmp(STR(n), "在") == 0) 
+              return In;
+         if (strcmp(STR(n), "不在") == 0) 
+               return NotIn;
+         if (strcmp(STR(n), "为") == 0) 
+               return Is;
+         if (strcmp(STR(n), "不为") == 0) 
+               return IsNot;
+```
+其实从源代码我们可以看出来，comp_op原来的判断是token有两个单词的话，第二个单词为in返回NotIn，第一个单词为is返回IsNot。
+
+另外就是 None，True，False，finally，async，await 需要添加一下。
+
+
+3.内置函数 中文化
+
+在/Python/bltinmodule.c中的builtin_methods[]中添加
+
+以print为例，将含"print"的一行复制粘贴，替换第二行的"print"为"打印"即可
+```
+  {"print",           (PyCFunction)builtin_print,      METH_FASTCALL | METH_KEYWORDS, print_doc},
+   {"打印",           (PyCFunction)builtin_print,      METH_FASTCALL | METH_KEYWORDS, print_doc},
+```
+其他的还有一些宏，展开看一下，就明白了。
+```
+  BUILTIN_LEN_METHODDEF
+   {"长", (PyCFunction)builtin_len, METH_O, builtin_len__doc__},
+```
+
+之后 make 编译python即可。
+
+中文的py文件也需要保存为UTF-8格式。
