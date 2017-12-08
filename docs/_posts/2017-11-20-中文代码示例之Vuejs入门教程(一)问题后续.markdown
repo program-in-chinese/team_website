@@ -1,0 +1,20 @@
+---
+layout: post
+comments: true
+title:  中文代码示例之Vuejs入门教程(一)问题后续
+description: 前文"中文代码示例教程之Vuejs入门"碰到的问题的解决. Solutions to the issues found when rewriting  sample codes in Vuejs official guide by using Chinese naming as much as possible.
+date:   2017-11-20 22:00:00 -0700
+categories: 命名 教程
+---
+
+[知乎原文](https://zhuanlan.zhihu.com/p/31253256)
+
+第一个issue: [Error compiling template if using unicode naming as v-for alias · Issue #6971 · vuejs/vue](https://github.com/vuejs/vue/issues/6971)
+
+多谢尤大[搞定](https://github.com/vuejs/vue/commit/d891cd1761df22e1e0b1953c6ed7947fdb79d915), 貌似是把标识符的正则表达式匹配检测去掉了. 经测试已经不再在控制台报警告.
+
+第二个issue: [Unicode naming for methods seems unsupported. Some warning will be appreciated. · Issue #6975 · vuejs/vue](https://github.com/vuejs/vue/issues/6975)
+
+如果要检验标识符合法性, 经社区[指出](https://github.com/vuejs/vue/issues/6975#issuecomment-341301258)严格来说需要非常长的正则表达式(11KB)才能覆盖整个范围. 而获得的好处只是能够用简写(可以用v-on:click="倒着说" , 而不是v-on:click="倒着说()"), 因此不值得. 就这个问题而言, 感觉合理, 不过这个问题也许只是前端框架中使用Unicode命名相关问题的冰山一角. 待以后继续实践吧.
+
+至此, 此入门教程的第一部分暂告一段落.

@@ -1,0 +1,40 @@
+---
+layout: post
+comments: true
+title:  国人创造中文编程语言的优势
+description: 对比创造英文编程语言, 国人在创造中文编程语言时具备的优势, 以及开源的中文编程语言项目. Compared to creating English programming language, some advantages the Chinese have when creating Chinese programming languages. Also list some related open-source projects.
+date:   2017-11-17 09:43:00 -0700
+categories: 语言设计
+---
+
+[知乎原文](https://zhuanlan.zhihu.com/p/31162122)
+
+源自: [吴烜：为什么国内创造不出很棒的编程语言？](https://www.zhihu.com/question/65482839/answer/260503277)
+
+在上面的回答中, 阐述了国人创造英文编程语言以及推广的难度. 归纳如下:
+
+- 母语为中文的编程语言设计者在创造英文编程语言时, 相对母语为英文的语言设计者, 在语法设计上没有明显优势
+- 现有英文编程语言在硬功能上已经覆盖了主要的应用领域, 这也是很多人说创造新(中文)语言没有必要的一个原因
+- 在性能和语言特性上进行竞争不是不可能, 但即使首创了很有吸引力的特性, 也很可能在聚集足够用户和开发社区之前被其他已占据市场的语言吸收类似特性而失去优势
+- 创造英文编程语言时几乎必然选择英文编写代码, 而这对最可能参与开发的国内开发者(原因见[对在代码中使用中文命名的质疑与回应](https://zhuanlan.zhihu.com/p/30529835)"不利于非中文编程者贡献"一节)来说是个考验
+
+对应的, 创造中文语法的编程语言就有以下优势:
+
+- 相对母语为英文的编程语言设计者, 语法设计有绝对优势. 而且在无空格设计上, 可以和其他的类似语言(日,韩等等)的语言设计者有技术交流(相关: [日语编程语言"抚子" - 第三版特色初探](https://zhuanlan.zhihu.com/p/30800689))
+- 可能在所有应用领域上争取到足够的用户. 不言自明的原因是, 如果两种编程语言在功能和可持续性(比如有开源社区支持)上相差无几, 一种是中文语法, 一种是英文语法, 国内用户几乎肯定会首选前者. 甚至在功能有差距的情况下, 也更有耐心和兴趣尝试前者.
+- 中文语法这一特性就足够区别于所有英文编程语言. 而它们中文化(本地化)几乎不可能达到原创中文编程语言的自然程度. 即使中文语法只是对现有语言的关键词进行汉化, 这一优势仍然存在(关键词的选取上).
+- 中文编程语言很适合使用中文编写代码实现, 如果开源的话, 这对国内开发者(中文编程语言的使用者的主体)参与贡献会很有吸引力.
+
+顺便列出已知的开源中文编程语言项目(不分先后). 定有遗漏, 欢迎补充!
+
+- 对现有语言关键词汉化:
+  - [修改clang编译器, 添加中文关键字](https://zhuanlan.zhihu.com/p/31158537)
+  - [修改Python3编译器, 添加中文关键字](https://zhuanlan.zhihu.com/p/31159526)
+  - [修改TypeScript编译器, 添加中文关键词和API](https://github.com/program-in-chinese/CTS)
+  - [为GCC添加中文关键字](https://zhuanlan.zhihu.com/p/31376652)
+  - 周蟒
+  - 中蟒
+- 中文编程语言
+  - [Z语言第三版 - TKT2016/ZLanguage3](https://github.com/TKT2016/ZLanguage3)
+  - [roundsheep/rpp](https://github.com/roundsheep/rpp)
+  - [文言Perl](https://github.com/audreyt/lingua-sinica-perlyuyan)
