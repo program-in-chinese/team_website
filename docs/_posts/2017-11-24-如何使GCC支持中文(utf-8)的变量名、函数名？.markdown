@@ -1,0 +1,96 @@
+---
+layout: post
+comments: true
+title:  如何使GCC支持中文(utf-8)的变量名、函数名？
+description: 通过修改gcc编译器源码, 使之支持中文变量名, 函数名. Allow gcc to support unicode identifiers.
+date:   2017-11-24 00:37:00 -0700
+categories: 命名 编译器
+---
+
+[知乎原文地址](https://zhuanlan.zhihu.com/p/31370146) 作者:@狗屎咖啡
+
+目前VS 和Clang都是支持utf-8的变量名、函数名，但 GCC不支持。
+
+有人提意见，提了好几年了：[UTF-8 support for identifier names in GCC](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67224)
+
+GCC并没有解决，但官方给了一个解决方案：[FAQ - GCC Wiki](https://gcc.gnu.org/wiki/FAQ#utf8_identifiers)
+
+就是用这样一条脚本语句转换一下源文件
+```
+perl -pe 'BEGIN { binmode STDIN, ":utf8"; } s/(.)/ord($1) < 128 ? $1 : sprintf("\\U%08x", ord($1))/ge;'
+```
+这条语句的意思是将源文件按utf-8读取出来，大于128的unicode(不在ASCII里)都用16进制的\Uxxxxxxxx的格式替代。
+
+这种格式叫UCN。
+
+实际上gcc内部还是将UCN转换成utf-8字符串，再加到符号表。却不支持原生的UTF-8符号，这个就有点搞笑了。
+
+虽然有人会说，C、C++的标准里没有对UTF-8符号的支持，GCC不支持UTF-8符号是符合标准的。但是GCC从来就不是死守标准的乖宝宝对吧，加了不少扩展了。为啥这个不能扩展一下呢？
+
+官方不加，咱可以同人一下嘛！
+
+下面就告诉大家，怎么在GCC里加UTF-8符号的支持。
+
+在libcpp/lex.c 里
+
+1.加一个函数
+```
+bool is_utf8_char(cppchar_t c) {
+    if (c > 0x80) return true;
+    else return false;
+}
+```
+2.复制一份函数lex_identifier，命名为lex_utf8_identifier
+```
+if (! starts_ucn)
+{
+	while (ISIDNUM (*cur))
+	{
+		hash = HT_HASHSTEP (hash, *cur);
+		cur++;
+	}
+	NORMALIZE_STATE_UPDATE_IDNUM (nst, *(cur - 1));
+}
+```
+中ISIDNUM 改成 is_utf8_char:
+```
+if (! starts_ucn)
+{
+	while (is_utf8_char (*cur))
+	{
+		hash = HT_HASHSTEP (hash, *cur);
+		cur++;
+	}
+	NORMALIZE_STATE_UPDATE_IDNUM (nst, *(cur - 1));
+}
+```
+
+3.在函数 _cpp_lex_direct 中修改 switch 的 default
+```
+	default:
+		create_literal (pfile, result, buffer->cur - 1, 1, CPP_OTHER);
+		break;
+```
+改为：
+```
+	default:
+		if (is_utf8_char(c))
+		{
+			struct normalize_state nst = INITIAL_NORMALIZE_STATE;
+			result->type = CPP_NAME;
+			result->val.node.node = lex_utf8_identifier(pfile, buffer->cur - 1, false,
+				&nst, &result->val.node.spelling);
+			warn_about_normalization(pfile, result, &nst);
+		}
+		else
+		{
+			create_literal (pfile, result, buffer->cur - 1, 1, CPP_OTHER);
+		}
+		break;
+```
+
+OK！完工了。make bootstrap && make install 吧。
+
+你就可以愉快地使用 UTF-8 变量，函数了。
+
+成品：[地址](https://github.com/swizl/gcn/blob/gcn-1/libcpp/lex.c)

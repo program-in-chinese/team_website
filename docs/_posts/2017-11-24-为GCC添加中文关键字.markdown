@@ -1,0 +1,176 @@
+---
+layout: post
+comments: true
+title:  为GCC添加中文关键字
+description: 通过修改gcc编译器源码, 添加中文关键词. Allow gcc to support unicode identifiers.
+date:   2017-11-24 01:40:00 -0700
+categories: 语言设计 汉化关键词
+---
+
+[知乎原文地址](https://zhuanlan.zhihu.com/p/31376652) 作者:@狗屎咖啡
+
+GCC不支持UTF-8字符，可以自己添加：
+
+[如何使GCC支持中文(utf-8)的变量名、函数名？](https://zhuanlan.zhihu.com/p/31370146)
+
+也可以 用脚本转换源代码，再编译：
+
+https://gcc.gnu.org/wiki/FAQ#utf8_identifiers
+
+但是强烈建议打上支持UTF-8的补丁。
+
+
+实例 [swizl/gcn](https://github.com/swizl/gcn)
+
+添加关键字
+
+在 gcc/c-family/c-common.c 中
+
+const struct c_common_resword c_common_reswords[] 下添加
+
+复制一行原关键字，再将字符串该成中文
+
+例如
+```
+{ "asm",		RID_ASM,	D_ASM },
+  { "汇编",		RID_ASM,	D_ASM },
+  { "auto",		RID_AUTO,	0 },
+  { "自动",		RID_AUTO,	0 },
+  { "bool",		RID_BOOL,	D_CXXONLY | D_CXXWARN },
+  { "布尔",		RID_BOOL,	D_CXXONLY | D_CXXWARN },	
+  { "break",		RID_BREAK,	0 },
+  { "断",		RID_BREAK,	0 },
+  { "case",		RID_CASE,	0 },
+  { "例",		RID_CASE,	0 },
+  { "catch",		RID_CATCH,	D_CXX_OBJC | D_CXXWARN },
+  { "抓",		RID_CATCH,	D_CXX_OBJC | D_CXXWARN },
+  { "char",		RID_CHAR,	0 },
+  { "字",		RID_CHAR,	0 },
+```
+
+添加中文宏关键字
+
+在 libcpp/directives.c 中
+
+1 添加宏定义A，仿照D，加一个参数name_cn. 因为原始GCC不支持UTF-8
+
+#name 中 name为中文时无法解析，所以name_cn直接对于字符串。
+
+当然已经打了支持UTF-8的补丁，没有这个问题。兼容起见，还是按照这样改。
+```
+#define D(name, t, o, f) static void do_##name (cpp_reader *);
+DIRECTIVE_TABLE
+#undef D
+
+#define D(n, tag, o, f) tag,
+enum
+{
+  DIRECTIVE_TABLE
+  N_DIRECTIVES
+};
+#undef D
+
+#define D(name, t, origin, flags) \
+{ do_##name, (const uchar *) #name, \
+  sizeof #name - 1, origin, flags },
+static const directive dtable[] =
+{
+DIRECTIVE_TABLE
+};
+#undef D
+
+#define D(name, t, origin, flags) #name,
+static const char * const directive_names[] = {
+DIRECTIVE_TABLE
+  NULL
+};
+#undef D
+```
+改成
+```
+#define A(name_cn, name, t, o, f)
+#define D(name, t, o, f) static void do_##name (cpp_reader *);
+DIRECTIVE_TABLE
+#undef D
+#undef A
+
+#define A(n_cn, n, tag, o, f) tag ## _CN,
+#define D(n, tag, o, f) tag,
+enum
+{
+  DIRECTIVE_TABLE
+  N_DIRECTIVES
+};
+#undef D
+#undef A
+
+#define A(name_cn, name, t, origin, flags) \
+{ do_##name, (const uchar *) name_cn, \
+  sizeof (name_cn) - 1, origin, flags },
+#define D(name, t, origin, flags) \
+{ do_##name, (const uchar *) #name, \
+  sizeof #name - 1, origin, flags },
+static const directive dtable[] =
+{
+DIRECTIVE_TABLE
+};
+#undef D
+#undef A
+
+#define A(name_cn, name, t, origin, flags) name_cn,
+#define D(name, t, origin, flags) #name,
+static const char * const directive_names[] = {
+DIRECTIVE_TABLE
+  NULL
+};
+#undef D
+#undef A
+```
+2 添加宏关键字
+
+在 #define DIRECTIVE_TABLE 中添加
+
+复制一行原宏关键字，该D为A，添加中文名 字符串。
+
+例如
+```
+#define DIRECTIVE_TABLE							\
+D(define,	T_DEFINE = 0,	KANDR,     IN_I)	   /* 270554 */ \
+A("定义", define,	T_DEFINE,	KANDR,     IN_I)	   /* 270554 */ \
+D(include,	T_INCLUDE,	KANDR,     INCL | EXPAND)  /*  52262 */ \
+A("含", include,	T_INCLUDE,	KANDR,     INCL | EXPAND)  /*  52262 */ \
+D(endif,	T_ENDIF,	KANDR,     COND)	   /*  45855 */ \
+A("了如", endif,	T_ENDIF,	KANDR,     COND)	   /*  45855 */ \
+D(ifdef,	T_IFDEF,	KANDR,     COND | IF_COND) /*  22000 */ \
+A("如定义", ifdef,	T_IFDEF,	KANDR,     COND | IF_COND) /*  22000 */ \
+D(if,		T_IF,		KANDR, COND | IF_COND | EXPAND) /*  18162 */ \
+A("如", if,		T_IF,		KANDR, COND | IF_COND | EXPAND) /*  18162 */ \
+D(else,		T_ELSE,		KANDR,     COND)	   /*   9863 */ \
+A("另", else,		T_ELSE,		KANDR,     COND)	   /*   9863 */ \
+D(ifndef,	T_IFNDEF,	KANDR,     COND | IF_COND) /*   9675 */ \
+A("如未定义", ifndef,	T_IFNDEF,	KANDR,     COND | IF_COND) /*   9675 */ \
+D(undef,	T_UNDEF,	KANDR,     IN_I)	   /*   4837 */ \
+A("消定义", undef,	T_UNDEF,	KANDR,     IN_I)	   /*   4837 */ \
+D(line,		T_LINE,		KANDR,     EXPAND)	   /*   2465 */ \
+A("行", line,		T_LINE,		KANDR,     EXPAND)	   /*   2465 */ \
+D(elif,		T_ELIF,		STDC89,    COND | EXPAND)  /*    610 */ \
+A("另如", elif,		T_ELIF,		STDC89,    COND | EXPAND)  /*    610 */ \
+D(error,	T_ERROR,	STDC89,    0)		   /*    475 */ \
+A("错误", error,	T_ERROR,	STDC89,    0)		   /*    475 */ \
+D(pragma,	T_PRAGMA,	STDC89,    IN_I)	   /*    195 */ \
+A("杂注", pragma,	T_PRAGMA,	STDC89,    IN_I)	   /*    195 */ \
+D(warning,	T_WARNING,	EXTENSION, 0)		   /*     22 */ \
+A("告警", warning,	T_WARNING,	EXTENSION, 0)		   /*     22 */ \
+D(include_next,	T_INCLUDE_NEXT,	EXTENSION, INCL | EXPAND)  /*     19 */ \
+A("含下个", include_next,	T_INCLUDE_NEXT,	EXTENSION, INCL | EXPAND)  /*     19 */ \
+D(ident,	T_IDENT,	EXTENSION, IN_I)           /*     11 */ \
+D(import,	T_IMPORT,	EXTENSION, INCL | EXPAND)  /* 0 ObjC */	\
+A("导入", import,	T_IMPORT,	EXTENSION, INCL | EXPAND)  /* 0 ObjC */	\
+D(assert,	T_ASSERT,	EXTENSION, DEPRECATED)	   /* 0 SVR4 */	\
+A("断言", assert,	T_ASSERT,	EXTENSION, DEPRECATED)	   /* 0 SVR4 */	\
+D(unassert,	T_UNASSERT,	EXTENSION, DEPRECATED)	   /* 0 SVR4 */	\
+A("消断言", unassert,	T_UNASSERT,	EXTENSION, DEPRECATED)	   /* 0 SVR4 */	\
+D(sccs,		T_SCCS,		EXTENSION, IN_I)           /* 0 SVR4? */
+```
+
+make bootstrap && make install 之后，配合支持UTF-8的补丁，就可以愉快地用中文关键字了。
