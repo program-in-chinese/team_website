@@ -12806,7 +12806,7 @@ var 序号 = 0;
 
 var 画布尺寸 = {x: 1000, y: 800};
 var 原点 = {x: 画布尺寸.x/2, y: 画布尺寸.y/2};
-var 前进角度 = 90; // 默认向上, 对应弧度: 90 * Math.PI / 180
+var 初始前进角度 = 90; // 默认向上, 对应弧度: 90 * Math.PI / 180
 // 指令格式: 名称 (转向, 前进, 笔色等等); 参数 (转向角度--右为负,左为正; 前进长度-像素数等等);
 var 指令序列 = [];
 // TODO: 支持多层循环
@@ -12818,9 +12818,7 @@ var 当前循环的指令序列 = [];
   重置状态();
   // 只需调用一次
   // https://p5js.org/reference/#/p5/setup
-  构图 = function() {
-    新画布(画布尺寸.x, 画布尺寸.y);
-  }
+  
 };
 
 function 重置状态() {
@@ -12828,13 +12826,15 @@ function 重置状态() {
   原点 = {x: 画布尺寸.x/2, y: 画布尺寸.y/2};
   前进角度 = 90;
   指令序列 = [];
+  循环次数 = 0;
+  当前循环的指令序列 = [];
 }
 
 // 根据指令序列, 生成路径分段描述(段起止点坐标, 颜色等等)
 // 如: 前进50, 左转90度, 前进50 应返回:
-// {起点: {x: 200, y: 200}, 终点: {x: 200, y: 150}, 长度: 50},
-// {起点: {x: 200, y: 150}, 终点: {x: 150, y: 150}, 长度: 50}
-function 生成路径表(指令序列) {
+// [{起点: {x: 200, y: 200}, 终点: {x: 200, y: 150}, 长度: 50},
+// {起点: {x: 200, y: 150}, 终点: {x: 150, y: 150}, 长度: 50}]
+function 生成路径表(指令序列, 前进角度) {
   // 段: {起点: {x, y}, 终点: {x, y}, 长度, 颜色}
   var 路径表 = [];
   var 起点 = 原点;
@@ -12859,8 +12859,8 @@ function 生成路径表(指令序列) {
 }
 
 定制监听器.prototype.exit程序 = function(ctx) {
-  document.getElementById("调试输出").innerHTML = JSON.stringify(指令序列);
-  var 路径表 = 生成路径表(指令序列);
+  //document.getElementById("调试输出").innerHTML = JSON.stringify(指令序列);
+  var 路径表 = 生成路径表(指令序列, 初始前进角度);
   绘制 = function() {
     var 当前序号 = 序号;
     background(255, 255, 255);
@@ -12918,29 +12918,35 @@ function 添加指令(指令) {
   }
 }
 
+定制监听器.prototype.返回指令序列 = function() {
+  return 指令序列;
+}
+
 exports.定制监听器 = 定制监听器;
+exports.生成路径表 = 生成路径表;
+exports.常量_指令名_前进 = 常量_指令名_前进;
+exports.常量_指令名_转向 = 常量_指令名_转向;
+exports.初始前进角度 = 初始前进角度;
 },{"./圈3Listener.js":49,"antlr4/index":42}],52:[function(require,module,exports){
 const antlr4 = require("antlr4/index")
-const fs = require("fs")
 const 圈3Lexer = require("./圈3Lexer.js")
 const 圈3Parser = require("./圈3Parser.js")
 const 定制监听器 = require("./定制监听器.js").定制监听器
 
-运行();
-
 // TODO: 需改进-现为全局, 由于browserify
-function 运行() {
-  var 代码 = document.getElementById('输入代码').value;
+分析 = function(代码) {
   var 输入流 = new antlr4.InputStream(代码)
   var 词法分析器 = new 圈3Lexer.圈3Lexer(输入流)
   var 词  = new antlr4.CommonTokenStream(词法分析器)
   var 语法分析器 = new 圈3Parser.圈3Parser(词)
   语法分析器.buildParseTrees = true
 
-  antlr4.tree.ParseTreeWalker.DEFAULT.walk(new 定制监听器(), 语法分析器.程序())
+  var 监听器 = new 定制监听器();
+  antlr4.tree.ParseTreeWalker.DEFAULT.walk(监听器, 语法分析器.程序())
+  return 监听器;
 }
 
-window.运行 = 运行;
-},{"./圈3Lexer.js":48,"./圈3Parser.js":50,"./定制监听器.js":51,"antlr4/index":42,"fs":53}],53:[function(require,module,exports){
+exports.分析 = 分析;
+},{"./圈3Lexer.js":48,"./圈3Parser.js":50,"./定制监听器.js":51,"antlr4/index":42}],53:[function(require,module,exports){
 
 },{}]},{},[52]);
