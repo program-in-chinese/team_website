@@ -1,0 +1,117 @@
+---
+layout: post
+comments: true
+title:  编程语言试验之Antlr4+Java实现"圈2"
+description: 参考网文, 使用Antlr生成Java分析器, 实现一个简单的编程语言. Implement a pretotype programming language with Antlr4 and Java, based on an online article..
+date:   2017-11-26 00:00:00 -0700
+categories: 语言设计
+---
+
+[知乎原文](https://zhuanlan.zhihu.com/p/31429800)
+
+此文涉及的源码版本: [program-in-chinese/quan2](https://github.com/program-in-chinese/quan2)
+### 声明 代码来源 [How to Create Language Using Antlr4](http://progur.com/2016/09/how-to-create-language-using-antlr4.html)
+
+本作主要作为学习Antlr, 以及实践中文命名之用. 目标不是一个实用的编程语言.
+
+个人感觉这样可以比较容易的用原型来尝试和演示不同语法设计, 如果有更简单的途径请不吝赐教. 欢迎各种自行修改~碰到任何问题也欢迎一同探讨.
+
+下面是"圈2"语言的示例代码:
+```
+开始
+    使 甲 为 5
+    使 乙 为 10
+    加 3 到 乙
+    加 乙 到 甲
+    加 甲 到 乙
+    打印 乙
+    打印 3
+结束
+```
+附上需要自行编写的三个文件:
+Antlr4的语法定义文件:
+
+按照README说明, Antlr可以据此自动生成四个分析器相关类文件. T前缀是由于Antlr约定大写开头是Token定义. 标识符支持中文.
+```
+grammar 圈2;
+程序   : '开始' 声明+ '结束';
+          
+声明 : 赋值 | 加 | 打印 ;
+
+赋值    : '使' T标识符 '为' (T数 | T标识符) ;
+打印     : '打印' (T数 | T标识符) ;
+加       : '加' (T数 | T标识符) '到' T标识符 ;
+
+T标识符     : ('a' .. 'z' | 'A' .. 'Z' | '\u4E00'..'\u9FA5' | '\uF900'..'\uFA2D')+ ;
+T数 : [0-9]+ ;
+T空白     : [ \n\t]+ -> skip;
+```
+定制监听器:
+
+通过对每种语句分析后进行对应处理, 实质上起了解释器的作用.
+```java
+public class 定制监听器 extends 圈2BaseListener {
+
+  private Map<String, Integer> 变量表;
+
+  public 定制监听器() {
+    变量表 = new HashMap<>();
+  }
+
+  @Override
+  public void exit赋值(赋值Context 上下文) {
+    // 赋值语句分析结束时运行此方法
+
+    String 变量名 = 上下文.T标识符(0).getText();
+
+    // 如果语句中有两个变量(标识符), 那么取第二个变量的值, 否则取数的值
+    int 值 = 上下文.T标识符().size() > 1
+        ? 变量表.get(上下文.T标识符(1).getText())
+        : Integer.parseInt(上下文.T数().getText());
+
+    // 更新变量值
+    变量表.put(变量名, 值);
+  }
+
+  @Override
+  public void exit加(加Context 上下文) {
+    // 加语句分析结束时运行此方法
+
+    String 变量名 = 上下文.T标识符().size() > 1 ? 上下文.T标识符(1).getText() : 上下文.T标识符(0).getText();
+    int 添加值 = 上下文.T标识符().size() > 1 ? 变量表.get(上下文.T标识符(0).getText())
+        : Integer.parseInt(上下文.T数().getText());
+
+    变量表.put(变量名, 变量表.get(变量名) + 添加值);
+  }
+
+  @Override
+  public void exit打印(打印Context 上下文) {
+    // 打印语句分析结束时运行此方法
+
+    String 输出 = 上下文.T标识符() == null ? 上下文.T数().getText() : 变量表.get(上下文.T标识符().getText()).toString();
+    System.out.println(输出);
+  }
+}
+```
+运行器:
+
+读取文件输入, 调用附着了定制监听器的分析器
+```java
+public class 运行器 {
+  public static void main(String[] 参数) {
+    try {
+      ANTLRInputStream 输入 = new ANTLRInputStream(new FileInputStream(参数[0]));
+
+      圈2Lexer 词法分析器 = new 圈2Lexer(输入);
+      圈2Parser 语法分析器 = new 圈2Parser(new CommonTokenStream(词法分析器));
+      语法分析器.addParseListener(new 定制监听器());
+
+      // 开始分析
+      语法分析器.程序();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}
+```
+尚未探索如何用Antlr4实现无空格语法设计(不允许标识符中出现关键字应该可以做到, 但那样限制太多)
