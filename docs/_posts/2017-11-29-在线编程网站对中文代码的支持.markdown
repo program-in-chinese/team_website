@@ -1,0 +1,48 @@
+---
+layout: post
+comments: true
+title:  在线编程网站对中文代码的支持
+description: 检验多个在线编程网站对中文标识符的支持, 包括运行和编译反馈信息. Verify support of Chinese identifiers on online programming websites, including running and compile messags.
+date:   2017-11-28 00:00:00 -0700
+categories: 语言设计 LOGO
+---
+
+参考[哪些比较好的在线编程网站？](https://zhuanlan.zhihu.com/p/21808087), 测试各个网站对中文命名的代码的支持, 包括调试信息等(见[向LeetCode报告编译信息中Unicode显示问题](https://zhuanlan.zhihu.com/p/31546359)).
+
+有趣的是, 在范围有限的评测中, 国产的在线编程网站似乎对中文命名的代码普遍支持更好. 不知开发者是否对这个功能有特别的关注, 亦或实现机制更胜一筹, 或是两者皆有. 无论如何, 都值得一个赞!
+
+图片版:
+
+![在线编程网站对中文代码支持]({{ "/assets/在线编程网站对中文代码支持.png" | absolute_url }})
+
+带链接的网页版[在此](https://gist.github.com/nobodxbodon/edf8febe97517ffed2012c8566dea43f)
+
+
+附上测试用[Java代码](https://github.com/program-in-chinese/overview/blob/master/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E5%A4%A7%E5%AE%B6%E5%A5%BD.java):
+```java
+public class 大家好 {
+  public static void main(String[] 参数) {
+    打印("大家好");
+  }
+
+  private static void 打印(String 输出) {
+   System.out.println(输出);
+  }
+}
+```
+测试用JavaScript:
+```javascript
+人1=new Object();
+人.名="大人";
+人.姓="小";
+人.年龄=58;
+人.眼色="蓝色";
+document.write(人.名 + "已经" + 人.年龄 + "岁.");
+```
+注:
+
+未实测的:
+
+[dabblet.com](http://dabblet.com/) 正式只支持HTML/CSS
+
+codecademy.com, [实验楼 - 在线做实验，高效学编程](https://www.shiyanlou.com/), [计蒜客 - 学习面向未来的计算机科学](https://www.jisuanke.com/) 都需注册
