@@ -1,0 +1,65 @@
+---
+layout: post
+comments: true
+title:  中文编程专栏月报：2017年11月
+description: 中文编程知乎专栏的月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese", together with other progresses in Github organization and other channels.
+date:   2017-12-11 00:00:00 -0700
+categories: 小结
+---
+
+之前Github讨论组有[周报](https://github.com/program-in-chinese/team_website/blob/master/docs/%E8%AE%A8%E8%AE%BA%E7%BB%84%E5%91%A8%E6%8A%A5.md)，但效果一般。从周报停更/知乎专栏创建到现在一个月，特此做一小结。也包含了github讨论组以及其他参与的社区/群组的进展。欢迎对今后方向和内容多提意见。
+
+专栏内不少文章和实践是创建之前积累的. 包括这个月的内容, ***很多内容由他人贡献, 或有参与/指导/建议, 请恕在下就不在这里一一点名致谢了***
+内容难免遗漏, 欢迎指出/分享!
+
+### 本月新添文章
+#### 使用母语作为标识符的意义
+- [Python3选择支持非ASCII码标识符的缘由](https://zhuanlan.zhihu.com/p/31598712)
+希望各位有兴趣的可以找找其他语言支持Unicode的缘由相关的官方文档.
+
+#### 汉化现有语言
+- [为clang添加中文关键字](https://zhuanlan.zhihu.com/p/31158537)
+- [为Python添加中文关键字](https://zhuanlan.zhihu.com/p/31159526)
+- [如何使GCC支持中文(utf-8)的变量名、函数名？](https://zhuanlan.zhihu.com/p/31370146)
+- [为GCC添加中文关键字](https://zhuanlan.zhihu.com/p/31376652)
+
+#### 中文编程语言ZLOGO的试用
+- [中英文代码对比之ZLOGO 4 & LOGO](https://zhuanlan.zhihu.com/p/31620122)
+- [中文编程语言之Z语言初尝试: ZLOGO 4](https://zhuanlan.zhihu.com/p/31505895)
+
+#### Antlr辅助实现编程语言实验
+- [JavaScript实现ZLOGO子集: 测试用例](https://zhuanlan.zhihu.com/p/31870155)
+- [JavaScript实现ZLOGO子集: 单层循环功能](https://zhuanlan.zhihu.com/p/31785790)
+- [JavaScript实现ZLOGO子集: 前进+转向](https://zhuanlan.zhihu.com/p/31748014)
+- [编程语言试验之Antlr4+JavaScript实现"圈4"](https://zhuanlan.zhihu.com/p/31644101)
+- [编程语言试验之Antlr4+Java实现"圈2"](https://zhuanlan.zhihu.com/p/31429800)
+
+#### 在现有语言/框架/工具中使用中文命名
+- [中文代码示例之5分钟入门TypeScript](https://zhuanlan.zhihu.com/p/31890243)
+- [编写Visual Studio Code插件初尝试](https://zhuanlan.zhihu.com/p/31710107)
+- [在线编程网站对中文代码的支持](https://zhuanlan.zhihu.com/p/31554512)
+- [在LeetCode中的解答中使用中文命名](https://zhuanlan.zhihu.com/p/31524460)
+- [中文代码示例之Spring Boot 1.3.3演示](https://zhuanlan.zhihu.com/p/31417833)
+- [中文代码示例之Vuejs入门教程(一)问题后续](https://zhuanlan.zhihu.com/p/31253256)
+
+#### 综合讨论(时间倒序排列)
+- [中文编程兴起的可能途径](https://zhuanlan.zhihu.com/p/31466218)
+- [汉化了十数个编译器的前辈的心得体会](https://zhuanlan.zhihu.com/p/31466189)
+- [对中文语法的编程语言的质疑与回应](https://zhuanlan.zhihu.com/p/31389042)
+- [中文编程的迷思](https://zhuanlan.zhihu.com/p/31347861)
+- [中文编程兴起的必然性](https://zhuanlan.zhihu.com/p/31351284)
+- [国人创造中文编程语言的优势](https://zhuanlan.zhihu.com/p/31162122)
+- [中文命名实践的阻力和应对](https://zhuanlan.zhihu.com/p/31069294)
+
+### 其他
+发现[单字富指令型中文（还加韩文）编程语言 Sclipting](https://github.com/program-in-chinese/overview/issues/50)
+
+### 可能的下一步入手方向(未分先后):
+- 尝试在office软件插件中实现简单的中文编程(源自[讨论](https://github.com/program-in-chinese/overview/issues/19#issuecomment-348226649))
+- [汉化编程语言关键词的推敲/整理](https://github.com/program-in-chinese/overview/issues/40)
+- 继续Z语言试用
+- 继续编程语言实验
+- 开发IDE插件支持根据拼音自动补全(功能参考[这个插件](https://github.com/program-in-chinese/overview/issues/11#issuecomment-320431936))
+- 就在前两天，很高兴得知新的开发中文编程工具的项目正在起步. 敬请期待试用文章.
+
+
