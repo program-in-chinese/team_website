@@ -1,0 +1,10 @@
+
+### 编译生成IDE
+
+系统: android 7.0
+
+使用SGIT导出代码库(remote path: https://github.com/MikaGuraN/HL4A.git). 代码库本地路径为:/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A)
+
+安装AIDE, 选择View->Files, 找到"HL4A/乐园之土", 选择"Open this App Project".
+
+在AIDE中选择More->Project->Refresh Build, 等几分钟Build完成后, "乐园之土"目录下生成build/bin/乐园之土.apk
