@@ -1,14 +1,16 @@
 
 ### 编译生成IDE
 
-系统: android 7.0
+手机开发环境: Android 7.0 系统(没有root)
 
-使用SGIT导出代码库(remote path: https://github.com/MikaGuraN/HL4A.git). 代码库本地路径为:/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A)
+(由于在美国, 使用Play Store安装软件, 如国内有更方便的工具请不吝赐教)
 
-安装AIDE, 选择View->Files, 找到"HL4A/乐园之土", 选择"Open this App Project".
+从Play Store下载安装SGIT 1.3.3.final. 导出代码库(remote path: https://github.com/MikaGuraN/HL4A.git). 代码库本地路径为:/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A)
+
+从Play Store下载安装AIDE 3.2.171025(免费版), 选择View->Files, 找到"HL4A/乐园之土", 选择"Open this App Project".
 
 在AIDE中选择More->Project->Refresh Build, 等几分钟Build完成后, "乐园之土"目录下生成build/bin/乐园之土.apk
 
 选择"乐园之土.apk"后, 可以安装. 如果本地已装了旧版本, 需要删除后重装, 否则会报:
 >App not installed
-The package conflicts with an existing package by the same name.
+>The package conflicts with an existing package by the same name.
