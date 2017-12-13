@@ -59,7 +59,7 @@ categories: 小结
 - [汉化编程语言关键词的推敲/整理](https://github.com/program-in-chinese/overview/issues/40)
 - 继续Z语言试用
 - 继续编程语言实验
-- 开发IDE插件支持根据拼音自动补全(功能参考[这个插件](https://github.com/program-in-chinese/overview/issues/11#issuecomment-320431936))
+- 开发IDE插件支持根据拼音自动补全(功能参考[这个插件](https://github.com/program-in-chinese/overview/issues/11#issuecomment-320431936), 实现参考[官方文档](https://code.visualstudio.com/docs/extensions/example-language-server#_adding-additional-language-features))
 - 就在前两天，很高兴得知新的开发中文编程工具的项目正在起步. 敬请期待试用文章.
 
 
