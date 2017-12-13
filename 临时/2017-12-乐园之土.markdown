@@ -8,3 +8,7 @@
 安装AIDE, 选择View->Files, 找到"HL4A/乐园之土", 选择"Open this App Project".
 
 在AIDE中选择More->Project->Refresh Build, 等几分钟Build完成后, "乐园之土"目录下生成build/bin/乐园之土.apk
+
+选择"乐园之土.apk"后, 可以安装. 如果本地已装了旧版本, 需要删除后重装, 否则会报:
+>App not installed
+The package conflicts with an existing package by the same name.
