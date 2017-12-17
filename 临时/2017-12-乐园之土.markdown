@@ -1,3 +1,15 @@
+在Android手机上使用中文编程开发App
+
+真正在**手机上**进行开发是个人从来没有尝试过的. 有幸得知[HL4A](https://github.com/MikaGuraN/HL4A)项目, 虽然尚在各种功能添加中, 但已初具雏形. 在试用过程中, 也有幸与原作者进行初步的交流. 得知作者的开发是纯粹在手机上进行(没有电脑). 项目的工作量颇大, 居然都是通过手机完成的, 非常钦佩作者的毅力.
+
+### 试用
+
+
+初始界面如下:
+<img src="https://github.com/program-in-chinese/team_website/blob/master/%E4%B8%B4%E6%97%B6/%E4%B9%90%E5%9B%AD%E4%B9%8B%E5%9C%9F_%E7%BC%96%E8%BE%91%E5%99%A8%E6%BB%9A%E5%8A%A8%E4%B8%8B%E9%99%90%E9%97%AE%E9%A2%98.png" width="300">
+可以看到
+
+在尝试过程中, 也报告了一些与Android系统版本相关的bug, 原作者对反馈的应对非常迅速, 再次感谢.
 
 ### 编译生成IDE
 
