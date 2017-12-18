@@ -45,7 +45,7 @@
 
 由于在美国, 使用Play Store安装软件, 如国内有更方便的工具请不吝赐教.
 
-从Play Store下载安装SGIT 1.3.3.final. 导出代码库(remote path: https://github.com/MikaGuraN/HL4A.git). 代码库本地路径为:/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A)
+从Play Store下载安装SGIT 1.3.3.final. 导出代码库([remote path](https://github.com/MikaGuraN/HL4A.git)). 代码库本地路径为:`/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A`)
 
 从Play Store下载安装AIDE 3.2.171025(免费版), 选择`View->Files`, 找到"HL4A/乐园之土", 选择`Open this App Project`.
 
