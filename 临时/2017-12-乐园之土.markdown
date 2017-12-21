@@ -1,15 +1,15 @@
 ## 在Android手机上使用中文编程开发App
 
-真正在**手机上**进行开发是个人从来没有尝试过的. 有幸得知[HL4A](https://github.com/MikaGuraN/HL4A)项目, 虽然尚在各种功能添加中, 但已初具雏形. 在试用过程中, 有幸与原作者在线交流. 得知作者的开发是纯粹在手机上进行(没有电脑). 项目的工作量颇大, 非常钦佩作者的毅力. 本文是作为使用手机编程环境的菜鸟和Android开发新手(几年前照猫画虎地写了个输入法原型提交到了Play Store, 仅此而已)的浅尝辄止的体验.
+真正在**手机上**进行开发是个人从来没有尝试过的. 有幸得知[HL4A](https://github.com/MikaGuraN/HL4A)项目, 虽然尚在各种功能添加中, 但已初具雏形. 在试用过程中, 有幸与原作者在线交流. 得知作者的开发是纯粹在手机上进行(没有电脑). 项目的工作量颇大, 非常钦佩作者的毅力. 本文是作为使用手机编程环境的菜鸟和Android开发新手(几年前照猫画虎地写了个输入法原型提交到了Play Store)的浅尝辄止的体验.
 
-#### 本文使用的是1.4.9版本. 由于项目更新很快, 已有不少功能没能在文中介绍, 也有一些文中提及的体验问题已经解决, 限于时间精力就没有更新. 有兴趣的不妨自行下载最新版本尝鲜. 本人手机系统: Android 7.0(非root).
+#### 本文使用的是1.4.9版本. 由于项目更新很快, 最新的版本中已有不少功能没能在文中介绍, 限于时间精力没能更新(今后文章中会继续跟进). 有兴趣的不妨自行下载最新版本尝鲜. 本人手机系统: Android 7.0(非root).
 
-安装时, 会提示需要Phone和Storage权限. 暂时不知为何需要Phone, 但Storage很好理解, 毕竟需要在本机编辑/生成新文件.
+安装时, 会提示需要Phone和Storage权限. 暂时不知为何需要Phone, 但Storage应该是为了在本机编辑/生成新文件.
 
 安装后进入"乐园之土"app, 初始界面如下:
 
 <img src="https://github.com/program-in-chinese/team_website/blob/master/%E4%B8%B4%E6%97%B6/%E4%B9%90%E5%9B%AD%E4%B9%8B%E5%9C%9F_%E7%BC%96%E8%BE%91%E5%99%A8%E6%BB%9A%E5%8A%A8%E4%B8%8B%E9%99%90%E9%97%AE%E9%A2%98.png" width="300">
-可以看到两行快捷工具栏. 第一行中有编程常用的特殊符号, 猜测是为了输入代码时尽量避免在输入法的文字<->符号模式间切换而设计的, 应该可以提高输入效率. 第二行是常用的开发功能. 本文只尝试了"运行". 这里碰到个小问题, 在输入法框显示时(如上图), 编辑器即使滚动到最下面, 最后的几行也不能完全显示.
+可以看到两行快捷工具栏. 第一行中有编程常用的特殊符号, 猜测是为了输入代码时尽量避免在输入法的文字<->符号模式间切换, 应该可以提高输入效率. 第二行是常用的开发功能. 本文只尝试了"运行". 这里碰到个小问题, 在输入法框显示时(如上图), 编辑器即使滚动到最下面, 最后的几行也不能完全显示.
 
 
 下面是工具栏的更多内容:
@@ -19,9 +19,13 @@
 <img src="https://github.com/program-in-chinese/team_website/blob/master/%E4%B8%B4%E6%97%B6/%E4%B9%90%E5%9B%AD%E4%B9%8B%E5%9C%9F_%E5%85%B3%E9%94%AE%E8%AF%8D%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F.png" width="300">
 第一行除了特殊符号, 还有一些常用常量(如"当前上下文"), 而第二行除了开发功能快捷键, 还有一些常用关键词(var, let等等). 个人开发经验有限, 没大领会如此设计的意图. 个人感觉关键词在功能上似乎更接近常量/特殊符号一些.
 
-选择"运行"后, 即跳到运行结果界面:
+选择"运行"后, 即跳到运行结果界面. 这是**个人感觉相比电脑上开发Android app的优势之一**, 省去了app编译生成后下载到手机运行的几步, 可以提升开发效率:
 
 <img src="https://github.com/program-in-chinese/team_website/blob/master/%E4%B8%B4%E6%97%B6/%E4%B9%90%E5%9B%AD%E4%B9%8B%E5%9C%9F_%E6%BC%94%E7%A4%BA%E7%BB%93%E6%9E%9C.png" width="300">
+
+如果运行时有错, 会跳到错误信息界面:
+
+<img src="https://github.com/program-in-chinese/team_website/blob/master/%E4%B8%B4%E6%97%B6/%E4%B9%90%E5%9B%AD%E4%B9%8B%E5%9C%9F_%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF.png" width="300">
 
 左上角按键弹出说明文档:
 
@@ -33,7 +37,7 @@
 
 <img src="https://github.com/program-in-chinese/team_website/blob/master/%E4%B8%B4%E6%97%B6/%E4%B9%90%E5%9B%AD%E4%B9%8B%E5%9C%9F_%E5%8F%B3%E4%B8%8A%E8%8F%9C%E5%8D%95.png" width="300">
 
-在尝试过程中, 也报告了一些与Android系统版本相关的bug, 原作者对反馈的应对非常迅速, 再次感谢.
+"还原实例"就会将初始界面时的"Hello HL4A"示例代码恢复原状, 请注意在之前保存自己编写的代码.
 
 ### 参与开发
 
@@ -41,13 +45,24 @@
 
 由于在美国, 使用Play Store安装软件, 如国内有更方便的工具请不吝赐教.
 
-从Play Store下载安装SGIT 1.3.3.final. 导出代码库(remote path: https://github.com/MikaGuraN/HL4A.git). 代码库本地路径为:/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A)
+从Play Store下载安装SGIT 1.3.3.final. 导出代码库([remote path](https://github.com/MikaGuraN/HL4A.git)). 代码库本地路径为:`/storage/emulated/0/Android/data/me.sheimi.sgit/files/repo/HL4A`)
 
-从Play Store下载安装AIDE 3.2.171025(免费版), 选择View->Files, 找到"HL4A/乐园之土", 选择"Open this App Project".
+从Play Store下载安装AIDE 3.2.171025(免费版), 选择`View->Files`, 找到"HL4A/乐园之土", 选择`Open this App Project`.
 
-在AIDE中选择More->Project->Refresh Build, 等几分钟Build完成后, "乐园之土"目录下生成build/bin/乐园之土.apk
+在AIDE中选择`More->Project->Refresh Build`, 等几分钟Build完成后, "乐园之土"目录下生成`build/bin/乐园之土.apk`
 
 选择"乐园之土.apk"后, 可以安装. 如果本地已装了旧版本, 需要删除后重装, 否则在本机报:
 >App not installed
 
 >The package conflicts with an existing package by the same name.
+
+### 后记
+
+在尝试过程中, 报告了一些与Android系统版本相关的bug, 原作者对反馈的应对非常迅速, 再次感谢! 
+
+AIDE的下载量有百万之多, 让我感到手机编程环境的日益普及. 确实随着屏幕变大变清晰, 系统性能的提升, 手机现今已经离开发用机越来越近. 
+
+HL4A的开源性质, 更新速度, 以及作者本身对app开发的热情都让我对这个项目的未来非常期待. 希望有机会继续深入学习.
+
+
+
