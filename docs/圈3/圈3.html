@@ -8,13 +8,14 @@
   <body>
     <textarea id="输入代码">
 开始
-  循环3次
-    前进50
-    左转90度
+  循环4次
+    循环4次
+      前进50
+      左转90度
+    到此为止
+  右转90度
   到此为止
-  前进50
-结束
-    </textarea>
+结束</textarea>
     <button onclick="分析(document.getElementById('输入代码').value)">运行</button>
     <span id="调试输出"></span>
 
@@ -23,5 +24,6 @@
       新画布(1000, 800);
     }
     </script>
+    <span id="调试输出"></span>
   </body>
 </html>

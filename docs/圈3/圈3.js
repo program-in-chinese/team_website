@@ -448,7 +448,7 @@ var CharStreams = {
 
 exports.CharStreams = CharStreams;
 
-},{"./InputStream":6,"fs":53}],3:[function(require,module,exports){
+},{"./InputStream":6,"fs":55}],3:[function(require,module,exports){
 //
 /* Copyright (c) 2012-2017 The ANTLR Project. All rights reserved.
  * Use of this file is governed by the BSD 3-clause license that
@@ -652,7 +652,7 @@ FileStream.prototype.constructor = FileStream;
 
 exports.FileStream = FileStream;
 
-},{"./InputStream":6,"fs":53}],6:[function(require,module,exports){
+},{"./InputStream":6,"fs":55}],6:[function(require,module,exports){
 //
 /* Copyright (c) 2012-2017 The ANTLR Project. All rights reserved.
  * Use of this file is governed by the BSD 3-clause license that
@@ -12319,6 +12319,8 @@ exports.圈3Listener = 圈3Listener;
 // jshint ignore: start
 var antlr4 = require('antlr4/index');
 var 圈3Listener = require('./圈3Listener').圈3Listener;
+var 圈3Visitor = require('./圈3Visitor').圈3Visitor;
+
 var grammarFileName = "圈3.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
@@ -12442,6 +12444,14 @@ function 程序Context(parser, parent, invokingState) {
 	}
 };
 
+程序Context.prototype.accept = function(visitor) {
+    if ( visitor instanceof 圈3Visitor ) {
+        return visitor.visit程序(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
 
 
 
@@ -12520,6 +12530,14 @@ function 声明Context(parser, parent, invokingState) {
     if(listener instanceof 圈3Listener ) {
         listener.exit声明(this);
 	}
+};
+
+声明Context.prototype.accept = function(visitor) {
+    if ( visitor instanceof 圈3Visitor ) {
+        return visitor.visit声明(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
 };
 
 
@@ -12610,6 +12628,14 @@ function 循环Context(parser, parent, invokingState) {
 	}
 };
 
+循环Context.prototype.accept = function(visitor) {
+    if ( visitor instanceof 圈3Visitor ) {
+        return visitor.visit循环(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
 
 
 
@@ -12686,6 +12712,14 @@ function 前进Context(parser, parent, invokingState) {
 	}
 };
 
+前进Context.prototype.accept = function(visitor) {
+    if ( visitor instanceof 圈3Visitor ) {
+        return visitor.visit前进(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
 
 
 
@@ -12751,6 +12785,14 @@ function 转向Context(parser, parent, invokingState) {
 	}
 };
 
+转向Context.prototype.accept = function(visitor) {
+    if ( visitor instanceof 圈3Visitor ) {
+        return visitor.visit转向(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
 
 
 
@@ -12787,54 +12829,191 @@ function 转向Context(parser, parent, invokingState) {
 
 exports.圈3Parser = 圈3Parser;
 
-},{"./圈3Listener":49,"antlr4/index":42}],51:[function(require,module,exports){
+},{"./圈3Listener":49,"./圈3Visitor":51,"antlr4/index":42}],51:[function(require,module,exports){
+// Generated from 圈3.g4 by ANTLR 4.7
+// jshint ignore: start
 var antlr4 = require('antlr4/index');
-const 圈3Listener = require('./圈3Listener.js').圈3Listener
 
-定制监听器 = function () {
-	圈3Listener.call(this);
+// This class defines a complete generic visitor for a parse tree produced by 圈3Parser.
+
+function 圈3Visitor() {
+	antlr4.tree.ParseTreeVisitor.call(this);
 	return this;
 }
 
-定制监听器.prototype = Object.create(圈3Listener.prototype);
-定制监听器.prototype.constructor = 定制监听器;
+圈3Visitor.prototype = Object.create(antlr4.tree.ParseTreeVisitor.prototype);
+圈3Visitor.prototype.constructor = 圈3Visitor;
 
-var 常量_指令名_前进 = "前进";
-var 常量_指令名_转向 = "转向";
+// Visit a parse tree produced by 圈3Parser#程序.
+圈3Visitor.prototype.visit程序 = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by 圈3Parser#声明.
+圈3Visitor.prototype.visit声明 = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by 圈3Parser#循环.
+圈3Visitor.prototype.visit循环 = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by 圈3Parser#前进.
+圈3Visitor.prototype.visit前进 = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by 圈3Parser#转向.
+圈3Visitor.prototype.visit转向 = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+
+exports.圈3Visitor = 圈3Visitor;
+},{"antlr4/index":42}],52:[function(require,module,exports){
+var antlr4 = require('antlr4/index');
+const 圈3Visitor = require('./圈3Visitor.js').圈3Visitor
+
+function 定制访问器 () {
+	圈3Visitor.call(this);
+	return this;
+}
+
+定制访问器.prototype = Object.create(圈3Visitor.prototype);
+定制访问器.prototype.constructor = 定制访问器;
+
+var 语法树 = {};
+
+定制访问器.prototype.visit程序 = function(上下文) {
+  语法树 = {子节点: this.visit(上下文.声明())};
+  return 语法树;
+};
+
+定制访问器.prototype.visit循环 = function(上下文) {
+  return {
+    类型: '循环',
+    次数: parseInt(上下文.T数().getText()),
+    子节点: this.visit(上下文.声明())};
+};
+
+定制访问器.prototype.visit声明 = function(上下文) {
+  return this.visit(上下文.getChild(0));
+};
+
+定制访问器.prototype.visit转向 = function(上下文) {
+  var 方向 = 上下文.T转向().getText();
+  var 角度 = parseInt(上下文.T数().getText()) * (方向 === "左" ? 1 : -1);
+  return {类型: '转向', 参数: 角度};
+};
+
+定制访问器.prototype.visit前进 = function(上下文) {
+  return {类型: '前进', 参数: parseInt(上下文.T数().getText())};
+};
+
+定制访问器.prototype.返回语法树 = function() {
+  return 语法树;
+}
+
+exports.定制访问器 = 定制访问器;
+},{"./圈3Visitor.js":51,"antlr4/index":42}],53:[function(require,module,exports){
+const antlr4 = require("antlr4/index")
+const 圈3Lexer = require("./圈3Lexer.js")
+const 圈3Parser = require("./圈3Parser.js")
+const 定制访问器 = require("./定制访问器.js")
+const 生成路径表 = require("./语法树处理").生成路径表
+const 生成指令序列 = require("./语法树处理").生成指令序列
+
+// TODO: 需改进-现为全局, 由于browserify
+分析 = function(代码) {
+  重置状态();
+
+  var 输入流 = new antlr4.InputStream(代码)
+  var 词法分析器 = new 圈3Lexer.圈3Lexer(输入流)
+  var 词  = new antlr4.CommonTokenStream(词法分析器)
+  var 语法分析器 = new 圈3Parser.圈3Parser(词)
+  语法分析器.buildParseTrees = true
+
+  var 访问器 = new 定制访问器.定制访问器();
+  var 语法树 = 访问器.visit(语法分析器.程序());
+  //document.getElementById("调试输出").innerHTML += JSON.stringify(语法树);
+  
+  // TODO: 添加测试后, 合并两个接口: 生成指令序列, 生成路径表
+  var 指令序列 = 生成指令序列(语法树);
+  var 路径表 = 生成路径表(指令序列, 原点, 初始前进角度);
+
+  // TODO: 提取到二阶函数
+  绘制 = function() {
+    var 当前序号 = 序号;
+    background(255, 255, 255);
+
+    for (var i = 0; i < 路径表.length; i++ ) {
+      var 段 = 路径表[i];
+      var 起点 = 段.起点;
+      var 终点 = 段.终点;
+      var 距离 = 段.长度;
+      if (当前序号 < 距离) {
+        line(起点.x, 起点.y, 起点.x + (终点.x - 起点.x) * 当前序号 / 距离, 起点.y + (终点.y - 起点.y) * 当前序号 / 距离);
+        break;
+      } else {
+        line(起点.x, 起点.y, 终点.x, 终点.y);
+        当前序号 = 当前序号 - 段.长度;
+      }
+    }
+    
+    序号 ++;
+  }
+  return 访问器;
+}
 
 var 序号 = 0;
 
 var 画布尺寸 = {x: 1000, y: 800};
 var 原点 = {x: 画布尺寸.x/2, y: 画布尺寸.y/2};
 var 初始前进角度 = 90; // 默认向上, 对应弧度: 90 * Math.PI / 180
-// 指令格式: 名称 (转向, 前进, 笔色等等); 参数 (转向角度--右为负,左为正; 前进长度-像素数等等);
-var 指令序列 = [];
-// TODO: 支持多层循环
-var 循环次数 = 0;
-var 当前循环的指令序列 = [];
-
-定制监听器.prototype.enter程序 = function(ctx) {
-
-  重置状态();
-  // 只需调用一次
-  // https://p5js.org/reference/#/p5/setup
-  
-};
 
 function 重置状态() {
   序号 = 0;
   原点 = {x: 画布尺寸.x/2, y: 画布尺寸.y/2};
   前进角度 = 90;
-  指令序列 = [];
-  循环次数 = 0;
-  当前循环的指令序列 = [];
+}
+
+exports.分析 = 分析;
+},{"./圈3Lexer.js":48,"./圈3Parser.js":50,"./定制访问器.js":52,"./语法树处理":54,"antlr4/index":42}],54:[function(require,module,exports){
+var 常量_指令名_前进 = "前进";
+var 常量_指令名_转向 = "转向";
+
+// 指令格式: 名称 (转向, 前进, 笔色等等); 参数 (转向角度--右为负,左为正; 前进长度-像素数等等);
+function 生成指令序列(节点) {
+  var 指令序列 = [];
+  // TODO: 根节点类型不应为空
+  if (!节点.类型) {
+    var 声明节点 = 节点.子节点;
+    for (var i = 0; i < 声明节点.length; i++) {
+      Array.prototype.push.apply(指令序列, 生成指令序列(声明节点[i]));
+    }
+  } else if (节点.类型 == "循环") {
+    var 指令序列 = [];
+    for (var i = 0; i < 节点.次数; i++) {
+      Array.prototype.push.apply(指令序列, 生成指令序列({子节点: 节点.子节点}));
+    }
+  } // TODO: 修改类型统一为'指令'
+  else if (节点.类型 == "前进" || 节点.类型 == "转向") {
+    return [{名称: (节点.类型 == "前进" ? 常量_指令名_前进 : 常量_指令名_转向), 参数: 节点.参数}];
+  }
+  return 指令序列;
 }
 
 // 根据指令序列, 生成路径分段描述(段起止点坐标, 颜色等等)
 // 如: 前进50, 左转90度, 前进50 应返回:
 // [{起点: {x: 200, y: 200}, 终点: {x: 200, y: 150}, 长度: 50},
 // {起点: {x: 200, y: 150}, 终点: {x: 150, y: 150}, 长度: 50}]
-function 生成路径表(指令序列, 前进角度) {
+function 生成路径表(指令序列, 原点, 前进角度) {
   // 段: {起点: {x, y}, 终点: {x, y}, 长度, 颜色}
   var 路径表 = [];
   var 起点 = 原点;
@@ -12858,95 +13037,10 @@ function 生成路径表(指令序列, 前进角度) {
   return 路径表;
 }
 
-定制监听器.prototype.exit程序 = function(ctx) {
-  //document.getElementById("调试输出").innerHTML = JSON.stringify(指令序列);
-  var 路径表 = 生成路径表(指令序列, 初始前进角度);
-  绘制 = function() {
-    var 当前序号 = 序号;
-    background(255, 255, 255);
-
-    for (var i = 0; i < 路径表.length; i++ ) {
-      var 段 = 路径表[i];
-      var 起点 = 段.起点;
-      var 终点 = 段.终点;
-      var 距离 = 段.长度;
-      if (当前序号 < 距离) {
-        line(起点.x, 起点.y, 起点.x + (终点.x - 起点.x) * 当前序号 / 距离, 起点.y + (终点.y - 起点.y) * 当前序号 / 距离);
-        break;
-      } else {
-        line(起点.x, 起点.y, 终点.x, 终点.y);
-        当前序号 = 当前序号 - 段.长度;
-      }
-    }
-    
-    序号 ++;
-  }
-};
-
-定制监听器.prototype.enter循环 = function(上下文) {
-  循环次数 = parseInt(上下文.getChild(1).getText());
-}
-
-定制监听器.prototype.exit循环 = function(上下文) {
-  for (var i = 0; i < 循环次数; i++) {
-    for (var j = 0; j < 当前循环的指令序列.length; j++) {
-      指令序列.push(当前循环的指令序列[j]);
-    }
-  }
-  当前循环的指令序列 = [];
-  循环次数 = 0;
-}
-
-定制监听器.prototype.exit前进 = function(上下文) {
-  var 前进量 = 上下文.getChild(1).getText()
-  添加指令({名称: 常量_指令名_前进, 参数: parseInt(前进量)});
-};
-
-定制监听器.prototype.exit转向 = function(上下文) {
-  var 方向 = 上下文.getChild(0).getText();
-  var 角度 = parseInt(上下文.getChild(2).getText());
-
-  角度 = 角度 * (方向 === "左" ? 1 : -1);
-  添加指令({名称: 常量_指令名_转向, 参数: 角度});
-};
-
-function 添加指令(指令) {
-  if (循环次数 > 0) {
-    当前循环的指令序列.push(指令);
-  } else {
-    指令序列.push(指令);
-  }
-}
-
-定制监听器.prototype.返回指令序列 = function() {
-  return 指令序列;
-}
-
-exports.定制监听器 = 定制监听器;
+exports.生成指令序列 = 生成指令序列;
 exports.生成路径表 = 生成路径表;
 exports.常量_指令名_前进 = 常量_指令名_前进;
 exports.常量_指令名_转向 = 常量_指令名_转向;
-exports.初始前进角度 = 初始前进角度;
-},{"./圈3Listener.js":49,"antlr4/index":42}],52:[function(require,module,exports){
-const antlr4 = require("antlr4/index")
-const 圈3Lexer = require("./圈3Lexer.js")
-const 圈3Parser = require("./圈3Parser.js")
-const 定制监听器 = require("./定制监听器.js").定制监听器
+},{}],55:[function(require,module,exports){
 
-// TODO: 需改进-现为全局, 由于browserify
-分析 = function(代码) {
-  var 输入流 = new antlr4.InputStream(代码)
-  var 词法分析器 = new 圈3Lexer.圈3Lexer(输入流)
-  var 词  = new antlr4.CommonTokenStream(词法分析器)
-  var 语法分析器 = new 圈3Parser.圈3Parser(词)
-  语法分析器.buildParseTrees = true
-
-  var 监听器 = new 定制监听器();
-  antlr4.tree.ParseTreeWalker.DEFAULT.walk(监听器, 语法分析器.程序())
-  return 监听器;
-}
-
-exports.分析 = 分析;
-},{"./圈3Lexer.js":48,"./圈3Parser.js":50,"./定制监听器.js":51,"antlr4/index":42}],53:[function(require,module,exports){
-
-},{}]},{},[52]);
+},{}]},{},[53]);
