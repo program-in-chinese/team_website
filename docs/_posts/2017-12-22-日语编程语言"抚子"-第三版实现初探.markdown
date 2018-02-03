@@ -1,0 +1,52 @@
+---
+layout: post
+comments: true
+title:  日语编程语言"抚子"-第三版实现初探
+description: 对第三版"抚子"语言的源代码进行初步学习. Study the source code of the 3rd version of Japanese programming language Nadesiko.
+date:   2017-12-22 00:00:00 -0700
+categories: 语言设计
+---
+
+前文[日语编程语言"抚子" - 第三版特色初探](https://zhuanlan.zhihu.com/p/30800689)仅对语言的语法进行了初步了解. 之前的语言原型实现尝试(如[编程语言试验之Antlr4+JavaScript实现"圈4"](https://zhuanlan.zhihu.com/p/31644101))之后, 感觉有必要学习"抚子"的实现, 因为它也內建支持在线编程, 应该很有借鉴价值.
+开发环境配置
+
+主要参考 [kujirahand/nadesiko3](https://github.com/kujirahand/nadesiko3/blob/master/SETUP.md).
+
+运行"npm start"后访问"localhost:3000"就有如下开发环境界面:
+
+![2017_12_22_抚子运行]({{ "/assets/2017_12_22_Nadesiko3抚子运行.png" | absolute_url }})
+
+它也支持生成基于Electron的可以本地运行的独立程序(在Mac下测试). 运行"npm run electron"后就看到与网络界面相同的程序界面. 感觉这个方式很合理. 之后希望***尝试类似途径同时实现在线和本地开发环境***.
+
+它也提供一个[Atom插件](https://github.com/kujirahand/nadesiko3/tree/master/misc/atom-packages/language-nako3), 安装后(拷贝目录到~/.atom/packages下)在Atom中打开test.nako3测试文件就有语法高亮:
+
+![2017_12_22_抚子Atom高亮]({{ "/assets/2017_12_22_Nadesiko3抚子Atom高亮.png" | absolute_url }})
+
+
+另: 运行"npm run test"时, 发现了一个关于[时间处理的bug](https://github.com/kujirahand/nadesiko3/issues/233). 将继续跟进; 暂时没有发现断点调试等功能.
+源码学习
+
+在/src下, 源码文件不多, 分类如下, 连同基于源码和注释个人整理的简单介绍:
+
+1. 编译器主程序:
+  - nako3.js
+  - cnako.js: 支持命令行下运行
+  - enoko.js: 支持electron
+  - wnako3.js: 支持web browser-浏览器
+2. 分析器实现
+  - nako_prepare.js: 全半角字符处理; 特殊字符串处理, 比如{% raw %}{{{{{% endraw %}等
+  - nako_lexer.js: 对已经是全角的代码进行词法分析, 包括保留关键字, 分词器等等
+  - nako_parser_base.js: 显示语法错误, NakoParserBase类
+  - nako_parser_const.js: 定义运算符的优先级, 以及日语助词(?), 如'いて', 'えて'等等
+  - nako_parser3.js: 是NakoParserBase的扩展, 实施语法分析, 生成语法树
+  - nako_gen.js: 从语法树生成JS类
+3. 插件(功能库)
+  - plugin_browser.js: 浏览器相关功能封装成API, 如'言'是"window.alert"(对话弹窗)
+  - plugin_node.js: Node.js常用功能封装, 如'開'是"readFileSync"(打开文件)
+  - plugin_system.js: JavaScript本身常用API封装, 如"割余"是"a%b"(求余)
+  - plugin_turtle.js: 类似LOGO语言的基于"抚子"语言的脚本语言. 演示在[ゼロからはじめてみる日本語プログラミング「なでしこ」(3) タートルグラフィックスでお絵かきしよう(その1)](https://news.mynavi.jp/article/nadeshiko-3/)
+4. 其他
+  - index.js: 用npm模块方式使用"抚子"
+  - repl.nako3: 用"抚子"语言本身写的一个简单的对话执行环境
+
+时间有限, 以后再对不同模块深入学习.
