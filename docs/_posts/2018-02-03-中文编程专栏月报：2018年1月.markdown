@@ -1,0 +1,29 @@
+---
+layout: post
+comments: true
+title:  中文编程专栏月报：2018年1月
+description: 中文编程知乎专栏的2018年1月月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese", together with other progresses in Github organization and other channels.
+date:   2018-02-03 00:00:00 -0700
+categories: 小结
+---
+
+本月的一大部分是围绕这个话题: [通用型的中文编程语言探讨之一: 高考](https://zhuanlan.zhihu.com/p/32677451). 接着用Antlr4开始了一点语言的原型开发:
+- [Antlr4的分析错误处理](https://zhuanlan.zhihu.com/p/32792684)
+- [Antlr4实现数学四则运算](https://zhuanlan.zhihu.com/p/32864261)
+- [Antlr4添加中文变量赋求值,括号,各种问题](https://zhuanlan.zhihu.com/p/32896571)
+- [Antlr4: 修改语法规则更接近普通BNF格式](https://zhuanlan.zhihu.com/p/32939695)
+- [Antlr4实现简单语言之整数比较表达式](https://zhuanlan.zhihu.com/p/33047128)
+
+中途尝试了另一个工具Xtext:
+- [Xtext试用: 快速实现简单领域专用语言(DSL)](https://zhuanlan.zhihu.com/p/33047136)
+- [Xtext试用: 5步实现一个(中文)JVM语言](https://zhuanlan.zhihu.com/p/33141525)
+
+下面还未确定是继续Antlr4还是Xtext. 暂时更倾向于Antlr4, 因为对个人来说用途更广, 对项目来说看起来更灵活, 但坏处是周期和开发量也许会更长.
+
+对之前的在代码中使用中文命名的业余项目进行了小结:
+- [烂尾工程: Java实现的汇编语言编译器](https://zhuanlan.zhihu.com/p/32607169)
+- [History in Threads: 火狐插件实现浏览历史按主题显示(树)](https://zhuanlan.zhihu.com/p/32973741)
+
+[浅尝The Little Prover一书, 重逢Chez Scheme](https://zhuanlan.zhihu.com/p/32642243)未能续篇, 但还有兴趣. 之前卡在了if-equal定理, 还没转过弯来.
+
+另外, 作为测试用户, 参与了两个中文编程相关的开源项目(都在代码中用了中文命名). 希望早日能达到公测的程度. 个人感觉, 项目的测试和文档(包括版本记录)的完整程度, 很大程度会影响开源的效果(开发者参与度, 用户试用等等). 个人也在尽量从这两个方面对这些项目出一点力.
