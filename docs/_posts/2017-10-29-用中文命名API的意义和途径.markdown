@@ -4,7 +4,7 @@ comments: true
 title:  用中文命名API的意义和途径
 description: 用中文命名API的好处和方法. Why and how to name API in Chinese.
 date:   2017-10-29 00:00:00 -0700
-categories: 命名
+categories: 命名 API
 ---
 
 在前文[对在代码中使用中文命名的质疑与回应]({{ site.baseurl }}{% link _posts/2017-10-27-对在代码中使用中文命名的质疑与回应.markdown %})中阐述了在代码中使用中文命名的益处. 此文将从软件使用者的角度阐述对API中文化的意义并探讨实现途径. 当然, 文中面向的用户是以中文为母语的开发者.
