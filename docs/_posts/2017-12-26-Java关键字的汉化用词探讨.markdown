@@ -1,0 +1,65 @@
+---
+layout: post
+comments: true
+title:  Java关键字的汉化用词探讨
+description: 讨论Java关键词的中文对应词语该如何选择. Discuss word choices for keywords in Chinese version for Java programming language.
+date:   2017-12-26 00:00:00 -0700
+categories: 命名
+---
+
+[@狗屎咖啡](http://www.zhihu.com/people/8ebc8963b1a27b83df99bdac20faf3a9) 的[为GCC添加中文关键字项目](https://zhuanlan.zhihu.com/p/31376652)对C关键词进行了汉化. 风格比较简约, 如'if'-如, 'else'-另. 个人感觉在中文编程语言尚未成熟之时, 不妨集思广益, 首先列出一些可选项, 然后从中选出一套或几套风格比较统一的. 这里列出了一些之前归纳的选项.
+
+本文基于此讨论组回复([中文化 C, C++, Objective-C 需要什么样的关键字? · Issue #40 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/40#issuecomment-337810134))尝试对[Java关键词](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html)进行探讨. 可惜知乎文章不支持表格, 于是列出如下. 带*的如goto是Java实际并未使用的. 关键词的含义参考[List of Java keywords](https://en.wikipedia.org/wiki/List_of_Java_keywords), 加上一些有限的个人理解. 欢迎拍砖, 尤其是带问号的几个.
+
+***多谢评论区中各位指摘, 下面有根据评论添加的部分, 恕在下不一一点名感谢了.***
+
+    abstract 抽象
+    assert*** 确保 断言
+    boolean 布尔 真假
+    break 中止 断开 跳出
+    byte 字节
+    case 情况
+    catch 一旦
+    char 字符
+    class 类 类型(评论中提到这与'type'含义重复) 类别
+    const* 常量
+    continue 继续
+    default 默认
+    do 运行 执行
+    double 双浮点 双精度
+    else 否则 不然
+    enum**** 枚举
+    extends 扩展 继承
+    final "不变"?
+    finally 善后
+    float 浮点 单精度
+    for 对于
+    goto* 跳转
+    if 如果
+    implements 实现
+    import 导入 引用 引入
+    instanceof "是". 这里暂时想不到其他更合适和准确的. "小黄 是 人类"感觉还可以接受. 评论中有提出'类为', 可惜没包括interface部分, 也许'为'?
+    int 整数 整型
+    interface 接口
+    long 长整数
+    native 本地
+    new 新建 新 实例化
+    package 包
+    private 私用 私有
+    protected 保护?
+    public 公用 公开
+    return 返回
+    short 短整数
+    static "静态"个人感觉直白但与实际用途有距离. 而且它反义的"动态"并没有对应的Java概念. Z语言中命名为"唯一", 一定程度反映了它的特性. 个人暂时没想到更合适的.
+    strictfp** (暂不理解)
+    super 父类
+    switch 开关 切换
+    synchronized 同步
+    this 本体 自身 本身
+    throw "抛出". 强调的是抛出例外(Exception)的行为
+    throws "会抛出". 强调的是"会抛出"某些例外的特性.
+    transient "不序列化". 找不到合适的对应词语, 只能从功能上选词了.
+    try 尝试
+    void 无返回值
+    volatile "易变" "非同步"? 不甚了解
+    while (每)当 只要
