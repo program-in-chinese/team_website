@@ -12,11 +12,11 @@ Typescript官方文档起的这个噱头名字: [TypeScript in 5 minutes](https:
 源码在: [program-in-chinese/typescript_in_5_min_zh](https://github.com/program-in-chinese/typescript_in_5_min_zh)
 第一个TypeScript程序
 ```typescript
-function 问好(那谁) {
-  return "吃了么, " + 那谁;
+函数 问好(那谁) {
+  返回 "吃了么, " + 那谁;
 }
 
-let 路人 = "打酱油的";
+变量 路人 = "打酱油的";
 
 document.body.innerHTML = 问好(路人);
 ```
@@ -27,33 +27,33 @@ tsc 问好.ts
 编译生成"问好.js"文件.
 添加参数类型
 ```typescript
-function 问好(那谁: string) {
-   return "吃了么, " + 那谁;
+函数 问好(那谁: 文字) {
+   返回 "吃了么, " + 那谁;
 }
 ```
 如果'那谁'的类型不符, 比如是数组类型[0,1,2], 编译时会报错, 挺好:
 ```
-问好.ts(7,30): error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
+问好.ts(7,30): error TS2345: Argument of type '数字[]' is not assignable to parameter of type '文字'.
 ```
 添加接口
 ```typescript
-interface 人 {
-  姓: string;
-  名: string;
+接口 人 {
+  姓: 文字;
+  名: 文字;
 }
 
-function 问好(那谁: 人) {
-  return "吃了么, " + 那谁.姓 + 那谁.名;
+函数 问好(那谁: 人) {
+  返回 "吃了么, " + 那谁.姓 + 那谁.名;
 }
 
-let 路人 = {姓: "大", 名: "黄"};
+变量 路人 = {姓: "大", 名: "黄"};
 ```
 这里路人的"形状"符合"人", 类型就被判定为相符.
 
 自己误写成了:
 ```typescript
-function 问好(那谁: 人) {
-  return "吃了么, " + 人.姓 + 人.名;
+函数 问好(那谁: 人) {
+  返回 "吃了么, " + 人.姓 + 人.名;
 }
 ```
 编译提示'人'是个类型而不是值, 挺好:
@@ -62,23 +62,23 @@ function 问好(那谁: 人) {
 ```
 添加类
 ```typescript
-class 学生 {
-  全名: string;
-  constructor(public 姓: string, public 名: string) {
+类 学生 {
+  全名: 文字;
+  constructor(公开 姓: 文字, 公开 名: 文字) {
     this.全名 = 姓 + 名;
   }
 }
 
-interface 人 {
-  姓: string;
-  名: string;
+接口 人 {
+  姓: 文字;
+  名: 文字;
 }
 
-function 问好(那谁: 人) {
-  return "吃了么, " + 那谁.姓 + 那谁.名;
+函数 问好(那谁: 人) {
+  返回 "吃了么, " + 那谁.姓 + 那谁.名;
 }
 
-let 路人 = new 学生("大", "黄");
+变量 路人 = 新建 学生("大", "黄");
 ```
 官方文档说添加class之后编译生成的js文件与没有class的相同, 这里不解, 实验结果是不同的.
 运行第一个网络应用
