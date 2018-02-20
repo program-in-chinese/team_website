@@ -1,0 +1,90 @@
+---
+layout: post
+comments: true
+title:  中文代码示例[译]Scala中创建隐式函数
+description: 转译入门教程 - Scala中的隐式函数, 使用中文命名. Translate a tutorial of creating implicit functions in Scala, naming identifiers in Chinese.
+date:   2018-02-17 00:00:00 -0700
+categories: 命名 教程
+---
+
+前言: 学习Scala时, 顺便翻译一下自己有兴趣的文章. 代码中所有命名都中文化了(不是翻译). 比如原文用的是甜甜圈的例子.
+
+原文: [Scala Tutorial - Learn How To Create Implicit Function](http://allaboutscala.com/tutorials/chapter-3-beginner-tutorial-using-functions-scala/scala-tutorial-learn-create-implicit-function/)
+
+#### 简述
+
+本文学习如何创建隐式函数, 以便对几乎任何类型实现扩展方法或函数.
+
+正如其名, Scala设计时就最大化了可扩展性. Scala features tutorial提到用implicit可以方便地实现任何类型的扩展方法或函数.
+
+对之前的教程的包子铺例子, 这里扩展String类使它有最爱吃的包子()函数.
+
+#### 步骤
+#### 1. 创建String的封装类
+
+我们创建一个简单的封装类, 以String为参数, 并提供这个最爱吃的包子函数
+```scala
+println("第一步: 创建封装类以便扩展String类型")
+class 包子名称(名称: String) {
+  def 最爱吃的包子: Boolean = 名称 == "香菇菜包"
+}
+```
+**(原文, 下同)注:**
+
+看到Scala可以用==而不是equals比较字符串, Java或者.NET的开发者也许会惊喜
+#### 2. 如何创建隐式函数把String转换成封装类
+
+把隐式函数封装到object实现的单例中是个好习惯. 也可以用之后教程中的package object实现.
+
+下面, 就定义了一个隐式函数将String作参数并创建一个封装类的实例:
+```scala
+println("\n第二步: 创建隐式函数把String转换为封装类")
+object 包子转换 {
+  implicit def 文本到包子名称(名称: String) = new 包子名称(名称)
+}
+```
+**注:**
+
+隐式函数与其他函数定义唯一区别就是前面有implicit关键词
+#### 3. 导入转换函数进入作用域
+
+为了使用第二步中定义的隐式函数, 需要将它纳入作用域. 这需要import关键词:
+```scala
+println("\n第三步: 导入转换函数进入作用域")
+import 包子转换._
+```
+**注:**
+
+导入中使用的_通配符可以导入所有值或隐式函数
+#### 4. 建文本常量
+
+建了两个文本常量:
+```scala
+println("\n第四步: 建文本常量")
+val 菜包 = "香菇菜包"
+val 肉包 = "白菜肉包"
+```
+#### 5. 如何调用自定义的最爱吃的包子
+
+简单:
+```scala
+println("\n第五步")
+println(s"爱吃菜包吗 = ${菜包.最爱吃的包子}")
+println(s"爱吃肉包吗 = ${肉包.最爱吃的包子}")
+```
+运行后应该得到:
+```
+第五步
+爱吃菜包吗 = true
+爱吃肉包吗 = false
+```
+**注:**
+- 最爱吃的包子像是String类自带的函数
+- 但并不用修改String类的源码
+- 而是用Scala的隐式函数来扩展了String类
+
+本节教程结束, 希望有所帮助.
+
+#### 译后感
+
+- 翻译比想象中耗时
