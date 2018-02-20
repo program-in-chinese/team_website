@@ -2,9 +2,9 @@
 layout: post
 comments: true
 title:  "烂尾工程: Java实现的汇编语言编译器"
-description: 中文编程知乎专栏的2017年12月月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese" for December 2017, together with other progresses in Github organization and other channels.
+description: 一个半拉子工程, 用Java实现的汇编语言编译器的介绍. 代码中使用中文命名. An unfinished project, an assembler implemented in Java, with naming in Chinese.
 date:   2018-01-03 14:00:00 -0700
-categories: 小结
+categories: 命名 项目
 ---
 
 在半年前的[中文编程的尝试历程小记](https://zhuanlan.zhihu.com/p/27537616)中简单介绍了这一项目. 由于短期内估计不会继续进行, 而且这个项目好像是至今个人在中文命名实践中的代码量最大的一个项目, 谨在此作一小结. 最新的源码库在[program-in-chinese/assembler-in-chinese-experiment](https://github.com/program-in-chinese/assembler-in-chinese-experiment).
