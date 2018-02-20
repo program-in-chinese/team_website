@@ -1,0 +1,84 @@
+---
+layout: post
+comments: true
+title:  Antlr4实现简单语言之条件语句
+description: 在前作基础上, 使用Antlr4添加简单的条件语句. Based on previous work in the series, add support for simple conditional statement using Antlr4.
+date:   2018-02-18 00:00:00 -0700
+categories: 命名 教程
+---
+
+本系列之前的文章:
+
+[Antlr4的分析错误处理](https://zhuanlan.zhihu.com/p/32792684)
+
+[Antlr4实现数学四则运算](https://zhuanlan.zhihu.com/p/32864261)
+
+[Antlr4添加中文变量赋求值,括号,各种问题](https://zhuanlan.zhihu.com/p/32896571)
+
+[Antlr4: 修改语法规则更接近普通BNF格式](https://zhuanlan.zhihu.com/p/32939695)
+
+[Antlr4实现简单语言之整数比较表达式](https://zhuanlan.zhihu.com/p/33047128)
+
+
+这一步, 实现了最简单的单条件, 只有"条件为真"时执行单语句. 例如:
+```
+变量=1
+如果 变量<2 变量=变量×2
+变量
+```
+返回2
+### 实现
+
+语法规则修改, 将原本的'声明'拆分出多个规则:
+```antlr
+声明
+    :   赋值声明
+    |   如果声明
+    |   求值声明
+    |   T新行
+    ;
+
+如果声明
+    :   '如果' 表达式 声明
+    ;
+
+赋值声明
+    : T变量名 '=' 表达式 T新行
+    ;
+
+求值声明
+    : 表达式 T新行
+    ;
+```
+"定制访问器"中, 赋值/求值声明只需修改类型, 添加的"如果声明"部分(需改名为"条件声明"之类):
+```java
+  @Override
+  public 节点 visit如果声明(如果声明Context 上下文) {
+    条件节点 节点 = new 条件节点();
+    节点.条件 = visit(上下文.表达式());
+    节点.条件.原始文本 = 上下文.表达式().getText();
+    节点.条件为真分支 = visit(上下文.声明());
+    return 节点;
+  }
+```
+语法树节点新增类型:
+```java
+public class 条件节点 extends 节点 {
+
+  public 节点 条件;
+  public 节点 条件为真分支;
+}
+```
+"运行器"的"求值"方法中添加条件节点的处理:
+```java
+     else if (节点 instanceof 条件节点) {
+      Object 条件 = 求值(((条件节点) 节点).条件);
+      if (条件 instanceof Boolean) {
+        return (boolean)条件 ? 求值(((条件节点) 节点).条件为真分支) : null;
+      } else {
+        System.err.println("[运行时错误] 条件部分需为布尔值: " + ((条件节点) 节点).条件.原始文本);
+        return null;
+      }
+    }
+```
+下面, 需要添加条件语句中对换行以及条件执行多个语句的支持, 需要选择是用{}还是其他特殊规则决定条件语句范围.
