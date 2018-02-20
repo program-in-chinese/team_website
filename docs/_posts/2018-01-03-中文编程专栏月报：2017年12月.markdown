@@ -1,0 +1,30 @@
+---
+layout: post
+comments: true
+title:  中文编程专栏月报：2017年12月
+description: 中文编程知乎专栏的2017年12月月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese" for December 2017, together with other progresses in Github organization and other channels.
+date:   2018-01-03 00:00:00 -0700
+categories: 小结
+---
+
+祝各位2018年好!
+
+上次月报末尾的下一步打算:
+
+- 尝试在office软件插件中实现简单的中文编程(源自[讨论](https://github.com/program-in-chinese/overview/issues/19#issuecomment-348226649))
+  - 基于官方文档[Walkthrough: Creating Your First VSTO Add-in for Excel](https://msdn.microsoft.com/en-us/library/cc668205.aspx), 需要付费版的VS, 暂时不具备此条件. 而且国内其他开源版本的office应该使用率很低, 因此此方向暂不继续.
+- [汉化编程语言关键词的推敲/整理](https://github.com/program-in-chinese/overview/issues/40)
+  - [Java关键字的汉化用词探讨](https://zhuanlan.zhihu.com/p/32378455). 在评论中, 有建议参考易语言的关键字. 虽有打算, 但苦于手头没有易语言平台或者文档.
+- 继续Z语言试用
+  - 尚未进行. Z语言最新版使用了结巴分词, 个人猜想是在词法分析中添加了自然语言分析, 还需进一步学习源码. 另外, 进行了[日语编程语言"抚子"-第三版实现初探](https://zhuanlan.zhihu.com/p/32273857). 并且与日本作者进行了初步交流(用中文!!), 不少母语编程的想法有共鸣.
+- 继续编程语言原型实验
+  - [JavaScript实现ZLOGO: 用语法树实现多层循环](https://zhuanlan.zhihu.com/p/32571516). 这个JS实现ZLOGO的系列也许要暂告一段落. 个人仍然对JS实现的在线编程非常有兴趣, 但这个(2D绘制)领域没有什么个人的日常应用, 恐怕中短期内难以持续. 如有兴趣合作/创立相关或类似项目乐于帮忙. 打算重新开始[简单易用的中文编程(脚本)语言原型 · Issue #33 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/33#issuecomment-332085344), 可能从个人常用的文件格式(如csv简单表格文件)的日常处理入手. 期待Scala/Java+Antlr的助力.
+- 继续在现有常用框架中使用中文命名
+  - [FriceEngine试用与API中文化](https://zhuanlan.zhihu.com/p/32242763)
+  - 基于[把最常用的开源的英文API进行中文化 · Issue #9 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/9#issuecomment-354157594), 对PHP通用和专用框架初步试用
+- 开发IDE插件支持根据拼音自动补全(功能参考[这个插件](https://github.com/program-in-chinese/overview/issues/11#issuecomment-320431936), 实现参考[官方文档](https://code.visualstudio.com/docs/extensions/example-language-server#_adding-additional-language-features))
+  - 作为准备工作, 尝试了语法高亮插件: [为新语言编写Visual Studio Code语法高亮插件](https://zhuanlan.zhihu.com/p/32322051). 但开发过程中, 感觉VSC对Language Server相关的示例代码和文档尚不完备, 暂不打算继续. 也许会调研一下Atom等其他框架.
+- 就在前两天，很高兴得知新的开发中文编程工具的项目正在起步. 敬请期待试用文章.
+  - 该项目仍在完善中, 仍持续关注和测试. 一点初步的相关尝试: [手机编程环境初尝试-用AIDE开发Android应用](https://zhuanlan.zhihu.com/p/32313940)
+
+最近几篇文章有幸在其他专栏发布, 希望今后继续互通有无!
