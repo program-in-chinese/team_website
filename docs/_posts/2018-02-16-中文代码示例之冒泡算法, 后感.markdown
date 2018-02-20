@@ -1,0 +1,45 @@
+---
+layout: post
+comments: true
+title:  中文代码示例之冒泡算法, 后感
+description: 以冒泡算法演示代码中的中文命名. Use bubble sort algorithm to illustrate naming identifiers in Chinese.
+date:   2018-02-16 00:00:00 -0700
+categories: 命名 示例
+---
+
+以前探讨过中文命名在业务部分的优势大于算法部分. 今天又一次看到了这个以冒泡算法的例子: [刘然：批判易语言的人是否用过这门语言，批判它的原因又是什么？](https://www.zhihu.com/question/27976378/answer/42457528)有些感触. 先尝试对变量命名进行改进, 来看看是否会有不同观感. **注: 本文不讨论输入效率问题, 也不讨论易语言**
+
+时间太有限, 仅对帖子中的Python程序作粗浅探讨. 另一个易语言语法的例程也有不同方面的改进空间, 就不展开了. 有兴趣/质疑的欢迎提其他例程一同探讨.
+```python
+for i in xrange(len(a)):
+    for j in xrange(i + 1, len(a)):
+        if a[i] > a[j]:
+            a[i], a[j] = a[j], a[i]
+```
+首先, 在嵌套循环中使用i和j的一个问题是, 两者看起来有点像. 下面的视觉区分度更大:
+```python
+for 甲 in xrange(len(a)):
+    for 乙 in xrange(甲 + 1, len(a)):
+        if a[甲] > a[乙]:
+            a[甲], a[乙] = a[乙], a[甲]
+```
+也可以赋予变量名以更多语义, 来凸显变量的某些性质, 如下. 而英文命名想要表达类似语义就要长一些了:
+```python
+for 前 in xrange(len(a)):
+    for 后 in xrange(前 + 1, len(a)):
+        if a[前] > a[后]:
+            a[前], a[后] = a[后], a[前]
+```
+### 后感
+
+中文命名很自然是个考验中文修养的活. 用中文命名的代码可以像天书一样"仅仅是符号", 也可以像好文章一样用词考究恰如其分, 当然更多的(包括在下写的)限于功力或者开发时间限制也许只能达到流水账的水平.
+
+哪里用中文最有效果(对可读性增强最大), 哪里是鸡肋(比如上面的a, 可以改名为"数组", 但效果逊一些, 也许更合适放在注释中), 也与程序的目的/设计/理解非常相关.
+
+相比数理能力, 更大量的编程任务更需要的是逻辑与思辨能力, 这种任务的比重只会越来越大. 而逻辑思辨能力是文理相通的. 与编程相配套的文档编写和阅读也更偏文, 团队建设/客户交流之类软实力更不用说. 相信随着IT产业的逐渐成熟, 文科背景的开发者将会越来越多, 长远看这肯定是好事.
+
+论文[Concise and Consistent Naming: Ten Years Later](http://ieeexplore.ieee.org/document/7181427/)提到:
+
+> Approximately 70% of the source code of a software system consists of identifiers. Hence, the names chosen as identifiers are of paramount importance for the readability of computer programs and therewith their comprehensibility. However, virtually every programming language allows programmers to use almost arbitrary sequences of characters as identifiers which far too often results in more or less meaningless or even misleading naming.
+
+很想看全文(尤其是那个辅助命名工具的十年实践的总结)但下载的pdf里只有摘要. 如果有哪位同学有全文请分享一下, 先谢了.
