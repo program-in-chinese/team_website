@@ -7,6 +7,8 @@ date:   2017-12-11 00:00:00 -0700
 categories: 小结
 ---
 
+原文知乎地址: [中文编程专栏月报：2017年11月](https://zhuanlan.zhihu.com/p/31924222)
+
 之前Github讨论组有[周报](https://github.com/program-in-chinese/team_website/blob/master/docs/%E8%AE%A8%E8%AE%BA%E7%BB%84%E5%91%A8%E6%8A%A5.md)，但效果一般。从周报停更/知乎专栏创建到现在一个月，特此做一小结。也包含了github讨论组以及其他参与的社区/群组的进展。欢迎对今后方向和内容多提意见。
 
 专栏内不少文章和实践是创建之前积累的. 包括这个月的内容, ***很多内容由他人贡献, 或有参与/指导/建议, 请恕在下就不在这里一一点名致谢了***

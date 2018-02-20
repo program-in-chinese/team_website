@@ -7,6 +7,8 @@ date:   2018-02-03 00:00:00 -0700
 categories: 小结
 ---
 
+原文知乎地址: [中文编程专栏月报：2018年1月](https://zhuanlan.zhihu.com/p/33570232)
+
 本月的一大部分是围绕这个话题: [通用型的中文编程语言探讨之一: 高考](https://zhuanlan.zhihu.com/p/32677451). 接着用Antlr4开始了一点语言的原型开发:
 - [Antlr4的分析错误处理](https://zhuanlan.zhihu.com/p/32792684)
 - [Antlr4实现数学四则运算](https://zhuanlan.zhihu.com/p/32864261)
