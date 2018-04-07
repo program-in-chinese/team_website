@@ -1,0 +1,38 @@
+---
+layout: post
+comments: true
+title:  "从人机交互角度看中文编程:'打开微信'"
+description: 越来越多的人机交互使用自然语言, 比如移动设备. 从这个角度看, 中文编程已经非常普及了. Programming in Chinese seems popular already from perspective of human-machine interaction, especially mobile devices.
+date:   2018-03-28 00:00:00 -0700
+categories: 语言设计
+---
+
+前文[通用型的中文编程语言探讨之一: 高考](https://zhuanlan.zhihu.com/p/32677451)是基于现有英文编程语言的一个技术思路. 在[这个回答](https://www.zhihu.com/question/29895778/answer/150111814)以及下面的讨论中, 又提到了编程其实是人机交互的一种形式. 不禁试着跳出程序员视角看这个问题. 
+
+几年前才发现Mozilla的火狐浏览器早在2008年开始了一个叫Ubiquity的项目, 而且根据[这里](https://www.ghacks.net/2008/08/26/mozilla-labs-ubiquity-is-a-firefox-killer-application/)介绍, 它直到最近的火狐浏览器大改才失效. [官网介绍](https://wiki.mozilla.org/Labs/Ubiquity#What_is_Ubiquity.3F)摘选:
+
+> Its purpose was to explore whether a radically different type of interface to the Web — a task-centric, natural-language-based command line — could help us get common Web tasks done faster. 
+
+[用户手册](https://wiki.mozilla.org/Labs/Ubiquity/Ubiquity_0.5_User_Tutorial)中, 有这样的例子:
+
+```
+twitter updating my status with Ubiquity.
+```
+
+```
+translate buenas tardes from spanish to french
+```
+
+它的界面会实时显示"运行"结果, 比如twitter的状态预览, 翻译的结果. 它也可以和浏览器操作结合起来, 比如选中网页的文本/图片后, 运行下面:
+```
+email this to chris
+```
+就可以把选中的内容用email发给某个联系人(看到这里, 想起之前自己的一个[原型设计](https://github.com/program-in-chinese/overview/issues/33#issuecomment-331683386)也许也是受到它的影响而不自知)
+
+很自然地也有[将它国际化的努力](https://groups.google.com/forum/#!forum/ubiquity-i18n). 这个插件一直没有被火狐转正的原因暂没有深究, 但也许和生不逢时有关. 2008年的自然语言交互还刚起步, 如[谷歌](https://baike.baidu.com/item/Google%E8%AF%AD%E9%9F%B3%E6%90%9C%E7%B4%A2/2716575)直到几年之后才有简单自然语言语法的搜索命令. [这里](https://en.wikipedia.org/wiki/Natural-language_user_interface)是更全的自然语言界面的软件/工具/平台列表.
+
+搜索引擎的自然语言界面似乎已经能够解决大多数人的大多数日常的信息搜索问题. 它也提升了人机交互的期望值. 而编程解决的问题和信息搜索差别很大. Ubiquity更接近专用脚本语言系统的范畴, 似乎也更可以借鉴. 更现实的例子是[手机语音功能(最后的系统功能和生活服务部分)](http://tech.sina.com.cn/roll/2017-03-31/doc-ifycwyxr8905389.shtml), 比如"打开微信"(可惜似乎国产语音助手在这方面好像还是短板). 从这个角度来说, **中文编程已经被大量用于日常生活**(`打开微信`和`print("Hello World!")`都是程序吧), 只是不被提及而已. 
+
+个人认为, 通过第三方应用集成手机的系统和应用功能的方式, 中文编程的潜力很大, 别说基本的日常命令还有很大提升空间, 进一步的简单条件/循环语句也可以有很多功能增强(之前的[脑洞](http://www.zhihu.com/pin/933659183945998336)), 而似乎现在的语音助手都不具备这个功能. 类似的服务如[IFTTT](https://ifttt.com/), 虽然只支持`如果...就...不然`的逻辑, 通过集成各种网络服务也有了很多用户.
+
+在浏览器平台上, 个人认为Ubiquity的插件方式还可以继续, 当然需要和移动设备结合. 只是由于和手机隔了一层浏览器API, 在可集成的系统功能上会受限一些, 但优势是可以集成浏览器本身的功能. 当然另一个优势是跨系统平台.
