@@ -7,11 +7,12 @@ date:   2017-12-10 00:00:00 -0700
 categories: 命名 教程
 ---
 
-本文为[](https://zhuanlan.zhihu.com/p/31890243)的[CTS](https://github.com/program-in-chinese/CTS)版本. 它实现了关键词和标准库的所有命名汉化. 本文并未使用附带的vscode相关插件(包括CTS语言插件和拼音输入插件), 与原Typescript教程类似 只用了命令行进行编译.
+本文为[中文代码示例之5分钟入门TypeScript](https://zhuanlan.zhihu.com/p/31890243)的[CTS](https://github.com/program-in-chinese/CTS)版本. 它实现了关键词和标准库的所有命名汉化. 本文并未使用附带的vscode相关插件(包括CTS语言插件和拼音输入插件), 与原Typescript教程类似 只用了命令行进行编译.
 
 过程仍旧基于Typescript官方文档: [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html).
 
 源码在: [program-in-chinese/cts_in_5_min](https://github.com/program-in-chinese/cts_in_5_min)
+
 第一个CTS程序
 ```typescript
 函数 问好(那谁) {
@@ -95,7 +96,6 @@ cts 问好.ts --useUnicodeKeywords
     </body>
 </html>
 ```
-最后一个插曲:
 
 html文件在Chrome中打开显示正确:
 
