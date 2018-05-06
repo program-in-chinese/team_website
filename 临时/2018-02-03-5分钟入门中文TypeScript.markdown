@@ -7,10 +7,12 @@ date:   2017-12-10 00:00:00 -0700
 categories: 命名 教程
 ---
 
-Typescript官方文档起的这个噱头名字: [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html), 虽然光看完文章就不止5分钟...走完整个文档流水账如下(代码编辑器用的是VS Code)
+本文为[](https://zhuanlan.zhihu.com/p/31890243)的[CTS](https://github.com/program-in-chinese/CTS)版本. 它实现了关键词和标准库的所有命名汉化. 本文并未使用附带的vscode相关插件(包括CTS语言插件和拼音输入插件), 与原Typescript教程类似 只用了命令行进行编译.
 
-源码在: [program-in-chinese/typescript_in_5_min_zh](https://github.com/program-in-chinese/typescript_in_5_min_zh)
-第一个TypeScript程序
+过程仍旧基于Typescript官方文档: [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html).
+
+源码在: [program-in-chinese/cts_in_5_min](https://github.com/program-in-chinese/cts_in_5_min)
+第一个CTS程序
 ```typescript
 函数 问好(那谁) {
   返回 "吃了么, " + 那谁;
@@ -18,11 +20,11 @@ Typescript官方文档起的这个噱头名字: [TypeScript in 5 minutes](https:
 
 变量 路人 = "打酱油的";
 
-document.body.innerHTML = 问好(路人);
+文档.体.内部HTML = 问好(路人);
 ```
 运行
 ```
-tsc 问好.ts
+cts 问好.ts --useUnicodeKeywords
 ```
 编译生成"问好.js"文件.
 添加参数类型
@@ -33,7 +35,7 @@ tsc 问好.ts
 ```
 如果'那谁'的类型不符, 比如是数组类型[0,1,2], 编译时会报错, 挺好:
 ```
-问好.ts(7,30): error TS2345: Argument of type '数字[]' is not assignable to parameter of type '文字'.
+问好.ts(7,30): error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
 ```
 添加接口
 ```typescript
@@ -64,8 +66,8 @@ tsc 问好.ts
 ```typescript
 类 学生 {
   全名: 文字;
-  constructor(公开 姓: 文字, 公开 名: 文字) {
-    this.全名 = 姓 + 名;
+  构造(公开 姓: 文字, 公开 名: 文字) {
+    本体.全名 = 姓 + 名;
   }
 }
 
@@ -80,7 +82,7 @@ tsc 问好.ts
 
 变量 路人 = 新建 学生("大", "黄");
 ```
-官方文档说添加class之后编译生成的js文件与没有class的相同, 这里不解, 实验结果是不同的.
+
 运行第一个网络应用
 
 为了检验js文件, 添加HTML文件:
@@ -98,16 +100,3 @@ tsc 问好.ts
 html文件在Chrome中打开显示正确:
 
 > 吃了么, 大黄
-
-但在火狐(Firefox)浏览器中打开时报错:
-```
-The character encoding of the HTML document was not declared. The document will render with garbled text in some browser configurations if the document contains characters from outside the US-ASCII range. The character encoding of the page must be declared in the document or in the transfer protocol.
-%E9%97%AE%E5%A5%BD.html
-```
-将View->TextEncoding从Western改为Unicode后显示正确.
-
-#### 后感:
-
-tsc编译好慢!
-
-TypeScript代码看起来更好理解一点, 编译期的反馈信息对于减少错误很有用.
