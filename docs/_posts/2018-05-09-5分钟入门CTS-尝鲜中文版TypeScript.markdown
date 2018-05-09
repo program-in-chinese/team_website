@@ -1,9 +1,9 @@
 ---
 layout: post
 comments: true
-title:  中文代码示例之5分钟入门TypeScript
-description: 中文编程知乎专栏的月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese", together with other progresses in Github organization and other channels.
-date:   2017-12-10 00:00:00 -0700
+title:  5分钟入门CTS-尝鲜中文版TypeScript
+description: 基于TypeScript官方入门文档, 用中文版TypeScript CTS重写示例代码. Use CTS, TypeScript with Chinese keywords and APIs, to rewrite sample programs in the 5-minute tutorial from official TypeScript language website.
+date:   2018-05-09 00:00:00 -0700
 categories: 命名 教程
 ---
 
@@ -65,7 +65,7 @@ cts 问好.ts --useUnicodeKeywords
 ```
 添加类
 ```typescript
-类 学生 {
+类别 学生 {
   全名: 文字;
   构造(公开 姓: 文字, 公开 名: 文字) {
     本体.全名 = 姓 + 名;

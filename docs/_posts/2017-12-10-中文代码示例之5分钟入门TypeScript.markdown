@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  中文代码示例之5分钟入门TypeScript
-description: 中文编程知乎专栏的月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese", together with other progresses in Github organization and other channels.
+description: 将TypeScript官方入门文档的示例代码进行中文命名. Use Chinese naming in the sample programs in the 5-minute tutorial from official TypeScript language website.
 date:   2017-12-10 00:00:00 -0700
 categories: 命名 教程
 ---

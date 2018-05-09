@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  浅尝The Little Prover一书, 重逢Chez Scheme
-description: 中文编程知乎专栏的2017年12月月度小结, 包括所有在下了解的中文编程相关项目进展. Monthly report of column "Programming in Chinese" for December 2017, together with other progresses in Github organization and other channels.
+description: The Little Prover一书第一章的读后感, 示例代码用中文命名. 另测试Chez Scheme对中文命名的支持. Notes after reading the first chapter of the book 'The Little Prover', with sample programs using Chinese naming. Together with some notes of revisiting Chez Scheme.
 date:   2018-01-04 14:00:00 -0700
 categories: 小结
 ---
