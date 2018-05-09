@@ -36,6 +36,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+lang: "zh"
 future: true
 
 # Exclude from processing.
