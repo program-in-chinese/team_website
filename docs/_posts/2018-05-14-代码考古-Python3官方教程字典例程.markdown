@@ -1,0 +1,47 @@
+---
+layout: post
+comments: true
+title:  代码考古-Python3官方教程字典例程
+description: 研究Python3官方教程中的字典例程的来历. The hidden meaning behind the sample program of Dictionary in Python 3's official tutorial.
+date:   2018-05-14 00:00:00 -0700
+categories: 命名 教程
+---
+
+5. [Data Structures](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)中的第一个例程:
+
+```python
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel['guido'] = 4127
+>>> tel
+{'sape': 4139, 'guido': 4127, 'jack': 4098}
+>>> tel['jack']
+4098
+>>> del tel['sape']
+>>> tel['irv'] = 4127
+>>> tel
+{'guido': 4127, 'irv': 4127, 'jack': 4098}
+>>> list(tel.keys())
+['irv', 'guido', 'jack']
+>>> sorted(tel.keys())
+['guido', 'irv', 'jack']
+>>> 'guido' in tel
+True
+>>> 'jack' not in tel
+False
+```
+
+大多数读者也许都认为这些字符串和数字并没有特别意义. 如果真是这样, 这个例程还不如用 `dict = {'aa': 100, 'bb': 200}` 之类来的一目了然, 省去多余的猜度.
+
+不巧发现"guido"是Python创作者的名字(Guido van Rossum), 就觉得不该这么简单. 根据python源码27年前的commit6fc178f46d40aa068a713b509904d343ee55cfa6, 这个教程中的示例代码是Guido本人编写的. 因此与他1991年8月附近的经历应该有关. 接着找到他的[简历](https://gvanrossum.github.io//Resume.html)中的:
+
+> From 1986 till 1991 I was with the Amoeba project, headed by Sape Mullender
+
+发现Sape也是人名, 基本可以确定是他的同事的名字. 接下去搜到[这里](https://ercim-news.ercim.eu/images/stories/01-18/ERCIM_NEWS_01.pdf)"Open Software Foundation"文末, Sape Mullender的电话是+20-592 4139, 可以印证例程中的变量tel应该指的是当时他们的电话号码后四位.
+
+接着找到[Jack](https://github.com/t-crest/patmos-benchmarks/blob/master/Mediabench/adpcm/src/README)的号码: +31 20 592 4098
+
+另外还找到Guido用过4127这一号码, 也许这是CWI那时的一个多人号码, 如[此文](https://www.researchgate.net/profile/Sjoerd_Mullender/publication/221572613_CMIFed_A_Presentation_Environment_for_Portable_Hypermedia_Documents/links/0046351bae3c3612b6000000.pdf?origin=publication_detail), 就能解释这个代码示例中还有"irv"也映射到了这个号码.
+
+原来, 这是一个**电话簿**. 考虑到Python创造之初, 主要用户都是Guido的同事, 也是当时他写教程的读者, 这个示例代码对于他们来说是很容易理解的. 但随着几十年Python的推广, 它的含义也就被掩埋了.
+
+英文代码风格中不提倡缩写名词挺合理的. 如果原例程中的变量名是phone或者telephone, 也会比tel好理解一些. 字符串的首字母大写也会更易于理解它们是人名. 汉化示例代码时, 打算就用"电话簿"作变量名.
