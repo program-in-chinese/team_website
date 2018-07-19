@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">博文</h1>
+
+  {{ content }}
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        {% assign m = post.date | date: "%-m" %}
+        {% case m %}
+          {% when '1' %}一月
+          {% when '2' %}二月
+          {% when '3' %}三月
+          {% when '4' %}四月
+          {% when '5' %}五月
+          {% when '6' %}六月
+          {% when '7' %}七月
+          {% when '8' %}八月
+          {% when '9' %}九月
+          {% when '10' %}十月
+          {% when '11' %}十一月
+          {% when '12' %}十二月
+        {% endcase %}
+        {% assign date_format = site.minima.date_format | default: "%-d日, %Y" %}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+</div>
