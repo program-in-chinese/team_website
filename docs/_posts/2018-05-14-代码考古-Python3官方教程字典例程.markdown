@@ -7,6 +7,8 @@ date:   2018-05-14 00:00:00 -0700
 categories: 命名 教程
 ---
 
+[知乎原链](http://zhuanlan.zhihu.com/p/36782954)
+
 5. [Data Structures](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)中的第一个例程:
 
 ```python

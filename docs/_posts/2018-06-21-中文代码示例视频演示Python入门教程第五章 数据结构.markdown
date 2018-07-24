@@ -7,6 +7,8 @@ date:   2018-06-21 14:30:00 -0700
 categories: 命名 教程
 ---
 
+[知乎原链](http://zhuanlan.zhihu.com/p/38324987)
+
 续前作: [中文代码示例视频演示Python入门教程第四章 控制流]({{ site.baseurl }}{% link _posts/2018-06-20-中文代码示例视频演示Python入门教程第四章 控制流.markdown %})
 
 ![Python入门chapter5截图]({{ "/assets/2018_06_21_Python3_tutorial_demo_chapter5.png" | absolute_url }})

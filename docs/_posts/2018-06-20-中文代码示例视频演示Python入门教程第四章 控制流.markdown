@@ -7,6 +7,8 @@ date:   2018-06-20 15:00:00 -0700
 categories: 命名 教程
 ---
 
+[知乎原链](http://zhuanlan.zhihu.com/p/38282172)
+
 续前作: [中文代码示例视频演示Python入门教程第三章 简介Python]({{ site.baseurl }}{% link _posts/2018-06-20-中文代码示例视频演示Python入门教程第三章 简介Python.markdown %})
 
 ![Python入门chapter4截图]({{ "/assets/2018_06_20_Python3_tutorial_demo_chapter4.png" | absolute_url }})
