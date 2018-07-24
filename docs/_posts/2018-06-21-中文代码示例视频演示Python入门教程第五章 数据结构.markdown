@@ -1,0 +1,43 @@
+---
+layout: post
+comments: true
+title:  中文代码示例视频演示Python入门教程第五章 数据结构
+description: 参考Python入门教程第五章"数据结构", 用视频演示编写中文命名的示例代码 Demonstrating writing sample codes using Chinese naming based on chapter 5 of Python official tutorial by videos.
+date:   2018-06-21 14:30:00 -0700
+categories: 命名 教程
+---
+
+续前作: [中文代码示例视频演示Python入门教程第四章 控制流]({{ site.baseurl }}{% link _posts/2018-06-20-中文代码示例视频演示Python入门教程第四章 控制流.markdown %})
+
+![Python入门chapter5截图]({{ "/assets/2018_06_21_Python3_tutorial_demo_chapter5.png" | absolute_url }})
+
+对应在线文档: [5. Data Structures](https://nobodxbodon.github.io/py36zh/tutorial/datastructures.html)
+
+这一章起初还是采取了尽量与原例程相近的汉化方式, 但有些语义较偏(如Trondheim的hammer dance). 鉴于这一教程的目的在于使人尽量快速入门Python, 而任何不熟悉的词汇都会加上不必要的负担. 于是最终决定不拘泥于与原例程的"形似", 而采取在例程中使用更为国人熟知的词汇了.
+
+[中文代码示例Python入门教程 5.1 列表详述_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25310662/)
+
+[中文代码示例Python入门教程 5.1.1 用列表实现栈_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25311440/)
+
+[中文代码示例Python入门教程 5.1.2 用列表实现队列_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25311476/)
+
+[中文代码示例Python入门教程 5.1.3 列表构成_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25413003/)
+
+[中文代码示例Python入门教程 5.1.4 嵌套列表构成_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25472396/)
+
+[中文代码示例Python入门教程 5.2 del(删除)语句_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25472682/)
+
+[中文代码示例Python入门教程 5.3 元组和序列_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25539736/)
+
+[中文代码示例Python入门教程 5.4 集合_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25483088/)
+
+[中文代码示例Python入门教程 5.5 字典_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25545567/)
+
+[中文代码示例Python入门教程 5.6 循环方法_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25545662/)
+
+[中文代码示例Python入门教程 5.7 更多条件判断_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25545713/)
+
+[中文代码示例Python入门教程 5.8 比较序列和其他类型_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25545719/)
+
+
+如前文所述, 这一系列在此章结束.
