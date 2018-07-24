@@ -9,7 +9,7 @@ categories: 命名 教程
 
 Python 3.6.5官方入门教程中示例代码汉化后演示
 
-![zlogo螺旋演示截图]({{ "/assets/2018_06_20_Python3_tutorial_demo_chapter3.png" | absolute_url }})
+![Python入门chapter3截图]({{ "/assets/2018_06_20_Python3_tutorial_demo_chapter3.png" | absolute_url }})
 
 对应在线文档: [3. An Informal Introduction to Python](https://nobodxbodon.github.io/py36zh/tutorial/introduction.html)
 
@@ -25,7 +25,7 @@ Python 3.6.5官方入门教程中示例代码汉化后演示
 
 [中文代码示例Python入门教程 3.2_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/video/av24369366/)
 
-汉化示例代码进行到第五章后, 感觉官方文档的示例与Python创始人的渊源过深(如[代码考古-Python3官方教程字典例程](({{ site.baseurl }}{% link _posts/2018-05-14-代码考古-Python3官方教程字典例程.markdown %}))). 更希望另行编写一些更有中文特色的教程. 此视频系列也打算在完成第五章后停止. 几个目的:
+汉化示例代码进行到第五章后, 感觉官方文档的示例与Python创始人的渊源过深(如[代码考古-Python3官方教程字典例程]({{ site.baseurl }}{% link _posts/2018-05-14-代码考古-Python3官方教程字典例程.markdown %})). 更希望另行编写一些更有中文特色的教程. 此视频系列也打算在完成第五章后停止. 几个目的:
 
 - 自审核汉化的代码. 视频录制过程中发现了不少第一次的错漏之处
 - 更多体会中文代码在Python环境中的交互

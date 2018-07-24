@@ -1,0 +1,44 @@
+---
+layout: post
+comments: true
+title:  中文代码示例视频演示Python入门教程第四章 控制流
+description: 参考Python入门教程第四章"控制流", 用视频演示编写中文命名的示例代码 Demonstrating writing sample codes using Chinese naming based on chapter 4 of Python official tutorial by videos.
+date:   2018-06-20 15:00:00 -0700
+categories: 命名 教程
+---
+
+续前作: [中文代码示例视频演示Python入门教程第三章 简介Python]({{ site.baseurl }}{% link _posts/2018-06-20-中文代码示例视频演示Python入门教程第三章 简介Python.markdown %})
+
+![Python入门chapter4截图]({{ "/assets/2018_06_20_Python3_tutorial_demo_chapter4.png" | absolute_url }})
+
+对应在线文档: [4. More Control Flow Tools](https://nobodxbodon.github.io/py36zh/tutorial/controlflow.html)
+
+录制中出了不少岔子. 另外, 输入法确实是一个短板.
+
+[中文代码示例Python入门教程 4.1 if条件语句 & 4.2 for语句_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25104003/)
+
+[中文代码示例Python入门教程 4.3 range函数_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25105631/)
+
+[中文代码示例Python入门教程 4.4 break, continue, 循环中的else_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25107598/)
+
+[中文代码示例Python入门教程 4.5 pass语句_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25108269/)
+
+[中文代码示例Python入门教程 4.6 定义函数_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25108790/)
+
+[中文代码示例Python入门教程 4.7.1 定义函数 - 默认参数值_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25116844/)
+
+[中文代码示例Python入门教程 4.7.2 定义函数 - 关键词参数 第一部分_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25179680/)
+
+[中文代码示例Python入门教程 4.7.2 定义函数 - 关键词参数 第二部分_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25226395/)
+
+[中文代码示例Python入门教程 4.7.3 定义函数 - 任意参数列表_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25253896/)
+
+[中文代码示例Python入门教程 4.7.4 定义函数 - 展开参数列表_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25254525/)
+
+[中文代码示例Python入门教程 4.7.5 定义函数 - Lambda表达式_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25255163/)
+
+[中文代码示例Python入门教程 4.7.6 定义函数 - 文档字符串_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25255734/)
+
+[中文代码示例Python入门教程 4.7.7 定义函数 - 函数注解_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av25255789/)
+
+
