@@ -1,0 +1,65 @@
+---
+layout: post
+comments: true
+title:  '"西游记"主题Python入门示例尝试-数据结构 5.1-5.1.2'
+description: 参考Python入门教程第五章"数据结构"中的有关列表的几个示例代码进行命名中文化. Change some sample programs about List in chapter 5 of Python 3 official tutorial, to use Chinese naming.
+date:   2018-06-29 00:00:00 -0700
+categories: 命名 教程
+---
+
+(见前: [中文代码示例视频演示Python入门第五章 数据结构]({{ site.baseurl }}{% link _posts/2018-06-21-中文代码示例视频演示Python入门教程第五章 数据结构.markdown %})) 仍然基于官方文档, 欢迎建议(尤其是如何取材).
+
+[5. Data Structures - More on Lists 列表详述](https://nobodxbodon.github.io/py36zh/tutorial/datastructures.html#more-on-lists)
+```python
+>>> 人物 = ['佛', '妖', '凡人', '菩萨', '妖', '凡人']
+>>> 人物.count('妖')
+2
+>>> 人物.count('圣人')
+0
+>>> 人物.index('凡人')
+2
+>>> 人物.index('凡人', 4)        # 从位置4开始搜索下一个凡人
+5
+>>> 人物.reverse()
+>>> 人物
+['凡人', '妖', '菩萨', '凡人', '妖', '佛']
+>>> 人物.append('仙')
+>>> 人物
+['凡人', '妖', '菩萨', '凡人', '妖', '佛', '仙']
+>>> 人物.sort()                # 按照编码排序, 详见5.8
+>>> 人物
+['仙', '佛', '凡人', '凡人', '妖', '妖', '菩萨']
+>>> 人物.pop()
+'菩萨'
+```
+
+[5. Data Structures - Using Lists as Stacks 用列表实现栈](https://nobodxbodon.github.io/py36zh/tutorial/datastructures.html#using-lists-as-stacks)
+```python
+>>> 取经队伍 = ['唐僧', '孙悟空']
+>>> 取经队伍.append('猪悟能')
+>>> 取经队伍.append('沙悟净')
+>>> 取经队伍
+['唐僧', '孙悟空', '猪悟能', '沙悟净']
+>>> 取经队伍.pop()
+'沙悟净'
+>>> 取经队伍
+['唐僧', '孙悟空', '猪悟能']
+>>> 取经队伍.pop()
+'猪悟能'
+>>> 取经队伍.pop()
+'孙悟空'
+>>> 取经队伍
+['唐僧']
+```
+[5. Data Structures - Using Lists as Queues 用列表实现队列](https://nobodxbodon.github.io/py36zh/tutorial/datastructures.html#using-lists-as-queues)
+```python
+>>> 围剿大圣 = deque(['巨灵神', '哪吒',  '四大天王'])
+>>> 围剿大圣.append('二郎神')          # 二郎神来了
+>>> 围剿大圣.append('太上老君')        # 太上老君来了
+>>> 围剿大圣.popleft()               # 最先到的离开了
+'巨灵神'
+>>> 围剿大圣.popleft()               # 第二个到的离开了
+'哪吒'
+>>> 围剿大圣                         # 按照到达顺序的剩余队列
+deque(['四大天王', '二郎神', '太上老君'])
+```

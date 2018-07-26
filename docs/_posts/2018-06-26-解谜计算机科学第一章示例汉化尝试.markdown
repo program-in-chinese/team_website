@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  解谜计算机科学第一章示例汉化尝试
-description: 对解谜计算机科学第一章中的示例代码进行命名中文化. Change demo programs in chapter 1 of the ebook "Demystify Computing Science".
+description: 对解谜计算机科学第一章中的示例代码进行命名中文化. Change demo programs in chapter 1 of the ebook "Demystify Computing Science" to use Chinese naming.
 date:   2018-06-26 14:30:00 -0700
 categories: 命名 教程
 ---
