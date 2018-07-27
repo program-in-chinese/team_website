@@ -15,7 +15,8 @@ categories: 小结
 
 - 在英文编程语言中使用中文命名开发项目:
   - Java: https://github.com/program-in-chinese/jinxiaocun, https://github.com/program-in-chinese/assembler-in-chinese-experiment
-  - Javascript: https://github.com/program-in-chinese/HistoryInThreads_WebExtension
+  - JavaScript: https://github.com/program-in-chinese/HistoryInThreads_WebExtension
+  - Kotlin
   - Python: 包括https://github.com/i3thuan5/tai5-uan5_gian5-gi2_kang1-ku7
 - 开发中文API:
   - Java: hl4a-core, junit4_in_cn, https://github.com/program-in-chinese/zhconverter
@@ -26,9 +27,16 @@ categories: 小结
 
 ### 语言设计
 
-- 基于现有英文编程语言, 进行关键词汉化的讨论与实践(汉化Python/C, CTS等)
-- 新创中文语法的编程语言. 设计, 原型与实践(无空格设计, Z语言等)
+- 基于现有英文编程语言, 进行关键词汉化的讨论与实践
+  - CTS以及相关插件项目等
+  - 汉化C/Python
+- 新创中文语法的编程语言. 设计, 原型与实践
+  - Agda原生实现中文语法
+  - Z语言
+  - 无空格设计
 
 ### 讨论
 
 待添加
+
+### 小结与展望
