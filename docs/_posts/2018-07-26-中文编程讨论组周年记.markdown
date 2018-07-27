@@ -7,4 +7,28 @@ date:   2018-07-26 00:00:00 -0700
 categories: 小结
 ---
 
-欢迎各位提交commit/意见, 共同完成此文.
+**下面为逐渐完善的草稿. 欢迎各位提交commit/意见, 共同完成此文**
+
+下面是一年来组员参与, 整理, 开发的相关项目和讨论.
+
+### 命名实践
+
+- 在英文编程语言中使用中文命名开发项目:
+  - Java: https://github.com/program-in-chinese/jinxiaocun, https://github.com/program-in-chinese/assembler-in-chinese-experiment
+  - Javascript: https://github.com/program-in-chinese/HistoryInThreads_WebExtension
+  - Python: 包括https://github.com/i3thuan5/tai5-uan5_gian5-gi2_kang1-ku7
+- 开发中文API:
+  - Java: hl4a-core, junit4_in_cn, https://github.com/program-in-chinese/zhconverter
+  - TypeScript: CTS
+- 探讨并尝试在入门教程的示例代码中使用中文命名
+  - Java: https://github.com/program-in-chinese/java_in_hours_chn
+  - Python
+
+### 语言设计
+
+- 基于现有英文编程语言, 进行关键词汉化的讨论与实践(汉化Python/C, CTS等)
+- 新创中文语法的编程语言. 设计, 原型与实践(无空格设计, Z语言等)
+
+### 讨论
+
+待添加
