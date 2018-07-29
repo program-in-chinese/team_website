@@ -13,7 +13,7 @@ categories: 小结
 
 ### 命名实践
 
-- 在英文编程语言中使用中文命名开发项目:
+- 在英文编程语言/框架中使用中文命名开发项目:
   - Java: https://github.com/program-in-chinese/jinxiaocun, https://github.com/program-in-chinese/assembler-in-chinese-experiment
   - JavaScript: https://github.com/program-in-chinese/HistoryInThreads_WebExtension
   - Kotlin
@@ -40,3 +40,5 @@ categories: 小结
 待添加
 
 ### 小结与展望
+
+不积跬步无以至千里
