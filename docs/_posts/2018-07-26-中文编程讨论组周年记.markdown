@@ -4,10 +4,8 @@ comments: true
 title:  中文编程讨论组周年记
 description: 中文编程讨论组自2017年7月末成立, 收获良多, 在此作一回顾和展望. The "Programming in Chinese" discussion group is one year old. Happy birthday to ourselves. Looking forward to more success in the future.
 date:   2018-07-26 00:00:00 -0700
-categories: 小结
+categories: 小结 年度
 ---
-
-**下面为逐渐完善的草稿. 欢迎各位提交commit/意见, 共同完成此文**
 
 [中文编程讨论组](https://github.com/program-in-chinese)自2017年7月末成立, 收获良多. 在此作一回顾和展望.
 
