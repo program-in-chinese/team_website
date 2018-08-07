@@ -1,0 +1,72 @@
+---
+layout: post
+comments: true
+title:   为Chrome和火狐浏览器编写扩展
+description: 为Chrome和火狐浏览器编写一个简单的扩展, 使用中文命名. Use Chinese naming when developing a simple extension for Chrome/Firefox.
+date:   2018-07-10 00:00:00 -0700
+categories: 命名 教程
+---
+
+由于扩展标准的逐渐一致, 现在同一扩展代码库已经有可能同时用于Chrome和火狐. 下面是一个简单的工具栏按钮和弹窗(尚无任何实际功能):
+
+代码库地址: [nobodxbodon/suan1](https://github.com/nobodxbodon/suan1)
+
+所有代码:
+
+manifest.json:
+```json
+{
+
+  "manifest_version": 2,
+  "name": "算一",
+  "version": "0.0.1",
+
+  "description": "工具栏按钮, 弹窗中包含计算器",
+  "homepage_url": "https://github.com/nobodxbodon/suan1",
+  "icons": {
+    "48": "图标/算-48.png",
+    "96": "图标/算-96.png"
+  },
+
+  "permissions": [],
+
+  "browser_action": {
+    "default_icon": "图标/算-32.png",
+    "default_title": "算一",
+    "default_popup": "弹窗/主界面.html"
+  }
+
+}
+```
+弹窗/主界面.html
+```html
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="主界面.css"/>
+  </head>
+
+<body>
+  <div class="按钮">你好</div>
+  <script src="主界面.js"></script>
+</body>
+
+</html>
+```
+弹窗/主界面.css
+```css
+html, body {
+  width: 100px;
+}
+
+.按钮 {
+  margin: 3% auto;
+  padding: 4px;
+  text-align: center;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+```
+待续...

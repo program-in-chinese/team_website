@@ -13,6 +13,7 @@ categories: 命名
 
 关键词为英文的编程语言对中文代码的支持(字母排序)
 
+[Agda](https://zhuanlan.zhihu.com/p/34805891),
 [C](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.c),
 [C++](https://github.com/program-in-chinese/overview/blob/master/示例代码/问好.cpp),
 [C#](https://github.com/program-in-chinese/overview/blob/master/示例代码/大家好.cs),
@@ -24,7 +25,7 @@ categories: 命名
 [Java](https://github.com/program-in-chinese/overview/blob/master/示例代码/大家好.java),
 [JavaScript](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.js),
 [Kotlin](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.kt),
-MySQL,
+[MySQL](https://github.com/program-in-chinese/jinxiaocun/blob/master/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93schema.sql),
 [Objective-C](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.m),
 [Perl](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.pl),
 [PHP](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.php),
@@ -33,7 +34,8 @@ MySQL,
 [Ruby](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.rb),
 [Scala](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.scala),
 [Sqlite3](https://github.com/program-in-chinese/overview/blob/master/示例代码/sqlite脚本),
-[Swfit](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift)
+[Swfit](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift),
+[VBA](https://zhuanlan.zhihu.com/p/41432021)
 
 上面仅为测试证实过的编程语言版本。更早版本和其他语言很可能已经支持. [Unicode strings - Rosetta Code](http://rosettacode.org/wiki/Unicode_strings)列出了更多编程语言对Unicode的支持程度, 可以逐个检验.
 
