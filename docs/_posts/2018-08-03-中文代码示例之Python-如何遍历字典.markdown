@@ -1,0 +1,64 @@
+---
+layout: post
+comments: true
+title:  中文代码示例之Python-如何遍历字典
+description: 对mkyong的Python教程进行例程中文化. Change sample programs in the Python tutorial on Dictionary from mkyong.com, to use Chinese naming.
+date:   2018-08-03 00:00:00 -0700
+categories: 命名 教程
+---
+
+此系列之后将参考一些最常用功能的在线教程/示例程序, 进行示例代码的中文化改进. 欢迎推荐有代表性和实用性的教程, 篇幅小更佳. 谢谢.
+
+参考[Python - How to loop a dictionary](https://www.mkyong.com/python/python-how-to-loop-a-dictionary/)
+
+下面将介绍如何在Python中遍历一个字典
+#### 1. for 键 in 字典:
+
+1.1 对字典中所有的键进行遍历 - for 键 in 字典:
+```python
+for 键 in 字典:
+    print(键)
+```
+1.2 遍历字典中所有的键和对应值 - for 键, 值 in 字典.items():
+```python
+for 键, 值 in 字典.items():
+    print(键, 值)
+```
+注: items()在Python2和3都可用
+#### 2. 实例演示:
+
+字典测试.py:
+```python
+def 主程序():
+    股票 = {
+        '航天机电': 3.88,
+        '航天动力': 9.05,
+        '航天电子': 6.50
+    }
+
+    # 打印所有键
+    for 名称 in 股票:
+        print(名称)
+    
+    # 打印键, 对应值
+    for 名称, 股价 in 股票.items():
+        print("名称: {0}, 股价: {1}".format(名称, 股价))
+    
+if __name__ == '__main__':
+    主程序()
+```
+运行结果:
+```
+$ python 字典测试.py 
+航天机电
+航天动力
+航天电子
+名称: 航天机电, 股价: 3.88
+名称: 航天动力, 股价: 9.05
+名称: 航天电子, 股价: 6.5
+```
+注: Python3.6.5下测试通过. 直接的中文命名在Python3开始支持.
+
+参考:
+
+[5. Data Structures](https://nobodxbodon.github.io/py36zh/tutorial/datastructures.html#dictionaries)
