@@ -1,0 +1,45 @@
+---
+layout: post
+comments: true
+title:  在代码中进行中文命名(类/变量/方法等)的优势
+description: 相比英文命名, 一些中文命名的优势. Some advantages with Chinese naming compared to English naming.
+date:   2018-07-19 00:00:00 -0700
+categories: 命名
+---
+
+最初的专栏文章[对在代码中使用中文命名的质疑与回应](https://zhuanlan.zhihu.com/p/30529835)是对一些常见质疑的批驳, 至今未见更有理的反面声音. 鉴于最近看到一些对中文命名进行负面暗示各种带节奏的网文(见[最近一波对中文编程(包括中文命名)的攻势](https://zhuanlan.zhihu.com/p/40099718)), 实在难以置之不理.
+
+此文尝试小结一些比起英文命名更方便之处. 注意这是在明确的母语优势([对在代码中使用中文命名的质疑与回应](https://zhuanlan.zhihu.com/p/30529835)"没有好处"一节)基础上额外的优势:
+#### 一. 不需要驼峰命名法或者下划线分隔
+
+之前看到过有人问"中文命名怎么用驼峰命名法?". 答案是, 不用, 因为根本就不需要. 原因很简单, 中文语言本身就不用空格分隔. 带来的好处是, 中文命名和中文自然语言更加接近. 比较如下:
+
+英文变量名: "weaponOfMonkeyKing" 或者 "weapon_of_monkey_king"
+
+对应自然语言: "weapon of the Monkey King"
+
+中文变量名: "孙悟空的武器" 对应自然语言完全相同
+
+#### 二. 单字变量视觉混淆更少
+
+Python创始人亲自编写的Python命名规范[PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/#names-to-avoid)就直接指出需要避免使用单字母的'l', 'O', 'I'(猜猜第一个还是第三个是大写i?)进行命名:
+
+> Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names.
+In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use 'l', use 'L' instead.
+
+另外还有i, j在两层循环中容易混淆等等, 而中文单字(如'甲', '乙', '丙', '丁'等等)没有这样的问题
+
+#### 三. 中文单复数模糊性更符合语义
+
+摘自[中英文代码对比系列之Java一例](https://zhuanlan.zhihu.com/p/30905033):
+
+> flaggedCells是个List, 它用复数命名的意思是”可能包含多个格”. 而实际上这个变量可能只包含一个格. 中文中的名词不分单复数, 正好符合”这个变量有可能含有单个或多个元素”这个语义. 因此命名为被标的格感觉可行. 假如语义需要强调有多个(不可能只有单个或没有), 可以考虑加上修饰如多个前缀等等.
+
+#### 四. 单字命名有更多选择, 也更可读
+
+承蒙评论中指出, 单字命名在英文命名中确实常见. [Is the use of one-letter variables encouraged?](https://softwareengineering.stackexchange.com/questions/285288/is-the-use-of-one-letter-variables-encouraged/285293#285293)总结的比较全面, 还加了不少双字母的.
+
+由于英文字母总共26个, 加上大写也很有限. 以至于有些字母有几种用法, 比如k: 1) 在循环中表示变量 2) 在表中表示键. 而单字中文的选择就多的多了. 比如(肯定有更合适的, 待集思广益): index-位/索/引, file-档, key-键(循环变量用'甲乙丙丁'之类, 就不会有上面的k的两种用法问题), value-值. 而这些中文单字比起对应的英文字母来, 明显更可读. 比较: i-位/索/引, f-档, k-键, v-值
+
+
+欢迎补充.
