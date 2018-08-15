@@ -1,0 +1,81 @@
+---
+layout: post
+comments: true
+title:  对DLL库中的接口进行中文命名
+description: 基于官方文档, 将DLL库的接口进行中文命名. Based on official tutorial, name API in DLL library in Chinese.
+date:   2018-07-30 00:00:00 -0700
+categories: 命名 C++
+---
+
+补注: 此文是在探究[在Windows上编写DLL时不能使用中文命名 · Issue #74 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/74)问题时编写的演示用代码, 代码基于官方文档. 正如
+@farter yang
+在评论中指出的, 对已广泛应用的数学操作符进行的中文命名意义不如带有丰富语义的业务部分代码.
+
+源码库: [program-in-chinese/MathLibraryAndClient_with_API_in_Chinese](https://github.com/program-in-chinese/MathLibraryAndClient_with_API_in_Chinese)
+
+参考微软官方文档: [Walkthrough: Creating and Using a Dynamic Link Library (C++)](https://msdn.microsoft.com/en-us/library/ms235636.aspx)
+
+对库, 类, 接口名进行了中文命名, 成功编译并运行:
+
+![2018_02_04_AppleScript语法示例]({{ "/assets/2018_07_30_dll_with_api_in_chinese.png" | absolute_url }})
+
+主要相关源码如下:
+
+数学库.h文件:
+```c++
+#pragma once  
+
+#ifdef 数学库导出
+#define 数学库接口 __declspec(dllexport)   
+#else  
+#define 数学库接口 __declspec(dllimport)   
+#endif  
+
+namespace 数学库
+{
+	class 函数
+	{
+	public:
+		static 数学库接口 double 加(double a, double b);
+	};
+}
+```
+数学库.cpp文件:
+```c++
+#include "stdafx.h"  
+#include "数学库.h"  
+
+namespace 数学库
+{
+	double 函数::加(double a, double b)
+	{
+		return a + b;
+	}
+}
+```
+数学小学生.cpp文件:
+```c++
+#include "stdafx.h"  
+#include <iostream>  
+#include "数学库.h"  
+
+using namespace std;
+
+int main()
+{
+	double a = 1;
+	int b = 2;
+
+	cout << a << "加" << b << "=" <<
+		数学库::函数::加(a, b) << endl;
+
+	return 0;
+}
+```
+开发环境:
+
+VS community 2017, v15.7.5
+
+Windows 7 pro sp1
+
+如发现中文命名产生问题请留言. 谢谢.
