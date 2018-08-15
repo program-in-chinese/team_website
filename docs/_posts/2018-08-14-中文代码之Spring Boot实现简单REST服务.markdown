@@ -74,7 +74,7 @@ public class 词条 {
 ```
 $ mvn package && java -jar target/programming-term-dictionary-0.1.0.jar --server.port=8090
 ```
-在本地(客户端)访问:
+在本地(客户端)访问, 或直接在浏览器访问http://74.91.17.250:8090/?term=List:
 ```
 $ curl 74.91.17.250:8090?term=List
 {"id":3,"中文术语":"列表"}
