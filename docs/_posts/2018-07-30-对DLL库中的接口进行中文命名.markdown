@@ -17,7 +17,7 @@ categories: 命名 C++
 
 对库, 类, 接口名进行了中文命名, 成功编译并运行:
 
-![2018_02_04_AppleScript语法示例]({{ "/assets/2018_07_30_dll_with_api_in_chinese.png" | absolute_url }})
+![2018_07_30_dll_with_api_in_chinese]({{ "/assets/2018_07_30_dll_with_api_in_chinese.png" | absolute_url }})
 
 主要相关源码如下:
 
