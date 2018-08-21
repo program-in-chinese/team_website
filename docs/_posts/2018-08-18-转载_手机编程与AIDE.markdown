@@ -1,0 +1,155 @@
+---
+layout: post
+comments: true
+title:  "[转载]手机编程与AIDE"
+description: AIDE在Android手机环境中开发的诀窍, 各种问题与解决. Tips and tricks for developing in AIDE on Android phone.
+date:   2018-08-18 00:00:00 -0700
+categories: 命名 移动开发
+---
+
+***转载者注: 原文对AIDE开发作了详细介绍, 并提及它对非英文/ASCII码的支持问题. 相信对前文[手机编程环境初尝试-用AIDE开发Android应用](https://zhuanlan.zhihu.com/p/32313940)有兴趣的会是好参考资料. 另外, "jar内非英文字符类/方法都无法使用"指的是中文命名的类/方法生成的jar包无法在AIDE中被引用, 并非AIDE中开发本身不能使用中文命名.***
+
+
+原文: [手机编程与aide - MikaGuraNTK](https://kurumi.io/java/mobile-programming.html)
+
+注 : 文中提到的AIDE均为 3.2.180419汉化版 不讨论其他版本
+点此下载
+
+***本文可能需要java基础 一般通过退散***
+
+aide提供了一个类似android studio的开发环境 支持eclipse/gradle的项目格式
+
+但是只是兼容 并不是真正的gradle
+
+- 不支持除compile以外的引用
+- 不支持java7以外的语言
+- 不支持直接引用aar
+- jar内非英文字符类/方法都无法使用
+- apk内包含非英文文件都会签名失败
+- 不支持注解工厂不支持
+- gradle plugin一些奇怪的bug
+
+
+#### 快速开始 :
+
+1.进入AIDE 打开文件目录
+2.选择新建项目 -> 新建AndroidApp
+3.输入包名与应用名 创建应用
+4.点击右上角播放按钮编译
+
+默认实例包含一个Activity,一个布局xml与一些无用文件.
+
+一些坑 :
+
+
+#### 代码没有保存
+
+不知道为啥有时候不会自动保存，这就要改一个设置，在 设置/编辑器/自动保存 改成15秒，这样离开软件会自动保存(不是指15秒)，否则离开软件可能不会自动保存。
+也就是说，不管什么15秒，开启了这个设置，只要不是闪退，应用一到后台就会把当前未保存的代码全部保存。
+
+
+#### m2rep是什么？怎么用？
+
+这是google提供的android suppert工具包的集合，(包含在 android sdk)
+
+通常到http://dl.google.com(注意国内可以访问)下载，旧版的aide和idea android studio等使用android support库都需要配置(但是新版aide不用，看下面)
+我们通常到东软的开源镜像站下载，比较快，贴一下地址 :
+http://mirrors.neusoft.edu.cn/android/repository/android_m2repository_r47.zip
+这是一个zip文件，300多m，解压后在aide配置 设置/构建 运行/Maven仓库目录配置
+
+本文开头提供的aide可以直接下载android support的单个依赖库了，不需要m2rep了
+
+
+#### aide的dexer优化和progurad
+
+dexer优化没什么明显作用，但是他说能优化速度，那就开。
+
+progurad呢，这个不是aide自带的功能,是贴吧大神添加的功能,需要在设置开启
+而且必须项目下必须配置proguard-rules.pro
+以下是必须写的内容，否则报错
+```
+-dontnote **
+-dontwarn **
+
+-keepclasseswithmembernames class * {
+native <methods>;
+}
+
+-keepclassmembers enum * {
+public static **[] values();
+public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+public static final android.os.Parcelable$Creator *;
+}
+
+-keepclassmembers class * implements java.io.Serializable {
+static final long serialVersionUID;
+private static final java.io.ObjectStreamField[] serialPersistentFields;
+private void writeObject(java.io.ObjectOutputStream);
+private void readObject(java.io.ObjectInputStream);
+java.lang.Object writeReplace();
+java.lang.Object readResolve();
+}
+
+
+-keepnames class * implements android.os.Parcelable {
+public static final ** CREATOR;
+}
+```
+
+#### 关于aide的分支
+
+release和debug和aide-debug的区别。
+
+release发布版 aide里收不到日志，最稳定。
+
+debug版 aide可以收到应用的日志，但是有时候安装完了aide还开着的话应用更新后第一次启动会闪退，当时我以为自己软件有问题还找了好久的bug，结果是aide的问题。
+
+aide-debug是aide用来打断点的版本，关于断点请自行百度。打断点之后应用会很大，而且有时候运行会闪退。
+
+aide断点版本的应用启动时会请求aide，看起来像白屏一样，如果很久没反应请手动打开aide。
+
+
+#### 有时候改了代码编译了还是原来那样/删除了build文件夹 aide重新编译不编译类了。
+
+是aide抽风了。
+
+选择 更多/项目/构建刷新 重新编译你的项目即可。
+
+aide编译项目速度和你手机配置相关。
+
+
+#### 编译之后没有跳出安装怎么回事
+
+抽风了 自己打开安装包安装
+
+
+#### android support aide编译不通过
+
+可能是版本太高了，aide不支持，我推荐把版本换成23.0.1就行了。
+
+
+#### aide 子项目
+
+引用同目录下依赖项目 :
+
+compile project (":文件夹名")
+
+同样可以引用父目录下的:
+
+compile project (":../文件夹名")
+
+但是只能在aide这么用,真正的gradle是不能这么用的
+
+
+#### assets不支持非ascii字符
+
+这是一些apk签名工具的bug，而并不是assets里的文件不能用中文和其他字符。
+aide就有这个bug，但android studio 、 idea等电脑ide都没有这个bug
+
+
+#### apk编译后保存在哪
+
+sdcard/Android/data/com.aide.ui/files/cache/apk
