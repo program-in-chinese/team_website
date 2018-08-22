@@ -4,7 +4,7 @@ comments: true
 title:  Java关键字的汉化用词探讨
 description: 讨论Java关键词的中文对应词语该如何选择. Discuss word choices for keywords in Chinese version for Java programming language.
 date:   2017-12-26 00:00:00 -0700
-categories: 命名
+categories: 语言设计 汉化关键词
 ---
 
 [@狗屎咖啡](http://www.zhihu.com/people/8ebc8963b1a27b83df99bdac20faf3a9) 的[为GCC添加中文关键字项目](https://zhuanlan.zhihu.com/p/31376652)对C关键词进行了汉化. 风格比较简约, 如'if'-如, 'else'-另. 个人感觉在中文编程语言尚未成熟之时, 不妨集思广益, 首先列出一些可选项, 然后从中选出一套或几套风格比较统一的. 这里列出了一些之前归纳的选项.
