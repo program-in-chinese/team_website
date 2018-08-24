@@ -1,4 +1,4 @@
-[CodeinChinese](http://codeinchinese.com/)网站源码. 欢迎提交PR
+[Code](http://codeinchinese.com/)[in](http://xn--9nz12f.xn--2sx.xyz/)[Chinese](http://codeinchinese.com/)网站源码. 欢迎提交PR
 
 安装[Jekyll](https://jekyllrb.com/)后, 在目录下本地运行:
 ```
