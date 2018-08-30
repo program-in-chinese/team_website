@@ -1,0 +1,34 @@
+---
+layout: post
+comments: true
+title:  为中文API的简繁转换库添加迟到的持续集成
+description: 为中文Java库项目添加Travis持续集成. Add Travis continuous integration for the Chinese API project.
+date:   2018-08-22 00:00:00 -0700
+categories: 命名 API
+---
+
+前两天在V2EX偶遇反馈帖[第一次见以汉字命名的 Java 类 - V2EX](https://www.v2ex.com/t/480623), 于是复习了一下半年多没碰的项目[program-in-chinese/zhconverter](https://github.com/program-in-chinese/zhconverter).
+
+前文介绍了发布过程: [在Maven Central发布中文API的Java库](https://zhuanlan.zhihu.com/p/28024364). 发现没有持续(测试)集成(下图顶上的绿块), 特此加上.
+
+![2018-08-22-travisCI_zhconverter]({{ "/assets/2018-08-22-travisCI_zhconverter.png" | absolute_url }})
+
+之前在另一个项目设置过但未成文: [设置CI - Set up continuous integration to automatically test your code · Issue #10 · program-in-chinese/junit4_in_chinese](https://github.com/program-in-chinese/junit4_in_chinese/issues/10)
+
+参考: [Getting started - Travis CI](https://docs.travis-ci.com/user/getting-started/). 首先用collaborator之一(权限需为admin)的github账号登录Travis.org
+
+之前把.*文件都排除在git版本控制之外了(导致.travis.yml不能提交), 于是用[gitignore.io](https://www.gitignore.io/)重新生成.gitignore文件(https://www.gitignore.io/api/java,maven,macos,eclipse)
+
+由于Ubuntu版本Trusty相比Precise, 支持了jdk9, 于是用它作为运行平台, 并且跳过gpg构建部分(见前文maven库发布, 本地才可发布gpg的公开秘钥).
+
+.travis.yml如下:
+
+```yaml
+language: java
+install: mvn install -Dmaven.javadoc.skip=true -Dgpg.skip=true -B -V
+jdk:
+  - oraclejdk9
+  - oraclejdk8
+dist: trusty
+```
+最后在项目首页上添加集成状态图标. 参考: [Embedding Status Images](https://docs.travis-ci.com/user/status-images/). 如果构建与测试通过, 状态会显示绿色"通过".
