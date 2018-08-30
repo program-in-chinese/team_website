@@ -1,0 +1,122 @@
+---
+layout: post
+comments: true
+title:  中文关键词替换体验页面原型
+description: 实现一个原型, 通过对实用例程的关键词替换, 体验各种中文关键词的可读性. Create a prototype, by replacing keywords in real-world sample programs, to feel the readability of Chinese keywords.
+date:   2018-08-21 00:00:00 -0700
+categories: 语言设计 汉化关键词
+---
+
+源自: [中文化 类C编程语言 需要什么样的关键字? · Issue #40 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/40#issuecomment-414745085). 原型为纯前端, 本地浏览器运行效果如下:
+
+![2018-08-21-关键词替换演示]({{ "/assets/2018-08-21-关键词替换演示.png" | absolute_url }})
+
+关键词选取的讨论已经不少, 往往都有各人偏好的风格. 这个原型旨在通过实验各种用词在实际代码中的效果, 使讨论更接近实用. 也许在完善后也可用来演示其他风格的中文编程语言设计.
+
+源码库在: [program-in-chinese/demo_keyword_design_by_code](https://github.com/program-in-chinese/demo_keyword_design_by_code)
+
+代码选自[program-in-chinese/team_website](https://github.com/program-in-chinese/team_website/blob/master/docs/_posts/2018-02-16-%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8B%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%2C%20%E5%90%8E%E6%84%9F.markdown) ([中文代码示例之冒泡算法, 后感](https://zhuanlan.zhihu.com/p/33850923)), 代码块的HTML代码是直接截取了jekyll转换后的HTML源码, 高亮也是利用了jekyll的自带css.
+
+原型中其他的源码如下
+#### 主界面.html
+
+主要内容是三块
+
+1. 原始代码 - 使用英文关键词的代码
+2. 替换关键词后的代码 - 根据关键词词典, 对所有相关关键词进行替换后生成的代码
+3. 关键词修改表 - 显示所有关键词的对应中文, 进行修改后可以即时看到代码替换后的效果
+
+```html
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+<span>原代码</span>
+<div id = "原代码">
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="err">前</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+  <span class="k">for</span> <span class="err">后</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="err">前</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="err">前</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">[</span><span class="err">后</span><span class="p">]:</span>
+          <span class="n">a</span><span class="p">[</span><span class="err">前</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="err">后</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="err">后</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="err">前</span><span class="p">]</span>
+</code></pre></div></div>
+</div>
+
+<span>替换后代码</span>
+<div id = "替换后代码">
+</div>
+
+<div id = "替换表">
+
+</div>
+<script src="词替换.js"></script>
+</body>
+</html>
+```
+
+#### 词替换.js
+
+初始时有默认的关键词词典(为演示之用只加了三个, 欢迎提交添加/修改, 最好实现多套关键词可选). 页面加载时, 按照这个默认词典对"原代码"中的代码进行关键词替换, 并按每个关键词一行动态生成"替换表"可供用户手动修改.
+
+```javascript
+var 关键词词典 = {
+  'for': '对于',
+  'in': '在',
+  'if': '如果'
+};
+
+function 替换所有关键词() {
+  var 原代码拷贝 = document.getElementById("原代码").children[0].cloneNode(true);
+  var 字段列表 = 原代码拷贝.getElementsByTagName('span');
+  for (var i = 0; i < 字段列表.length; i++) {
+    var 字段内容 = 字段列表[i].textContent;
+    var 对应中文词 = 关键词词典[字段内容];
+    if (对应中文词) {
+      字段列表[i].textContent = 对应中文词;
+    }
+  }
+
+  var 替换代码块 = document.getElementById("替换后代码");
+  if (替换代码块.children.length == 1) {
+    替换代码块.removeChild(替换代码块.children[0]);
+  }
+  替换代码块.appendChild(原代码拷贝);
+
+}
+
+// <div><span>for</span><input type="text" name="for替换" value="对于"></div>
+function 创建替换词条(原词文本, 替换文本) {
+  var 词条 = document.createElement("div");
+
+  var 原词 = document.createElement('span');
+  原词.textContent = 原词文本;
+
+  var 替换 = document.createElement('input');
+  var 替换输入框名 = 原词文本 + '替换';
+  替换.type = 'text';
+  替换.name = 替换输入框名;
+  替换.value = 替换文本;
+
+  词条.appendChild(原词);
+  词条.appendChild(替换);
+  return 词条;
+}
+
+function 取输入监听函数(关键词) {
+  return function() {
+    关键词词典[关键词] = document.getElementsByName(关键词 + '替换')[0].value;
+    替换所有关键词();
+  };
+}
+
+替换所有关键词();
+
+var 替换表 = document.getElementById("替换表");
+for(var 关键词 in 关键词词典) {
+  替换表.appendChild(创建替换词条(关键词, 关键词词典[关键词]));
+
+  var 替换输入框名 = 关键词 + '替换';
+  document.getElementsByName(替换输入框名)[0].addEventListener('input', 取输入监听函数(关键词));
+
+}
+```
+欢迎添加新例程, 尤其是较短自成一体的中文命名的例程.
