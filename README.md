@@ -9,3 +9,17 @@ $ bundle exec jekyll serve
 ```
 $ rvm install ruby
 ```
+
+如报错:
+```
+$ bundle exec jekyll serve
+
+
+$ bundle exec jekyll serve
+Could not find public_suffix-3.0.0 in any of the sources
+Run `bundle install` to install missing gems.
+```
+解决方法:
+```
+$ gem install jekyll bundler
+```
