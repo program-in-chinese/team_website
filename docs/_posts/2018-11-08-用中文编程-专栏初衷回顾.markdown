@@ -1,0 +1,44 @@
+---
+layout: post
+comments: true
+title:  用中文编程-专栏初衷回顾
+description: 在中文编程知乎专栏创立一周年之际, 对专栏初衷作回顾与修订. Revised goals for the "Programming in Chinese" column after one year.
+date:   2018-11-08 00:00:00 -0700
+categories: 小结
+---
+
+一年前编写了[中文编程专栏目录, 初衷和希冀](https://zhuanlan.zhihu.com/p/30882225), 一路上各种实践与讨论. 现将专栏内容覆盖范围重新归纳.
+
+如"中文编程"字面所言, 所有使用中文进行程序编写的理论和实践都在覆盖范围. 下面两部分相辅相成:
+
+### 中文命名
+命名包括类/接口名, 变/常量, 方法名, 数据库中的表/列名, HTML中的ID名等等所有可以使用Unicode命名的部分.
+- 在编写新代码时使用中文命名
+- 对现有英文命名的代码特别是API进行中文化
+
+### 中文语法编程语言及开发环境(IDE)
+- 创建新的编程语言
+- 包括汉化现有编程语言与核心库
+- 开发相应的IDE支持
+
+为支持上述实践, 需要相关的工具开发, 比如对现有代码进行中文化的辅助工具, IDE对中文输入的辅助功能等等. 
+
+希望认识对中文编程任何方面有兴趣和经验的同好, 为推进中文编程的实践, 交流, 推广和市场化群策群力. 望各位多多进言, 踊跃投稿!
+
+此文开始, 今后的部分文章将发表在Medium的[中文编程栏目](https://medium.com/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B). 此前一年的部分文章将以合辑的形式进行总结. 鉴于多数Medium用户为英文用户, 特此编写英文摘要:
+
+#### Abstract
+
+The Zhihu column [中文编程](https://zhuanlan.zhihu.com/c_140193266) is one year old, and here is a revision of our goals.
+
+This publication "Programming in Chinese" aims at both naming in Chinese and Chinese-based programming languages.
+
+Naming in Chinese includes writing new code with Chinese naming and converting existing code with English naming to Chinese naming, especially APIs. 
+
+Chinese-based programming languages similarly include creating new programming languages and translating existing language syntax & SDKs to Chinese, plus corresponding IDE support.
+
+There need to be tools to support practices above, including assistant for translating existing code, IDE features to support Chinese input, etc.
+
+Looking forward to knowing anyone who's interested in any way!
+
+In the future part of the articles of the [中文编程](https://zhuanlan.zhihu.com/c_140193266) column will be re-posted here.
