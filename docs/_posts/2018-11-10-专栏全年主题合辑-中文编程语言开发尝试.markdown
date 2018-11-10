@@ -1,0 +1,37 @@
+---
+layout: post
+comments: true
+title:  专栏全年主题合辑-中文编程语言开发尝试
+description: 在中文编程知乎专栏创立一周年之际, 对中文编程语言的实验性开发作回顾小结. Summary of creating Chinese-based programming language one year after starting "Programming in Chinese" column.
+date:   2018-11-10 00:00:00 -0700
+categories: 小结 编程语言
+---
+
+对自研中文编程语言的尝试也许始于[2015年](https://zhuanlan.zhihu.com/p/27537616)对CoffeeScript的部分关键词汉化和[Java实现的汇编语言编译器](https://zhuanlan.zhihu.com/p/32607169)的开发. [2017年10月那场请求C#提供汉化版的讨论](https://zhuanlan.zhihu.com/p/30726527)也给了更多的动力. 之后对[开源非英文关键词编程语言](https://zhuanlan.zhihu.com/c_140193266)进行了一些调研, 尤其对日语编程语言"抚子"进行了较深入的学习:
+- [日语编程语言"抚子" - 第三版特色初探](https://zhuanlan.zhihu.com/p/30800689)
+- [日语编程语言"抚子"-第三版实现初探](https://zhuanlan.zhihu.com/p/32273857)
+
+期间认识到[国人创造中文编程语言的优势](https://zhuanlan.zhihu.com/p/31162122), 并整理了[对中文语法的编程语言的质疑与回应](https://zhuanlan.zhihu.com/p/31389042). 之后的实验编程语言以"圈"命名, 第一个尝试是[编程语言试验之Antlr4+Java实现"圈2"](https://zhuanlan.zhihu.com/p/31429800). 接下来是对[中文编程语言之Z语言初尝试: ZLOGO 4](https://zhuanlan.zhihu.com/p/31505895), 此文后的数十回合回复应该是专栏建立之后第一次也是仅有的一次在专栏内进行的公开热烈讨论. 在此讨论的激励下, 进行了[中英文代码对比之ZLOGO 4 & LOGO](https://zhuanlan.zhihu.com/p/31620122), 并开始了基于JavaScript并可以在线运行的编程语言开发--"圈3", 它也是个人最接近实用的一个语言工具:
+
+- 作为原型的[编程语言试验之Antlr4+JavaScript实现"圈4"](https://zhuanlan.zhihu.com/p/31644101)
+- [JavaScript实现ZLOGO子集: 前进+转向](https://zhuanlan.zhihu.com/p/31748014)
+- [JavaScript实现ZLOGO子集: 单层循环功能](https://zhuanlan.zhihu.com/p/31785790)
+- [JavaScript实现ZLOGO子集: 测试用例](https://zhuanlan.zhihu.com/p/31870155)
+- [JavaScript实现ZLOGO: 用语法树实现多层循环](https://zhuanlan.zhihu.com/p/32571516)
+- 相关的[为新语言编写Visual Studio Code语法高亮插件](https://zhuanlan.zhihu.com/p/32322051)
+
+虽然LOGO是个潜在的编程启蒙工具, 但效果毕竟不如现今的[Scratch等等开发环境](https://zhuanlan.zhihu.com/p/33650956). 结合之前对中文语法的编程语言和相应IDE功能特色的讨论起草了[通用型的中文编程语言探讨之一: 高考](https://zhuanlan.zhihu.com/p/32677451), 并进行了一个更实用编程语言原型的尝试--"圈5":
+
+- [Antlr4的分析错误处理](https://zhuanlan.zhihu.com/p/32792684)
+- [Antlr4实现数学四则运算](https://zhuanlan.zhihu.com/p/32864261)
+- [Antlr4添加中文变量赋求值,括号,各种问题](https://zhuanlan.zhihu.com/p/32896571)
+- [Antlr4: 修改语法规则更接近普通BNF格式](https://zhuanlan.zhihu.com/p/32939695)
+- [Antlr4实现简单语言之整数比较表达式](https://zhuanlan.zhihu.com/p/33047128)
+- [Antlr4实现简单语言之条件语句](https://zhuanlan.zhihu.com/p/33871431)
+
+也对其他的编程语言开发方法作了尝试:
+
+- [Xtext试用: 快速实现简单领域专用语言(DSL)](https://zhuanlan.zhihu.com/p/33047136)
+- [Xtext试用: 5步实现一个(中文)JVM语言](https://zhuanlan.zhihu.com/p/33047136)
+
+期间发现[AppleScript类自然语言与非英语语法设计](https://zhuanlan.zhihu.com/p/33587884)早有对日语语法的支持. 在2018年3月意识到了[中文编程已经被大量用于日常生活](https://zhuanlan.zhihu.com/p/35058489), 也更倾向于基于实际用途开发特定领域的中文语法编程语言. 而在用途明晰之前(两周前的[初步尝试将传统学科的内容程序/数据化](https://zhuanlan.zhihu.com/p/47807062)也许是个好方向, 希望能够早日开始), [暂不进行更多这个方向的尝试](https://zhuanlan.zhihu.com/p/34161534). 2018年4月之后回归对中文命名的关注和相关实践.
