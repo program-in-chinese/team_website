@@ -7,6 +7,8 @@ date:   2018-11-10 00:00:00 -0700
 categories: 小结 编程语言
 ---
 
+**注: 本文仅对个人尝试作一小结, 专栏中其他作者的尝试还望各自总结**
+
 对自研中文编程语言的尝试也许始于[2015年](https://zhuanlan.zhihu.com/p/27537616)对CoffeeScript的部分关键词汉化和[Java实现的汇编语言编译器](https://zhuanlan.zhihu.com/p/32607169)的开发. [2017年10月那场请求C#提供汉化版的讨论](https://zhuanlan.zhihu.com/p/30726527)也给了更多的动力. 之后对[开源非英文关键词编程语言](https://zhuanlan.zhihu.com/c_140193266)进行了一些调研, 尤其对日语编程语言"抚子"进行了较深入的学习:
 - [日语编程语言"抚子" - 第三版特色初探](https://zhuanlan.zhihu.com/p/30800689)
 - [日语编程语言"抚子"-第三版实现初探](https://zhuanlan.zhihu.com/p/32273857)
