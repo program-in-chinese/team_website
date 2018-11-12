@@ -10,6 +10,7 @@ categories: 小结 命名
 **注: 本文仅对个人亲自参与的尝试作一小结, 专栏中其他作者的尝试还望各自总结. 文中所有例子都尽量使用了中文命名**
 
 一些对中文命名的早期实践:
+
 - [2015年](https://zhuanlan.zhihu.com/p/27537616)对JDK中接口的中文化尝试
 - 2016年的[Spring Boot 1.3.3演示](https://zhuanlan.zhihu.com/p/31417833)尝试了前后端中文命名
 - 2017年开始[Java实现的汇编语言编译器](https://zhuanlan.zhihu.com/p/32607169)
@@ -32,11 +33,13 @@ categories: 小结 命名
 - [中文编程兴起的可能途径](https://zhuanlan.zhihu.com/p/31466218)
 
 对在线编程对中文命名的支持初步调研:
+
 - [在LeetCode中的解答中使用中文命名](https://zhuanlan.zhihu.com/p/31524460)
 - [向LeetCode报告编译信息中Unicode显示问题](https://zhuanlan.zhihu.com/p/31546359)
 - [在线编程网站对中文代码的支持](https://zhuanlan.zhihu.com/p/31554512)
 
 之后重心转向自研编程语言, 也进行了一些相关项目的中文命名尝试:
+
 - [编写Visual Studio Code插件初尝试](https://zhuanlan.zhihu.com/p/31710107)
 - [中文代码示例之5分钟入门TypeScript](https://zhuanlan.zhihu.com/p/31890243), 此文与GitHub讨论组内成员对TypeScript进行中文化有关, 半年后有了[5分钟入门CTS-尝鲜中文版TypeScript](https://zhuanlan.zhihu.com/p/36559989)
 - [FriceEngine试用与API中文化](https://zhuanlan.zhihu.com/p/32242763)也是与组内成员项目的交流尝试
@@ -46,6 +49,7 @@ categories: 小结 命名
 - 尝试了一些短示例演示中文命名, 如[中文代码示例之冒泡算法, 后感](https://zhuanlan.zhihu.com/p/33850923), [中文代码示例[译]Scala中创建隐式函数](https://zhuanlan.zhihu.com/p/33861930), 并在[项目/教程中使用母语命名的"问题"](https://zhuanlan.zhihu.com/p/33993440)中进行了一些反思.
 
 在2个月后的2018年4月, 开始对Python官方入门文档的示例代码进行中文命名:
+
 - [搭建Python官方文档翻译环境-汉化示例代码](https://zhuanlan.zhihu.com/p/36200420)
 - [中文代码示例视频演示Python入门教程第三章 简介Python](https://zhuanlan.zhihu.com/p/37674681)
 - [中文代码示例视频演示Python入门教程第四章 控制流](https://zhuanlan.zhihu.com/p/38282172)
@@ -54,6 +58,7 @@ categories: 小结 命名
 原本是打算至少完成入门部分, 但过程中逐渐发现原教程示例的局限性, 如[代码考古-Python3官方教程字典例程](https://zhuanlan.zhihu.com/p/36782954), 认为花精力在自己编写教程上也许更值得. 就有了["西游记"主题Python入门示例尝试-数据结构 5.1-5.1.2](https://zhuanlan.zhihu.com/p/38653108). 也尝试对国人原创教程中的示例进行中文化: [解谜计算机科学第一章示例汉化尝试](https://zhuanlan.zhihu.com/p/38514754)
 
 接下来是一段比较嘈杂的时期, [为Chrome和火狐浏览器编写扩展](https://zhuanlan.zhihu.com/p/39425449)应该是为在插件中实现计算/编程工具做的技术复习. 此时发现了一系列针对中文编程/命名的软文:
+
 - [最近一波对中文编程(包括中文命名)的攻势](https://zhuanlan.zhihu.com/p/40099718)
 - [万马齐喑究可哀-中文编程的又一波"讨论"](https://zhuanlan.zhihu.com/p/40068451)
 - 后来的[又见套路:如果计算机是用中文编程,你能成为计算机编程专家吗？](https://zhuanlan.zhihu.com/p/40611223).
