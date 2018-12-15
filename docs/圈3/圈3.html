@@ -1,27 +1,33 @@
 <html>
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js"></script>
+    <!--https://cdnjs.com/libraries/p5.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
     <script src="p5js中文.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
     <!-- https://stackoverflow.com/a/26077148/1536803 不然需要ready判断 -->
     <script src="圈3.js" defer></script>
+    <link href="圈3.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <textarea id="输入代码">
-开始
-  循环4次
-    循环4次
-      前进50
-      左转90度
-    到此为止
-  右转90度
-  到此为止
-结束</textarea>
-    <button onclick="分析(document.getElementById('输入代码').value)">运行</button>
-    <span id="调试输出"></span>
+      <button class="运行" onclick="分析(document.getElementById('输入代码').value)">运行</button>
+      <span id="调试输出"></span>
 
+      <textarea id="输入代码">
+  开始
+    循环4次
+      循环4次
+        前进100
+        左转90度
+      到此为止
+    右转90度
+    到此为止
+  结束</textarea>
+    <!--<img src="图标/蚂蚁头向上.png" alt="蚂蚁" height="18" width="17">-->
     <script>
     构图 = function() {
-      新画布(1000, 800);
+      var 画布 = 新画布(1000, 800);
+      // TODO: 设置后输入框越上界
+      //画布.position(0, 20);
     }
     </script>
     <span id="调试输出"></span>

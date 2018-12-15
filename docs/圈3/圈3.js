@@ -396,7 +396,7 @@ var fs = isNodeJs ? require("fs") : null;
 var CharStreams = {
   // Creates an InputStream from a string.
   fromString: function(str) {
-    return InputStream(str, true);
+    return new InputStream(str, true);
   },
 
   // Asynchronously creates an InputStream from a blob given the
@@ -408,7 +408,7 @@ var CharStreams = {
   fromBlob: function(blob, encoding, onLoad, onError) {
     var reader = FileReader();
     reader.onload = function(e) {
-      var is = InputStream(e.target.result, true);
+      var is = new InputStream(e.target.result, true);
       onLoad(is);
     };
     reader.onerror = onError;
@@ -419,7 +419,7 @@ var CharStreams = {
   // encoding of the bytes in that buffer (defaults to 'utf8' if
   // encoding is null).
   fromBuffer: function(buffer, encoding) {
-    return InputStream(buffer.toString(encoding), true);
+    return new InputStream(buffer.toString(encoding), true);
   },
 
   // Asynchronously creates an InputStream from a file on disk given
@@ -431,7 +431,7 @@ var CharStreams = {
     fs.readFile(path, encoding, function(err, data) {
       var is = null;
       if (data !== null) {
-        is = InputStream(data, true);
+        is = new InputStream(data, true);
       }
       callback(err, is);
     });
@@ -442,7 +442,7 @@ var CharStreams = {
   // 'utf8' if encoding is null).
   fromPathSync: function(path, encoding) {
     var data = fs.readFileSync(path, encoding);
-    return InputStream(data, true);
+    return new InputStream(data, true);
   }
 };
 
@@ -3321,7 +3321,7 @@ Recognizer.ruleIndexMapCache = {};
 
 
 Recognizer.prototype.checkVersion = function(toolVersion) {
-    var runtimeVersion = "4.7";
+    var runtimeVersion = "4.7.1";
     if (runtimeVersion!==toolVersion) {
         console.log("ANTLR runtime and generated code versions disagree: "+runtimeVersion+"!="+toolVersion);
     }
@@ -4162,11 +4162,11 @@ DoubleDict.prototype.set = function (a, b, o) {
 
 
 function escapeWhitespace(s, escapeSpaces) {
-    s = s.replace("\t", "\\t");
-    s = s.replace("\n", "\\n");
-    s = s.replace("\r", "\\r");
+    s = s.replace(/\t/g, "\\t")
+         .replace(/\n/g, "\\n")
+         .replace(/\r/g, "\\r");
     if (escapeSpaces) {
-        s = s.replace(" ", "\u00B7");
+        s = s.replace(/ /g, "\u00B7");
     }
     return s;
 }
@@ -4205,6 +4205,7 @@ exports.escapeWhitespace = escapeWhitespace;
 exports.arrayToString = arrayToString;
 exports.titleCase = titleCase;
 exports.equalArrays = equalArrays;
+
 },{}],17:[function(require,module,exports){
 /* Copyright (c) 2012-2017 The ANTLR Project. All rights reserved.
  * Use of this file is governed by the BSD 3-clause license that
@@ -4950,7 +4951,7 @@ ATNDeserializer.prototype.deserialize = function(data) {
 ATNDeserializer.prototype.reset = function(data) {
 	var adjust = function(c) {
         var v = c.charCodeAt(0);
-        return v>1  ? v-2 : -1;
+        return v>1  ? v-2 : v + 65533;
 	};
     var temp = data.split("").map(adjust);
     // don't adjust the first value since that's the version number
@@ -10958,7 +10959,7 @@ DefaultErrorStrategy.prototype.reportNoViableAlternative = function(recognizer, 
         if (e.startToken.type===Token.EOF) {
             input = "<EOF>";
         } else {
-            input = tokens.getText(new Interval(e.startToken, e.offendingToken));
+            input = tokens.getText(new Interval(e.startToken.tokenIndex, e.offendingToken.tokenIndex));
         }
     } else {
         input = "<unknown input>";
@@ -11445,6 +11446,7 @@ BailErrorStrategy.prototype.sync = function(recognizer) {
 
 exports.BailErrorStrategy = BailErrorStrategy;
 exports.DefaultErrorStrategy = DefaultErrorStrategy;
+
 },{"./../IntervalSet":7,"./../Token":15,"./../atn/ATNState":23,"./Errors":40}],40:[function(require,module,exports){
 /* Copyright (c) 2012-2017 The ANTLR Project. All rights reserved.
  * Use of this file is governed by the BSD 3-clause license that
@@ -12929,6 +12931,8 @@ const 定制访问器 = require("./定制访问器.js")
 const 生成路径表 = require("./语法树处理").生成路径表
 const 生成指令序列 = require("./语法树处理").生成指令序列
 
+var 指示方向图 = null;
+
 // TODO: 需改进-现为全局, 由于browserify
 分析 = function(代码) {
   重置状态();
@@ -12947,9 +12951,15 @@ const 生成指令序列 = require("./语法树处理").生成指令序列
   var 指令序列 = 生成指令序列(语法树);
   var 路径表 = 生成路径表(指令序列, 原点, 初始前进角度);
 
+  if (!指示方向图) {
+    指示方向图 = createImg("图标/蚂蚁头向上.png")
+    指示方向图.size(36, 34);
+  }
+
   // TODO: 提取到二阶函数
   绘制 = function() {
     var 当前序号 = 序号;
+    const 速度 = 2;
     background(255, 255, 255);
 
     for (var i = 0; i < 路径表.length; i++ ) {
@@ -12957,16 +12967,20 @@ const 生成指令序列 = require("./语法树处理").生成指令序列
       var 起点 = 段.起点;
       var 终点 = 段.终点;
       var 距离 = 段.长度;
-      if (当前序号 < 距离) {
-        line(起点.x, 起点.y, 起点.x + (终点.x - 起点.x) * 当前序号 / 距离, 起点.y + (终点.y - 起点.y) * 当前序号 / 距离);
+      if (当前序号 < 距离 / 速度) {
+        var 当前x = 起点.x + (终点.x - 起点.x) * 当前序号 * 速度 / 距离;
+        var 当前y = 起点.y + (终点.y - 起点.y) * 当前序号 * 速度 / 距离;
+        指示方向图.position(当前x + 238, 当前y - 8); // TODO: 需要对准线头
+        指示方向图.style("transform", "rotate(" + (90 - 段.前进角度) + "deg)")
+        line(起点.x, 起点.y, 当前x, 当前y);
         break;
       } else {
         line(起点.x, 起点.y, 终点.x, 终点.y);
-        当前序号 = 当前序号 - 段.长度;
+        当前序号 = 当前序号 - 段.长度 / 速度;
       }
     }
     
-    序号 ++;
+    序号 += 速度;
   }
   return 访问器;
 }
@@ -13011,8 +13025,8 @@ function 生成指令序列(节点) {
 
 // 根据指令序列, 生成路径分段描述(段起止点坐标, 颜色等等)
 // 如: 前进50, 左转90度, 前进50 应返回:
-// [{起点: {x: 200, y: 200}, 终点: {x: 200, y: 150}, 长度: 50},
-// {起点: {x: 200, y: 150}, 终点: {x: 150, y: 150}, 长度: 50}]
+// [{起点: {x: 200, y: 200}, 终点: {x: 200, y: 150}, 长度: 50, 前进角度: 90},
+// {起点: {x: 200, y: 150}, 终点: {x: 150, y: 150}, 长度: 50, 前进角度: 180}]
 function 生成路径表(指令序列, 原点, 前进角度) {
   // 段: {起点: {x, y}, 终点: {x, y}, 长度, 颜色}
   var 路径表 = [];
@@ -13027,6 +13041,7 @@ function 生成路径表(指令序列, 原点, 前进角度) {
       var y增量 = Math.sin(前进角度 * Math.PI / 180);
       段.终点 = {x: 起点.x + x增量 * 距离, y: 起点.y - y增量 * 距离};
       段.长度 = 距离;
+      段.前进角度 = 前进角度;
       路径表.push(段);
 
       起点 = 段.终点;

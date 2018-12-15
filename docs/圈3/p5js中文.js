@@ -178,10 +178,10 @@ function 鼠标被按() {}
 // 其他
 
 function 新画布(宽, 高) {
-	createCanvas(宽, 高);
+	return createCanvas(宽, 高);
 }
 
 // 模式为P2D或者WEBGL
 function 新画布(宽, 高, 模式) {
-	createCanvas(宽, 高, 模式);
+	return createCanvas(宽, 高, 模式);
 }
