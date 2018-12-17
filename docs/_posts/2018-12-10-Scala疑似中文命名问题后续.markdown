@@ -1,0 +1,61 @@
+---
+layout: post
+comments: true
+title:  Scala疑似中文命名问题后续
+description: 对一个中文命名的问题进行调查后的小结. Some investigation for the issue with Chinese naming found earlier.
+date:   2018-12-10 00:00:00 -0700
+categories: 命名 Scala
+---
+
+上文[疑似bug_中文代码示例之Programming in Scala笔记第九十章](https://zhuanlan.zhihu.com/p/51998712)的问题, 正要在scala源码项目报告bug, 决定先在gitter的scala频道确认一下问题性质. 颇有收获, 小结如下.
+
+[发问](https://gitter.im/scala/scala?at=5c0e70f228907a3c7bf9add7)之后, 很快就有社区成员发现`行`字似乎是被认作了大写字符.
+
+前文的例子是:
+```
+scala> for ((行1, 行2) <- Array(1,2) zip Array("a", "b"))
+     | yield 行1 + 行2
+<console>:12: error: not found: value 行1
+       for ((行1, 行2) <- Array(1,2) zip Array("a", "b"))
+             ^
+<console>:12: error: not found: value 行2
+       for ((行1, 行2) <- Array(1,2) zip Array("a", "b"))
+                 ^
+<console>:13: error: not found: value 行1
+       yield 行1 + 行2
+             ^
+<console>:13: error: not found: value 行2
+       yield 行1 + 行2
+                  ^
+```
+
+自己试了如果改为下面的英文大写开头会报同样错误, 因此并非中文字符特有问题:
+```scala
+for ((Line1, Line2) <- Array(1,2) zip Array("a", "b"))
+yield Line1 + Line2
+```
+
+接着一位scala源码贡献者指出用于模式匹配的varid必须是小写或下划线开头. 有两种解决方法:
+```scala
+// 添加下划线前缀
+for ((_行1, _行2) <- Array(1,2) zip Array("a", "b")) yield _行1 + _行2
+
+// 用@ _
+for ((行1 @ _, 行2 @ _) <- Array(1,2) zip Array("a", "b")) yield 行1 + 行2
+```
+
+(他还指出了一个[相关bug](https://github.com/scala/bug/issues/9324), 但未深究)
+
+第二种方法允许所有标识符用于模式匹配, 而不限于varid. 他还立刻为此更新了[scala语法文档](https://github.com/scala/scala/commit/d6a1ad4111d171ab772c4ae673daf6e7afb2cf45#diff-c8e624cc1c3f2c72e46c4aa19e51b694L195)
+
+为何`行`字符貌似被认作了大写字符呢? 因为[scala语法](https://www.scala-lang.org/files/archive/spec/2.13/01-lexical-syntax.html)规定小写字符是Unicode字符集的"Ll"区间:
+
+> Letters, which include lower case letters (Ll), upper case letters (Lu), titlecase letters (Lt), other letters (Lo), letter numerals (Nl) and the two characters \u0024 ‘$’ and \u005F ‘_’.
+
+而Unicode字符[Ll部分](https://www.fileformat.info/info/unicode/category/Ll/list.htm)并未包含中文字符.
+
+至此, 基本确定这个问题并非中文命名特有问题, 也不是bug. 在这种模式匹配用法时必须使用小写字符开头的确是个限制, 但至少有不大麻烦的解决方案.
+
+----------------------
+
+发现那位源码贡献者刚又给出了一个2013年scala语言作者对模式匹配和大写字符的考虑: [链接](https://groups.google.com/forum/#!msg/scala-internals/qwa_XOw_7Ks/IktkeTBYqg0J)
