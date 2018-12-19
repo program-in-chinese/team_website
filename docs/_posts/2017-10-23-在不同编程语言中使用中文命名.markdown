@@ -29,12 +29,13 @@ categories: 命名
 [Objective-C](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.m),
 [Perl](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.pl),
 [PHP](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.php),
+[PowerShell](https://www.v2ex.com/t/481876),
 [Python 3](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.py),
 [R](https://github.com/dushoff/Generation_distributions/blob/master/chinese.R),
 [Ruby](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.rb),
 [Scala](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.scala),
 [Sqlite3](https://github.com/program-in-chinese/overview/blob/master/示例代码/sqlite脚本),
-[Swfit](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift),
+[Swift](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift),
 [VBA](https://zhuanlan.zhihu.com/p/41432021)
 
 上面仅为测试证实过的编程语言版本。更早版本和其他语言很可能已经支持. [Unicode strings - Rosetta Code](http://rosettacode.org/wiki/Unicode_strings)列出了更多编程语言对Unicode的支持程度, 可以逐个检验.
