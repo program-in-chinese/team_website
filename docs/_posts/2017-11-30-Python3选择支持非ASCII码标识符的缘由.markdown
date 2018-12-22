@@ -9,6 +9,8 @@ categories: 命名
 
 原文在: [PEP 3131 -- Supporting Non-ASCII Identifiers](https://www.python.org/dev/peps/pep-3131/).
 
+Python2并不支持非ASCII码标识符. PEP的全称是Python Enhancement Proposal, 即Python增强提案. 这个3131提案创建于2007年5月. Python3于2008年12月发布.
+
 Rationale一节开篇明义, 指出***用母语命名标识符对代码清晰度和可维护性的提高***.
 
 > Python code is written by many people in the world who are not
