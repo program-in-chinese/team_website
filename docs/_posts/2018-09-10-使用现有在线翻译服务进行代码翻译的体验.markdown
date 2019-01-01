@@ -1,0 +1,194 @@
+---
+layout: post
+comments: true
+title:  使用现有在线翻译服务进行代码翻译的体验
+description: 使用谷歌, 百度, 有道等在线翻译服务对代码进行翻译并比较效果. Use online translation service, including Google, baidu, youdao, etc. to translate source code and compare results.
+date:   2018-09-10 00:00:00 -0700
+categories: 命名 翻译
+---
+
+前文浏览器插件实现GitHub代码翻译原型演示之后, 意识到现有在线翻译服务已经具备部分设想的功能.
+
+第一个测试, 选了一个很小的[Python入门例程](https://github.com/swaroopch/byte-of-python/blob/master/programs/oop_simplestclass.py):
+```python
+class Person:
+    pass  # An empty block
+
+p = Person()
+print(p)
+```
+谷歌翻译:
+```
+班级人物：
+     传递＃空块
+
+p =人（）
+打印（P）
+```
+百度翻译:
+```
+类人：
+传递空块
+
+P=个人（）
+打印（P）
+```
+有道翻译:
+```
+类人:
+传递一个空块
+p =人()
+打印(p)
+```
+搜狗翻译:
+```
+阶级人士:
+传递#一个空块
+p =人( )
+印刷(印刷)
+```
+可以看出, 谷歌翻译是唯一一个保全原有代码格式的. 而其他的都删除了缩进, 甚至空行和特殊字符(#). 这会很大影响代码可读性, 对Python来说也直接影响语义.
+
+第二个测试, 也是很小的[Java入门例程](https://github.com/raoufaghrout/head-first-java/blob/master/Chapter07/src/main/java/com/headfirstjava/chapterseven/boats/Boat.java):
+```java
+package com.headfirstjava.chapterseven.boats;
+
+public class Boat {
+
+    private int length;
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int len) {
+        length = len;
+    }
+
+    public void move() {
+        System.out.print("Drift! ");
+    }
+}
+```
+谷歌:
+```
+package com.headfirstjava.chapterseven.boats;
+
+公共舱船{
+
+     private int length;
+
+     public int getLength（）{
+         返回长度;
+    }
+
+     public void setLength（int len）{
+         长度= len;
+    }
+
+     public void move（）{
+         System.out.print（“Drift！”）;
+    }
+}
+```
+它的翻译较为保守, 没有翻译很多与自然语言相差很大的代码行. 这也导致一处'length'变量名没有翻译.
+
+百度:
+```
+包装件。
+公务舱船
+私有int长度；
+Puint int GETLINTHOST（）
+返回长度；
+}
+公共无效设置长度（int LeN）{
+长度＝Le；
+}
+公共空隙MOVE（）
+打印输出（“漂移”）；
+}
+}
+```
+这里有不少将原词改写的情况, 比较不理解. 如getLength变为GETLINTHOST, len变为Le. 另外, 同样是void, 有'无效'和'空隙'两种翻译, 应该是考虑了上下文.
+
+有道:
+```
+包com.headfirstjava.chapterseven.boats;
+
+公共级艇
+
+私人int长度;
+
+public int getLength() {
+返回长度;
+}
+
+public void setLength(int len) {
+长度=兰;
+}
+
+public void move() {
+System.out.print(“漂移!”);
+}
+}
+```
+它也比较保守, 但同样的len, 一处没有翻译, 一处译为'兰', 这样也改变了代码语义.
+
+搜狗:
+```
+Java . chaptersen .船；
+公共船
+私有整数长度；
+公共整数getLength ( )
+返回长度；
+}
+公共空隙设置长度(内部透镜) (
+长度=镜头；
+}
+公共空间移动( )
+系统输出打印(“漂移！”)；
+}
+}
+```
+与百度类似, 也有改写词: chapterseven被缩减成chaptersen. 另外int被解释成'内部', 也许是认为原文是'in'的笔误?
+
+------- 2018年十月2日 添加 --------
+
+在Chrome翻译尝试如下, 发现比google在线翻译更进一步. 看起来html元素分割后, 不同语法部分可以更容易识别, 这与前文浏览器插件实现GitHub代码翻译原型演示是异曲同工.
+```
+package  com.headfirstjava.chapterseven.boats ;
+
+公共 舱 船 {
+
+    private  int length;
+
+    public  int  getLength（）{
+        返回长度;
+    }
+
+    public  void  setLength（int  len）{
+        长度= len;
+    }
+
+    public  void  move（）{
+        系统。出。打印（“漂移！”）;
+    }
+}
+```
+------- 2018年十月2日 添加结束 --------
+
+基于上面的测试, 尝试列出一些源码翻译的目标:
+
+#### 编程语言方面
+
+1. 具备语法高亮. 虽然所有在线翻译都不具备这一功能, 但对于源码阅读来说是必需的.
+2. 代码语义不能改变. 比如某一变量翻译后, 它的所有引用也需翻译. 这和IDE中的'重命名'功能类似, 重构后的代码需要语义相同. 这依赖于语法分析和代码生成, 感觉是这个项目在编程语言方面门槛最高的部分之一. 另外, 代码格式不能改变, 各种缩进, 空行等必须保留
+3. 对无法识别语义的部分, 包括所有相关引用, 倾向于保留原文. 不仅节省计算资源, 也是翻错不如不翻的考虑.
+
+#### 翻译方面
+
+1. 长句自然语言部分可暂时不翻译. 源码文本中, 最接近自然语言的部分是常量字符串(如上面的"Drift!"), 以及注释行. 对于较长的整句自然语言, 短期很很难做到独立翻译.
+2. 支持关键词翻译: 编程语言关键词相对较易翻译, 使用字典一对一翻译.
+3. 命名尽量翻译: 需要进行词拆分(如按照驼峰命名法)之后进行类自然语言的翻译, 但多数是词或短语, 如上面的'setLength'. 对它们的翻译难度应该小于整句的自然语言翻译.
+
+还有其他吗?
