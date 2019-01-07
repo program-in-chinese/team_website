@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  对在代码中使用中文命名的质疑与回应
-description: Q&A of programming with naming in Chinese.
+description: 对常见的对在编写代码时使用中文命名的反对声音进行小结, 并作针对回应. Q&A of programming with naming in Chinese.
 date:   2017-10-27 00:00:00 -0700
 categories: 命名
 ---

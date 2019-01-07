@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  在不同编程语言中使用中文命名
+title:  在各种编程语言中使用中文命名
 description: 罗列支持中文命名变量,方法,类的编程语言. List out programming languages that support naming variables, functions and classes in Chinese.
 date:   2017-10-23 00:00:00 -0700
 categories: 命名

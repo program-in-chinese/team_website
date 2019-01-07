@@ -3,7 +3,7 @@ layout: post
 comments: true
 title:  汉化了十数个编译器的前辈的心得体会
 description: 通过修改编译器, 实现对中文标识符支持的一位前辈的对于中文编程和中文编程语言的心得. View of programming in Chinese from a pioneer who modified a dozen compliers to add support of Chinese identifiers.
-date:   2017-11-27 00:00:00 -0700
+date:   2017-11-27 12:00:00 -0700
 categories: 命名
 ---
 
