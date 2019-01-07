@@ -1,0 +1,72 @@
+---
+layout: post
+comments: true
+title:  Antlr4的分析错误处理
+description: 在之前的"圈2"语言基础上, 添加错误处理. Add exception handling for the pretotype programming language quan2 with Antlr4 and Java.
+date:   2018-01-11 00:00:00 -0700
+categories: 语言设计
+---
+
+(前文[通用型的中文编程语言探讨之一: 高考](https://zhuanlan.zhihu.com/p/32677451), 即使是这"第一步", 即使一切顺利达到列出的功能恐怕也需要个人数年的业余时间. 看到不少乎友都远更有资本和实力更快速地完成这一工程. 希望随时告知类似项目, 省得在下作无用功)
+
+初步打算用Antlr4生成Java实现的词语法分析器, 主要是出于减少工作量的考虑, 但相应的需要深入学习这个工具. 根据至今看到的相关文档以及Antlr项目本身, 感觉还蛮实用, 可持续性也不错, 这些学习应该不会白费.
+
+之前没有实验过它对错误语法的处理. 本文实现了[编程语言试验之Antlr4+Java实现"圈2"](https://zhuanlan.zhihu.com/p/31429800)的Visitor版本. 再添加了定制的词法语法错误处理. 源码在[program-in-chinese/quan5](https://github.com/program-in-chinese/quan5)
+
+语法最简单, 只包含一个数:
+```
+grammar 圈5;
+程序   : T数;
+
+T数 : [0-9]+ ;
+T空白     : [ \n\t]+ -> skip;
+```
+定制的语法错误处理器, 只有报告功能:
+```java
+public class 语法错误监听器 extends BaseErrorListener {
+
+  @Override
+  public void syntaxError(Recognizer<?, ?> 识别器, Object 问题符号, int 行, int 字符在行中位置, String 信息,
+      RecognitionException 例外) {
+    List<String> 规则栈 = ((Parser) 识别器).getRuleInvocationStack();
+    Collections.reverse(规则栈);
+    System.err.println("[语法错误] 规则栈: " + 规则栈);
+    System.err.println("行" + 行 + "列" + 字符在行中位置 + "非法符号: " + 问题符号 + ". 原始原因:" + 信息);
+  }
+
+}
+```
+下面是为语法分析器添加定制的错误分析(先除去默认的错误监听器):
+```java
+    圈5Parser 语法分析器 = new 圈5Parser(new CommonTokenStream(词法分析器));
+    语法分析器.removeErrorListeners();
+    语法分析器.addErrorListener(语法错误处理);
+```
+类似的也可以为词法分析器添加错误处理器. 其中为了取得错误的词, 没有找到现成的接口, 于是摘取了它源码一部分. 初步的感觉是, 虽然API不一定很完善(很有可能是自己不熟悉工具导致的), 但不少公开属性可以比较方便定制:
+```java
+public class 词法错误监听器 extends BaseErrorListener {
+
+  @Override
+  public void syntaxError(Recognizer<?, ?> 识别器, Object 问题符号, int 行, int 字符在行中位置, String 信息,
+      RecognitionException 例外) {
+    Lexer 词法分析器 = (Lexer)识别器;
+    
+    // 摘自org.antlr.v4.runtime.Lexer.notifyListeners
+    String 文本 = 词法分析器._input.getText(Interval.of(词法分析器._tokenStartCharIndex, 词法分析器._input.index()));
+    String 错词 = 词法分析器.getErrorDisplay(文本);
+
+    System.err.println("[词法错误] 行" + 行 + "列" + 字符在行中位置 + "错误词: " + 错词);
+  }
+
+}
+```
+下面是一个语法有误的文件:
+```
+   a
+```
+分析后的报错输出:
+```
+[词法错误] 行2列3错误词: a
+[语法错误] 规则栈: [程序]
+行2列4非法符号: [@0,5:4='<EOF>',<-1>,2:4]. 原始原因:missing T at '<EOF>'
+```
