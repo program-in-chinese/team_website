@@ -1,0 +1,114 @@
+---
+layout: post
+comments: true
+title:  Antlr4添加中文变量赋求值,括号,各种问题
+description: 为"圈2"语言, 添加变量赋值和求值, 括号, 以及出现的各种问题. Add assigning value, parenthesis features to the pretotype programming language quan2 with Antlr4 and Java, and related issues.
+date:   2018-01-12 00:00:00 -0700
+categories: 语言设计
+---
+
+例程(更多测试用例在[此](https://github.com/program-in-chinese/quan5/blob/e225d7ecc78756dd46f14e5556b320ecbfa88bca/src/test/java/quan5/%E8%BF%90%E8%A1%8C%E5%99%A8%E6%B5%8B%E8%AF%95.java)):
+```
+基数=100
+基数×(基数+1)÷2
+=> 求值为5050
+```
+续上文Antlr4实现数学四则运算, 修改的语法规则部分:
+```antlr
+程序: 声明+;
+
+声明: 表达式 T新行 			#求值
+  | T变量名 '=' 表达式 T新行	#赋值
+  | T新行					#空行
+  ;
+
+表达式: 表达式 运算符=('*'|'/'|'×'|'÷') 表达式 	#乘除
+  | 表达式 运算符=('+'|'-') 表达式 		#加減
+  | T数					#数
+  | T变量名				#变量
+  | '(' 表达式 ')'		#括号
+  ;
+
+T变量名: ('a' .. 'z' | 'A' .. 'Z' | '\u4E00'..'\u9FA5' | '\uF900'..'\uFA2D')+;
+T新行: '\r'?'\n';
+```
+很明显, 变量名的范围仍需扩展, 比如数字就不支持, 而且这个字符范围应该有些过大(详见[Validate a JavaScript function name](https://stackoverflow.com/questions/2008279/validate-a-javascript-function-name/9392578#9392578)), 待修正([变量字符范围 · Issue #1 · program-in-chinese/quan5](https://github.com/program-in-chinese/quan5/issues/1)).
+
+定制访问器添加的部分:
+```java
+private static Map<String, 节点> 变量值表 = new HashMap<>();
+
+  // 以下为声明部分
+
+  @Override
+  public 节点 visit赋值(赋值Context 上下文) {
+    String 变量名 = 上下文.T变量名().getText();
+    变量值表.put(变量名, visit(上下文.表达式()));
+    return null;
+  }
+
+  @Override
+  public 节点 visit求值(求值Context 上下文) {
+    return visit(上下文.表达式());
+  }
+
+  // 以下为表达式部分
+
+  @Override
+  public 节点 visit变量(变量Context 上下文) {
+    String 变量名 = 上下文.T变量名().getText();
+    
+    // TODO: 添加变量检查
+    return 变量值表.get(变量名);
+  }
+
+  @Override
+  public 节点 visit括号(括号Context 上下文) {
+    return visit(上下文.表达式());
+  }
+```
+变量值表采用变量名到节点的映射, 也就是在对包含这个变量的表达式求值时才对变量对应的表达式进行求值. 这里没有对变量赋值表达式进行语法树构建 · Issue #2 · program-in-chinese/quan5, 还需更多工作. 另外一个问题, 最后的表达式求值也会对变量值重复计算. 举例:
+```
+利率=1
+年增长率=1+利率
+1000×年增长率×年增长率
+```
+最后语法树如下:
+
+![2018-01-12-antlr4赋值quan2]({{ "/assets/2018-01-12-antlr4赋值_quan2.png" | absolute_url }})
+
+
+"年增长率"应该提前求值, 以省去最后的多次计算([避免对变量重复求值 · Issue #3 · program-in-chinese/quan5](https://github.com/program-in-chinese/quan5/issues/3))
+
+-----------------------------
+
+后两个问题已初步解决, 通过在"运行器"中保存变量表, 以及将各种节点的求值方法都集中到其中. 想起来在其他有些语言实现里也看到过类似结构(根据不同类型进行求值):
+```java
+ public Object 求值(节点 节点) {
+    if (节点 instanceof 运算式节点) {
+      运算符号 运算符 = ((运算式节点)节点).运算符;
+      Object 左结果 = 求值(((运算式节点)节点).左子节点);
+      Object 右结果 = 求值(((运算式节点)节点).右子节点);
+      switch(运算符) {
+        case 加: return (int)左结果 + (int)右结果;
+        case 減: return (int)左结果 - (int)右结果;
+        case 乘: return (int)左结果 * (int)右结果;
+        case 除: return (int)左结果 / (int)右结果;
+        case 赋值:
+          变量值表.put(((变量节点)((运算式节点)节点).左子节点).取变量名(), 右结果);
+          // 顺延
+        default:
+          return null;
+      }
+    } else if (节点 instanceof 变量节点) {
+      return 变量值表.get(((变量节点)节点).取变量名());
+    } else if (节点 instanceof 数节点) {
+      return ((数节点)节点).求值();
+    } else {
+      for(节点 子节点 : 节点.子节点) {
+        返回值 = 求值(子节点);
+      }
+      return 返回值;
+    }
+  }
+```
