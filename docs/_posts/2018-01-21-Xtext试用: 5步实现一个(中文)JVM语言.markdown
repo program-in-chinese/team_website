@@ -1,0 +1,76 @@
+---
+layout: post
+comments: true
+title:  "Xtext试用: 5步实现一个(中文)JVM语言"
+description: 利用Xtext实现中文语法的JVM语言. Use Xtext to JVM programming language with Chinese grammar.
+date:   2018-01-19 00:00:00 -0700
+categories: 语言设计 DSL
+---
+
+续上文[Xtext试用: 快速实现简单领域专用语言(DSL)](https://zhuanlan.zhihu.com/p/33047136). 基于官方教程: [Five simple steps to your JVM language](http://www.eclipse.org/Xtext/documentation/104_jvmdomainmodel.html)
+
+达成如下语言:
+
+![2018-01-20-xtext_quan6]({{ "/assets/2018-01-20-xtext_quan6.png" | absolute_url }})
+
+它被Quan6JvmModelInferrer中的转换生成Java源代码(与上文中的代码生成不同的是, 不需要写出具体Java语法).
+
+项目源码在: [program-in-chinese/xtext_tutorial_15_min_zh](https://github.com/program-in-chinese/xtext_tutorial_15_min_zh/tree/master/com.program_in_chinese.quan6), 只包含了语法规则所在项目. 其他项目(.ide, .tests, .ui.tests等等, 也不知何用)未提交. 测试项目(包括上图的代码)在: [program-in-chinese/xtext_tutorial_15_min_zh](https://github.com/program-in-chinese/xtext_tutorial_15_min_zh/tree/master/testQuan6)
+
+由于本人创建的项目名称与教程不同(com.program_in_chinese.quan6), 运行后打开DSL源码文件时报错:
+```
+An internal error occurred during: "XtextReconcilerJob".
+java.lang.IllegalArgumentException: Domainmodel.importSection does not exist
+```
+后发现语法规则的命名空间应该修改为自定义的(本文用的Quan6, 而非教程中的Domainmodel). 顺便将关键词汉化了, 标识符支持中文(IDENTIFIER等), 更新后的语法规则如下:
+```bnf
+grammar com.program_in_chinese.quan6.Quan6 with org.eclipse.xtext.xbase.Xbase
+
+generate quan6 "http://www.program_in_chinese.com/quan6/Quan6"
+
+Quan6:
+	importSection=XImportSection?
+    elements+=AbstractElement*;
+ 
+AbstractElement:
+    PackageDeclaration | Entity;
+ 
+PackageDeclaration:
+    '包' name=QualifiedName '{'
+        elements+=AbstractElement*
+    '}';
+ 
+Entity:
+    '类' name=ValidID ('扩展' superType=JvmTypeReference)? '{'
+        features+=Feature*
+    '}';
+ 
+Feature:
+    Property | Operation;
+ 
+Property:
+    name=ValidID ':' type=JvmTypeReference;
+ 
+Operation:
+    '函数' name=ValidID 
+        '('(params+=FullJvmFormalParameter 
+        (',' params+=FullJvmFormalParameter)*)?')'
+        ':' type=JvmTypeReference 
+    body=XBlockExpression;
+
+@Override
+ValidID:
+	IDENTIFIER;
+	
+terminal IDENTIFIER:
+	'^'?('\u4E00'..'\u9FA5'|'\uF900'..'\uFA2D'|'a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'\u4E00'..'\u9FA5'|'\uF900'..'\uFA2D')*;
+```
+其中不少xbase支持的规则如XBlockExpression, 就是Java块, 如:
+```
+{
+    return "Hello World" + "!"
+}
+```
+#### 小结
+
+这个教程中演示的语法定制程度似乎有限, 在深入学习xtext语法规则描述语言([The Grammar Language](http://www.eclipse.org/Xtext/documentation/301_grammarlanguage.html))和xbase之前, 还不能确认能够支持多么自由的语法定义. 但暂时没想到什么肯定能不到的语法规则(未把不带空格语法考虑在内). 感觉工具的一些错误反馈信息不那么易懂, 使用过程中感觉不那么结实. 但至少应该可以用于语言原型的快速开发.
