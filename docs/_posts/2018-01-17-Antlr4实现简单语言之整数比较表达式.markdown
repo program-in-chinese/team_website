@@ -1,0 +1,124 @@
+---
+layout: post
+comments: true
+title:  Antlr4实现简单语言之整数比较表达式
+description: 为"圈2"语言, 添加整数比较功能. Add integer comparison to pretotype programming language quan2.
+date:   2018-01-17 00:00:00 -0700
+categories: 语言设计
+---
+
+续上文[Antlr4: 修改语法规则更接近普通BNF格式](https://zhuanlan.zhihu.com/p/32939695).
+#### 例程
+```
+为先=1
+为先 为2
+=> 返回false
+```
+'为'作为关键词, 与数字可以连写, 但必须与变量名用空格间隔:
+```
+变量一=1
+变量二=2
+变量一×2为 变量二
+```
+#### 实现
+
+类似"求积表达式"语法规则模式, 添加如下:
+```antlr
+表达式
+    : 等同判断表达式;
+
+等同判断表达式
+    :   比较表达式
+    |   等同判断表达式 '==' 比较表达式
+    |   等同判断表达式 '为' 比较表达式
+    |   等同判断表达式 '!=' 比较表达式
+    |   等同判断表达式 '≠' 比较表达式
+    ;
+
+比较表达式
+    :   求和表达式
+    |   比较表达式 '<' 求和表达式
+    |   比较表达式 '>' 求和表达式
+    |   比较表达式 '<=' 求和表达式
+    |   比较表达式 '>=' 求和表达式
+    |   比较表达式 '≤' 求和表达式
+    |   比较表达式 '≥' 求和表达式
+    ;
+
+求和表达式
+  : 求积表达式
+  | 求和表达式 '+' 求积表达式
+  | 求和表达式 '-' 求积表达式
+  ;
+```
+"定制访问器"中添加的部分如下, 由于语法规则模式相同, 构建树算法也相同:
+```java
+ @Override
+  public 节点 visit表达式(表达式Context 上下文) {
+    return visit(上下文.等同判断表达式());
+  }
+
+  @Override
+  public 节点 visit等同判断表达式(等同判断表达式Context 上下文) {
+    return 以本身向右扩展为运算节点(上下文, 上下文.等同判断表达式(), 上下文.比较表达式());
+  }
+
+  @Override
+  public 节点 visit比较表达式(比较表达式Context 上下文) {
+    return 以本身向右扩展为运算节点(上下文, 上下文.比较表达式(), 上下文.求和表达式());
+  }
+
+  @Override
+  public 节点 visit求和表达式(求和表达式Context 上下文) {
+    return 以本身向右扩展为运算节点(上下文, 上下文.求和表达式(), 上下文.求积表达式());
+  }
+
+  @Override
+  public 节点 visit求积表达式(求积表达式Context 上下文) {
+    return 以本身向右扩展为运算节点(上下文, 上下文.求积表达式(), 上下文.最小表达式());
+  }
+...
+  private 节点 以本身向右扩展为运算节点(ParserRuleContext 上下文, ParserRuleContext 本身子节点, ParserRuleContext 扩展子节点) {
+    节点 比较节点 = visit(扩展子节点);
+    if (本身子节点 == null) {
+      return 比较节点;
+    } else {
+      return 构建运算节点(取运算符(上下文), 本身子节点, 比较节点);
+    }
+  }
+
+  // 第二个子节点为运算符
+  private 运算符号 取运算符(ParserRuleContext 原始表达式) {
+    int 最后运算符 = ((TerminalNodeImpl) 原始表达式.getChild(1)).symbol.getType();
+    switch (最后运算符) {
+      case 圈5Parser.T加:
+        return 运算符号.加;
+      case 圈5Parser.T減: 
+        return 运算符号.減;
+      case 圈5Parser.T乘:
+      case 圈5Parser.T数乘:
+        return 运算符号.乘;
+      case 圈5Parser.T除:
+      case 圈5Parser.T数除:
+        return 运算符号.除;
+      case 圈5Parser.T相等:
+      case 圈5Parser.T为:
+        return 运算符号.相等;
+      default:
+        return null;
+    }
+  }
+```
+下面是需要细究的部分, 由于变量名包括了"为"字, 因此如果把这个词-"为"定义在"T变量名"之后, 词法分析就会有问题.
+```antlr
+T为: '为';
+```
+另外, 如果不添加空格忽略规则, 如果代码里带空格, 也会词法分析错误. 加了此规则之后就支持"为先 为2":
+```antlr
+T空格: [ ]+ ->skip;
+```
+在"运行器"的"求值"方法中, 添加"相等"支持:
+```
+case 相等: return 左结果 == 右结果;
+```
+大于(等于), 小于(等于), 不等支持也是类似实现. 源码版本号: [program-in-chinese/quan5](https://github.com/program-in-chinese/quan5/tree/9d14cd101a90b5c117910d47a8b59c7b8697b41f)
