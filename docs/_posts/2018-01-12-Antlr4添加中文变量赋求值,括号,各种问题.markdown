@@ -7,6 +7,8 @@ date:   2018-01-12 00:00:00 -0700
 categories: 语言设计
 ---
 
+中文编程[知乎专栏](https://zhuanlan.zhihu.com/codeInChinese)原文[地址](https://zhuanlan.zhihu.com/p/32896571)
+
 例程(更多测试用例在[此](https://github.com/program-in-chinese/quan5/blob/e225d7ecc78756dd46f14e5556b320ecbfa88bca/src/test/java/quan5/%E8%BF%90%E8%A1%8C%E5%99%A8%E6%B5%8B%E8%AF%95.java)):
 ```
 基数=100

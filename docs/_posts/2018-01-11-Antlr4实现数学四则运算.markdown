@@ -7,6 +7,8 @@ date:   2018-01-11 12:00:00 -0700
 categories: 语言设计
 ---
 
+中文编程[知乎专栏](https://zhuanlan.zhihu.com/codeInChinese)原文[地址](https://zhuanlan.zhihu.com/p/32864261)
+
 基本参考https://pragprog.com/book/tpantlr2/the-definitive-antlr-4-reference 一书"Building a Calculator Using a Visitor"一节, 仅添加了数学乘除法符号的支持(×÷). 比如下面的算式:
 ```
 3×2+8÷4-2×4

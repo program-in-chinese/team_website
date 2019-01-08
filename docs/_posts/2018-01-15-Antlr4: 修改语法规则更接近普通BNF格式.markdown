@@ -1,0 +1,110 @@
+---
+layout: post
+comments: true
+title:  "Antlr4: 修改语法规则更接近普通BNF格式"
+description: 为"圈2"语言, 修改语法定义规则接近BNF格式. Modify grammar definition of pretotype programming language quan2 to make it closer to BNF format.
+date:   2018-01-15 00:00:00 -0700
+categories: 语言设计
+---
+
+经 @沈默 在上文[Antlr4添加中文变量赋求值,括号,各种问题](https://zhuanlan.zhihu.com/p/32896571)评论中指出, 语法规则描述依赖于Antlr4生成的语法分析器的默认分析方法, 比如运算符的左联系, 以及优先级处理等等. 于是将语法修改为下面(源码版本号: [program-in-chinese/quan5](https://github.com/program-in-chinese/quan5/tree/b435d1d4b6486ae551791e715f7b26a62665914e)):
+```
+表达式: 求积表达式 (('+'|'-') 求积表达式)*;
+
+求积表达式: 最小表达式 (('*'|'/'|'×'|'÷') 最小表达式)*;
+
+最小表达式
+  : 字面量
+  | '(' 表达式 ')'
+  ;
+
+字面量
+  : T数
+  | T变量名
+  ;
+```
+这样做的结果是, Antlr4会分析生成一个多叉树. 比如 1+2-3, 生成树如下:
+
+![2018-01-14-antlr_quan2_bnf]({{ "/assets/2018-01-14-antlr_quan2_bnf.png" | absolute_url }})
+
+于是在生成抽象语法树时手动转换为二叉树. 代码如下:
+```java
+private 节点 构建二叉树(List<ParseTree> 子节点) {
+    if (子节点.isEmpty()) {
+      return null;
+    } else if (子节点.size() == 1) {
+      return visit(子节点.get(0));
+    } else {
+      ParseTree 最后运算符节点 = 子节点.get(子节点.size() - 2);
+      运算符号 运算符 = ((TerminalNodeImpl)最后运算符节点).symbol.getType() == 圈5Parser.T加 ? 运算符号.加 : 运算符号.減;
+      运算式节点 节点 = new 运算式节点();
+      节点.运算符 = 运算符;
+      节点.左子节点 = 构建二叉树(子节点.subList(0, 子节点.size() - 2));
+      节点.右子节点 = visit(子节点.get(子节点.size() - 1));
+      return 节点;
+    }
+  }
+```
+开发过程中发现一些坑(如果是小白错误请指出). 一个比较费解的是, 不能省去"字面量"规则如下:
+```
+最小表达式
+  : T数
+  | T变量名
+  | '(' 表达式 ')'
+  ;
+```
+不然生成的分析器会有编译错误:
+```
+com/中文编程/圈5/分析器/圈5Parser.java:403: error: unreachable statement
+				enterOuterAlt(_localctx, 3);
+```
+Antlr4有个github库汇集了社区维护的各种语言的语法规则文件, 其中有Java8, 根据注释说明它的语法规则描述"极度"接近Java标准, 于是参考了它的实现. 其中看到这样的模式(已转成中文):
+```
+求和表达式
+	:	求积表达式
+	|	求和表达式 '+' 求积表达式
+	|	求和表达式 '-' 求积表达式
+	;
+
+求积表达式
+	:	最小表达式
+	|	求积表达式 '*' 最小表达式
+	|	求积表达式 '/' 最小表达式
+	;
+```
+感觉这样会让语法树转换这一步的实现更加方便(应该可以省去多叉树转换成二叉树的那个递归算法). 在添加新功能之前, 打算尝试修改成这样.
+
+已完成:
+```
+表达式
+  : 求积表达式
+  | 表达式 '+' 求积表达式
+  | 表达式 '-' 求积表达式;
+
+求积表达式
+  : 最小表达式
+  | 求积表达式 '*' 最小表达式
+  | 求积表达式 '/' 最小表达式
+  | 求积表达式 '×' 最小表达式
+  | 求积表达式 '÷' 最小表达式;
+```
+的确省去了多叉树转换. 代码整理完毕(program-in-chinese/quan5). 接下去, 是条件判断还是函数定义?
+
+
+补记
+
+Antlr4自带的语法分析可视化工具, 以antlr/grammars-v4为例:
+```
+$ alias grun='java -cp "{PATH_TO_antlr-4.7-complete.jar}:$CLASSPATH" org.antlr.v4.runtime.misc.TestRig'
+$ java -cp "{PATH_TO_antlr-4.7-complete.jar}:$CLASSPATH" org.antlr.v4.Tool -visitor  -no-listener Java8.g4 
+$ javac -cp "{PATH_TO_antlr-4.7-complete.jar}:$CLASSPATH" Java8*.java
+$ grun Java8 expression -tree <--- 将输入字符串进行语法解析, 生成树结构
+Warning: TestRig moved to org.antlr.v4.gui.TestRig; calling automatically
+a>1
+(expression (assignmentExpression (conditionalExpression (conditionalOrExpression (conditionalAndExpression (inclusiveOrExpression (exclusiveOrExpression (andExpression (equalityExpression (relationalExpression (relationalExpression (shiftExpression (additiveExpression (multiplicativeExpression (unaryExpression (unaryExpressionNotPlusMinus (postfixExpression (expressionName a)))))))) > (shiftExpression (additiveExpression (multiplicativeExpression (unaryExpression (unaryExpressionNotPlusMinus (postfixExpression (primary (primaryNoNewArray_lfno_primary (literal 1)))))))))))))))))))
+$ grun Java8 expression -gui <--- 图形化
+Warning: TestRig moved to org.antlr.v4.gui.TestRig; calling automatically
+2>1
+^D
+```
+![2018-01-15-antlr_quan2_bnf_test]({{ "/assets/2018-01-15-antlr_quan2_bnf_test.png" | absolute_url }})
