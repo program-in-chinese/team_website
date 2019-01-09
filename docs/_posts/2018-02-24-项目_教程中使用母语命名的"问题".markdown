@@ -1,0 +1,120 @@
+---
+layout: post
+comments: true
+title:  项目/教程中使用母语命名的"问题"
+description: 在教程中使用中文命名的一些副效应. Some side effects of naming identifiers in Chinese in the sample programs of tutorials.
+date:   2018-02-24 00:00:00 -0700
+categories: 命名 教程
+---
+
+早先试图找使用中文命名代码的项目, 但所获寥寥: [索引: 用中文编写代码的实用开源项目 · Issue #6 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/6). 更不用说教程了: [索引: 用中文代码作示例的编程教程 · Issue #5 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/5)
+
+前几天有幸看到Quora不久前的一个回复: [Has any serious project been written in a non-English-based programming language?](https://www.quora.com/Has-any-serious-project-been-written-in-a-non-English-based-programming-language/answer/Alan-Mellor)
+
+得知西门子和爱立信内部都有使用母语命名的C/C++代码(德语/瑞典语). 原文如下:
+
+> At both Siemens (German) and Ericsson (Swedish), I have seen programs written in C, and C++ where the only English words are the keywords. So if, new, else, for and the standard libraries like std::vector<>
+    Everything else was in German or Swedish.
+    ...
+
+另外, 答者还提到在布拉格碰到过一本Java编程书, 也是用非英语进行命名写的示例代码.
+
+以母语命名可读性强的优势, 照理说编程教程应该是非常适合这一实践的. 那么来试试:
+```java
+enum 发薪日 {
+    周一, 周二, 周三, 周四, 周五, 周六, 周日;
+
+    private static final int 每班分钟数 = 8 * 60;
+
+    int 发薪(int 工作分钟数, int 每分钟薪水) {
+        int 底薪 = 工作分钟数 * 每分钟薪水;
+        int 加班费;
+        switch (this) {
+        case 周六:
+        case 周日: // 周末
+            加班费 = 底薪 / 2;
+            break;
+        default: // 周中
+            加班费 = 工作分钟数 <= 每班分钟数 ? 0 : (工作分钟数 - 每班分钟数) * 每分钟薪水 / 2;
+        }
+        return 底薪 + 加班费;
+    }
+}
+```
+
+
+观感如何? 个人觉得是非常一目了然, 但自带不少槽点.
+
+
+
+下面看看原版(Effective Java第三版, Item 34的例程):
+```java
+enum PayrollDay {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
+
+    private static final int MINS_PER_SHIFT = 8 * 60;
+
+    int pay(int minutesWorked, int payRate) {
+        int basePay = minutesWorked * payRate;
+        int overtimePay;
+        switch (this) {
+        case SATURDAY:
+        case SUNDAY: // Weekend
+            overtimePay = basePay / 2;
+            break;
+        default: // Weekday
+            overtimePay = minutesWorked <= MINS_PER_SHIFT ? 0 : (minutesWorked - MINS_PER_SHIFT) * payRate / 2;
+        }
+        return basePay + overtimePay;
+    }
+}
+```
+意思一样, 但是不是看上去有了些"距离感", 槽点似乎就没那么明显了, 尤其不会有太多代入感. 可以想见, 在翻译英文原著时, 译者对代码本身的命名进行中文化也许会吃力却讨不到多少好.
+
+翻了也许会有其他麻烦的还有这种(同一本书, Item 68):
+```java
+if (car.speed() > 2 * SPEED_LIMIT)    
+    generateAudibleAlert("Watch out for cops!");
+```
+还有这种(Item 4):
+```java
+String s = "bikini";
+```
+至于下面这个例子(Item 34), 问题是想翻译都只能找到音译词, 也许还不如不翻. 而且, 在示例代码里用"桔子", "苹果"之类在外文编程书籍中屡见不鲜, 但如果真用在中文代码中, 似乎第一感觉就有点幼稚.
+```java
+public enum Apple  { FUJI, PIPPIN, GRANNY_SMITH }
+public enum Orange { NAVEL, TEMPLE, BLOOD }
+```
+还有一种问题比如(Programming in Scala 第三版, 7.5节):
+```scala
+    val firstArg = if (args.length > 0) args(0) else ""
+    firstArg match {
+      case "salt" => println("pepper")
+      case "chips" => println("salsa")
+      case "eggs" => println("bacon")
+      case _ => println("huh?")
+    }   
+```
+直译过来是:
+```scala
+    val 参数1 = if (参数.length > 0) 参数(0) else ""
+    参数1 match {
+      case "盐" => println("胡椒")
+      case "玉米薄片" => println("萨尔萨辣酱")
+      case "鸡蛋" => println("培根")
+      case _ => println("啥?")    
+    }  
+```
+这几个词对于不大了解西方饮食习惯的读者来说, 读起来完全没有感觉. 与其费口舌在注解里普及西方文化, 也许改成这样更自然:
+```scala
+    val 参数1 = if (参数.length > 0) 参数(0) else ""
+    参数1 match {
+      case "牛奶" => println("面包")
+      case "烧饼" => println("油条")
+      case "煎饼果子" => println("薄脆")
+      case _ => println("啥?")    
+    }  
+```
+但这比起翻译本身来, 又多了不少工作量, 估计还很难获得原作者的同意. 当然, 如果是自编文献, 就没有原作的限制了, 但就像之前的例子所示, 恐怕选材和尺度都会比用英文代码更加敏感.
+
+类似的, 在项目中使用中文命名也比英文命名更需要推敲. 随手写个奇怪的英文名看起来也许不那么显眼, 但用了中文, 就会非常扎眼. 所谓"文如其人", 也许语文的实用性会随着中文编程的推广而逐渐回归.
