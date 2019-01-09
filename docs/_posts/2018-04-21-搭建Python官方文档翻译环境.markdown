@@ -1,0 +1,26 @@
+---
+layout: post
+comments: true
+title:  搭建Python官方文档翻译环境
+description: 为翻译Python官方文档的示例代码中的标识符, 搭建翻译环境 Setup translation environment in order to translate the identifiers in the sample programes in official Python tutorials.
+date:   2018-04-21 00:00:00 -0700
+categories: 命名 教程
+---
+
+参考[PEP 545 -- Python Documentation Translations](https://www.python.org/dev/peps/pep-0545/)
+
+fork的编译脚本: [nobodxbodon/docsbuild-scripts](https://github.com/nobodxbodon/docsbuild-scripts), 添加了zh语言标签, 以及fork的PO文件库[nobodxbodon/python-docs-ko](https://github.com/nobodxbodon/python-docs-ko), 仅作演示用(更改字段"测试python入门教程": [Update index.po · nobodxbodon/python-docs-ko@00b8073](https://github.com/nobodxbodon/python-docs-ko/commit/00b8073fb8f4f56447cf16668676ba92fb1b4a93))
+
+![2018-04-21-python翻译]({{ "/assets/2018-04-21-python翻译.png" | absolute_url }})
+
+据非常有限的理解, 大概过程是, PO文件包含了所有翻译的段落, 像打补丁似地附加到原英文文档后生成rEst格式文件, 再编译成HTML文档(html库地址:[nobodxbodon/py36zh](https://github.com/nobodxbodon/py36zh). 演示: [4. 기타 제어 흐름 도구 - Python 3.6.5 文档](https://nobodxbodon.github.io/py36zh/tutorial/controlflow.html#if-statements))
+
+接下去要解决的是, 如何汉化程序部分, 效果如下. 所有现有的其他语言的翻译文档都没有对程序进行本地化(字符串/命名等)
+
+![2018-04-21-python代码翻译]({{ "/assets/2018-04-21-python代码翻译.png" | absolute_url }})
+
+现在可以通过直接修改rst文件, 但PEP 545的流程是修改PO文件. 问了其他翻译组的作者, 似乎需要修改Sphinx配置才能实现(在PO文件中添加程序部分, 并且在构建时合并入rst文件).
+
+另:
+
+Python官方文档(入门教程只是一小部分)日语翻译进度86+%, 法语30%, 中文1.5%: [The Python 3.6 translation project on Transifex](https://www.transifex.com/python-doc/python-36/). 后得知早先有老版本3.2.2的中文翻译项目: https://docspy3zh.readthedocs.io/en/latest/ 不知是否是这1.5%的前身.
