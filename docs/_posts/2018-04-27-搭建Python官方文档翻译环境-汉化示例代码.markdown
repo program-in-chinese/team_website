@@ -1,0 +1,45 @@
+---
+layout: post
+comments: true
+title:  搭建Python官方文档翻译环境-汉化示例代码
+description: 演示翻译Python官方文档的示例代码中的标识符. Demonstrate translating the identifiers in the sample programes in official Python tutorials.
+date:   2018-04-27 00:00:00 -0700
+categories: 命名 教程
+---
+
+通过官方i18n流程, 实现文档中的代码段的汉化, 效果如下([4. More Control Flow Tools](https://nobodxbodon.github.io/py36zh/tutorial/controlflow.html#if-statements)):
+
+![2018-04-27-python代码翻译演示]({{ "/assets/2018-04-27-python代码翻译演示.png" | absolute_url }})
+
+#### 步骤
+
+基于python官方3.6版文档cpython/Doc生成pot文件. 参考[The build configuration file](http://www.sphinx-doc.org/en/master/usage/configuration.html#confval-gettext_additional_targets), 需要在Doc/conf.py中添加配置:
+```
+gettext_compact = False
+gettext_additional_targets = ['literal-block']
+```
+如下命令在_build文件夹中生成pot文件, 如果不设置gettext_compact就不能生成对应路径结构(所有tutorial中文档的可翻译字段都在一个pot文件)
+```
+$ sphinx-build -M gettext . _build
+```
+如下命令生成对应po文件(参考[Internationalization - Sphinx 1.8.0+ documentation](http://www.sphinx-doc.org/en/master/usage/advanced/intl.html)):
+```
+$ sphinx-intl update -p _build/gettext -l zh
+```
+修改构建脚本: [实现代码段翻译. use gettext_additional_targets to translate code samples in … · nobodxbodon/docsbuild-scripts@68e7578](https://github.com/nobodxbodon/docsbuild-scripts/commit/68e7578316b3311695e138c7f11559492ae1a931))
+
+按照README运行后, 即在www文件夹中生成汉化后的文档
+
+
+#### 相关代码库
+
+文档构建脚本库: [nobodxbodon/docsbuild-scripts](https://github.com/nobodxbodon/docsbuild-scripts)
+
+po文件库: [nobodxbodon/python-docs-zh](https://github.com/nobodxbodon/python-docs-zh)
+
+生成的HTML演示库: [nobodxbodon/py36zh](https://github.com/nobodxbodon/py36zh)
+
+
+#### 其他参考
+
+[Getting Started: Overview & Introduction to Concepts](http://docs.sphinxdocs.com/en/latest/start.html)
