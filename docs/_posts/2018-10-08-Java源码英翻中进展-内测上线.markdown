@@ -1,0 +1,36 @@
+---
+layout: post
+comments: true
+title:  Java源码英翻中进展-内测上线
+description: 解析Java源码, 并将标识符翻译为中文服务部署. Demonstrate the library to parse Java source code and translate the identifiers to Chinese with a domain.
+date:   2018-10-08 00:00:00 -0700
+categories: 命名 翻译
+---
+
+![2018-10-07-java翻译服务部署]({{ "/assets/2018-10-07-java翻译服务部署.png" | absolute_url }})
+
+创建了一个子域名: http://translate.codeinchinese.com/ 欢迎试用, 如有建议/发现问题欢迎在此拍砖: [program-in-chinese/code_translator_service](https://github.com/program-in-chinese/code_translator_service/issues).
+
+服务器硬件配置见前文: [中文代码之Spring Boot添加基本日志](https://zhuanlan.zhihu.com/p/42247945)
+
+功能上, 续前文[Java源码英翻中网页演示](https://zhuanlan.zhihu.com/p/45236358), 做了一点改进: 对类型中的字段进行翻译(比如上图中的visitedCountries翻译为'拜访国家')
+
+短期内需改进: 术语词典. 比如上面的long, 现在直译为'长', 需要改进为比如'长整型'. 还有serialVersionUID, 还需通过添加内置字典修正.
+### [Java源码翻译库](https://github.com/program-in-chinese/java_code_translator/)相关源码
+```java
+  static void 翻译字段(JavaClassSource 类结构) {
+    List<FieldSource<JavaClassSource>> 字段 = 类结构.getFields();
+    for (FieldSource<JavaClassSource> 某字段 : 字段) {
+      String 字段名 = 某字段.getName();
+      try {
+        System.out.println("字段名: " + 字段名);
+        String 翻译字段名 = 查词(字段名);
+        某字段.setName(翻译字段名);
+      } catch (IllegalArgumentException e) {
+        System.out.println("不合法字段名: " + 字段名);
+      }
+      Type<JavaClassSource> 类型 = 某字段.getType();
+      某字段.setType(翻译类型(类型));
+    }
+  }
+```
