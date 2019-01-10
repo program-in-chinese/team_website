@@ -1,0 +1,113 @@
+---
+layout: post
+comments: true
+title:  Java源码英翻中网页演示
+description: 解析Java源码, 并将标识符翻译为中文演示网页. Demonstrate the library to parse Java source code and translate the identifiers to Chinese with a web application.
+date:   2018-09-24 00:00:00 -0700
+categories: 命名 翻译
+---
+
+![2018-09-23-Java翻译演示]({{ "/assets/2018-09-23-Java翻译演示.png" | absolute_url }})
+
+在线演示地址: [源代码翻译](http://74.91.17.250:9000/)
+
+两部分如下.
+### 独立的Java代码翻译库
+
+续前文[代码翻译尝试-使用Roaster解析和生成Java源码](https://zhuanlan.zhihu.com/p/44536065)
+
+源码库: [program-in-chinese/java_code_translator](https://github.com/program-in-chinese/java_code_translator/)
+
+#### 功能
+
+在前文基础上: 重构; 完善测试(基本涵盖主要接口); 小改进 - 支持数组类型的属性和方法返回类型的翻译, 如"String[]" -> "字符串[]"
+
+#### 源码节选
+
+翻译Java代码.java, 按类/Bean属性/方法三部分翻译命名. 仍不处理方法内容.
+```java
+  public static String 翻译源码结构(String 源码) {
+    JavaClassSource 类结构;
+    try {
+      类结构 = 取类结构(源码);
+    } catch (ParserException e) {
+      return e.getLocalizedMessage();
+    }
+
+    翻译类(类结构);
+    翻译属性(类结构);
+    翻译方法(类结构);
+    
+    return 类结构.toUnformattedString();
+  }
+```
+#### 部署
+
+暂未发布到Maven, 在部署时, 运行'mvn install'安装jar包到本地(服务器同样).
+### Spring Boot实现源码服务
+
+续前文[Java源码英翻中库以及服务原型](https://zhuanlan.zhihu.com/p/44644112)
+
+源码库: [program-in-chinese/code_translator_service](https://github.com/program-in-chinese/code_translator_service), maven依赖上面的库[java_code_translator](https://github.com/program-in-chinese/java_code_translator/)
+
+前端部分暂时合在同一库"前端"文件夹: [program-in-chinese/code_translator_service](https://github.com/program-in-chinese/code_translator_service/tree/master/%E5%89%8D%E7%AB%AF)
+
+#### 功能
+
+- 前端方面
+  - 实现了最简单的前端, 左边输入源码, 右边显示翻译结果
+  - 支持语法高亮: 基于CodeMirror, 包括行号, 关键词高亮, 类名等等. 它支持100多编程语言, 适于今后添加其他语言支持.
+
+#### 源码节选
+
+前端-Java模式语法高亮:
+```javascript
+	var 输入 = CodeMirror.fromTextArea(document.getElementById("英文源码输入"), {
+		mode : "text/x-java",
+		lineNumbers : true,
+		matchBrackets : true
+	});
+	输入.setSize(500, 500);
+```
+前端-访问后台
+```javascript
+$(document).ready(function() {
+	$("#翻译按钮").click(function() {
+		输出.setValue("处理中...");
+		$.post("http://74.91.17.250:8091/", {
+			code : 输入.getValue()
+		}, function(结果) {
+			输出.setValue(结果.内容);
+		}, "json");
+	});
+});
+```
+后台部分-翻译控制器.java
+```java
+@RestController
+public class 翻译控制器 {
+
+  private static final Logger 笔录 = LoggerFactory.getLogger(翻译控制器.class);
+
+  @CrossOrigin(origins = "http://74.91.17.250:9000")
+  @RequestMapping(value = "/", method = RequestMethod.POST)
+  @ResponseBody
+  public 翻译 翻译(@RequestParam(name = "code", required = false, defaultValue = "") String 英文源码) {
+    笔录.info("输入: " + 英文源码);
+    return new 翻译(翻译Java代码.翻译源码结构(英文源码));
+  }
+}
+```
+#### 部署
+
+**后台部分**
+
+打包: mvn package
+
+运行: nohup java -jar target/code_translator_service-0.0.1-SNAPSHOT.jar --server.port=8091 &
+
+**前端部分**
+
+服务器: 将'前端'的public部分拷贝到tomcat(设置port为9000).
+
+本地调试: 运行'spring run app.groovy'即在8080启动前端服务; 需修改post地址为"http://localhost:8091/", 以正确配置CORS.
