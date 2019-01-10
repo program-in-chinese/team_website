@@ -1,0 +1,45 @@
+---
+layout: post
+comments: true
+title:  Java源码英翻中库以及服务原型
+description: 解析Java源码, 并将标识符翻译为中文的库和演示服务. Demonstrate the library to parse Java source code and translate the identifiers to Chinese with a web service.
+date:   2018-09-15 00:00:00 -0700
+categories: 命名 翻译
+---
+
+服务很简单, 只为演示[这个库](https://github.com/program-in-chinese/java_code_translator/blob/5d0712adf33ebc78e12163a7cb8f03496ef155e5/src/main/java/com/codeinchinese/java%E6%BA%90%E7%A0%81%E7%BF%BB%E8%AF%91/%E7%BF%BB%E8%AF%91Java%E4%BB%A3%E7%A0%81.java), 源码在: [program-in-chinese/code_translator_service](https://github.com/program-in-chinese/code_translator_service). 在Postman测试效果:
+
+![2018-09-15_postman翻译服务演示]({{ "/assets/2018-09-15_postman翻译服务演示.png" | absolute_url }})
+
+演示服务地址: 74.91.17.250:8091 . POST请求的参数名是code, 值就是需要翻译的英文源码. 返回翻译后的源码.
+
+***注:***
+
+- ***只支持语法正确的Java源码翻译. 否则直接返回分析错误信息.***
+- ***现在汉化范围很有限, 主要集中在类型/方法名, 尚未处理其他如方法内容等***
+- ***代码很粗放, 下面打算在继续改进之前先整理一下.***
+
+在前文[代码翻译尝试-使用Roaster解析和生成Java源码](https://zhuanlan.zhihu.com/p/44536065)的基础上, 作了一些改进. 主要有:
+
+- 对一般词汇使用普通[英汉词典](https://zhuanlan.zhihu.com/p/43977821)进行直译(优先选取计算机领域词义或者第一个词义)
+- 支持术语词典, 比如'instance', 上面的英汉词典中的第一个词义是'建议', 于是在术语词典中添加此项, 暂时译为'个例'
+- 支持驼峰命名和下划线分隔法命名
+- 各种忽略. 详见[命名翻译.java](https://github.com/program-in-chinese/java_code_translator/blob/5d0712adf33ebc78e12163a7cb8f03496ef155e5/src/main/java/com/codeinchinese/java%E6%BA%90%E7%A0%81%E7%BF%BB%E8%AF%91/%E5%91%BD%E5%90%8D%E7%BF%BB%E8%AF%91.java):
+  - 一些歧义太多的词, 如to for of
+  - 单字符字段如M
+- 对释义进行清理, 如括号中的内容, 特殊符号等等
+
+接下去的改进方面:
+
+- 提高翻译质量方面
+  - 继续扩大术语词典内容. 将在[术语词典API项目 · Issue #85 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/85)更新进度
+  - 添加一些简单的词序重组规则. 比如现在'afterSave'译为'在之后保存', 最好改为'保存之后'之类, 但这牵涉到较复杂的自然语言处理.
+- 改进源码分析方面
+  - 添加对一些变量, 方法类型进行翻译
+  - 支持复杂类型的翻译, 比如Person[], List<Person>中的'Person'现在还不能翻译
+- 前端方面
+  - 第一步是做一个最简单的前端, 左边输入源码, 右边显示翻译结果
+  - 支持Outline模式, 就是类似IDE中只显示类的属性/接口列表, 这样也许更易于对一个类有个一目了然的了解
+  - 支持语法高亮
+
+欢迎尝鲜/反馈/参与添加术语等.
