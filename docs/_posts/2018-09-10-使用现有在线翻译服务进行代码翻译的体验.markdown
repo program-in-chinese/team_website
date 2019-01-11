@@ -7,7 +7,7 @@ date:   2018-09-10 00:00:00 -0700
 categories: 命名 翻译
 ---
 
-前文浏览器插件实现GitHub代码翻译原型演示之后, 意识到现有在线翻译服务已经具备部分设想的功能.
+前文[浏览器插件实现GitHub代码翻译原型演示](https://zhuanlan.zhihu.com/p/43304088)之后, 意识到现有在线翻译服务已经具备部分设想的功能.
 
 第一个测试, 选了一个很小的[Python入门例程](https://github.com/swaroopch/byte-of-python/blob/master/programs/oop_simplestclass.py):
 ```python
