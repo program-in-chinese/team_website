@@ -1,0 +1,109 @@
+---
+layout: post
+comments: true
+title:   浏览器插件-离线英汉词典
+description: 实现浏览器插件, 基于本地词典数据, 提供网页上英语词语查询汉语释义功能. Show how to implement English to Chinese dictionary using local data in browser extension.
+date:   2018-10-12 00:00:00 -0700
+categories: 命名 词典
+---
+
+如前文[在浏览器插件中读取JSON资源文件](https://zhuanlan.zhihu.com/p/46452691)末所述, 用浏览器插件实现了不依赖任何在线翻译服务的英汉词典. 由于词典包含77万个词条, 插件大小也达到了13+MB.
+
+![2018-10-11-dictionary浏览器_词]({{ "/assets/2018-10-11-dictionary浏览器_词.png" | absolute_url }})
+
+词典数据也包含很多常见短语:
+
+![2018-10-11-dictionary浏览器_词组]({{ "/assets/2018-10-11-dictionary浏览器_词组.png" | absolute_url }})
+
+源码库: [program-in-chinese/webextension_english_chinese_dictionary](https://github.com/program-in-chinese/webextension_english_chinese_dictionary)
+
+在火狐插件网站提交审核时, 发现源文件大小有限制, 超过4MB就不能被审核服务自动分析. 于是按每个词典文件五万词条进行分隔(详见[转换到JSON; 按五万行分隔json · program-in-chinese/english-chinese-dictionary@10b55f6](https://github.com/program-in-chinese/english-chinese-dictionary/commit/10b55f65fe37d6bd0d49dd3ee208ea8485e34419))
+
+插件源码主要是导入词典数据和查询/显示两部分:
+
+加载词典.js
+```javascript
+const 词典路径 = '词典数据/词典'
+const 文件扩展 = '.json'
+var 词典文件 = {};
+for (var 文件序号 = 0; 文件序号 < 16; 文件序号++) {
+  词典文件[文件序号] = false;
+}
+var 词典数据 = {};
+
+function 载入部分词典(文件) {
+  return function () {
+    var 文件路径 = 词典路径 + 文件 + 文件扩展;
+    fetch(chrome.runtime.getURL(文件路径))
+      .then((响应) => 响应.json())
+      .then((数据) => {
+        for (var 英文 in 数据) {
+          词典数据[英文] = 数据[英文];
+        }
+        词典文件[文件] = true;
+      });
+  }
+}
+
+for (var 文件 in 词典文件) {
+  载入部分词典(文件)();
+}
+
+function 已载入词典() {
+  for (var 文件 in 词典文件) {
+    if (!词典文件[文件]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function 取释义(选中文本) {
+  var 释义 = 词典数据[选中文本];
+  if (!释义) {
+    选中文本 = 选中文本.toLowerCase();
+    释义 = 词典数据[选中文本];
+  }
+  return 释义;
+}
+```
+主界面.js
+```javascript
+function 翻译选中文本() {
+  chrome.tabs.executeScript({
+    code: "window.getSelection().toString();"
+  }, function (选中内容) {
+    // TODO: 如果没有toString, 报错: -,.toLowerCase is not function
+    var 选中文本 = 选中内容.toString();
+    if (!选中文本) {
+      置弹窗内容("无选中文本");
+      return;
+    }
+    var 词典接口 = chrome.extension.getBackgroundPage();
+    if (!词典接口.已载入词典()) {
+      置弹窗内容("载入词典数据中...");
+      return;
+    }
+    var 释义 = 词典接口.取释义(选中文本);
+    置弹窗内容(选中文本, 释义);
+  });
+}
+
+function 置弹窗内容(英文, 释义) {
+  var 窗体 = document.body;
+  var 英文部分 = document.getElementById("英文");
+  var 释义部分 = document.getElementById("释义");
+  英文部分.appendChild(document.createTextNode(英文));
+  var 多行 = 释义.split('\\n');
+  for (var 行数 in 多行) {
+    释义部分.appendChild(document.createTextNode(多行[行数]));
+    释义部分.appendChild(document.createElement("br"));
+  }
+}
+
+翻译选中文本();
+```
+另, 已在Chrome插件商店发布. 链接如下:
+
+- [火狐插件](https://addons.mozilla.org/zh-CN/firefox/addon/%E7%A6%BB%E7%BA%BF%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/)
+- [Chrome插件](https://chrome.google.com/webstore/detail/%E7%A6%BB%E7%BA%BF%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/ndifefelacmidghjaehmhicbchbidhpe/related?hl=en)
