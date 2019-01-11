@@ -1,0 +1,63 @@
+---
+layout: post
+comments: true
+title:  首次发现在例程中使用日语命名的编程书籍
+description: 第一次发现在例程中使用日语命名的编程教程, 为Javascript入门. Found a programming book with sample programs naming identifiers in Japanese.
+date:   2018-10-18 00:00:00 -0700
+categories: 命名 教程
+---
+
+![2018-10-18-javascript_tutorial_日语代码]({{ "/assets/2018-10-18-javascript_tutorial_日语代码.png" | absolute_url }})
+
+[初めてのJavaScript 第3版 -- ES2015以降の最新ウェブ開発](https://www.marlin-arms.com/support/ljs3/). [示例代码](https://github.com/mushahiroyuki/ljs3/blob/master/example/ch08/ex08-03-5/main.js):
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+    this.id = Person.nextId++;
+  }
+}
+Person.nextId = 0;
+const 一郎 = new Person("一郎"), /* id 0 */
+      次郎 = new Person("次郎"), /* id 1 */
+      三郎 = new Person("三郎"), /* id 2 */
+      四郎 = new Person("四郎"); /* id 3 */
+const arr = [一郎, 次郎, 三郎, 四郎];
+
+/* 1. IDを使って直接比較 */
+console.log(arr.find(p => p.id === 三郎.id)); // Person { name: '三郎', id: 2 }
+/* 2. thisを利用。thisを定数「三郎」に指定 */
+console.log(arr.find(function(p) {return p.id === this.id}, 三郎));
+                                              // Person { name: '三郎', id: 2 }
+/* アロー関数ではthisは「語彙的に（lexically）」に束縛される（6章参照） */
+console.log(arr.find(p => p.id === this.id, 三郎)); // undefined
+```
+译者对采用日语命名的缘由在此阐述[初めてのJavaScript 第3版 -- ES2015以降の最新ウェブ開発](https://www.marlin-arms.com/support/ljs3/maegaki.html#maegaki-me)(2016年12月):
+
+> 翻訳の過程で、一部の例を日本語の識別子（変数名や関数名など）を使って書いてみましたが、「日本語で関数名や変数名を考えるのはとても楽だなあ」と感じました。英語を仕事で毎日使っている私でもそうなのですから、普通の方ならなおさらでしょう。コメントと識別子の区別がつきにくいなど、慣れないと少し読みにくい印象はありますが、特に書く際の負担はだいぶ減るように感じます。また、たとえば単数形のbookで、値をひとつ記憶する変数、複数形のbooksで配列を表すといった手法が日本語では使えないなど、日本語独特の工夫が必要になる場面があるかもしれません（一部の例では「本」と「本_配列」のようにしてみましたが）。**これからは、日本国内をターゲットにした開発では徐々に日本語識別子が使われることになるのでしょう**。英語の本を読むよりも、日本語にていねいに翻訳された本を読むほうが理解がずっと早いのと同じです。
+
+倚靠在线翻译, 大致意思如下, 如有出入请指教:
+
+1. 日语命名函数/变量对常人更易理解, 即使译者在日常工作中使用英语仍是如此
+2. 虽然使用日语命名导致注释和实际代码行有些难以区分(日文注释+英文代码会比较显眼), 但译者编写时更容易 <--这里不大确定含义
+3. 有时单复数难以在日语中表达, 此时还是沿用英文命名 -- 中文命名也有类似情况, 之前的探讨: [中文命名的特定问题, 相关风格及规范 · Issue #45 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/45), [在代码中进行中文命名(类/变量/方法等)的优势](https://zhuanlan.zhihu.com/p/40098652)
+4. 最后提到(粗体部分): 对面向日本国内的软件开发, 将会逐渐普及使用日语命名. 阅读使用日语命名的编程书籍会比英文原版更容易理解. -- **听起来似乎是有某些日本的业内推动力量, 值得深入发掘一下.**
+
+#### 补译者 武舎 広幸 Hiroyuki Takeba 简历(机翻):
+
+> 出生于长野县上田市。他在东京工业大学，科学技术研究生院，国际基督教大学，山梨大学研究生院，俄亥俄州立大学研究生院，卡内基梅隆大学机器翻译中心等完成博士课程。
+> 作为Merlin Arms Co.，Ltd。（http://www.marlin-arms.co.jp）的代表董事，他从事与计算机和自然科学，软件开发（翻译软件等），软件项目管理，在线翻译课程（http://www.dhc-online.com）相关的翻译和写作。和字典网站（http://www.dictjuggler.net）
+
+另外, 看来日语命名在日本开发者中也是有阻力的, `日本語識別子（変数名や関数名）を好まれない方がいらっしゃるようですので` - "似乎有些人不喜欢日语标识符（变量名和函数名）"(在[初めてのJavaScript 第3版 -- ES2015以降の最新ウェブ開発](https://www.marlin-arms.com/support/ljs3/)). 确实在[Amazon](https://www.amazon.co.jp/%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AEJavaScript-%E7%AC%AC3%E7%89%88-%E2%80%95ES2015%E4%BB%A5%E9%99%8D%E3%81%AE%E6%9C%80%E6%96%B0%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA-Ethan-Brown/product-reviews/4873117836/ref=cm_cr_dp_d_acr_sr?ie=UTF8&reviewerType=all_reviews)上有一星抱怨日语命名的, 但感觉并没什么说服力.
+
+无论如何, 日本编程书籍出版商在推广母语命名上先行一步了.
+
+期待中文示例代码的编程书籍早日面世.
+
+源讨论帖在: [索引: 用中文代码作示例的编程教程 · Issue #5 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/5#issuecomment-431145785)
+
+#### 2018-11补:
+
+译者发消息, 重印（第四次印刷）已经确定.
+
+另外, 经告知之前有一本"我的第一本编程书"日文编程书的中译本中使用了中文命名的示例代码, 但因为偏算法, 个人感觉母语命名的优势不是特别明显.
