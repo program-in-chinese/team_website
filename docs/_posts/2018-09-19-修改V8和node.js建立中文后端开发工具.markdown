@@ -298,7 +298,7 @@ static Token::Value ZWKeywordOrIdentifierToken(const uint16_t* input,
 4. 在 ScanIdentifierOrKeywordInner 或 ScanIdentifierOrKeyword 中添加中文关键字返回token的逻辑，
 
 node.js的稳点版，改点在ScanIdentifierOrKeyword中：
-```
+```cpp
   if (next_.literal_chars->is_one_byte()) {
     Vector<const uint8_t> chars = next_.literal_chars->one_byte_literal();
     Token::Value token =
@@ -321,7 +321,7 @@ node.js的稳点版，改点在ScanIdentifierOrKeyword中：
 ```
 
 node.js在github上的master，改点在ScanIdentifierOrKeywordInner中：
-```
+```cpp
 if (next_.literal_chars->is_one_byte()) {
     Vector<const uint8_t> chars = next_.literal_chars->one_byte_literal();
     Token::Value token =

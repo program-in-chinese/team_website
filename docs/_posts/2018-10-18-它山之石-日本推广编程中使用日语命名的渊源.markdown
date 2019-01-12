@@ -1,0 +1,51 @@
+---
+layout: post
+comments: true
+title:  它山之石-日本推广编程中使用日语命名的渊源
+description: 日本官方和民间在编程中使用日语命名的相关历史. Brief history of  naming identifiers in Japanese.
+date:   2018-10-18 12:00:00 -0700
+categories: 命名 教程
+---
+
+续前文[首次发现在例程中使用日语命名的编程书籍](https://zhuanlan.zhihu.com/p/47127716), 调研了一下日本对日语命名的以往研究和相关政策, 罗列如下, 望多多补充.
+
+**希望国内的编程教育(尤其是少儿教育)加以借鉴, 使用中文命名将编程与核心学科紧密结合起来.**
+
+2018年3月的[小学校プログラミング教育の手引 （第一版） 小学编程教育指导](http://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2018/03/30/1403162_01.pdf)中所有示例都是日语命名, 与其他学科进行了结合:
+
+2018年11月7日更新的: [小学校プログラミング教育の手引 （第二版） 小学编程教育指导](http://www.pref.oita.jp/uploaded/attachment/2037117.pdf)
+
+![2018-10-18-japan少儿编程]({{ "/assets/2018-10-18-japan少儿编程.png" | absolute_url }})
+
+2017年论文[小学校におけるプログラミング 教育実践上 の 課題](http://www.naruto-u.ac.jp/journal/info-edu/j15005.pdf)中列举了编程与其他学科的结合, 没有看到英文一项:
+
+![2018-10-18-japan少儿教育]({{ "/assets/2018-10-18-japan少儿教育.png" | absolute_url }})
+
+2017年的论文[ローマ字入力時の日本語識別子入力補完プラグインの 開発](http://jssst.or.jp/files/user/taikai/2017/FOSE/fose3-1.pdf)开发了辅助插件以改进IDE对输入日语命名的支持. 摘要中提到(有道翻译):
+
+> 近年来，软件开发项目的复杂性增加了维护软件所需的时间成本，重要的是为降低成本提高源代码的可读性。作为提高源代码的可读性的方法之一，有几个报告表明，用日语写源代码中的变量和函数的标识符名是有用的。
+
+2017年的个人博客: [識別子に日本語を使うことについての考察 - Qiita](https://qiita.com/arai-ta/items/08d0fdb275ff0fcf68a6), 看起来日本业界暂没有一个广泛的日语命名标准.
+
+2014年博客[[コーディングスタイル]識別子を日本語に切り替えていく - Qiita](https://qiita.com/mrdagon/items/2904a60ca43ceb18ad5d), 讨论了日语命名的诸多好处, 也回答了很多质疑.
+
+
+但之前在[第一次见以汉字命名的 Java 类 - V2EX](https://www.v2ex.com/t/480623#r_6048174)中有同行提及:
+
+> 没记错的话，日本开发 Java 用罗马音做方法名，假名做变量名（可能记反），所以对日外包要求日语 N2
+
+也许是某些公司的个别行为? 仍待继续考证.
+### 参考
+
+2018年博客: [日本語識別子が流行らないのは](http://var.blog.jp/archives/75345476.html)
+
+2013年博客: [C++の識別子に日本語を使いたい理由](http://d.hatena.ne.jp/mihael2/20031002)
+
+2012年4月演讲: [日本語識別子の必要性](https://www.slideshare.net/potimarimo/ss-12314191)
+
+2009年博客: [日本語識別子における複数の表現](http://blogs.wankuma.com/episteme/archive/2009/09/17/181335.aspx) 讨论单复数表达
+### 日语编程语言
+
+[日语编程语言"抚子" - 第三版特色初探](https://zhuanlan.zhihu.com/p/30800689)
+
+[日本語プログラミング言語 Mind](https://www.scripts-lab.co.jp/mind/whatsmind.html)
