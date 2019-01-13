@@ -1,0 +1,85 @@
+---
+layout: post
+comments: true
+title:   VS Code英汉词典插件v0.0.4-驼峰下划线命名
+description: 实现VS code插件, 基于本地词典数据, 提供英汉翻译功能, 支持驼峰和下划线命名. Add support for Camel case and underscore style naming to the vscode extension to translate English word or phrase to Chinese in source code.
+date:   2018-11-09 00:00:00 -0700
+categories: 命名 翻译
+---
+
+![2018-11-09-vscode英汉词典_演示_execPath]({{ "/assets/2018-11-09-vscode英汉词典_演示_execPath.png" | absolute_url }})
+
+首先, 在两天时间内安装数破百, 多谢支持.
+
+VS Code插件市场地址: [英汉词典 - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=CodeInChinese.EnglishChineseDictionary)
+
+开源库地址同前文: [Visual Studio Code插件-英汉词典初版发布](https://zhuanlan.zhihu.com/p/48791726)
+
+查询单词功能基本不变, 在详细信息的开头添加了原词:
+
+![2018-11-09-vscode英汉词典_演示_watch]({{ "/assets/2018-11-09-vscode英汉词典_演示_watch.png" | absolute_url }})
+
+如题图, 支持驼峰命名查询. 在详细信息中, 包含所有单词的详细释义, 但为避免内容过多, 没有词形信息. 另外还支持下划线命名:
+
+![2018-11-09-vscode英汉词典_演示_string_decoder]({{ "/assets/2018-11-09-vscode英汉词典_演示_string_decoder.png" | absolute_url }})
+
+查无结果时提示:
+
+![2018-11-09-vscode英汉词典_演示_args_无结果]({{ "/assets/2018-11-09-vscode英汉词典_演示_args_无结果.png" | absolute_url }})
+
+***注意!*** 比初版少了一个功能 -- 查询带空格的短语, 如"as well as". 感觉自己很少查短语, 因此暂缓修复(更多原因见下).
+
+初版中, 只截取了[浏览器插件-离线英汉词典 0.0.7](https://zhuanlan.zhihu.com/p/48116424)的加载词典部分源码. 在这个版本中, 为了进行整命名翻译, 又截取了不少[在线代码离线翻译Chrome插件"一马"v0.0.14](https://zhuanlan.zhihu.com/p/48597668)的现成代码, 虽然当时有不少测试用例. 但此插件仍做了不少改动, 添加了更复杂的接口/结构, 也欠了测试和重构/清理的债. 接下去考虑将现有JavaScript代码尽量转为TypeScript, 并且补很多课(比如到处都用var之类), 以提高可维护性.
+
+初步目标是在年前完成上述修改, 并根据期间的用户反馈决定下一步改进. 另外还希望开始基于这个词典数据的源码命名翻译预览项目: [批量代码汉化工具 · Issue #86 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/86#issuecomment-436745681)
+
+敬请期待!
+### 遛源码时间
+
+之前提到的略复杂结构是命名查询的返回结果, 见下面的注释部分:
+```javascript
+// {"原字段": 原字段, "释义": 翻译, "各词": [{"词": 英文, "释义": 单词释义, "词形": [所有变形]}]};
+function 显示字段信息(查字段结果) {
+    // 长度必大于0
+    if (查字段结果.各词.length == 1) {
+        return 取单词条信息(查字段结果.各词[0], true);
+    } else {
+        var 翻译 = "";
+        for (单词结果 of 查字段结果.各词) {
+            翻译 += 取单词条信息(单词结果, true, false);
+        }
+    }
+    return 翻译;
+}
+
+// {"词": 英文, "释义": 单词释义, "词形": [所有变形]}
+function 取单词条信息(查词结果, 显示原词 = false, 显示词形 = true) {
+    var 显示 = 显示原词 ? "【" + 查词结果.词 + "】" : "";
+    var 释义 = 查词结果.释义;
+    if (释义) {
+        显示 += " " + 释义.split('\\n').join(" ");
+    }
+
+    var 词形 = 查词结果.词形;
+    if (显示词形 && 词形.length > 0) {
+        var 词形显示 = "";
+        for (var 某词形 of 词形) {
+            词形显示 += 某词形.类型 + ": " + 某词形.变化 + "; ";
+        }
+        显示 += "  " + 词形显示;
+    }
+    return 显示;
+}
+```
+
+------------------------------
+
+### 暗黑的彩蛋
+
+刚运行`vsce publish`提交0.0.3版时, 报错:
+
+> Error: Item has already been added. Key in dictionary: 'extension/????????????/????????????.js' Key being added: 'extension/????????????/????????????.js'
+
+于是决定将"源码翻译"目录及文件名改为英文, 并删除暂不需要的关键词数据文件之后, 0.0.4版提交成功. 开issue待研究: [Error: Item has already been added. Key in dictionary · Issue #5 · program-in-chinese/vscode_english_chinese_dictionary](https://github.com/program-in-chinese/vscode_english_chinese_dictionary/issues/5)
+
+路漫漫其修远兮
