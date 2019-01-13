@@ -1,0 +1,60 @@
+---
+layout: post
+comments: true
+title:  手工翻译Vue.js源码第一步:14个文件重命名
+description: 对vue.js源码中的英文文件名进行中文化. Translate file names in source code of vue.js.
+date:   2018-11-21 00:00:00 -0700
+categories: 命名 vuejs
+---
+
+![2018-11-21-vuejs文件重命名1]({{ "/assets/2018-11-21-vuejs文件重命名1.png" | absolute_url }})
+
+### 背景
+
+[对现有开源项目的代码进行翻译(文件名/命名/注释) · Issue #107 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/107)
+
+简单地说, 通过翻译源码, 提高项目代码可读性(对于母语为中文的开发者). 并在此过程中小结源码翻译辅助工具的需求.
+
+源码库分支: [program-in-chinese/vue](https://github.com/program-in-chinese/vue/tree/translate-source)
+
+源码分析参考文档: [Vue.js 技术揭秘 | Vue.js 技术揭秘](https://ustbhuangyi.github.io/vue-analysis/)
+### 14个重命名的文件列表
+```
+core/vdom/helpers/normalize-children->规格化子节点
+core/vdom/create-element->创建元素
+core/vdom/vnode->虚拟节点
+platforms/web/entry-runtime-with-compiler->入口-运行时-带编译器
+platforms/web/runtime/index->索引
+core/index->索引
+core/instance/index->索引
+core/instance/inject->注入
+core/instance/lifecycle->生命周期
+core/instance/proxy->代理
+core/instance/events->事件
+core/instance/render->渲染
+core/instance/state->状态
+core/instance/init->初始化
+```
+### 大概翻译过程
+
+1. fork原代码库, clone到本地, 默认分支为dev. 在此基础上新建分支"translate-source". 运行npm test通过所有测试.
+2. 逐章阅读参考文档, 将涉及的文件重命名. 在此之前运行npm run dev, 可以监控文件修改并自动编译, 根据编译错误修改对应文件
+3. 在刚开始时做了太多修改, 运行npm test时发现问题难以排错, 因此现在采取每个文件重命名后第二步构建成功后就运行npm test, 通过后就commit. 奇怪的是之前的问题再没出现.
+
+### 源码库基本统计
+
+src目录中236个文件, 16893行JavaScript代码
+
+参考: [How do you list number of lines of every file in a directory in human readable format.](https://unix.stackexchange.com/questions/260630/how-do-you-list-number-of-lines-of-every-file-in-a-directory-in-human-readable-f)
+
+源码根目录下运行命令: 
+```
+$ wc -l `find src -type f`
+```
+### 小结
+
+估计30个小时重命名所有src下文件(包括文档初步学习时间). 下一步尝试重命名源码中的中文命名, 已预估所有源码翻译时间, 相信由于对源码和基本术语了解更多之后, 翻译方法有改进空间, 速度也会加快.
+
+源码翻译是一种简单的重构, 对测试用例范围覆盖要求较高. 唯一碰到不稳定的测试用例已有报告: [tests fail from clean environment · Issue #7130 · vuejs/vue](https://github.com/vuejs/vue/issues/7130)
+
+暂时没有发现难以解决的技术问题. 不过命名风格还在小结中, 比如带"-"的文件名, 有些单词构成短语, 但另一些没有. 比如"create-element", 翻译成"创建-元素"就觉得"-"是冗余的, 因此略去为"创建元素". 而"entry-runtime-with-compiler", 暂时翻为"入口-运行时-带编译器", 但也许"带编译器的运行时入口"更自然些.
