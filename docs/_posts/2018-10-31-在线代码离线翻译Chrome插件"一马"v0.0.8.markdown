@@ -1,0 +1,218 @@
+---
+layout: post
+comments: true
+title:   在线代码离线翻译Chrome插件"一马"v0.0.8
+description: 实现Chrome插件, 基于本地词典数据, 提供Github和码云在线源码翻译功能. Implement a Chrome extension to translate English source code to Chinese on Github pages.
+date:   2018-10-31 00:00:00 -0700
+categories: 命名 翻译
+---
+
+续前文: [Chrome插件实现GitHub代码离线翻译v0.0.4](https://zhuanlan.zhihu.com/p/47215777)
+
+添加了对"码云"在线代码的翻译支持, 因此改名暂为"一马". 在此贴中调研了常用的在线代码网站: [各位都在什么源码站上在线看代码? - V2EX](https://www.v2ex.com/t/502820), 暂未发现其他.
+
+***注: 此插件调用[浏览器插件-离线英汉词典 0.0.7](https://zhuanlan.zhihu.com/p/48116424)进行查词, 因此也不依赖任何在线翻译服务, 不存在API调用限制.***
+
+改进功能:
+
+- 支持"码云"代码翻译
+- 添加 C/PHP 关键词的翻译
+- 删除释义中的括号内内容
+
+![2018-10-30-gitee演示]({{ "/assets/2018-10-30-gitee演示.png" | absolute_url }})
+
+"码云"的代码段与GitHub的HTML结构略有不同, 暂时分别处理如下:
+```javascript
+function 获取代码段() {
+  var 当前域名 = window.location.host;
+  // 默认, 适用于GitHub
+  var 代码段节点 = document.body.getElementsByTagName('table')[0];
+
+  if (当前域名 == "gitee.com") {
+    代码段节点 = document.body.getElementsByClassName('code')[0]
+  }
+  
+  // GitHub: 父节点的class包含编程语言信息, 如class="blob-wrapper data type-python "
+  return [代码段节点.parentElement.outerHTML];
+}
+
+function 翻译() {
+  // TODO: 避免与`获取代码段()`重复
+  var 编程语言 = "";
+  var 原代码拷贝 = document.body.getElementsByClassName('code');
+  var 顶节点 = null;
+  if (原代码拷贝.length == 0) {
+    原代码拷贝 = document.getElementsByTagName('table')[0];
+    顶节点 = 原代码拷贝.parentElement;
+    编程语言 = 取编程语言(顶节点);
+  } else {
+    添加CSS("https://gitee.com/assets/application-e5df8140372297eda15f23497886ffdb.css");
+    原代码拷贝 = 原代码拷贝[0];
+  }
+...
+}
+```
+大幅增加了通用关键词的手工翻译, 以覆盖尽可能多的编程语言:
+```javascript
+// TODO: 并非所有编程语言都有. 会影响命名翻译.
+var 通用关键词 = {
+  "abstract": "抽象",
+  "and": "且",
+  "as": "as",
+  "assert": "断言",
+  "break": "跳出",
+  "boolean": "布尔",
+  "byte": "字节",
+  "char": "字节",
+  "const": "const",
+  "case": "分支",
+  "class": "类别",
+  "catch": "接住",
+  "continue": "继续",
+  "default": "默认",
+  "do": "执行",
+  "double": "双浮点",
+  "else": "否则",
+  "enum": "枚举",
+  "extends": "扩展",
+  "extern": "外部",
+  "false": "假",
+  "final": "最终",
+  "finally": "善后",
+  "float": "单浮点",
+  "for": "对于",
+  "function": "函数",
+  "global": "全局",
+  "goto": "goto",
+  "if": "如果",
+  "implements": "实现",
+  "import": "导入",
+  "in": "在",
+  "include": "包括",
+  "instanceof": "为实例",
+  "int": "整数",
+  "interface": "接口",
+  "is": "为",
+  "long": "长整数",
+  "native": "native",
+  "new": "新",
+  "null": "空",
+  "or": "或",
+  "package": "包",
+  "private": "私有",
+  "protected": "保护",
+  "public": "公有",
+  "return": "返回",
+  "short": "短整数",
+  "signed": "有符号",
+  "sizeof": "大小",
+  "static": "静态",
+  "struct": "结构",
+  "super": "父类",
+  "switch": "岔",
+  "synchronized": "同步",
+  "this": "本身",
+  "throw": "抛出",
+  "throws": "会抛出",
+  "transient": "transient",
+  "true": "真",
+  "try": "尝试",
+  "typedef": "类型定义",
+  "union": "联合",
+  "unsigned": "无符号",
+  "void": "无值",
+  "volatile": "volatile",
+  "while": "每当",
+  "with": "with",
+  "yield": "产出"
+}
+
+var 专用关键词 = {
+  // https://msdn.microsoft.com/en-us/library/befeaky0.aspx
+  "c": {
+    "auto": "auto",
+    "register": "register"
+  },
+  // http://php.net/manual/en/reserved.keywords.php
+  "php": {
+    // array()
+    "callable": "可调用",
+    "clone": "克隆",
+    "const": "const",
+    "declare": "声明",
+    // die()
+    "echo": "回响",
+    "elseif": "否则如果",
+    // empty()
+    "enddeclare": "结束声明",
+    "endfor": "结束for",
+    "endforeach": "结束foreach",
+    "endif": "结束if",
+    "endswitch": "结束switch",
+    "endwhile": "结束while",
+    // eval()
+    // exit()
+    "foreach": "对每个",
+    "implements": "实现",
+    "include_once": "包括_单次",
+    "instanceof": "为实例",
+    "insteadof": "insteadof",
+    "interface": "接口",
+    // isset()
+    // list()
+    "namespace": "命名空间",
+    "print": "打印",
+    "require": "需要",
+    "require": "需要_单次",
+    "trait": "trait",
+    // unset()
+    "use": "use",
+    "var": "var",
+    "xor": "异或"
+  },
+  "javascript": {
+    "arguments": "参数",
+    "await": "等待",
+    "debugger": "调试器",
+    "delete": "删除",
+    "eval": "eval",
+    "export": "导出",
+    "let": "让",
+    "typeof": "为类型",
+    "var": "变量"
+  },
+  /*
+  参考 http://zetcode.com/lang/python/keywords/
+  import keyword
+  print("Python keywords: ", keyword.kwlist)
+  */
+  "python": {
+    "False": "假",
+    "None": "空",
+    "True": "真",
+    "def": "定义",
+    "del": "删除",
+    "elif": "否则如果",
+    "except": "except",
+    "from": "从",
+    "lambda": "lambda",
+    "nonlocal": "nonlocal",
+    "not": "不",
+    "pass": "轮空",
+    "raise": "抛出",
+  },
+  // 参考 https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
+  "java": {
+    "strictfp": "strictfp"
+  }
+}
+```
+[Chrome插件商店](https://chrome.google.com/webstore/detail/inicknfojohdbgekdffgcdfiheflpnbh/​)
+
+下个版本打算改进的(11/02/2018: 在0.0.11版中已基本完成):
+
+- [让用户可以选择是否中文化关键词 · Issue #3 · program-in-chinese/webextension_github_code_translator](https://github.com/program-in-chinese/webextension_github_code_translator/issues/3)
+
+- [常用命名/缩写的手工翻译 · Issue #17 · program-in-chinese/webextension_github_code_translator](https://github.com/program-in-chinese/webextension_github_code_translator/issues/17)
+
+- [复数词汇取原词释义 · Issue #12 · program-in-chinese/webextension_github_code_translator: 也许还需要词频数据.](https://github.com/program-in-chinese/webextension_github_code_translator/issues/12)
