@@ -1,0 +1,26 @@
+---
+layout: post
+comments: true
+title:  "[合辑]最精致的python访客登记系统实例项目,微信机器人不再只当人工智障"
+description: 微信机器人助手做的访客登记系统的示例.
+date:   2018-12-01 00:00:00 -0700
+categories: 命名 python
+---
+
+### 原作者为知乎号[浩海泛舟](https://www.zhihu.com/people/zhang-hai-yong-98/)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------01](https://zhuanlan.zhihu.com/p/50902870)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------02](https://zhuanlan.zhihu.com/p/51014598)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------03](https://zhuanlan.zhihu.com/p/51097325)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------04](https://zhuanlan.zhihu.com/p/51184689)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------05](https://zhuanlan.zhihu.com/p/51276692)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------06](https://zhuanlan.zhihu.com/p/51382282)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------07](https://zhuanlan.zhihu.com/p/51771041)
+
+[中文编程,最精致的python访客登记系统实例项目,微信机器人不再只当人工智障------08](https://zhuanlan.zhihu.com/p/51902838)
