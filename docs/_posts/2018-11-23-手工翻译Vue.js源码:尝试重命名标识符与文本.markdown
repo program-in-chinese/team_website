@@ -1,0 +1,46 @@
+---
+layout: post
+comments: true
+title:  手工翻译Vue.js源码:尝试重命名标识符与文本
+description: 尝试对vue.js源码中的标识符名和文本进行中文化. Try to translate identifiers and text in source code of vue.js.
+date:   2018-11-23 00:00:00 -0700
+categories: 命名 vuejs
+---
+
+![2018-11-23-vuejs方法重命名]({{ "/assets/2018-11-23-vuejs方法重命名.png" | absolute_url }})
+
+续前文: [手工翻译Vue.js源码第一步:14个文件重命名](https://zhuanlan.zhihu.com/p/50507506)
+
+对core/instance/索引中的变量, 方法进行重命名如下(题图):
+```javascript
+import { 混入初始化 } from './初始化'
+import { 混入状态 } from './状态'
+import { 混入渲染 } from './渲染'
+import { 混入事件 } from './事件'
+import { 混入生命周期 } from './生命周期'
+import { warn } from '../util/索引'
+
+function Vue (选项) {
+  if (process.env.NODE_ENV !== 'production' &&
+    !(this instanceof Vue)
+  ) {
+    warn('Vue是构造器, 需要`new`调用')
+  }
+  this._init(选项)
+}
+
+混入初始化(Vue)
+混入状态(Vue)
+混入事件(Vue)
+混入生命周期(Vue)
+混入渲染(Vue)
+
+export default Vue
+```
+发现不大理解的术语Mixin, 将至今所有翻译的术语小结后, 觉得需要一个工具进行管理, 至少需要提示是否有两个英文词翻成了同一个中文词: [记录术语 · Issue #2 · program-in-chinese/vue](https://github.com/program-in-chinese/vue/issues/2)
+
+另外, 在重命名core/util/index时, 有50多个相关文件由于引用了此文件, 需要修改. vscode内置的文件重命名功能不能自动修改. 由于有其他类似的路径(如platforms/web/util/index), 不能通过简单搜索/替代进行批量修改. 今后需要寻找辅助工具, 否则工作量太大. 一种可能是, 类似文档本地化的方式([搭建Python官方文档翻译环境-汉化示例代码](https://zhuanlan.zhihu.com/p/36200420)), 但最好尽可能通过更普遍适用的代码重构功能实现.
+
+源码中也有不少文本内容, 多为面向用户的提示信息. 这部分的翻译对vue用户来说应该是最有意义的.
+
+预估工作量还需更多样本.
