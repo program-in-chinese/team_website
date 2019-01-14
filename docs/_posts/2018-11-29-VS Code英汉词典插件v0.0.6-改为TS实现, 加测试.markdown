@@ -1,0 +1,105 @@
+---
+layout: post
+comments: true
+title:   VS Code英汉词典插件v0.0.6-改为TS实现, 加测试
+description: 实现VS code插件, 基于本地词典数据, 提供英汉翻译功能, 从JavaScript改为TypeScript实现. Rewrite the vscode extension to translate English word or phrase to Chinese from JavaScript to TypeScript.
+date:   2018-11-29 00:00:00 -0700
+categories: 命名 词典
+---
+
+如前文[VS Code英汉词典插件v0.0.4-驼峰下划线命名](https://zhuanlan.zhihu.com/p/49133480)打算, 首先将JS源码改为TypeScript实现, 并添加了必要的测试.
+
+昨天[得知vue.js 3.0会用TypeScript实现](https://github.com/program-in-chinese/overview/issues/107#issuecomment-442777593), 正好通过这个插件对TypeScript熟悉一下, 好为[手工翻译Vue.js源码:尝试重命名标识符与文本](https://zhuanlan.zhihu.com/p/50726829)转为对新版vue.js的源码翻译作准备.
+
+源码暂时仍在分支未合并(现已合并): [program-in-chinese/vscode_english_chinese_dictionary](https://github.com/program-in-chinese/vscode_english_chinese_dictionary/pull/13)
+
+改为TS实现参考了官方文档: [Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html), 比想象中的容易些(特别是改文件扩展名那一步), 主要修改是修正[exports->export, require->import · program-in-chinese/vscode_english_chinese_dictionary@cf6a40b](https://github.com/program-in-chinese/vscode_english_chinese_dictionary/commit/cf6a40bdd9ecbec2bc1297bea415caf5520d2037) , 还有for(.. of ..)需添加var.
+
+动态导入多个词典数据费了点功夫: [修正: not a module编译错误 · program-in-chinese/vscode_english_chinese_dictionary@470f81a](https://github.com/program-in-chinese/vscode_english_chinese_dictionary/commit/470f81af913f9f7a4036588be0e9527c69c850b0)
+
+测试运行和调试感觉挺方便. 毕竟VS Code就是TS开发的. 基本覆盖了之前的手工测试. 有测试之后, 之后的重构(使用TS的非JS特性等等)和功能改进就方便多了.
+
+遛测试源码:
+```typescript
+import * as assert from 'assert'
+
+import * as 查词 from '../src/查词'
+
+suite("查词测试", () => {
+
+  test("取释义", () => {
+    assert.deepEqual(
+      {
+        "原字段": "shipment",
+        "释义": "n. 装船, 出货\\n[经] 运送, 运送(寄出)货物, 装载",
+        "各词": [
+          {
+            "词": "shipment", "释义": "n. 装船, 出货\\n[经] 运送, 运送(寄出)货物, 装载",
+            "词形": [
+              { "类型": "名词复数形式", "变化": "shipments" }
+            ]
+          }
+        ]
+      },
+      查词.取释义("shipment")
+    );
+    assert.deepEqual(
+      {
+        "原字段": "ACCOUNT",
+        "释义": "n. 报告, 解释, 估价, 理由, 利润, 算账, 帐目\\nvi. 报帐, 解释, 导致, 报偿, 占, 杀死\\nvt. 认为\\n[计] 帐户, 帐号",
+        "各词": [
+          {
+            "词": "account", "释义": "n. 报告, 解释, 估价, 理由, 利润, 算账, 帐目\\nvi. 报帐, 解释, 导致, 报偿, 占, 杀死\\nvt. 认为\\n[计] 帐户, 帐号",
+            "词形": [
+              { "变化": "accounts", "类型": "名词复数形式" },
+              { "变化": "accounted", "类型": "过去分词" },
+              { "变化": "accounting", "类型": "现在分词" },
+              { "变化": "accounts", "类型": "第三人称单数" },
+              { "变化": "accounted", "类型": "过去式" }
+            ]
+          }
+        ]
+      },
+      查词.取释义("ACCOUNT")
+    );
+    assert.deepEqual(
+      {
+        "原字段": "seconds",
+        "释义": "n. 次级品, 二等品",
+        "各词": [
+          {
+            "词": "seconds", "释义": "n. 次级品, 二等品",
+            "词形": [
+              {
+                "变化": [
+                  "名词复数形式",
+                  "第三人称单数"
+                ],
+                "类型": "原型变换形式"
+              },
+              { "类型": "原型", "变化": "second" }
+            ]
+          }
+        ]
+      },
+      查词.取释义("seconds")
+    );
+
+    assert.equal("执行路径", 查词.取释义("execPath").释义);
+
+    assert.equal("字符串_译码器", 查词.取释义("string_decoder").释义);
+    assert.equal("帐户_数字", 查词.取释义("ACCOUNT_NUMBER").释义);
+    assert.equal("帐户数字", 查词.取释义("_ACCOUNT_NUMBER").释义);
+
+    assert.equal("取得指令秒", 查词.取释义("getSeconds").释义);
+    assert.equal("使用颜色", 查词.取释义("useColors").释义);
+
+    assert.equal("fs路径", 查词.取释义("fsPath").释义);
+  });
+});
+```
+---------------------------------
+
+继续暗黑彩蛋:
+
+发布0.0.6后立即安装试用, 结果傻眼, useColors仍然翻成"使用国旗". 从官网下载了vsix文件解压看了源码的确是更新了的. 压抑住了重新发布0.0.7的冲动, 重新安装后重启vscode, 结果正常. 难道哪里有缓存问题?
