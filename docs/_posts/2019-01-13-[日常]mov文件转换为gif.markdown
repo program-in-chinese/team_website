@@ -1,0 +1,69 @@
+---
+layout: post
+comments: true
+title:  "[日常]mov文件转换为gif"
+description: 用ruby调用ffmpeg转换mov文件为gif. Use ruby to call ffmpeg to transform mov to gif file.
+date:   2019-01-13 00:00:00 -0700
+categories: 命名 教程
+---
+
+因为需要将之前mac下用QuickTime录屏生成的文件(mov格式)转换成gif文件, 便于传到某些博客平台, 于是找到了[这个转换工具](https://github.com/nobodxbodon/convert-mov-to-gif), 已将原代码的命名中文化并简化. Ruby和视频转换都是新手, 请多指教.
+
+之前[JavaScript实现ZLOGO: 前进方向和速度](https://zhuanlan.zhihu.com/p/52434775)有两个mov文件, 下面为转换出的gif:
+
+"轮胎":
+![2019-01-13-logo轮胎]({{ "/assets/2019-01-13-logo轮胎.gif" | absolute_url }})
+
+田字格:
+![2019-01-13-logo田字格]({{ "/assets/2019-01-13-logo田字格.gif" | absolute_url }})
+
+下面是命名中文化后的源码. ***注意: 需将mov文件置于`media`目录下, 并自行修改`mov文件名`和`mov视频大小`值.***
+
+```ruby
+# encoding: utf-8
+
+APP_ROOT = File.dirname(__FILE__)
+
+@@mov文件名 = "1214_田字格"
+
+class Converter
+  @@mov视频大小 = "1032x542" # 查看mov文件属性
+  # Default path to ffmpeg installed by homebrew
+  @@ffmpeg   = File.join('/', 'usr', 'local', 'bin', 'ffmpeg')
+  # Default path to gifsicle installed by homebrew
+  @@gifsicle = File.join('/', 'usr', 'local', 'bin', 'gifsicle')
+
+  @@像素格式 = "rgb8"
+  # Tell ffmpeg to reduce the frame rate from to 30
+  @@帧数 = 30
+
+  # Tell gifsicle to delay 30ms between each gif (in ms)
+  @@延时 = 3
+  # Requests that gifsicle use the slowest/most file-size optimization
+  @@优化 = 3
+  
+  def initialize(输入, 输出)
+    命令 = %{#{@@ffmpeg} -i #{输入} -s #{@@mov视频大小} -pix_fmt #{@@像素格式} -r #{@@帧数} -f gif - | #{@@gifsicle} --optimize=#{@@优化} --delay=#{@@延时} > #{输出}}
+    
+    %x[ #{命令} ]
+  end  
+end
+
+# Be careful not to use spa ces.
+输入 = File.join(APP_ROOT, 'media', @@mov文件名 + '.mov')
+输出 = File.join(APP_ROOT, 'media', @@mov文件名 + '.gif')
+
+Converter.new(输入,输出)
+```
+
+### 中文命名相关问题
+
+开头需加`# encoding: utf-8`, 否则报错
+```
+invalid multibyte char (US-ASCII)
+```
+如果类名改为`转换器`, 运行报错如下. 不知是否Ruby的限制.
+```
+$ ruby 转换器.rb 
+转换器.rb:7: class/module name must be CONSTANT
+```
