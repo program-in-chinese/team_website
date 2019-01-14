@@ -1,0 +1,63 @@
+---
+layout: post
+comments: true
+title:   VS Code英汉词典插件v0.0.7-尝试词性搭配
+description: 实现VS code插件, 基于本地词典数据, 提供英汉翻译功能, 添加词性搭配功能. Improve vscode extension to translate English word or phrase to Chinese from JavaScript to TypeScript.
+date:   2018-12-03 00:00:00 -0700
+categories: 命名 词典
+---
+
+![2018-12-03-vscode英汉词典_形容词_名词组合]({{ "/assets/2018-12-03-vscode英汉词典_形容词_名词组合.png" | absolute_url }})
+
+续上文[VS Code英汉词典插件v0.0.6-改为TS实现, 加测试](https://zhuanlan.zhihu.com/p/51243255)后, 继续重构(提取常量, 避免var, 添加类型等等), 并完善测试.
+
+测试方法参考: [Testing Visual Studio Code Extensions](https://code.visualstudio.com/api/working-with-extensions/testing-extension), 调试也支持. 觉得虽然启动测试有一定开销(似乎必需启动一个vscode个例), 但还可以接受. 在重构过程中测试用例起了保驾作用.
+
+借助TypeScript特性, 为所有的接口添加了类型, 比如:
+```typescript
+export interface 词形变化 {
+  类型: string;
+  变化: string;
+}
+
+export interface 单词条 {
+  词: string;
+  释义: string;
+  词形: 词形变化[];
+}
+
+export interface 字段释义 {
+  原字段: string;
+  释义: string;
+  各词: 单词条[];
+}
+```
+尝试形容词+名词搭配优先:
+```typescript
+export function 选取释义(所有词条: 模型.单词条[], 所有词: string[]): string[] {
+  let 所有释义 = [];
+
+  // TODO: 重构
+  if (所有词条.length == 2) {
+    let 词1释义 = 所有词条[0].释义;
+    let 词2释义 = 所有词条[1].释义;
+    if (词1释义 && 取按词性释义(词1释义).has(词典常量.词性_形容词)
+      && 词2释义 && 取按词性释义(词2释义).has(词典常量.词性_名词)) {
+      所有释义.push(首选(词1释义, 词典常量.词性_形容词));
+      所有释义.push(首选(词2释义, 词典常量.词性_名词));
+      return (所有释义);
+    }
+  }
+
+  for (let i = 0; i < 所有词条.length; i++) {
+    let 词条 = 所有词条[i];
+    所有释义.push(词条.释义 ? 首选(词条.释义, 词典常量.词性_计算机) : 所有词[i]);
+  }
+  return 所有释义;
+}
+```
+下面的打算:
+
+改进命名: [常用命名/缩写的手工翻译 · Issue #16 · program-in-chinese/vscode_english_chinese_dictionary](https://github.com/program-in-chinese/vscode_english_chinese_dictionary/issues/16)
+
+添加并列编辑器形式的源码翻译: [批量代码汉化工具 · Issue #86 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/86#issuecomment-436745681)
