@@ -1,0 +1,102 @@
+---
+layout: post
+comments: true
+title:   "VS Code英汉词典进化效果演示: 翻译文件所有命名"
+description: 实现VS code插件, 基于本地词典数据, 提供英汉翻译功能, 演示批量命名翻译功能. Demonstrate a new feature in vscode extension to translate English word or phrase to Chinese, by supporting translating all identifiers in a file.
+date:   2018-12-16 00:00:00 -0700
+categories: 命名 翻译
+---
+
+续[VS Code英汉词典插件v0.0.7-尝试词性搭配](https://zhuanlan.zhihu.com/p/51525136), 下一个功能打算实现文件的批量命名翻译: [批量代码汉化工具 · Issue #86 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/86#issuecomment-436745681)
+
+***功能仍未完成. 下面仅为效果演示之用. 并未实际调用英汉词典数据:***
+
+![2018-12-16-vscode_翻译命名_演示]({{ "/assets/2018-12-16-vscode_翻译命名_演示.gif" | absolute_url }})
+
+### 相关源码
+
+新建编辑器内容提供者:
+```typescript
+'use strict';
+
+import * as vscode from 'vscode';
+
+export default class Provider implements vscode.TextDocumentContentProvider{
+
+	static scheme = 'references';
+	private _演示字典: Map<String, String> = new Map([
+		["BasicCalculator", "基本的计算器"],
+		["Calculator", "计算器类"],
+		["calculator", "计算器"],
+		["add", "加"],
+		["subtract", "減"],
+		["multiply", "乘"],
+		["divide", "除"],
+		["first", "第一"],
+		["second", "第二"],
+		["number", "数"],
+		["divisor", "被除数"]
+	]);
+
+	dispose() {
+	}
+
+	provideTextDocumentContent(uri: vscode.Uri): string | Thenable<string> {
+		var 新内容 = vscode.window.activeTextEditor.document.getText();
+		for (var 原命名 of this._演示字典.keys()) {
+		  新内容 = this._replaceAll(新内容, 原命名, this._演示字典.get(原命名));
+		}
+		return 新内容;
+	}
+
+	private _replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+  }
+}
+
+let seq = 0;
+
+export function encodeLocation(uri: vscode.Uri, pos: vscode.Position): vscode.Uri {
+	const query = JSON.stringify([uri.toString(), pos.line, pos.character]);
+	return vscode.Uri.parse(`${Provider.scheme}:test.java?${query}#${seq++}`);
+}
+```
+添加并列编辑器("状态框"为现有功能):
+```typescript
+    const provider = new ContentProvider();
+
+    const providerRegistrations = Disposable.from(
+		workspace.registerTextDocumentContentProvider(ContentProvider.scheme, provider)
+    );
+
+	const commandRegistration = commands.registerTextEditorCommand('editor.翻译标识符', editor => {
+		const uri = encodeLocation(editor.document.uri, editor.selection.active);
+		return workspace.openTextDocument(uri).then(doc => window.showTextDocument(doc, editor.viewColumn + 1));
+    });
+
+    const 状态框 = window.createStatusBarItem(StatusBarAlignment.Right, 100);
+    状态框.command = 'extension.翻译选中文本';
+    context.subscriptions.push(
+        provider,
+        commandRegistration,
+        providerRegistrations,
+        状态框
+    );
+```
+### 发现问题
+
+似乎vscode对中文命名的高亮有些问题:
+
+![2018-12-16-vscode高亮问题]({{ "/assets/2018-12-16-vscode高亮问题.png" | absolute_url }})
+
+对比英文命名的高亮:
+
+![2018-12-16-vscode高亮对比]({{ "/assets/2018-12-16-vscode高亮对比.png" | absolute_url }})
+
+-------------------------------------
+
+尴尬的彩蛋:
+
+经[VS Code 英汉词典进化效果演示: 翻译文件所有命名 - V2EX](https://www.v2ex.com/t/518148#r_6612887)指出, "演示字典"部分有个错误: divisor是"除数". 当然, 本身英汉词典数据是正确的(如下). 功能实现之后应该不会有此问题:
+
+![2018-12-16-vscode翻译divisor]({{ "/assets/2018-12-16-vscode翻译divisor.png" | absolute_url }})

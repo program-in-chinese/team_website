@@ -1,0 +1,60 @@
+---
+layout: post
+comments: true
+title:   "VS Code英汉词典v0.0.8: 批量翻译文件部分命名"
+description: 实现VS code插件, 基于本地词典数据, 提供英汉翻译功能, 添加批量命名翻译功能. Improve vscode extension to translate English word or phrase to Chinese, by supporting translating all identifiers in a file.
+date:   2018-12-25 00:00:00 -0700
+categories: 命名 翻译
+---
+
+续前文: [VS Code英汉词典进化效果演示: 翻译文件所有命名](https://zhuanlan.zhihu.com/p/52543477)
+
+![2018-12-25-vscode英汉词典批量1]({{ "/assets/2018-12-25-vscode英汉词典批量1.gif" | absolute_url }})
+
+vscode"英汉词典"插件地址: [官方链接](https://marketplace.visualstudio.com/items?itemName=CodeInChinese.EnglishChineseDictionary)
+
+现在实现的效果比之前的演示差很多, 因为`executeDocumentSymbolProvider`返回的标识符比想象中的少很多. 而且像`main`这样的常用术语还未进行合适的手工翻译.
+
+提取文件中标识符并翻译的相关部分代码:
+```typescript
+  provideTextDocumentContent(uri: vscode.Uri): string | Thenable<string> {
+    // TODO: 如果没有当前活跃编辑器, 返回空
+    let textEditor = vscode.window.activeTextEditor;
+    return vscode.commands.executeCommand<vscode.DocumentSymbol[]>('vscode.executeDocumentSymbolProvider', textEditor.document.uri)
+      .then(
+        (symbols: Array<vscode.DocumentSymbol>) => {
+          for (var 标识符 of symbols) {
+            this.原命名列表.push(释义处理.消除英文小括号内容(标识符.name));
+            for (var 子标识符 of 标识符.children) {
+              this.原命名列表.push(释义处理.消除英文小括号内容(子标识符.name));
+            }
+          }
+
+          // 长词先查释义, 以免出现一个命名"xxxxyyyy"先替换了yyyy而xxxx未替换的情况
+          this.原命名列表.sort(function (a, b) { return b.length - a.length });
+
+          var 新内容 = textEditor.document.getText();
+          for (var 原命名 of this.原命名列表) {
+            let 中文释义 = 查词.取释义(原命名).释义;
+            let 翻译 = 释义处理.取字段中所有词(原命名).length > 1
+              ? 中文释义
+              : 释义处理.首选(中文释义, 词典常量.词性_计算机);
+            if (翻译) {
+              新内容 = this._replaceAll(新内容, 原命名, 翻译);
+            }
+          }
+          return 新内容;
+        }
+      )
+  }
+```
+-------------- 坑 --------------
+
+之后废了一个小时在这个出现过的这个插件发布才会碰到的问题: [Error: Item has already been added. Key in dictionary · Issue #5 · program-in-chinese/vscode_english_chinese_dictionary](https://github.com/program-in-chinese/vscode_english_chinese_dictionary/issues/5)
+
+初步分析有两个问题:
+
+- 如果两个中文文件名有同样长度, 比如"查词.ts"和"功用.ts", 在本地打包不会有问题(vsce package), 但是在发布时(vsce publish), 估计服务端在保存到后端时会将这两个文件误识别成重命名.
+- 更隐蔽一点的, 在无数次重命名后发现, 在运行publish时, 它不会清理本地的js输出文件夹(这里是out/). 因此在重命名过程中生成的所有.js文件都仍然存在. 导致这无数次重命名都没有效果.
+
+打算复现并报告第一点这个bug. 对第二点的权宜之计---发布前手动清理out目录!
