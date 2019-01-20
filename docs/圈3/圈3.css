@@ -5,6 +5,11 @@
   font-size: 26px;
 }
 
+.p5canvas {
+  position: absolute;
+  top: 0px;
+}
+
 #输入代码 {
   position: relative;
   /*top: -260px;
