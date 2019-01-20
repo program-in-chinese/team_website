@@ -1,14 +1,14 @@
 .运行 {
   position: relative;
-  top: 30px;
-  left: 50px;
+  /*top: 70px;*/
+  left: 20px;
   font-size: 26px;
 }
 
 #输入代码 {
   position: relative;
-  /*top: -260px;*/
-  left: -60px;
-  height: 540px;
+  /*top: -260px;
+  left: -60px;*/
+  height: 500px;
   width: 180px;
 }
