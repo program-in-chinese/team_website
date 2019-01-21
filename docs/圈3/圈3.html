@@ -13,19 +13,20 @@
       <button class="运行" onclick="置速度(document.getElementsByName('速度')[0].value); 分析(document.getElementById('输入代码').value)">运行</button>
       <span id="调试输出"></span>
 
-      <div style="width:150px">
-          前进速度: <input type="text" name="速度" value=2 style="width:40px">
-            </div>
+      <div class="速度输入">
+          前进速度: <input type="text" name="速度" value=2>
+      </div>
       <textarea id="输入代码">
-  开始
+开始
+  循环4次
     循环4次
-      循环4次
-        前进100
-        左转90度
-      到此为止
-    右转90度
+      前进100
+      左转90度
     到此为止
-  结束</textarea>
+  右转90度
+  到此为止
+结束
+      </textarea>
     <!--<img src="图标/蚂蚁头向上.png" alt="蚂蚁" height="18" width="17">-->
     <script>
     构图 = function() {

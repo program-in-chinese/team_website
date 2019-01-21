@@ -1,8 +1,15 @@
 .运行 {
-  position: relative;
-  /*top: 70px;*/
-  left: 20px;
   font-size: 26px;
+  margin: 10px;
+}
+
+.速度输入 {
+  margin: 10px;
+  width: 150px;
+}
+.速度输入 input {
+  font-size: 16px;
+  width: 40px;
 }
 
 .p5canvas {
@@ -11,9 +18,7 @@
 }
 
 #输入代码 {
-  position: relative;
-  /*top: -260px;
-  left: -60px;*/
+  font-size: 16px;
   height: 500px;
   width: 180px;
 }
