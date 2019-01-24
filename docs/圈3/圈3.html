@@ -10,23 +10,21 @@
     <link href="圈3.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-      <button class="运行" onclick="置速度(document.getElementsByName('速度')[0].value); 分析(document.getElementById('输入代码').value)">运行</button>
+      <button class="运行" onclick="置速度(document.getElementsByName('速度')[0].value); 清理画板(); 分析(document.getElementById('输入代码').value)">运行</button>
       <span id="调试输出"></span>
 
       <div class="速度输入">
-          前进速度: <input type="text" name="速度" value=2>
+          前进速度: <input type="text" name="速度" value=5>
       </div>
-      <textarea id="输入代码">
-开始
-  循环4次
-    循环4次
-      前进100
-      左转90度
-    到此为止
-  右转90度
-  到此为止
-结束
-      </textarea>
+<textarea id="输入代码">
+  开始
+    循环20次
+      循环360次
+        前进1
+        左转1度
+      到此为止
+    左转18度
+  结束</textarea>
     <!--<img src="图标/蚂蚁头向上.png" alt="蚂蚁" height="18" width="17">-->
     <script>
     构图 = function() {
