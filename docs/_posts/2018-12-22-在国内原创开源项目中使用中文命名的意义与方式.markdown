@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:   在国内原创开源项目中使用中文命名的意义与方式
-description: 在代码中进行中文实践的几个短期目标. Some short-term goals of practising naming identifiers in Chinese.
+description: 在国内原创开源项目中用中文命名带来的好处, 以及几种方式.
 date:   2018-12-22 00:00:00 -0700
 categories: 命名 开源
 ---
