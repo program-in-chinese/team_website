@@ -16,18 +16,34 @@
       <div class="速度输入">
           前进速度: <input type="text" name="速度" value=5>
       </div>
+      <div class="例程">
+        例程:
+        <select id="例程选择">
+            <option value="三角形">多边形 - 三角形</option>
+            <option value="正方形">多边形 - 正方形</option>
+            <option value="田字格">田字格</option>
+            <option value="圆">圆</option>
+            <option value="四环">圆 - 四次</option>
+            <option value="二十环">圆 - 二十次</option>
+        </select>
+      </div>
 <textarea id="输入代码">
-开始
-  循环4次
-    循环360次
-      前进2
-      左转1度
-    到此为止
-  左转90度
-  到此为止
-结束</textarea>
+</textarea>
     <!--<img src="图标/蚂蚁头向上.png" alt="蚂蚁" height="18" width="17">-->
     <script>
+      var 例程 = {
+        圆: "开始\n  循环360次\n    前进2\n    左转1度\n  到此为止\n结束",
+        三角形: "开始\n  循环3次\n    前进100\n    左转120度\n  到此为止\n结束",
+        正方形: "开始\n  循环4次\n    前进100\n    左转90度\n  到此为止\n结束",
+        田字格: "开始\n  循环4次\n    循环4次\n      前进100\n      左转90度\n    到此为止\n  右转90度\n  到此为止\n结束",
+        四环: "开始\n  循环4次\n    循环360次\n      前进2\n      左转1度\n    到此为止\n  左转90度\n  到此为止\n结束",
+        二十环: "开始\n  循环20次\n    循环360次\n      前进2\n      左转1度\n    到此为止\n  左转18度\n  到此为止\n结束",
+      }
+      var 例程选择 = document.getElementById("例程选择");
+      document.getElementById("输入代码").value = 例程[例程选择.value];
+      例程选择.addEventListener("change", function() {
+        document.getElementById("输入代码").value = 例程[例程选择.value];
+      });
     构图 = function() {
       var 画布 = 新画布(800, 600);
       // TODO: 设置后输入框越上界
