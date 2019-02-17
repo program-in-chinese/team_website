@@ -61,3 +61,19 @@ console.log(arr.find(p => p.id === this.id, 三郎)); // undefined
 译者发消息, 重印（第四次印刷）已经确定.
 
 另外, 经告知之前有一本"我的第一本编程书"日文编程书的中译本中使用了中文命名的示例代码, 但因为偏算法, 个人感觉母语命名的优势不是特别明显.
+
+#### 2019-2-16补:
+
+发现2003年的[日文论坛](http://www.mysql.gr.jp/mysqlml/mysql/msg/7178)提到, 2003年出版的"MYSQL徹底活用(翔泳社-初版)"一书中(貌似[MySQL徹底活用―SQL言語+サーバアプリケーション+管理者編 データベースの本](http://www.first-database.com/sql245.html)), 使用了日文命名的示例代码:
+```sql
+CREATE TABLE 社員  (
+    社員番号 INT NOT NULL,
+    氏名 CHAR(20) NOT NULL,
+    性別 ENUM(`男`,`女`) NOT NULL,
+    部署コード INT NOT NULL,
+    入社年度 year NOT NULL,
+    MAIL CHAR(40) NOT NULL,
+    INDEX (社員番号),
+    INDEX (氏名)
+);
+```
