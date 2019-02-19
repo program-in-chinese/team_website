@@ -1,0 +1,53 @@
+---
+layout: post
+comments: true
+title:  扩展Python控制台实现中文反馈信息之二-正则替换
+description: 扩展默认的Python控制台, 通过正则匹配和替换, 将报错/警告等信息翻译成中文.
+date:   2019-02-18 00:00:00 -0700
+categories: 语言设计
+---
+
+"中文编程"知乎专栏[原文地址](https://zhuanlan.zhihu.com/p/57079638)
+
+![2019-02-18-python控制台扩展]({{ "/assets/2019-02-18-python控制台扩展.png" | absolute_url }})
+
+续前文[扩展Python控制台实现中文反馈信息](https://zhuanlan.zhihu.com/p/56411693), 实现了如下效果:
+```python
+>>> 学
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+命名错误: 命名'学'未定义
+>>> [1] + 2
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+类型错误: 只能将list(而非"int")联结到list
+>>> [1].length
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+属性错误: 'list'个体没有'length'属性
+>>> def foo():
+...     def bar():
+...             print(type)
+...     bar()
+...     type = 1
+... 
+>>> foo()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "<console>", line 4, in foo
+  File "<console>", line 3, in bar
+命名错误: 在闭合作用域中, 自由变量'type'在引用之前未被赋值
+```
+源码在: [program-in-chinese/study](https://github.com/program-in-chinese/study/tree/6084cbfc39166842b95d25d5c2fe419f1c604475/1-%E5%9F%BA%E7%A1%80/%E6%8E%A7%E5%88%B6%E5%8F%B0) 现在支持的报错信息列表见测试用例: [test翻译.py](https://github.com/program-in-chinese/study/blob/6084cbfc39166842b95d25d5c2fe419f1c604475/1-%E5%9F%BA%E7%A1%80/%E6%8E%A7%E5%88%B6%E5%8F%B0/test%E7%BF%BB%E8%AF%91.py)
+
+参考[re - Regular expression operations - Python 3.7.2 documentation](https://docs.python.org/3/library/re.html#re.sub), 用一系列(现8个)正则表达式匹配和替换实现, 比如:
+```python
+if re.match(r"NameError: name '(.*)' is not defined", 原始信息):
+    return re.sub(r"NameError: name '(.*)' is not defined", r"命名错误: 命名'\1'未定义", 原始信息)
+```
+期间发现Python编译器源代码中的报错信息所处位置比较分散, 似乎有上百处. 下面的打算:
+
+- 首先将它打包发布到Pypi, 参考[Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
+- 逐步补充报错信息, 除了在自己使用过程中发现的新报错信息, 也可调研哪些报错最为常见
+- 逐步改进中文信息. 比如`只能将list(而非"int")联结到list` => `只能将列表(而非整数)联结到列表`
+- 上文提到的通过"定制sys.excepthook"实现尚未研究. 如无明显优势, 打算置后.
