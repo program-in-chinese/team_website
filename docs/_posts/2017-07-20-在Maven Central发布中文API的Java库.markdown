@@ -34,3 +34,15 @@ categories: 命名 API
 项目源码: [program-in-chinese/zhconverter](https%3A//github.com/program-in-chinese/zhconverter)
 
 希望找到前人, 结识来者.
+
+-----------
+
+#### 2017.12.19
+
+今天为了尝试发布, 运行"$ mvn clean deploy -P release". 但报错:
+```
+    gpg: selecting openpgp failed: Operation not supported by device
+    gpg: signing failed: No pinentry
+    gpg: signing failed: No pinentry
+```
+不知何故, 但重装GnuPG解决问题.
