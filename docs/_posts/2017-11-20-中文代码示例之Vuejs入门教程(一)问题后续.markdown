@@ -7,7 +7,7 @@ date:   2017-11-20 22:00:00 -0700
 categories: 命名 教程
 ---
 
-[知乎原文](https://zhuanlan.zhihu.com/p/31253256)
+["中文编程"知乎专栏原文](https://zhuanlan.zhihu.com/p/31253256)
 
 第一个issue: [Error compiling template if using unicode naming as v-for alias · Issue #6971 · vuejs/vue](https://github.com/vuejs/vue/issues/6971)
 

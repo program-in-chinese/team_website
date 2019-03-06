@@ -7,7 +7,7 @@ date:   2017-11-25 00:00:00 -0700
 categories: 命名 Spring
 ---
 
-[知乎原文](https://zhuanlan.zhihu.com/p/31417833)
+["中文编程"知乎专栏原文](https://zhuanlan.zhihu.com/p/31417833)
 
 源码: [program-in-chinese/jinxiaocun](https://github.com/program-in-chinese/jinxiaocun)
 

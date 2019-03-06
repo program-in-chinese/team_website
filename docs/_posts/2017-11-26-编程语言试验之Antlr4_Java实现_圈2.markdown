@@ -7,7 +7,7 @@ date:   2017-11-26 00:00:00 -0700
 categories: 语言设计
 ---
 
-[知乎原文](https://zhuanlan.zhihu.com/p/31429800)
+["中文编程"知乎专栏原文](https://zhuanlan.zhihu.com/p/31429800)
 
 此文涉及的源码版本: [program-in-chinese/quan2](https://github.com/program-in-chinese/quan2)
 ### 声明 代码来源 [How to Create Language Using Antlr4](http://progur.com/2016/09/how-to-create-language-using-antlr4.html)
