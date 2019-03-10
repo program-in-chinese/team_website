@@ -1,0 +1,103 @@
+---
+layout: post
+comments: true
+title:  中文代码示例之Electron桌面应用开发初体验
+description: 
+date:   2019-03-09 00:00:00 -0700
+categories: 命名 教程
+---
+
+![2019-03-09_electron初尝试]({{ "/assets/2019-03-09_electron初尝试.png" | absolute_url }})
+
+参考: [打造你的第一个 Electron 应用](https://electronjs.org/docs/tutorial/first-app#%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA-electron-%E5%BA%94%E7%94%A8)
+
+首先运行下面在目录下创建package.json:
+
+> $ npm init
+
+去掉了一些无关项后内容如下:
+```json
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "description": "问好",
+  "main": "问好.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^4.0.8"
+  }
+}
+```
+问好.js
+```javascript
+const { app: 应用, BrowserWindow: 浏览器窗口 } = require('electron')
+
+// 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
+// 垃圾回收的时候，window对象将会自动的关闭
+let 窗口
+
+function 创建窗口 () {
+  // 创建浏览器窗口。
+  窗口 = new 浏览器窗口({ width: 800, height: 600 })
+
+  窗口.loadFile('主页.html')
+
+  // 打开开发者工具
+  窗口.webContents.openDevTools()
+
+  // 当 window 被关闭，这个事件会被触发。
+  窗口.on('closed', () => {
+    // 取消引用 window 对象，如果你的应用支持多窗口的话，
+    // 通常会把多个 window 对象存放在一个数组里面，
+    // 与此同时，你应该删除相应的元素。
+    窗口 = null
+  })
+}
+
+// Electron 会在初始化后并准备
+// 创建浏览器窗口时，调用这个函数。
+// 部分 API 在 ready 事件触发后才能使用。
+应用.on('ready', 创建窗口)
+
+// 当全部窗口关闭时退出。
+应用.on('window-all-closed', () => {
+  // 在 macOS 上，除非用户用 Cmd + Q 确定地退出，
+  // 否则绝大部分应用及其菜单栏会保持激活。
+  if (process.platform !== 'darwin') {
+    应用.quit()
+  }
+})
+
+应用.on('activate', () => {
+  // 在macOS上，当单击dock图标并且没有其他窗口打开时，
+  // 通常在应用程序中重新创建一个窗口。
+  if (窗口 === null) {
+    创建窗口()
+  }
+})
+```
+主页.html
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>吃了么?</title>
+  </head>
+  <body>
+    <h1>吃了么?</h1>
+    我们用了Node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    和Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
+```
+运行应用:
+
+> $ npm start
+
+即显示开头的窗口(在Mac下测试)
+
+有实质功能后还需发布为不同系统平台的包, 可参考: [Application Distribution | Electron](https://electronjs.org/docs/tutorial/application-distribution)
