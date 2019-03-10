@@ -1,0 +1,125 @@
+---
+layout: post
+comments: true
+title:  中文代码示例之NW.js桌面应用开发初体验
+description: 
+date:   2019-03-09 08:00:00 -0700
+categories: 命名 教程
+---
+
+先看到了NW.js(应该是前身node-webkit的缩写? 觉得该起个更讲究的名字, 如果是NorthWest之意的话, logo(见下)里的指南针好像也没指着西北啊)和Electron的比较文章: [Why I prefer NW.js over Electron? (2018 comparison)](https://hackernoon.com/why-i-prefer-nw-js-over-electron-2018-comparison-e60b7289752)
+
+![2019-03-09_nwjs_logo]({{ "/assets/2019-03-09_nwjs_logo.png" | absolute_url }})
+
+之后在看NW.js创始者(Wang WenRui)的推时不意发现微信小程序用了此框架. 也许与它对老系统如Windows XP的支持有关. 必须体验一下!
+
+下面完成与[中文编程：中文代码示例之Electron桌面应用开发初体验](https://zhuanlan.zhihu.com/p/58807431)相同的功能, 作一个比较.
+
+package.json
+```json
+{
+  "name": "hello",
+  "main": "主页.html",
+  "version": "1.0.0",
+  "window":{
+    "min_width":800,
+    "min_height":400
+  }
+}
+```
+主页.html
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>吃了么?</title>
+  </head>
+  <body>
+    <h1>吃了么?</h1>
+    我们用了Node <script>document.write(process.versions.node)</script>
+    , flavor <script>document.write(process.versions['nw-flavor'])</script>
+    <script>
+      nw.Window.get().showDevTools();
+  </script>
+  </body>
+</html>
+```
+起初安装时用了Normal版, 将nwjs.app移到了/Applications下(Mac环境)
+
+在目录下运行:
+
+> $ /Applications/nwjs.app/Contents/MacOS/nwjs .
+
+发现弹出的开发者工具窗口为完全空白, 搜了一下发现官方的说明:
+Debugging with DevTools​
+docs.nwjs.io
+
+必须用"SDK Flavor", 但链接直接引向了从源码构建NW: [Build Flavors - NW.js Documentation](http://docs.nwjs.io/en/latest/For%20Users/Advanced/Build%20Flavors/)
+
+正纠结是否要着手构建, 想起之前有个"SDK"版本下载, 试着下载解压后将nwjs.app文件(还有其他一些文件, 不知何用)移到/Applications下, 再次运行, 就成功如下打开了开发者窗口.
+
+![2019-03-09_nwjs吃了么]({{ "/assets/2019-03-09_nwjs吃了么.png" | absolute_url }})
+
+下面尝试官网第二个例子: [Getting Started - NW.js Documentation](http://docs.nwjs.io/en/latest/For%20Users/Getting%20Started/#example-2-using-nwjs-apis). 显示上下文菜单:
+
+菜单.html
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>上下文菜单</title>
+</head>
+<body style="width: 100%; height: 100%;">
+
+<p>'右击'显示上下文菜单.</p>
+
+<script>
+// 创建空白上下文菜单
+var 菜单 = new nw.Menu();
+
+菜单.append(new nw.MenuItem({
+  label: 'A项',
+  click: function(){
+    alert('你点了"A项"');
+  }
+}));
+菜单.append(new nw.MenuItem({ label: 'B项' }));
+菜单.append(new nw.MenuItem({ type: 'separator' }));
+菜单.append(new nw.MenuItem({ label: 'C项' }));
+
+// Hooks the "context菜单" event
+document.body.addEventListener('contextmenu', function(事件) {
+  // 避免显示默认菜单
+  事件.preventDefault();
+  // 在点击处弹出菜单
+  菜单.popup(事件.x, 事件.y);
+
+  return false;
+}, false);
+
+</script>  
+</body>
+</html>
+```
+运行后随意点击窗口中央发现菜单并非期望:
+
+![2019-03-09_nwjs菜单错]({{ "/assets/2019-03-09_nwjs菜单错.png" | absolute_url }})
+
+后发现有效区域仅在上部:
+
+![2019-03-09_nwjs菜单正]({{ "/assets/2019-03-09_nwjs菜单正.png" | absolute_url }})
+
+查看开发者工具, 的确body仅在上部:
+
+![2019-03-09_nwjs查看元素]({{ "/assets/2019-03-09_nwjs查看元素.png" | absolute_url }})
+
+为啥`height: 100%`无效呢?
+### 初感
+
+官方文档的门槛略高(另外似乎无中文版?), 上面的问题应该会影响新手接纳程度. 也许是目标群体定位与Electron不同?
+
+### 参考:
+
+官方文档: [Getting Started - NW.js Documentation](http://docs.nwjs.io/en/latest/For%20Users/Getting%20Started/#getting-started-with-nwjs)
