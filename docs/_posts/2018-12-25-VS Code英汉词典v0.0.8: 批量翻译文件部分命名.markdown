@@ -7,6 +7,8 @@ date:   2018-12-25 00:00:00 -0700
 categories: 命名 翻译
 ---
 
+![2019-03-07-vscode词典批量翻译]({{ "/assets/2019-03-07-vscode词典批量翻译.png" | absolute_url }})
+
 续前文: [VS Code英汉词典进化效果演示: 翻译文件所有命名](https://zhuanlan.zhihu.com/p/52543477)
 
 ![2018-12-25-vscode英汉词典批量1]({{ "/assets/2018-12-25-vscode英汉词典批量1.gif" | absolute_url }})
