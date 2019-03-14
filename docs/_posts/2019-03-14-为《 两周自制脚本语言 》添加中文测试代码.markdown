@@ -1,0 +1,92 @@
+---
+layout: post
+comments: true
+title:  为《 两周自制脚本语言 》添加中文测试代码
+description: 为《 两周自制脚本语言 》添加中文JUnit测试代码.
+date:   2019-03-14 01:00:00 -0700
+categories: 语言设计 命名
+---
+
+![2019-03-13-stone测试]({{ "/assets/2019-03-13-stone测试.png" | absolute_url }})
+
+源自[自制编译器+自制脚本语言+自制编程语言 三书比较？](https://www.zhihu.com/question/27686032/answer/621549753)
+
+两年多前只看了一本的前六章: [实践"两周自制脚本语言"一书【java吧】_百度贴吧](http://tieba.baidu.com/p/4563689271)
+
+当时是希望一路添加测试用例, 并且最终把语言改为中文语法. 但看到Gluonj之后,似乎必须要Loader.run来执行解释器, 得不到返回值, 只能打印解释结果.
+
+今天从此书官网([スクリプト言語の作り方](https://chibash.github.io/essays/book))找到了它的附带源码库: [chibash/stone](https://github.com/chibash/stone), 顺便研究了一下Gluonj源码, 找到了它的JUnit辅助功能: [https://github.com/chibash/gluonj/blob/master/src/javassist/gluonj/util/UTester.java](https://github.com/chibash/gluonj/blob/master/src/javassist/gluonj/util/UTester.java)
+
+据此写了第五到十四章的测试, 运行效果见开头. 下面以第九章的为例:
+
+测试用"石头"语言源码: [位置类](https://github.com/program-in-chinese/stone/blob/master/%E6%B5%8B%E8%AF%95%E6%BA%90%E7%A0%81/chap9/%E4%BD%8D%E7%BD%AE%E7%B1%BB.txt)
+```
+class Position {
+    x = y = 0
+    def move (nx, ny) {
+        x = nx; y = ny;
+    }
+}
+p = Position.new
+p.move(3, 4)
+p.x = 10
+sum = p.x + p.y
+```
+测试代码: [面向对象解释器Test](https://github.com/program-in-chinese/stone/blob/master/test/chap9/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%A7%A3%E9%87%8A%E5%99%A8Test.java)
+```java
+package chap9;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+import org.junit.Test;
+
+import chap7.NestedEnv;
+import chap8.Natives;
+import javassist.gluonj.util.UTester;
+import stone.ClassParser;
+import stone.ParseException;
+import stone.util.文件功用;
+import stone.util.解释器功用;
+
+public class 面向对象解释器Test extends ClassInterpreter {
+
+  private static String 位置类 = "";
+  static {
+    try {
+      位置类 = 文件功用.读文件("测试源码/chap9/位置类.txt", StandardCharsets.UTF_8);
+    } catch (IOException e) {
+    }
+  }
+
+  public static Object 求值(String 源代码) throws ParseException {
+    return 解释器功用.求值(new ClassParser(), new Natives().environment(new NestedEnv()), 源代码);
+  }
+
+  @Test
+  public void 例程() throws Throwable {
+    if (UTester.runTestWith("chap9.ClassEvaluator", "chap8.NativeEvaluator", "chap7.ClosureEvaluator"))
+      return;
+    assertEquals(14, 求值(位置类));
+  }
+}
+```
+改写自[BasicInterpreter](https://github.com/program-in-chinese/stone/blob/f8b447f9b4cfc671f1d2747c092774d24194ea36/src/chap6/BasicInterpreter.java#L10)的[解释器功用.求值()](https://github.com/program-in-chinese/stone/blob/f8b447f9b4cfc671f1d2747c092774d24194ea36/test/stone/util/%E8%A7%A3%E9%87%8A%E5%99%A8%E5%8A%9F%E7%94%A8.java#L20)
+```java
+  public static Object 求值(BasicParser 基本分析器, Environment 环境, String 源代码) throws ParseException {
+    Lexer 词法分析器 = new Lexer(new StringReader(源代码));
+    Object 终值 = null;
+    while (词法分析器.peek(0) != Token.EOF) {
+      ASTree 树 = 基本分析器.parse(词法分析器);
+      if (!(树 instanceof NullStmnt)) {
+        终值 = ((BasicEvaluator.ASTreeEx) 树).eval(环境);
+      }
+    }
+    return 终值;
+}
+```
+又有了深入学习此书(顺便将代码中文化, 像之前的[中文编程：手工翻译Vue.js源码:尝试重命名标识符与文本](https://zhuanlan.zhihu.com/p/50726829)), 并据此开发一些中文编程语言原型的动力.
+
+***补***: 十四章中fib(33)的运行时间确实与Java的对应代码运行时间相差无几, 虽然如作者所言, 并不能以此判断语言的性能.
