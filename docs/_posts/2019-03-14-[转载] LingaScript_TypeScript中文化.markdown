@@ -7,7 +7,8 @@ date:   2019-03-14 00:00:00 -0700
 categories: 语言设计
 ---
 
-***原文在原创者(也是周蟒作者)博客: [中文輸進去，程式出得來，開發者發大財](https://blog.gasolin.idv.tw/2019/03/08/introducing_lingascript/)***
+***原文在原创者 (也是[周蟒](https://github.com/gasolin/zhpy)作者) 博客: [中文輸進去，程式出得來，開發者發大財](https://blog.gasolin.idv.tw/2019/03/08/introducing_lingascript/)***
+
 
 前陣子過年，終於得以抽出的一些時間，可以來嘗試一些不同的東西。
 
