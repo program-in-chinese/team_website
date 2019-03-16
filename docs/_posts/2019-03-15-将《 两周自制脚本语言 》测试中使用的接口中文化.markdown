@@ -1,0 +1,87 @@
+---
+layout: post
+comments: true
+title:  将《 两周自制脚本语言 》测试中使用的接口中文化
+description: 为《 两周自制脚本语言 》添加的JUnit测试代码中调用的非核心库API进行汉化.
+date:   2019-03-15 00:00:00 -0700
+categories: 语言设计 命名
+---
+
+![2019-03-15-stone测试中文化]({{ "/assets/2019-03-15-stone测试中文化.png" | absolute_url }})
+
+续前文[为《 两周自制脚本语言 》添加中文测试代码](https://zhuanlan.zhihu.com/p/59247625). 之前在[手工翻译Vue.js源码:尝试重命名标识符与文本](https://zhuanlan.zhihu.com/p/50726829)时, 采用的顺序是从主程序入口开始. 这次从自己编写的测试代码开始, 一是较为熟悉代码, 二是测试驱动开发的思路.
+
+在过程中, 基本依托Eclipse的"重命名"功能, 尚未发现功能上的问题.
+
+在修改`eval`方法名时, 一开始只重命名了`ASTreeEx`中的, 后发觉需要将`ASTree`的所有子类中的`eval`一并重命名. 其他子类递归调用的API也如此. GluonJ的机制如下(摘自原书), 开发时需要注意.
+
+> eval 方法 看似 定义 于 ASTreeEx 类 中， 其实 该类 的 定义 将被 替换， eval 方法 实际上 将由 ASTree 类 定义。 其他 类 的 eval 方法 同样 如此。
+
+翻译的中英对应在[词典](https://github.com/program-in-chinese/stone/tree/master/%E8%AF%8D%E5%85%B8):
+
+类名:
+```
+Lexer,词法分析器类
+Token,词类
+BasicParser,基本语法分析器类
+ASTree,语法树类
+BinaryExpr,二元表达式类
+ASTLeaf,语法树叶类
+WhileStmnt,While声明类
+ParseException,分析例外
+BasicInterpreter,基本解释器类
+BasicEnv,基本环境类
+BasicEvaluator,基本求值器类
+FuncInterpreter,函数解释器类
+FuncParser,函数语法分析器类
+NestedEnv,嵌套环境类
+FuncEvaluator,函数求值器类
+ClosureInterpreter,闭包解释器类
+ClosureParser,闭包语法分析器类
+ClosureEvaluator,闭包求值器类
+NativeInterpreter,原生解释器类
+NativeEvaluator,原生求值器类
+Natives,原生类
+ClassEvaluator,类求值器类
+ClassInterpreter,类解释器类
+ClassParser,类语法分析器类
+ArrayEvaluator,数组求值器类
+EnvOptimizer,环境优化器类
+InlineCache,内联缓存类
+ObjOptimizer,对象优化器类
+VmInterpreter,虚拟机解释器类
+StoneVMEnv,虚拟机环境类
+VmEvaluator,虚拟机求值器类
+TypedInterpreter,带类型解释器类
+TypeEnv,类型环境类
+TypedParser,带类型语法分析器类
+TypedNatives,带类型原生类
+ToJava,变Java类
+InferFuncTypes,推导函数类型类
+TypeException,类型例外
+TypeInfo,类型信息类
+Environment,环境类
+NullStmnt,空声明类
+ASTreeEx,语法树扩展类
+ASTreeOptEx,语法树优化扩展类
+EnvEx2,环境扩展类2
+TypeChecker,类型检查器类
+ASTreeTypeEx,语法树类型扩展类
+```
+方法名:
+```
+Lexer.read,读
+ASTree.numChildren,子个数
+ASTree.child,子
+ASTLeaf.token,词
+Lexer.peek,瞄
+ASTree.parse,分析
+Natives.environment,环境
+*.eval,求值
+*.lookup,查找
+*.symbols,所有符号
+*.typeCheck,类型检查
+Token.getText,取文本
+Token.isNumber,为数
+Token.isIdentifier,为标识符
+```
