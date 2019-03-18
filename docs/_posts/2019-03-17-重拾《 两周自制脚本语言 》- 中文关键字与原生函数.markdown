@@ -1,0 +1,58 @@
+---
+layout: post
+comments: true
+title:  重拾《 两周自制脚本语言 》- 中文关键字与原生函数
+description: 为《 两周自制脚本语言 》添加中文关键字与原生函数
+date:   2019-03-17 00:00:00 -0700
+categories: 语言设计 命名
+---
+
+续前文[重拾《 两周自制脚本语言 》- 支持中文标识符](https://zhuanlan.zhihu.com/p/59491495), 将当前的关键字改为中文. 基本是将语法分析器中的原本英文关键字改为中文. 如[改while->每当 · program-in-chinese/stone@32c79b4](https://github.com/program-in-chinese/stone/commit/32c79b43433996310798251869272f6772418afc):
+```java
+    Parser statement = statement0.or(
+            rule(IfStmnt.class).sep(IfStmnt.关键字_如果).ast(expr).ast(block)
+                               .option(rule().sep(IfStmnt.关键字_不然).ast(block)),
+            rule(While声明类.class).sep(While声明类.关键字).ast(expr).ast(block),
+            simple);
+```
+下面是关键字对应表:
+```
+while,每当
+if,如果
+else,否则
+class,类别
+extends,扩展
+def,定义
+fun,函数
+new,新建
+this,本体
+```
+原生函数就是Java本身核心库函数. 比如`System.out.println`, 原本被封装为了`print`方法, `System.currentTimeMillis`被封装为了`currentTime`方法等. 将原环境类中的键值, 就是原英文方法名, 改为中文. 如[print->打印 · program-in-chinese/stone@165d99e](https://github.com/program-in-chinese/stone/commit/165d99e5b7bdbd19eb3ad33801b5af07aa698831):
+```java
+append(env, 方法名_打印, 原生类.class, "print", Object.class);
+```
+为验证可行性, 仅汉化了两个API. 最好今后能够做到无需封装直接调用Java的静态方法.
+
+达成例程效果如下:
+```
+类别 斐波那契类 {
+    值0 = 0
+    值1 = 1
+    定义 斐波那契 (n) {
+        如果 n == 0 {
+            值0
+        } 否则 {
+            如果 n == 1 {
+                本体.值1
+            } 否则 {
+                本体.斐波那契(n-1) + 本体.斐波那契(n-2)
+            }
+        }
+    }
+}
+时刻 = 当前时刻()
+斐 = 斐波那契类.新建
+斐.斐波那契 20
+耗时 = 当前时刻() - 时刻
+```
+下面打算先参考[为新语言编写Visual Studio Code语法高亮插件](https://zhuanlan.zhihu.com/p/32322051), 为它编写类似插件.

@@ -1,0 +1,79 @@
+---
+layout: post
+comments: true
+title:  重拾《 两周自制脚本语言 》- 支持中文标识符
+description: 为《 两周自制脚本语言 》添加中文标识符支持.
+date:   2019-03-16 00:00:00 -0700
+categories: 语言设计 命名
+---
+
+续前文[将《 两周自制脚本语言 》测试中使用的接口中文化](https://zhuanlan.zhihu.com/p/59418720). 在将此脚本语言改为中文关键字之前, 需要先让它支持中文标识符.
+
+首先添加一个词法分析器测试:
+```java
+  @Test
+  public void test读中文() throws 分析例外 {
+    词法分析器类 词法分析器 = 词法分析功用.新建词法分析器("中文变量1名 = 中文ok值");
+    词类 词1 = 词法分析器.读();
+    词类 词2 = 词法分析器.读();
+    词类 词3 = 词法分析器.读();
+
+    词法分析功用.词为标识符("中文变量1名", 词1);
+    词法分析功用.词为标识符("=", 词2);
+    词法分析功用.词为标识符("中文ok值", 词3);
+  }
+```
+预期的应该不能通过测试, 结果的确不成功, 但是"卡"住了而非报错. 调试后看到问题出在这段:
+```java
+        int lineNo = reader.getLineNumber();
+        Matcher matcher = pattern.matcher(line);
+        matcher.useTransparentBounds(true).useAnchoringBounds(false);
+        int pos = 0;
+        int endPos = line.length();
+        while (pos < endPos) {
+            matcher.region(pos, endPos);
+            if (matcher.lookingAt()) {
+                addToken(lineNo, matcher);
+                pos = matcher.end();
+            }
+            else
+                throw new 分析例外("bad token at line " + lineNo);
+        }
+```
+改为中文命名以更易于理解:
+```java
+        int 行数 = reader.getLineNumber();
+        Matcher 匹配器 = 模式.matcher(行);
+        匹配器.useTransparentBounds(true).useAnchoringBounds(false);
+        int 头 = 0;
+        int 尾 = 行.length();
+        while (头 < 尾) {
+            匹配器.region(头, 尾);
+            if (匹配器.lookingAt()) {
+                添加词(行数, 匹配器);
+                头 = 匹配器.end();
+            }
+            else
+                throw new 分析例外("bad token at line " + 行数);
+        }
+```
+看到进入死循环的直接原因是`匹配器.lookingAt()`虽然为`true`, 但`头`始终为0. 更深原因可自行研究原正则表达式.
+
+为了添加中文标识符支持, 需要使正则表达式能够匹配中文字符, 参考[Detecting if NSString contains chinese characters](https://stackoverflow.com/questions/11897531/detecting-if-nsstring-contains-chinese-characters/11898220#11898220)
+
+将原模式中的`[A-Z_a-z][A-Z_a-z0-9]*`改为`[\\p{script=Han}A-Z_a-z][\\p{script=Han}A-Z_a-z0-9]*`. 之后开头的词法分析器测试通过.
+
+为检验更复杂一些的源码, 对第九章的原本测试用源码使用中文命名:
+```
+class 位置类 {
+    经 = 纬 = 0
+    def 到达 (经度, 纬度) {
+        经 = 经度; 纬 = 纬度;
+    }
+}
+位置 = 位置类.new
+位置.到达(3, 4)
+位置.经 = 10
+和 = 位置.经 + 位置.纬
+```
+测试通过~ 源码提交在[此](https://github.com/program-in-chinese/stone/commit/ca0c6715dcc1c43eb30082e266ab17bcada076b8)
