@@ -1,0 +1,76 @@
+---
+layout: post
+comments: true
+title:  重拾《 两周自制脚本语言 》- Eclipse插件实现语法高亮
+description: 为《 两周自制脚本语言 》的语言
+date:   2019-03-20 00:00:00 -0700
+categories: 语言设计 IDE
+---
+
+![2019-03-20-stone语法高亮Eclipse插件]({{ "/assets/2019-03-20-stone语法高亮Eclipse插件.png" | absolute_url }})
+
+源码库: [program-in-chinese/stone-editor-eclipse](https://github.com/program-in-chinese/stone-editor-eclipse)
+
+参考:
+
+- [FAQ How do I write an editor for my own language?](https://wiki.eclipse.org/FAQ_How_do_I_write_an_editor_for_my_own_language%3F)
+- [Deliver support for new languages in Eclipse IDE faster with Generic Editor and Language Servers - Red Hat Developer Blog](https://developers.redhat.com/blog/2016/11/24/deliver-support-for-new-languages-in-eclipse-ide-faster-with-generic-editor-and-language-servers/)
+- Vogella公司写的源码例子: [vogellacompany/codeexamples-ide](https://github.com/vogellacompany/codeexamples-ide/tree/dbfa485ca9b6f0aed653b3a466c055e24b01bb90)
+
+开始想在VS Code下实现, 通过添加TextMate语法文件也基本达到了上面的效果, 但看着vscode的Java语法需要上千行JSON代码: [java.tmLanguage.json](https://github.com/Microsoft/vscode/blob/master/extensions/java/syntaxes/java.tmLanguage.json), TypeScript的更夸张有五千行, 难以想象如何维护, 于是考察Eclipse下的实现方式.
+
+正好看到Eclipse 4.7版本之后改进了对新语言的插件开发的支持([Eclipse Project Oxygen (4.7) M3 News](https://www.eclipse.org/eclipse/news/4.7/M3/#generic-editor)), 不用从头建一个定制编辑器, 而是对一个"通用文本编辑器"进行扩展, 来实现高亮, 悬浮提示, 辅助补全等等功能. 看了示例代码以Java为主, 应该比写JSON好维护一些.
+
+刚实现了开头的图示中的高亮功能, 直接上源码.
+
+下面定义了语法高亮的几个规则, 包括数字, 注释([StoneReconciler](https://github.com/program-in-chinese/stone-editor-eclipse/blob/master/src/stone_editor/StoneReconciler.java)):
+```java
+public class StoneReconciler extends PresentationReconciler {
+  Token 深红 = 字号(SWT.COLOR_DARK_RED);
+  Token 深绿 = 字号(SWT.COLOR_DARK_GREEN);
+  Token 蓝色 = 字号(SWT.COLOR_BLUE);
+
+  public StoneReconciler() {
+    SingleLineRule 单引号 = new SingleLineRule("'", "'", 深红);
+    SingleLineRule 双引号 = new SingleLineRule("\"", "\"", 深红);
+    NumberRule 数字 = new NumberRule(蓝色);
+    PatternRule 模式规则 = new PatternRule("//", null, 深绿, (char) 0, true);
+
+    石头语言用词规则 用词规则 = new 石头语言用词规则();
+
+    RuleBasedScanner 扫描器 = new RuleBasedScanner();
+    扫描器.setRules(new IRule[] {单引号, 双引号, 用词规则, 模式规则, 数字});
+
+    DefaultDamagerRepairer 修理器 = new DefaultDamagerRepairer(扫描器);
+    this.setDamager(修理器, IDocument.DEFAULT_CONTENT_TYPE);
+    this.setRepairer(修理器, IDocument.DEFAULT_CONTENT_TYPE);
+  }
+
+  private Token 字号(int 色号) {
+    return new Token(new TextAttribute(Display.getCurrent().getSystemColor(色号)));
+  }
+}
+```
+关键词高亮规则:
+```java
+public class 石头语言用词规则 extends WordRule {
+
+  private static final ArrayList<String> 关键字 =
+      new ArrayList<>(Arrays.asList("每当", "如果", "否则", "类别", "定义"));
+
+  private static final Color 深紫红 = Display.getCurrent().getSystemColor(SWT.COLOR_DARK_MAGENTA);
+
+  public 石头语言用词规则() {
+    super(new 探测器());
+
+    for (String 词 : 关键字) {
+      addWord(词, new Token(new TextAttribute(深紫红, null, SWT.BOLD)));
+    }
+  }
+}
+```
+### 问题
+
+新建的默认插件对XML进行校验, 因此石头语言的语法会导致文件开头报校验错误"Content is not allowed in prolog". 将`ValidatorDocumentSetupParticipant`中对XML解析的部分删去后不再报错. 但是, 老文件的错误不能自动消除, 应该与内容刷新或者自动校验有关. 之后对校验部分定制时进一步研究.
+
+参考: [Eclipse Content is not allowed in prolog](https://stackoverflow.com/questions/5445143/eclipse-content-is-not-allowed-in-prolog)
