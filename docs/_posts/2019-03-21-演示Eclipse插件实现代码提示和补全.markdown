@@ -1,0 +1,67 @@
+---
+layout: post
+comments: true
+title:  演示Eclipse插件实现代码提示和补全
+description: 演示Eclipse插件实现代码提示和补全
+date:   2019-03-21 00:00:00 -0700
+categories: 语言设计 IDE
+---
+
+续上文[重拾《 两周自制脚本语言 》- Eclipse插件实现语法高亮](https://zhuanlan.zhihu.com/p/59890614), 但仅达到了演示Eclipse本身功能的程度, 与石头语言并无直接联系. 源码库相同, 仍在同一插件. 演示效果如下:
+
+![2019-03-21-eclipse提示]({{ "/assets/2019-03-21-eclipse提示.gif" | absolute_url }})
+
+悬浮窗显示的是当前所在行内容. 而键入"新"字会弹出自动补全, 选项仅有"新建"一项. 再进一步的话, 两者都应该需要准确获取鼠标所在位置字段的语法信息, 即集成语法分析器的功能, 而那还只是第一步.
+
+由于仅作演示功能, 相关代码还较简短. [内容辅助处理器](https://github.com/program-in-chinese/stone-editor-eclipse/blob/master/src/stone_editor/%E5%86%85%E5%AE%B9%E8%BE%85%E5%8A%A9%E5%A4%84%E7%90%86%E5%99%A8.java), 提供自动补全功能.
+```java
+  public static final String[] 所有建议 = new String[] {"新建"};
+
+  @Override
+  public ICompletionProposal[] computeCompletionProposals(ITextViewer 视图, int 偏移) {
+
+    IDocument 文件 = 视图.getDocument();
+
+    try {
+      int 偏移所在行 = 文件.getLineOfOffset(偏移);
+      int 行头偏移 = 文件.getLineOffset(偏移所在行);
+
+      int 当前行文本长度 = 偏移 - 行头偏移;
+      String 当前行文本 = 文件.get(行头偏移, 当前行文本长度).toLowerCase();
+
+      return Arrays.asList(所有建议).stream()
+          .filter(建议 -> !视图.getDocument().get().contains(建议) && 建议.toLowerCase().startsWith(当前行文本))
+          .map(建议 -> new CompletionProposal(建议, 行头偏移, 当前行文本长度, 建议.length()))
+          .toArray(ICompletionProposal[]::new);
+    } catch (BadLocationException e) {
+      e.printStackTrace();
+    }
+    return new ICompletionProposal[0];
+  }
+
+  @Override
+  public char[] getCompletionProposalAutoActivationCharacters() {
+    String keys = "新";
+    return keys.toCharArray();
+}
+```
+[悬浮提供器](https://github.com/program-in-chinese/stone-editor-eclipse/blob/master/src/stone_editor/%E6%82%AC%E6%B5%AE%E6%8F%90%E4%BE%9B%E5%99%A8.java)
+```java
+  @Override
+  public String getHoverInfo(ITextViewer 文本视图, IRegion 悬浮位置) {
+    int 偏移 = 悬浮位置.getOffset();
+    IDocument 文件 = 文本视图.getDocument();
+    try {
+      // 仅提取当前所在行, 如要取得当前鼠标所在词, 需进一步词法分析?
+      int 所在行 = 文件.getLineOfOffset(偏移);
+      IRegion 行信息 = 文件.getLineInformation(所在行);
+      int 行长 = 行信息.getLength();
+      int 行偏移 = 行信息.getOffset();
+      return 文件.get(行偏移, 行长);
+
+    } catch (BadLocationException e) {
+      e.printStackTrace();
+    }
+    return "";
+}
+```

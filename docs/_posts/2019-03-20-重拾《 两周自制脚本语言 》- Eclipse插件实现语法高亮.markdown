@@ -17,7 +17,7 @@ categories: 语言设计 IDE
 - [Deliver support for new languages in Eclipse IDE faster with Generic Editor and Language Servers - Red Hat Developer Blog](https://developers.redhat.com/blog/2016/11/24/deliver-support-for-new-languages-in-eclipse-ide-faster-with-generic-editor-and-language-servers/)
 - Vogella公司写的源码例子: [vogellacompany/codeexamples-ide](https://github.com/vogellacompany/codeexamples-ide/tree/dbfa485ca9b6f0aed653b3a466c055e24b01bb90)
 
-开始想在VS Code下实现, 通过添加TextMate语法文件也基本达到了上面的效果, 但看着vscode的Java语法需要上千行JSON代码: [java.tmLanguage.json](https://github.com/Microsoft/vscode/blob/master/extensions/java/syntaxes/java.tmLanguage.json), TypeScript的更夸张有五千行, 难以想象如何维护, 于是考察Eclipse下的实现方式.
+续前文[重拾《 两周自制脚本语言 》- 中文关键字与原生函数](https://zhuanlan.zhihu.com/p/59554958), 开始想在VS Code下实现, 通过添加TextMate语法文件也基本达到了上面的效果, 但看着vscode的Java语法需要上千行JSON代码: [java.tmLanguage.json](https://github.com/Microsoft/vscode/blob/master/extensions/java/syntaxes/java.tmLanguage.json), TypeScript的更夸张有五千行, 难以想象如何维护, 于是考察Eclipse下的实现方式.
 
 正好看到Eclipse 4.7版本之后改进了对新语言的插件开发的支持([Eclipse Project Oxygen (4.7) M3 News](https://www.eclipse.org/eclipse/news/4.7/M3/#generic-editor)), 不用从头建一个定制编辑器, 而是对一个"通用文本编辑器"进行扩展, 来实现高亮, 悬浮提示, 辅助补全等等功能. 看了示例代码以Java为主, 应该比写JSON好维护一些.
 
