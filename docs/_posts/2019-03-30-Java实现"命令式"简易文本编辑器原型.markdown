@@ -1,0 +1,191 @@
+---
+layout: post
+comments: true
+title:  Java实现"命令式"简易文本编辑器原型
+description: Java实现"命令式"简易文本编辑器原型
+date:   2019-03-30 00:00:00 -0700
+categories: 命名 IDE
+---
+
+![2019-03-30_text文本编辑器]({{ "/assets/2019-03-30_text文本编辑器.png" | absolute_url }})
+
+源自[早先](https://github.com/program-in-chinese/overview/issues/33#issuecomment-332047778)想法, 打算从界面方向做些尝试. 找到个简单文本编辑器的实现: [Simple Text Editor - Java Tutorials](http://forum.codecall.net/topic/49721-simple-text-editor/). 原本的菜单/按钮界面如下. 包括基本功能: 新建/打开/保存文件, 文本编辑与剪切/复制/粘贴.
+
+![2019-03-30_UI文本编辑器]({{ "/assets/2019-03-30_UI文本编辑器.gif" | absolute_url }})
+
+把所有菜单/按钮替换为命令输入后效果如下, 源码库在: [program-in-chinese/simple-text-editor-in-Java](https://github.com/program-in-chinese/simple-text-editor-in-Java). 与其他命令行工具一样, 省去界面元素的代价是输入较繁琐. 在文本和命令两处切换也有点麻烦.
+
+![2019-03-30_text文本编辑器]({{ "/assets/2019-03-30_text文本编辑器.gif" | absolute_url }})
+
+接下去试着实现命令输入的自动补全等等.
+
+实现源码如下. 不采用第三方库, 比较粗糙的代码180行.
+```java
+public class 文本编辑器 extends JFrame {
+
+  private static final String 默认文件名 = "无名";
+
+  private JTextArea 文本区域 = new JTextArea(20, 120);
+  private JTextArea 命令文本区 = new JTextArea(5, 20);
+  private JFileChooser 对话框 = new JFileChooser(System.getProperty("user.dir"));
+  private String 当前文件 = 默认文件名;
+  private String 当前命令 = "";
+  private boolean 已改 = false;
+
+  public static void main(String[] arg) {
+    new 文本编辑器();
+  }
+
+  public 文本编辑器() {
+    文本区域.setFont(new Font("Monospaced", Font.PLAIN, 12));
+    JScrollPane 文本区 = new JScrollPane(文本区域, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+    add(文本区, BorderLayout.CENTER);
+
+    命令文本区.setFont(new Font("Monospaced", Font.PLAIN, 12));
+    JScrollPane 命令区 = new JScrollPane(命令文本区, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+    add(命令区, BorderLayout.EAST);
+
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    pack();
+    文本区域.addKeyListener(监听文本输入);
+    命令文本区.addKeyListener(命令监听);
+    setTitle(当前文件);
+    setVisible(true);
+  }
+
+  private KeyListener 监听文本输入 = new KeyAdapter() {
+    @Override
+    public void keyPressed(KeyEvent e) {
+      已改 = true;
+    }
+  };
+
+  private KeyListener 命令监听 = new KeyAdapter() {
+    @Override
+    public void keyPressed(KeyEvent e) {
+      if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+        int 行数 = 命令文本区.getLineCount();
+        if (行数 == 1) {
+          当前命令 = 命令文本区.getText();
+        } else {
+          try {
+            int 上一行末位置 = 命令文本区.getLineEndOffset(行数 - 2);
+            当前命令 = 命令文本区.getText().substring(上一行末位置);
+          } catch (BadLocationException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+          }
+        }
+        执行(当前命令);
+      }
+    }
+  };
+
+  private void 执行(String 当前命令) {
+    switch (当前命令) {
+      case "新建":
+        新建操作();
+        break;
+      case "打开":
+        打开操作();
+        break;
+      case "保存":
+        保存操作();
+        break;
+      case "另存":
+        另存文件为();
+        break;
+      case "退出":
+        退出操作();
+        break;
+      case "剪切":
+        文本区域.cut();
+        break;
+      case "复制":
+        文本区域.copy();
+        break;
+      case "粘贴":
+        文本区域.paste();
+        break;
+      default:
+        // TODO: 提示无此命令或显示帮助
+        break;
+    }
+  }
+
+  private void 新建操作() {
+    保存旧文件();
+    文本区域.setText("");
+    当前文件 = 默认文件名;
+    setTitle(当前文件);
+    已改 = false;
+  }
+
+  private void 打开操作() {
+    保存旧文件();
+    if (对话框.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+      读入文件(对话框.getSelectedFile().getAbsolutePath());
+    }
+  }
+
+  private void 保存操作() {
+    if (!当前文件.equals(默认文件名))
+      保存文件(当前文件);
+    else
+      另存文件为();
+  }
+
+  private void 退出操作() {
+    保存旧文件();
+    System.exit(0);
+  }
+
+  private void 另存文件为() {
+    if (对话框.showSaveDialog(null) == JFileChooser.APPROVE_OPTION)
+      保存文件(对话框.getSelectedFile().getAbsolutePath());
+  }
+
+  private void 保存旧文件() {
+    if (已改) {
+      if (JOptionPane.showConfirmDialog(this, "保存 " + 当前文件 + " 吗?", "保存",
+          JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+        保存文件(当前文件);
+    }
+  }
+
+  private void 读入文件(String 文件名) {
+    try {
+      FileReader 读 = new FileReader(文件名);
+      文本区域.read(读, null);
+      读.close();
+      当前文件 = 文件名;
+      setTitle(当前文件);
+      已改 = false;
+    } catch (IOException e) {
+      Toolkit.getDefaultToolkit().beep();
+      JOptionPane.showMessageDialog(this, "找不到 " + 文件名);
+    }
+  }
+
+  private void 保存文件(String 文件名) {
+    try {
+      FileWriter 写 = new FileWriter(文件名);
+      文本区域.write(写);
+      写.close();
+      当前文件 = 文件名;
+      setTitle(当前文件);
+      已改 = false;
+    } catch (IOException e) {
+    }
+  }
+}
+```
+#### 参考
+
+[adding a console to a Jframe](https://stackoverflow.com/questions/10239258/adding-a-console-to-a-jframe)
+
+[Detecting when user presses enter in Java](https://stackoverflow.com/questions/4673350/detecting-when-user-presses-enter-in-java)
+
+[Java SWING JFrame Layouts Example](https://javatutorial.net/java-swing-jframe-layouts)
