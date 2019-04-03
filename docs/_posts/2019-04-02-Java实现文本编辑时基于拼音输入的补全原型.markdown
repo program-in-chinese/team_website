@@ -1,0 +1,109 @@
+---
+layout: post
+comments: true
+title:  Java实现文本编辑时基于拼音输入的补全原型
+description: Java实现文本编辑时基于拼音输入的补全原型
+date:   2019-03-30 00:00:00 -0700
+categories: 命名 IDE
+---
+
+续前文[Java实现"命令式"简易文本编辑器原型](https://zhuanlan.zhihu.com/p/60946984). 效果如下:
+
+![2019-04-02_text拼音输入自动补全]({{ "/assets/2019-04-02_text拼音输入自动补全.gif" | absolute_url }})
+
+所在源码库同上文, 尚未和上文的编辑器右侧的命令区集成. 代码由[How to show autocomplete as I type in JTextArea?](https://stackoverflow.com/questions/10873748/how-to-show-autocomplete-as-i-type-in-jtextarea)修改得来.
+#### 基本功能
+
+- 英文输入至少一个匹配词典的字母后, 显示提示框
+- 上下光标选中某提示项后按空格键自动替换
+- 弹出提示框后, 如果继续键入, 提示框隐藏后, 根据新键入继续提示. 比如上面输入't'后提示"退出"和"粘贴"两项, 继续输入'c'后就只显示"退出"
+
+IDE和中文输入法的深度集成是必然趋势. 虽然现在第三方的中文输入法可以解决"输入"的基本功能, 但在IDE自动补全/智能提示功能日益成为开发效率提升的必需辅助功能的现今, 只有实现了中文输入法和IDE补全/提示的集成, 中文编程才能更接近实用. 这早已在易语言开发环境中实现, 期待早日看到开源项目实现类似功能.
+#### 源码简单说明
+
+监听文本框的按键输入, 并准备弹出提示框:
+```java
+    文本区.addKeyListener(new KeyListener() {
+
+      @Override
+      public void keyTyped(KeyEvent e) {
+        随后显示提示();
+      }
+...
+    });
+```
+弹出之前, 先获取此次输入的字符串, 并基于它生成/更新提示框:
+```java
+  private void 显示提示() {
+    final int 文本位置 = 文本区.getCaretPosition();
+    Point 界面位置;
+    try {
+      界面位置 = 文本区.modelToView(文本位置).getLocation();
+    } catch (BadLocationException e2) {
+      e2.printStackTrace();
+      return;
+    }
+
+    final String 提示源词 = 取提示源词(文本位置);
+    if (提示源词 == null) {
+      return;
+    }
+
+    if (提示 == null) {
+      提示 = new 提示框(文本区, 文本位置, 提示源词, 界面位置);
+    } else {
+      提示.更新(文本位置, 提示源词, 界面位置);
+    }
+  }
+```
+提示框部分, 由一个列表来管理提示项的选择, 文本的替换:
+```java
+  private JList<String> 创建提示列表(final String[] 提示列表) {
+    JList<String> 列表 = new JList<>(提示列表);
+    列表.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+    列表.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    列表.setSelectedIndex(0);
+    列表.addKeyListener(new KeyListener() {
+
+      @Override
+      public void keyTyped(KeyEvent e) {
+        if (e.getKeyChar() == KeyEvent.VK_SPACE) {
+          if (插入选择文本()) {
+            隐藏();
+          }
+        } else {
+          隐藏();
+          文本区.requestFocusInWindow();
+          文本区.dispatchEvent(e);
+        }
+      }
+
+      @Override
+      public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+          下移();
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+          上移();
+        }
+      }
+...
+    });
+    return 列表;
+  }
+```
+当然少不了一个字符->中文词典(如下), 实际应用时需要基于拼音生成提示的算法
+```java
+  private static final HashMap<String, String[]> 提示词典 = new HashMap<>();
+  static {
+    提示词典.put("xj", new String[] {"新建"});
+    提示词典.put("dk", new String[] {"打开"});
+    提示词典.put("bc", new String[] {"保存"});
+    提示词典.put("jq", new String[] {"剪切"});
+    提示词典.put("fz", new String[] {"复制"});
+    提示词典.put("nt", new String[] {"粘贴"});
+    提示词典.put("zt", new String[] {"粘贴"});
+    提示词典.put("tc", new String[] {"退出"});
+    提示词典.put("j", new String[] {"新建", "剪切"});
+    提示词典.put("t", new String[] {"退出", "粘贴"});
+  }
+```
