@@ -1,5 +1,5 @@
 ---
-layout: null
+layout: nil
 ---
 [
   {% for post in site.posts %}
@@ -9,7 +9,7 @@ layout: null
       "tags"     : "{{ post.tags | join: ', ' }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
       "date"     : "{{ post.date }}",
-      "content"  : "{{ post.content | strip_html | strip_newlines | remove_chars_cn |  escape_once }}"
+      "content"  : "{{ post.content | strip_html | strip_newlines | remove_chars_cn }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
