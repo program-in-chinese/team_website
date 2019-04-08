@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="category-title"><span>{{ page.title }}</span></div>
+
+{% for post in page.posts %}
+<article>
+  <header>
+    <div class="date">{{ post.date | date_to_long_string }}</div>
+    <div class="post-meta">
+      {% for category in  post.categories %}
+      <a href="/categories/{{category}}"><span>{{ category }}</span></a>
+      {% endfor %}
+    </div>
+    <div class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+  </header>
+</article>
+{% endfor %}

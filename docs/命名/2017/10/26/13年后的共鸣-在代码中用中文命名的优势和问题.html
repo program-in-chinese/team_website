@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>13年后的共鸣-在代码中用中文命名的优势和问题</title>
+  <meta name="description" content="与13年前的博文有同感, 分析在代码中用中文命名的优势和问题. Echoing a blog article 13 years ago, with the topic of pro and cons of Chinese naming in code.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>13年后的共鸣-在代码中用中文命名的优势和问题 | 用中文编程</title>
+<meta property="og:title" content="13年后的共鸣-在代码中用中文命名的优势和问题" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="与13年前的博文有同感, 分析在代码中用中文命名的优势和问题. Echoing a blog article 13 years ago, with the topic of pro and cons of Chinese naming in code." />
+<meta property="og:description" content="与13年前的博文有同感, 分析在代码中用中文命名的优势和问题. Echoing a blog article 13 years ago, with the topic of pro and cons of Chinese naming in code." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-10-26T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"与13年前的博文有同感, 分析在代码中用中文命名的优势和问题. Echoing a blog article 13 years ago, with the topic of pro and cons of Chinese naming in code.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html","publisher":null,"image":null,"headline":"13年后的共鸣-在代码中用中文命名的优势和问题","dateModified":"2017-10-26T00:00:00-07:00","datePublished":"2017-10-26T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">13年后的共鸣-在代码中用中文命名的优势和问题</h1>
+    <p class="post-meta">
+      <time datetime="2017-10-26T00:00:00-07:00" itemprop="datePublished">
+        
+        Oct 26, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>早在2004年的<a href="https://blog.csdn.net/zhangweis/article/details/55213">关于中文编程 - 张玮的专栏 - 博客频道 - CSDN.NET</a>一文中非常有前瞻性地阐述了用中文编写代码对改善可读性的意义, 今日代码可读性已经越来越被业界重视而成为代码审核的一部分.</p>
+
+<p>文中提到的几个论点尤其有共鸣：</p>
+<blockquote>
+  <p>我经常见到为取变量名和类名查字典的情况，这还算是好的。有时候遇到不好查字典或者理解不准确甚至是心情不好，乱起一个名字，就会搞得后来读程序头痛。“道可道，非常道；名可名，非常名”。《道德经》把名放在开篇中，可见一个好的名字的重要性。我觉得名字就代表对事物本质的认识，再加上软件这样一个东西，其中的大部分事物几乎都是创造出来的，如果没有一个好的名字，就会让人很难以理解。我觉得名字差有三方面的原因：</p>
+</blockquote>
+
+<blockquote>
+  <p>1、名字代表程序员对事物本质的认识，一个坏的名字可能意味着概念的模糊。有可能是程序员对事物的划分不准确，这些东西在一起只是偶然的，从而取不出好的名字，因为这个事物的边界是模糊的；也有可能开始的时候是准确的，但后来随着事物的发展，这个东西的性质已经改变，原来的名字已经反映不出它的本质了。这个时候就需要改一个更准确的名字，但由于没有方法论和工具的保证，这种变动往往不太容易，因此很多人不会愿意做这种变化。…</p>
+</blockquote>
+
+<blockquote>
+  <p>2、认为名字不重要，这个上面我已经谈到。</p>
+</blockquote>
+
+<blockquote>
+  <p>3、认识也是准确的，也想取一个好名字，但是因为语言的限制，取不了好名字。</p>
+</blockquote>
+
+<blockquote>
+  <p>这个正是我想说的问题。因此我们就要在源代码中使用中文。那有的人说，现在的语言大多支持中文的注释，用中文注释不就OK了吗？关于这个观点，请参见Refactoring中的论述，总之，结论是，做为向高级语言进化的第一步，汇编语言中出现的关于变量名，方法名等等，正是自然的表达人的思想的地方，从这个角度上来看，注释倒反是副产品，也就是说，在用变量名，方法名，类名等等不能表达的时候，在用Refactoring不能解决问题的时候，才用注释来解决。</p>
+</blockquote>
+
+<p>文中提到的问题在13年后的今天也还没有完全的解决:</p>
+
+<blockquote>
+  <p>最现实的一个问题是：环境的支持。最基本的是运行环境和编译环境，我大部分时间都生活在Java环境中，很少数情况会有不支持的情况，我记得遇到过的不支持的情况好象是WebLogic不支持有中文方法名的EJB。总之，这方面的不支持是比较少的。IDE的支持一般也是可以的，但是对输入的支持一般都不好。比如有一个中文方法名，如果要想在弹出的选单中选中文方法名，都是很痛苦的。我能想到的比较好的方法应该是象E语言一样：象输入”中文”,只需要输入”zhongwen”或”zw”,或”zhw”即可。但现在几乎所有的开发工具都不支持，我想有一天这种输入方法应该是会被支持的。</p>
+</blockquote>
+
+<p>两个问题都是生态环境对中文(或者说非英文)的支持, 这需要更多在源码/文件名中使用中文来推动解决.</p>
+
+<p>关于中文输入法, 理想的解决方式是支持多种输入法(不仅是拼音), 而且与IDE原有的代码自动补全功能无缝集成. 通过插件在主流IDE中实现这一功能。 最近发现了一个开源实现，在TypeScript+VSCode中实现了<a href="https://github.com/program-in-chinese/overview/issues/11#issuecomment-320431936">根据拼音首字母或者拼音的部分来匹配中文标识符</a>。虽然随着VSCode的新版本发布而失效，反映了IDE插件对IDE的依赖性问题，但仍证实了可行性，有不少借鉴意义。</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>History in Threads: 火狐插件实现浏览历史按主题显示(树)</title>
+  <meta name="description" content="用JavaScript实现的火狐插件, 代码中使用中文命名. 实现浏览历史按主题以树的形式显示. Firefox addon implemented in JavaScript, with Chinese naming, to show browsing history in threads.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/15/History-in-Threads-%E7%81%AB%E7%8B%90%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%8E%86%E5%8F%B2%E6%8C%89%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA(%E6%A0%91).html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>History in Threads: 火狐插件实现浏览历史按主题显示(树) | 用中文编程</title>
+<meta property="og:title" content="History in Threads: 火狐插件实现浏览历史按主题显示(树)" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="用JavaScript实现的火狐插件, 代码中使用中文命名. 实现浏览历史按主题以树的形式显示. Firefox addon implemented in JavaScript, with Chinese naming, to show browsing history in threads." />
+<meta property="og:description" content="用JavaScript实现的火狐插件, 代码中使用中文命名. 实现浏览历史按主题以树的形式显示. Firefox addon implemented in JavaScript, with Chinese naming, to show browsing history in threads." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/15/History-in-Threads-%E7%81%AB%E7%8B%90%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%8E%86%E5%8F%B2%E6%8C%89%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA(%E6%A0%91).html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/15/History-in-Threads-%E7%81%AB%E7%8B%90%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%8E%86%E5%8F%B2%E6%8C%89%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA(%E6%A0%91).html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-15T11:00:00-08:00" />
+<script type="application/ld+json">
+{"name":null,"description":"用JavaScript实现的火狐插件, 代码中使用中文命名. 实现浏览历史按主题以树的形式显示. Firefox addon implemented in JavaScript, with Chinese naming, to show browsing history in threads.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/15/History-in-Threads-%E7%81%AB%E7%8B%90%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%8E%86%E5%8F%B2%E6%8C%89%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA(%E6%A0%91).html","publisher":null,"image":null,"headline":"History in Threads: 火狐插件实现浏览历史按主题显示(树)","dateModified":"2018-01-15T11:00:00-08:00","datePublished":"2018-01-15T11:00:00-08:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/15/History-in-Threads-%E7%81%AB%E7%8B%90%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%8E%86%E5%8F%B2%E6%8C%89%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA(%E6%A0%91).html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">History in Threads: 火狐插件实现浏览历史按主题显示(树)</h1>
+    <p class="post-meta">
+      <time datetime="2018-01-15T11:00:00-08:00" itemprop="datePublished">
+        
+        Jan 15, 2018
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://addons.mozilla.org/zh-CN/firefox/addon/history-in-threads/">History in Threads</a>似乎是唯一一个业余项目里有确认用户的. 大部分JavaScript源码(300+行)也用了中文命名.</p>
+
+<p>插件功能很简单, 就是根据网页点击顺序生成树, 每个树可以认为是主题相关的. 比如, 从一个B搜索页A点开了其中一个页面B, 显示搜索结果时B就是A的子节点(如下图的”proglog nlp - 国内版 Bing”). 火狐浏览器对页面点击顺序的保存维护好像比Chrome好一些. 生成的树比较完整(相比<a href="https://chrome.google.com/webstore/detail/fromwheretowhere/gookmdebiojkjlijkhjocjidcgplibgk">Chrome版</a>).</p>
+
+<p>最新版的界面很简陋(图源自源码库<a href="https://github.com/program-in-chinese/HistoryInThreads_WebExtension">program-in-chinese/HistoryInThreads_WebExtension</a>):</p>
+
+<p><img src="http://localhost:4000/assets/2018_01_15_hit%E6%88%AA%E5%B1%8F.png" alt="2018_01_15_hit截屏" /></p>
+
+<p>这个”新版”是由于火狐浏览器旧API失效被逼出来的(<a href="https://github.com/nobodxbodon/HistoryInThreads/issues/6">port to WebExtensions · Issue #6 · nobodxbodon/HistoryInThreads</a>). 顺便在主要算法部分改用了中文命名:</p>
+
+<ul>
+  <li><a href="https://github.com/program-in-chinese/HistoryInThreads_WebExtension/blob/master/sidebar/%E8%AE%BF%E9%97%AE%E7%BC%93%E5%86%B2%E8%A1%A8.js">访问缓冲表.js</a>: 主要数据结构</li>
+  <li><a href="https://github.com/program-in-chinese/HistoryInThreads_WebExtension/blob/master/sidebar/utils.js">utils.js</a>: 所有不依赖于浏览器API的方法, 包括树的生成, 搜索时间处理, 根据关键词高亮历史记录等等</li>
+  <li><a href="https://github.com/program-in-chinese/HistoryInThreads_WebExtension/blob/master/sidebar/history.js">history.js</a>: 根据关键词获取所有可能相关的浏览历史. 由于新版火狐API除去了根据多个URL获取历史记录的功能(<a href="https://github.com/program-in-chinese/HistoryInThreads_WebExtension/issues/1#issuecomment-326677855">优化运行速度 · Issue #1 · program-in-chinese/HistoryInThreads_WebExtension</a>), 只好搜索两次, 一次按照(搜索关键词+历史时间)搜索, 一次只按照历史时间搜索(多搜了很多, 只好用上面的缓冲表避免每次搜索时都搜几万项历史记录). 相关的部分代码如下:</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="err">按关键词搜索历史</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="err">关键词</span><span class="p">,</span> <span class="err">历史时间范围</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">计时</span><span class="p">(</span><span class="s2">"调用前"</span><span class="p">)</span>
+    <span class="err">带关键词访问记录</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="err">未处理</span><span class="nx">url</span><span class="err">数</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="err">关键词</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="err">当前关键词</span> <span class="o">=</span> <span class="err">关键词</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="err">当前时间范围</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="o">!</span><span class="err">不需重新索引</span><span class="p">(</span><span class="err">历史时间范围</span><span class="p">,</span> <span class="err">当前时间范围</span><span class="p">))</span> <span class="p">{</span>
+      <span class="err">无关键词访问记录</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="err">访问细节表</span> <span class="o">=</span> <span class="p">{};</span>
+
+      <span class="kd">var</span> <span class="err">新回溯时间</span> <span class="o">=</span> <span class="err">取历史回溯时间</span><span class="p">(</span><span class="err">历史时间范围</span><span class="p">);</span>
+      <span class="err">历史回溯时间</span> <span class="o">=</span> <span class="err">新回溯时间</span><span class="p">;</span>
+      <span class="err">当前时间范围</span> <span class="o">=</span> <span class="err">历史时间范围</span><span class="p">;</span>
+
+      <span class="c1">// TODO: 如果先按关键词搜索, 如果没有匹配, 可以省去搜索所有历史</span>
+      <span class="c1">// 首先搜索所有浏览历史</span>
+      <span class="kd">var</span> <span class="err">无关键词搜索选项</span> <span class="o">=</span> <span class="err">生成搜索选项</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="err">历史回溯时间</span><span class="p">);</span>
+    
+      <span class="kd">var</span> <span class="err">无关键词搜索</span> <span class="o">=</span> <span class="nx">browser</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="err">无关键词搜索选项</span><span class="p">);</span>
+      <span class="err">无关键词搜索</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="err">遍历无关键词历史记录</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="err">带关键词搜索选项</span> <span class="o">=</span> <span class="err">生成搜索选项</span><span class="p">(</span><span class="err">当前关键词</span><span class="p">,</span> <span class="err">历史回溯时间</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="err">带关键词搜索</span> <span class="o">=</span> <span class="nx">browser</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="err">带关键词搜索选项</span><span class="p">);</span>
+      <span class="err">带关键词搜索</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="err">遍历带关键词历史记录</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+</code></pre></div></div>
+<p>最近疏于插件开发. 如有兴趣参与, 欢迎联系.</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

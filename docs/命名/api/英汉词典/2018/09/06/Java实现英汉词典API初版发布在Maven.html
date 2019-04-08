@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Java实现英汉词典API初版发布在Maven</title>
+  <meta name="description" content="基于ECDICT词典数据, 开发一个Java库实现词典接口, 发布到Maven主库. Publish Java library to provide English-to-Chinese dictionary API on Maven Central.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/api/%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/2018/09/06/Java%E5%AE%9E%E7%8E%B0%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8API%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83%E5%9C%A8Maven.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Java实现英汉词典API初版发布在Maven | 用中文编程</title>
+<meta property="og:title" content="Java实现英汉词典API初版发布在Maven" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="基于ECDICT词典数据, 开发一个Java库实现词典接口, 发布到Maven主库. Publish Java library to provide English-to-Chinese dictionary API on Maven Central." />
+<meta property="og:description" content="基于ECDICT词典数据, 开发一个Java库实现词典接口, 发布到Maven主库. Publish Java library to provide English-to-Chinese dictionary API on Maven Central." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/api/%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/2018/09/06/Java%E5%AE%9E%E7%8E%B0%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8API%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83%E5%9C%A8Maven.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/api/%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/2018/09/06/Java%E5%AE%9E%E7%8E%B0%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8API%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83%E5%9C%A8Maven.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-06T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"基于ECDICT词典数据, 开发一个Java库实现词典接口, 发布到Maven主库. Publish Java library to provide English-to-Chinese dictionary API on Maven Central.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/api/%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/2018/09/06/Java%E5%AE%9E%E7%8E%B0%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8API%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83%E5%9C%A8Maven.html","publisher":null,"image":null,"headline":"Java实现英汉词典API初版发布在Maven","dateModified":"2018-09-06T00:00:00-07:00","datePublished":"2018-09-06T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/api/%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/2018/09/06/Java%E5%AE%9E%E7%8E%B0%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8API%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83%E5%9C%A8Maven.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Java实现英汉词典API初版发布在Maven</h1>
+    <p class="post-meta">
+      <time datetime="2018-09-06T00:00:00-07:00" itemprop="datePublished">
+        
+        Sep 6, 2018
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>在打算<a href="https://github.com/program-in-chinese/overview/issues/86">批量代码汉化工具 · Issue #86 · program-in-chinese/overview</a>时, 发现没有现成的Java库实现英汉查询功能. 于是开此项目.</p>
+
+<p>源码库: <a href="https://github.com/program-in-chinese/english-chinese-dictionary">program-in-chinese/english-chinese-dictionary</a></p>
+
+<p>API使用中文命名. 源码也是.</p>
+
+<p><img src="http://localhost:4000/assets/2018-09-06%20at%2011.03.30%20PM_java_ecdict_api.png" alt="2018-09-06 at 11.03.30 PM_java_ecdict_api" /></p>
+
+<p>使用时在Maven项目中添加依赖:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.codeinchinese<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>english-chinese-dictionary<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.0.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+<p>词典数据来源于<a href="https://github.com/skywind3000/ECDICT">skywind3000/ECDICT</a>. 77万个词条, 除不到2千词之外绝大多数有中文释义. 将这个词典数据(csv文件)封装的后果是这个jar包有22MB, 首次调用’查词’接口需要一段时间加载数据(本机测试十秒左右), 之后的查词是哈希表查询, 速度还能接受.</p>
+
+<p>下面是返回词条数据结构:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="err">词条</span> <span class="err">{</span>
+
+  <span class="nc">public</span> <span class="n">String</span> <span class="err">英文</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">音标</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="err">英文释义</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="err">中文释义</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">词语位置</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="err">柯林斯星级</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="err">为牛津三千核心词</span><span class="o">;</span>
+
+  <span class="c1">// zk/中考，gk/高考，cet4/四级等</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">标签</span><span class="o">;</span>
+
+  <span class="c1">// 如果为0, 无词频数据, 否则为正数</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="err">英国国家语料库词频顺序</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="err">当代语料库词频顺序</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="err">词形变化</span><span class="o">&gt;</span> <span class="err">变形</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">详细</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">在线读音音频</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>词形的几种变化:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="err">词形变化类型</span> <span class="o">{</span>
+  <span class="err">过去式</span><span class="o">(</span><span class="s">"p"</span><span class="o">),</span> <span class="c1">// past tense</span>
+  <span class="err">过去分词</span><span class="o">(</span><span class="s">"d"</span><span class="o">),</span>
+  <span class="err">现在分词</span><span class="o">(</span><span class="s">"i"</span><span class="o">),</span> <span class="c1">// -ing</span>
+  <span class="err">第三人称单数</span><span class="o">(</span><span class="s">"3"</span><span class="o">),</span>
+  <span class="err">形容词比较级</span><span class="o">(</span><span class="s">"r"</span><span class="o">),</span> <span class="c1">// -er</span>
+  <span class="err">形容词最高级</span><span class="o">(</span><span class="s">"t"</span><span class="o">),</span> <span class="c1">// -est</span>
+  <span class="err">名词复数形式</span><span class="o">(</span><span class="s">"s"</span><span class="o">),</span>
+  <span class="err">原型</span><span class="o">(</span><span class="s">"0"</span><span class="o">),</span>
+  <span class="err">原型变换形式</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>接口定义很简单, 调用:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">英汉词典</span><span class="o">.</span><span class="err">查词</span><span class="o">(</span><span class="s">"apple"</span><span class="o">)</span>
+</code></pre></div></div>
+<p>返回值打印输出(toString生成类JSON样式, 下同):</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">英文</span><span class="p">:</span><span class="w"> </span><span class="err">apple</span><span class="w">
+</span><span class="err">音标</span><span class="p">:</span><span class="w"> </span><span class="err">'æpl</span><span class="w">
+</span><span class="err">英文释义</span><span class="p">:</span><span class="w"> </span><span class="err">n.</span><span class="w"> </span><span class="err">fruit</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">red</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">yellow</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">green</span><span class="w"> </span><span class="err">skin</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">sweet</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">tart</span><span class="w"> </span><span class="err">crisp</span><span class="w"> </span><span class="err">whitish</span><span class="w"> </span><span class="err">flesh</span><span class="w">
+</span><span class="err">n.</span><span class="w"> </span><span class="err">native</span><span class="w"> </span><span class="err">Eurasian</span><span class="w"> </span><span class="err">tree</span><span class="w"> </span><span class="err">widely</span><span class="w"> </span><span class="err">cultivated</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">many</span><span class="w"> </span><span class="err">varieties</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">its</span><span class="w"> </span><span class="err">firm</span><span class="w"> </span><span class="err">rounded</span><span class="w"> </span><span class="err">edible</span><span class="w"> </span><span class="err">fruits</span><span class="w">
+
+</span><span class="err">中文释义</span><span class="p">:</span><span class="w"> </span><span class="err">n.</span><span class="w"> </span><span class="err">苹果</span><span class="p">,</span><span class="w"> </span><span class="err">家伙</span><span class="w">
+</span><span class="p">[</span><span class="err">医</span><span class="p">]</span><span class="w"> </span><span class="err">苹果</span><span class="w">
+
+</span><span class="err">词语位置</span><span class="p">:</span><span class="w"> 
+</span><span class="err">柯林斯星级</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="err">为牛津三千核心词</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="err">标签</span><span class="p">:</span><span class="w"> </span><span class="err">zk</span><span class="w"> </span><span class="err">gk</span><span class="w">
+</span><span class="err">英国国家语料库词频顺序</span><span class="p">:</span><span class="w"> </span><span class="mi">2446</span><span class="w">
+</span><span class="err">当代语料库词频顺序</span><span class="p">:</span><span class="w"> </span><span class="mi">2695</span><span class="w">
+</span><span class="err">变形</span><span class="p">:</span><span class="w"> </span><span class="err">名词复数形式</span><span class="p">:</span><span class="err">apples;</span><span class="w"> 
+</span><span class="err">详细</span><span class="p">:</span><span class="w"> 
+</span><span class="err">在线读音音频</span><span class="p">:</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>可以查出原型:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">英文</span><span class="p">:</span><span class="w"> </span><span class="err">shopping</span><span class="w">
+</span><span class="err">音标</span><span class="p">:</span><span class="w"> </span><span class="err">'ʃɒpiŋ</span><span class="w">
+</span><span class="err">英文释义</span><span class="p">:</span><span class="w"> </span><span class="err">n.</span><span class="w"> </span><span class="err">searching</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">buying</span><span class="w"> </span><span class="err">goods</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">services</span><span class="w">
+</span><span class="err">n.</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">commodities</span><span class="w"> </span><span class="err">purchased</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">stores</span><span class="w">
+
+</span><span class="err">中文释义</span><span class="p">:</span><span class="w"> </span><span class="err">n.</span><span class="w"> </span><span class="err">买东西</span><span class="p">,</span><span class="w"> </span><span class="err">购物</span><span class="w">
+</span><span class="p">[</span><span class="err">经</span><span class="p">]</span><span class="w"> </span><span class="err">购物</span><span class="p">,</span><span class="w"> </span><span class="err">买东西</span><span class="w">
+
+</span><span class="err">词语位置</span><span class="p">:</span><span class="w"> 
+</span><span class="err">柯林斯星级</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="err">为牛津三千核心词</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="err">标签</span><span class="p">:</span><span class="w"> </span><span class="err">gk</span><span class="w"> </span><span class="err">cet</span><span class="mi">4</span><span class="w"> </span><span class="err">cet</span><span class="mi">6</span><span class="w"> </span><span class="err">ielts</span><span class="w">
+</span><span class="err">英国国家语料库词频顺序</span><span class="p">:</span><span class="w"> </span><span class="mi">2763</span><span class="w">
+</span><span class="err">当代语料库词频顺序</span><span class="p">:</span><span class="w"> </span><span class="mi">2713</span><span class="w">
+</span><span class="err">变形</span><span class="p">:</span><span class="w"> </span><span class="err">原型</span><span class="p">:</span><span class="err">shop;</span><span class="w"> </span><span class="err">原型变换形式</span><span class="p">:</span><span class="err">i;</span><span class="w"> </span><span class="err">现在分词</span><span class="p">:</span><span class="err">shopping;</span><span class="w"> 
+</span><span class="err">详细</span><span class="p">:</span><span class="w"> 
+</span><span class="err">在线读音音频</span><span class="p">:</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>也有很多常见短语:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">英文</span><span class="p">:</span><span class="w"> </span><span class="err">beat</span><span class="w"> </span><span class="err">around</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">bush</span><span class="w">
+</span><span class="err">音标</span><span class="p">:</span><span class="w"> 
+</span><span class="err">英文释义</span><span class="p">:</span><span class="w"> 
+</span><span class="err">中文释义</span><span class="p">:</span><span class="w"> </span><span class="err">转弯抹角</span><span class="p">,</span><span class="w"> </span><span class="err">旁敲侧击</span><span class="p">,</span><span class="w"> </span><span class="err">拖延谈及正题</span><span class="w">
+
+</span><span class="err">词语位置</span><span class="p">:</span><span class="w"> 
+</span><span class="err">柯林斯星级</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">为牛津三千核心词</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="err">标签</span><span class="p">:</span><span class="w"> 
+</span><span class="err">英国国家语料库词频顺序</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">当代语料库词频顺序</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="err">变形</span><span class="p">:</span><span class="w"> 
+</span><span class="err">详细</span><span class="p">:</span><span class="w"> 
+</span><span class="err">在线读音音频</span><span class="p">:</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>其中释义部分只根据源数据格式说明中按行分拆, 并未进行进一步提取. 打算以后在实际使用中进行改进. 也许”n. 苹果, 家伙”提取为:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">词性</span><span class="p">:</span><span class="w"> </span><span class="err">名词</span><span class="w">
+</span><span class="err">释义</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"苹果"</span><span class="p">,</span><span class="w"> </span><span class="s2">"家伙"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>欢迎尝鲜.</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>重拾《 两周自制脚本语言 》- 支持中文标识符</title>
+  <meta name="description" content="为《 两周自制脚本语言 》添加中文标识符支持.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/16/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E6%A0%87%E8%AF%86%E7%AC%A6.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>重拾《 两周自制脚本语言 》- 支持中文标识符 | 用中文编程</title>
+<meta property="og:title" content="重拾《 两周自制脚本语言 》- 支持中文标识符" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="为《 两周自制脚本语言 》添加中文标识符支持." />
+<meta property="og:description" content="为《 两周自制脚本语言 》添加中文标识符支持." />
+<link rel="canonical" href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/16/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E6%A0%87%E8%AF%86%E7%AC%A6.html" />
+<meta property="og:url" content="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/16/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E6%A0%87%E8%AF%86%E7%AC%A6.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-16T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"为《 两周自制脚本语言 》添加中文标识符支持.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/16/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E6%A0%87%E8%AF%86%E7%AC%A6.html","publisher":null,"image":null,"headline":"重拾《 两周自制脚本语言 》- 支持中文标识符","dateModified":"2019-03-16T00:00:00-07:00","datePublished":"2019-03-16T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/16/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E6%A0%87%E8%AF%86%E7%AC%A6.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">重拾《 两周自制脚本语言 》- 支持中文标识符</h1>
+    <p class="post-meta">
+      <time datetime="2019-03-16T00:00:00-07:00" itemprop="datePublished">
+        
+        Mar 16, 2019
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>续前文<a href="https://zhuanlan.zhihu.com/p/59418720">将《 两周自制脚本语言 》测试中使用的接口中文化</a>. 在将此脚本语言改为中文关键字之前, 需要先让它支持中文标识符.</p>
+
+<p>首先添加一个词法分析器测试:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="n">test</span><span class="err">读中文</span><span class="o">()</span> <span class="kd">throws</span> <span class="err">分析例外</span> <span class="o">{</span>
+    <span class="err">词法分析器类</span> <span class="err">词法分析器</span> <span class="o">=</span> <span class="err">词法分析功用</span><span class="o">.</span><span class="err">新建词法分析器</span><span class="o">(</span><span class="s">"中文变量1名 = 中文ok值"</span><span class="o">);</span>
+    <span class="err">词类</span> <span class="err">词</span><span class="mi">1</span> <span class="o">=</span> <span class="err">词法分析器</span><span class="o">.</span><span class="err">读</span><span class="o">();</span>
+    <span class="err">词类</span> <span class="err">词</span><span class="mi">2</span> <span class="o">=</span> <span class="err">词法分析器</span><span class="o">.</span><span class="err">读</span><span class="o">();</span>
+    <span class="err">词类</span> <span class="err">词</span><span class="mi">3</span> <span class="o">=</span> <span class="err">词法分析器</span><span class="o">.</span><span class="err">读</span><span class="o">();</span>
+
+    <span class="err">词法分析功用</span><span class="o">.</span><span class="err">词为标识符</span><span class="o">(</span><span class="s">"中文变量1名"</span><span class="o">,</span> <span class="err">词</span><span class="mi">1</span><span class="o">);</span>
+    <span class="err">词法分析功用</span><span class="o">.</span><span class="err">词为标识符</span><span class="o">(</span><span class="s">"="</span><span class="o">,</span> <span class="err">词</span><span class="mi">2</span><span class="o">);</span>
+    <span class="err">词法分析功用</span><span class="o">.</span><span class="err">词为标识符</span><span class="o">(</span><span class="s">"中文ok值"</span><span class="o">,</span> <span class="err">词</span><span class="mi">3</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+<p>预期的应该不能通过测试, 结果的确不成功, 但是”卡”住了而非报错. 调试后看到问题出在这段:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="kt">int</span> <span class="n">lineNo</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">getLineNumber</span><span class="o">();</span>
+        <span class="n">Matcher</span> <span class="n">matcher</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+        <span class="n">matcher</span><span class="o">.</span><span class="na">useTransparentBounds</span><span class="o">(</span><span class="kc">true</span><span class="o">).</span><span class="na">useAnchoringBounds</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">endPos</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">endPos</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">matcher</span><span class="o">.</span><span class="na">region</span><span class="o">(</span><span class="n">pos</span><span class="o">,</span> <span class="n">endPos</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">matcher</span><span class="o">.</span><span class="na">lookingAt</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">addToken</span><span class="o">(</span><span class="n">lineNo</span><span class="o">,</span> <span class="n">matcher</span><span class="o">);</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">matcher</span><span class="o">.</span><span class="na">end</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="k">else</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="err">分析例外</span><span class="o">(</span><span class="s">"bad token at line "</span> <span class="o">+</span> <span class="n">lineNo</span><span class="o">);</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+<p>改为中文命名以更易于理解:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="kt">int</span> <span class="err">行数</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">getLineNumber</span><span class="o">();</span>
+        <span class="n">Matcher</span> <span class="err">匹配器</span> <span class="o">=</span> <span class="err">模式</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="err">行</span><span class="o">);</span>
+        <span class="err">匹配器</span><span class="o">.</span><span class="na">useTransparentBounds</span><span class="o">(</span><span class="kc">true</span><span class="o">).</span><span class="na">useAnchoringBounds</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="err">头</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="err">尾</span> <span class="o">=</span> <span class="err">行</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="k">while</span> <span class="o">(</span><span class="err">头</span> <span class="o">&lt;</span> <span class="err">尾</span><span class="o">)</span> <span class="o">{</span>
+            <span class="err">匹配器</span><span class="o">.</span><span class="na">region</span><span class="o">(</span><span class="err">头</span><span class="o">,</span> <span class="err">尾</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="err">匹配器</span><span class="o">.</span><span class="na">lookingAt</span><span class="o">())</span> <span class="o">{</span>
+                <span class="err">添加词</span><span class="o">(</span><span class="err">行数</span><span class="o">,</span> <span class="err">匹配器</span><span class="o">);</span>
+                <span class="err">头</span> <span class="o">=</span> <span class="err">匹配器</span><span class="o">.</span><span class="na">end</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="k">else</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="err">分析例外</span><span class="o">(</span><span class="s">"bad token at line "</span> <span class="o">+</span> <span class="err">行数</span><span class="o">);</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+<p>看到进入死循环的直接原因是<code class="highlighter-rouge">匹配器.lookingAt()</code>虽然为<code class="highlighter-rouge">true</code>, 但<code class="highlighter-rouge">头</code>始终为0. 更深原因可自行研究原正则表达式.</p>
+
+<p>为了添加中文标识符支持, 需要使正则表达式能够匹配中文字符, 参考<a href="https://stackoverflow.com/questions/11897531/detecting-if-nsstring-contains-chinese-characters/11898220#11898220">Detecting if NSString contains chinese characters</a></p>
+
+<p>将原模式中的<code class="highlighter-rouge">[A-Z_a-z][A-Z_a-z0-9]*</code>改为<code class="highlighter-rouge">[\\p{script=Han}A-Z_a-z][\\p{script=Han}A-Z_a-z0-9]*</code>. 之后开头的词法分析器测试通过.</p>
+
+<p>为检验更复杂一些的源码, 对第九章的原本测试用源码使用中文命名:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class 位置类 {
+    经 = 纬 = 0
+    def 到达 (经度, 纬度) {
+        经 = 经度; 纬 = 纬度;
+    }
+}
+位置 = 位置类.new
+位置.到达(3, 4)
+位置.经 = 10
+和 = 位置.经 + 位置.纬
+</code></pre></div></div>
+<p>测试通过~ 源码提交在<a href="https://github.com/program-in-chinese/stone/commit/ca0c6715dcc1c43eb30082e266ab17bcada076b8">此</a></p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

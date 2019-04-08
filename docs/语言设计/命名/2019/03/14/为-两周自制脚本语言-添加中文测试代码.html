@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>为《 两周自制脚本语言 》添加中文测试代码</title>
+  <meta name="description" content="为《 两周自制脚本语言 》添加中文JUnit测试代码.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>为《 两周自制脚本语言 》添加中文测试代码 | 用中文编程</title>
+<meta property="og:title" content="为《 两周自制脚本语言 》添加中文测试代码" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="为《 两周自制脚本语言 》添加中文JUnit测试代码." />
+<meta property="og:description" content="为《 两周自制脚本语言 》添加中文JUnit测试代码." />
+<link rel="canonical" href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html" />
+<meta property="og:url" content="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-14T01:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"为《 两周自制脚本语言 》添加中文JUnit测试代码.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html","publisher":null,"image":null,"headline":"为《 两周自制脚本语言 》添加中文测试代码","dateModified":"2019-03-14T01:00:00-07:00","datePublished":"2019-03-14T01:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">为《 两周自制脚本语言 》添加中文测试代码</h1>
+    <p class="post-meta">
+      <time datetime="2019-03-14T01:00:00-07:00" itemprop="datePublished">
+        
+        Mar 14, 2019
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="http://localhost:4000/assets/2019-03-13-stone%E6%B5%8B%E8%AF%95.png" alt="2019-03-13-stone测试" /></p>
+
+<p>源自<a href="https://www.zhihu.com/question/27686032/answer/621549753">自制编译器+自制脚本语言+自制编程语言 三书比较？</a></p>
+
+<p>两年多前只看了一本的前六章: <a href="http://tieba.baidu.com/p/4563689271">实践”两周自制脚本语言”一书【java吧】_百度贴吧</a></p>
+
+<p>当时是希望一路添加测试用例, 并且最终把语言改为中文语法. 但看到Gluonj之后,似乎必须要Loader.run来执行解释器, 得不到返回值, 只能打印解释结果.</p>
+
+<p>今天从此书官网(<a href="https://chibash.github.io/essays/book">スクリプト言語の作り方</a>)找到了它的附带源码库: <a href="https://github.com/chibash/stone">chibash/stone</a>, 顺便研究了一下Gluonj源码, 找到了它的JUnit辅助功能: <a href="https://github.com/chibash/gluonj/blob/master/src/javassist/gluonj/util/UTester.java">https://github.com/chibash/gluonj/blob/master/src/javassist/gluonj/util/UTester.java</a></p>
+
+<p>据此写了第五到十四章的测试, 运行效果见开头. 下面以第九章的为例:</p>
+
+<p>测试用”石头”语言源码: <a href="https://github.com/program-in-chinese/stone/blob/master/%E6%B5%8B%E8%AF%95%E6%BA%90%E7%A0%81/chap9/%E4%BD%8D%E7%BD%AE%E7%B1%BB.txt">位置类</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Position {
+    x = y = 0
+    def move (nx, ny) {
+        x = nx; y = ny;
+    }
+}
+p = Position.new
+p.move(3, 4)
+p.x = 10
+sum = p.x + p.y
+</code></pre></div></div>
+<p>测试代码: <a href="https://github.com/program-in-chinese/stone/blob/master/test/chap9/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%A7%A3%E9%87%8A%E5%99%A8Test.java">面向对象解释器Test</a></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">chap9</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.charset.StandardCharsets</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">chap7.NestedEnv</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">chap8.Natives</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javassist.gluonj.util.UTester</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">stone.ClassParser</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">stone.ParseException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">stone.util.</span><span class="err">文件功用</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">stone.util.</span><span class="err">解释器功用</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="err">面向对象解释器</span><span class="nc">Test</span> <span class="kd">extends</span> <span class="n">ClassInterpreter</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="err">位置类</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+  <span class="kd">static</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="err">位置类</span> <span class="o">=</span> <span class="err">文件功用</span><span class="o">.</span><span class="err">读文件</span><span class="o">(</span><span class="s">"测试源码/chap9/位置类.txt"</span><span class="o">,</span> <span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="err">求值</span><span class="o">(</span><span class="n">String</span> <span class="err">源代码</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ParseException</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="err">解释器功用</span><span class="o">.</span><span class="err">求值</span><span class="o">(</span><span class="k">new</span> <span class="n">ClassParser</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Natives</span><span class="o">().</span><span class="na">environment</span><span class="o">(</span><span class="k">new</span> <span class="n">NestedEnv</span><span class="o">()),</span> <span class="err">源代码</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="err">例程</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">UTester</span><span class="o">.</span><span class="na">runTestWith</span><span class="o">(</span><span class="s">"chap9.ClassEvaluator"</span><span class="o">,</span> <span class="s">"chap8.NativeEvaluator"</span><span class="o">,</span> <span class="s">"chap7.ClosureEvaluator"</span><span class="o">))</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="err">求值</span><span class="o">(</span><span class="err">位置类</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>改写自<a href="https://github.com/program-in-chinese/stone/blob/f8b447f9b4cfc671f1d2747c092774d24194ea36/src/chap6/BasicInterpreter.java#L10">BasicInterpreter</a>的<a href="https://github.com/program-in-chinese/stone/blob/f8b447f9b4cfc671f1d2747c092774d24194ea36/test/stone/util/%E8%A7%A3%E9%87%8A%E5%99%A8%E5%8A%9F%E7%94%A8.java#L20">解释器功用.求值()</a></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="err">求值</span><span class="o">(</span><span class="n">BasicParser</span> <span class="err">基本分析器</span><span class="o">,</span> <span class="n">Environment</span> <span class="err">环境</span><span class="o">,</span> <span class="n">String</span> <span class="err">源代码</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ParseException</span> <span class="o">{</span>
+    <span class="n">Lexer</span> <span class="err">词法分析器</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Lexer</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="err">源代码</span><span class="o">));</span>
+    <span class="n">Object</span> <span class="err">终值</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="err">词法分析器</span><span class="o">.</span><span class="na">peek</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">!=</span> <span class="n">Token</span><span class="o">.</span><span class="na">EOF</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">ASTree</span> <span class="err">树</span> <span class="o">=</span> <span class="err">基本分析器</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="err">词法分析器</span><span class="o">);</span>
+      <span class="k">if</span> <span class="o">(!(</span><span class="err">树</span> <span class="k">instanceof</span> <span class="n">NullStmnt</span><span class="o">))</span> <span class="o">{</span>
+        <span class="err">终值</span> <span class="o">=</span> <span class="o">((</span><span class="n">BasicEvaluator</span><span class="o">.</span><span class="na">ASTreeEx</span><span class="o">)</span> <span class="err">树</span><span class="o">).</span><span class="na">eval</span><span class="o">(</span><span class="err">环境</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="err">终值</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>又有了深入学习此书(顺便将代码中文化, 像之前的<a href="https://zhuanlan.zhihu.com/p/50726829">中文编程：手工翻译Vue.js源码:尝试重命名标识符与文本</a>), 并据此开发一些中文编程语言原型的动力.</p>
+
+<p><strong><em>补</em></strong>: 十四章中fib(33)的运行时间确实与Java的对应代码运行时间相差无几, 虽然如作者所言, 并不能以此判断语言的性能.</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

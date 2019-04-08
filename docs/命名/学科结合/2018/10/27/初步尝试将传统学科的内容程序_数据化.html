@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>初步尝试将传统学科的内容程序/数据化</title>
+  <meta name="description" content="将数学, 历史等传统学科的内容用代码进行表达. Use program to implement common-sense knowledge, like math and history.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E5%AD%A6%E7%A7%91%E7%BB%93%E5%90%88/2018/10/27/%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95%E5%B0%86%E4%BC%A0%E7%BB%9F%E5%AD%A6%E7%A7%91%E7%9A%84%E5%86%85%E5%AE%B9%E7%A8%8B%E5%BA%8F_%E6%95%B0%E6%8D%AE%E5%8C%96.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>初步尝试将传统学科的内容程序/数据化 | 用中文编程</title>
+<meta property="og:title" content="初步尝试将传统学科的内容程序/数据化" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="将数学, 历史等传统学科的内容用代码进行表达. Use program to implement common-sense knowledge, like math and history." />
+<meta property="og:description" content="将数学, 历史等传统学科的内容用代码进行表达. Use program to implement common-sense knowledge, like math and history." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E5%AD%A6%E7%A7%91%E7%BB%93%E5%90%88/2018/10/27/%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95%E5%B0%86%E4%BC%A0%E7%BB%9F%E5%AD%A6%E7%A7%91%E7%9A%84%E5%86%85%E5%AE%B9%E7%A8%8B%E5%BA%8F_%E6%95%B0%E6%8D%AE%E5%8C%96.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/%E5%AD%A6%E7%A7%91%E7%BB%93%E5%90%88/2018/10/27/%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95%E5%B0%86%E4%BC%A0%E7%BB%9F%E5%AD%A6%E7%A7%91%E7%9A%84%E5%86%85%E5%AE%B9%E7%A8%8B%E5%BA%8F_%E6%95%B0%E6%8D%AE%E5%8C%96.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-27T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"将数学, 历史等传统学科的内容用代码进行表达. Use program to implement common-sense knowledge, like math and history.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E5%AD%A6%E7%A7%91%E7%BB%93%E5%90%88/2018/10/27/%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95%E5%B0%86%E4%BC%A0%E7%BB%9F%E5%AD%A6%E7%A7%91%E7%9A%84%E5%86%85%E5%AE%B9%E7%A8%8B%E5%BA%8F_%E6%95%B0%E6%8D%AE%E5%8C%96.html","publisher":null,"image":null,"headline":"初步尝试将传统学科的内容程序/数据化","dateModified":"2018-10-27T00:00:00-07:00","datePublished":"2018-10-27T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E5%AD%A6%E7%A7%91%E7%BB%93%E5%90%88/2018/10/27/%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95%E5%B0%86%E4%BC%A0%E7%BB%9F%E5%AD%A6%E7%A7%91%E7%9A%84%E5%86%85%E5%AE%B9%E7%A8%8B%E5%BA%8F_%E6%95%B0%E6%8D%AE%E5%8C%96.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">初步尝试将传统学科的内容程序/数据化</h1>
+    <p class="post-meta">
+      <time datetime="2018-10-27T00:00:00-07:00" itemprop="datePublished">
+        
+        Oct 27, 2018
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>前文<a href="https://zhuanlan.zhihu.com/p/47128031">它山之石-日本推广编程中使用日语命名的渊源</a>之后, 唤起了以前的一个想法:</p>
+
+<p>将尽可能多的教科书知识(从小学开始)用程序+数据整理表达, 比如<code class="highlighter-rouge">梯形定义,面积, 主谓宾语法, 电流公式, 煤矿富集的省份, 19xx年发生的历史事件</code>等等. 感觉与前文的学科结合手段有点接近, 范围也许更广.</p>
+
+<p>感觉这样的项目做大了就会接近<a href="https://www.wolfram.com/knowledgebase/">wolfram知识库</a>, 优势是开源, 中文化和更侧重中国相关的数据. 下面从数学和历史两个方向做了非常初步的尝试.</p>
+<h3 id="数学">数学</h3>
+
+<p>尝试从人教版小学数学一年级上册开始, 但也许从更高年级开始更有可行性(更容易程序化).</p>
+
+<p>“准备课”中的认知部分, 如认识上下左右前后, 算法识别不现实. 比多少的部分, 在没有加减能力的前提下, 通过将两组物品进行1:1的摆放, 定义了”同样多”, “A比B多/少”的概念. 因此也模拟此过程, 避免使用加减法和数字大小比较, python3实现如下:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="k">class</span> <span class="err">比较结果(</span><span class="nc">Enum</span><span class="p">):</span>
+  <span class="err">多</span> <span class="o">=</span> <span class="s">"多"</span>
+  <span class="err">少</span> <span class="o">=</span> <span class="s">"少"</span>
+  <span class="err">同样</span> <span class="o">=</span> <span class="s">"同样"</span>
+
+<span class="k">def</span> <span class="err">比较(组1, 组2):
+  </span><span class="nf">for</span> <span class="err">序号</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="err">组</span><span class="mi">1</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="err">组</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="err">比较结果</span><span class="o">.</span><span class="err">多</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="err">组</span><span class="mf">1.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="err">组</span><span class="mf">2.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="err">组</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="err">比较结果</span><span class="o">.</span><span class="err">少</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="err">比较结果</span><span class="o">.</span><span class="err">同样</span>
+
+<span class="k">print</span><span class="p">(</span><span class="err">比较</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="err">比较</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="err">比较</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+</code></pre></div></div>
+<h3 id="历史">历史</h3>
+
+<p>先用Python3, 后用JavaScript(因为想和<a href="https://github.com/program-in-chinese/overview/issues/61">通过浏览器插件实现一个计算/编程工具 · Issue #61 · program-in-chinese/overview</a>结合)编写历史数据, 感觉有几个优势:</p>
+
+<ul>
+  <li>数据是文本格式, 易于合作编辑</li>
+  <li>易于扩展和重构, 相比数据库, 可以更方便地增减/修改数据之间的关系</li>
+  <li>编辑时可以借助IDE的自动补全, 语法错误等功能, 减少笔误</li>
+  <li>易于编写自动测试以保证一些基本检验规则, 比如朝代没有重合部分, 先辈出生日期肯定早于后辈, 等等.</li>
+  <li>易于直接使用数据进行分析:
+  比如这样:</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">diff</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">;});</span>
+<span class="p">};</span>
+
+<span class="err">消失国家</span> <span class="o">=</span> <span class="err">国家所属时期</span><span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">春秋</span><span class="p">].</span><span class="nx">diff</span><span class="p">(</span><span class="err">国家所属时期</span><span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">战国</span><span class="p">])</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"春秋消失的国家: "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="err">消失国家</span><span class="p">))</span>
+</code></pre></div></div>
+<p>输出:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>春秋消失的国家: ["晋国","宋国","吴国","越国","鲁国"]
+</code></pre></div></div>
+<p>下面是源码, 仅作原型演示之用, 如果正式开始项目会采用更翔实的史实参考来源(如教材). 数据结构设计等等很不成熟, 请多指摘, 尤其是TODO部分.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 来源: 中国少儿百科全书-历史大观: 河姆渡文化-郑和下西洋</span>
+
+<span class="kd">var</span> <span class="err">朝代</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">新石器</span><span class="p">:</span> <span class="s2">"新石器时代"</span><span class="p">,</span>
+  <span class="err">东周</span><span class="p">:</span> <span class="s2">"东周"</span><span class="p">,</span>
+  <span class="err">春秋</span><span class="p">:</span> <span class="s2">"春秋时期"</span><span class="p">,</span>
+  <span class="err">战国</span><span class="p">:</span> <span class="s2">"战国时期"</span><span class="p">,</span>
+  <span class="err">秦</span><span class="p">:</span> <span class="s2">"秦朝"</span><span class="p">,</span>
+  <span class="err">西汉</span><span class="p">:</span> <span class="s2">"西汉"</span><span class="p">,</span>
+  <span class="err">东汉</span><span class="p">:</span> <span class="s2">"东汉"</span><span class="p">,</span>
+  <span class="err">三国</span><span class="p">:</span> <span class="s2">"三国时期"</span><span class="p">,</span>
+  <span class="err">隋</span><span class="p">:</span> <span class="s2">"隋朝"</span><span class="p">,</span>
+  <span class="err">唐</span><span class="p">:</span> <span class="s2">"唐朝"</span><span class="p">,</span>
+  <span class="err">元</span><span class="p">:</span> <span class="s2">"元朝"</span><span class="p">,</span>
+  <span class="err">明</span><span class="p">:</span> <span class="s2">"明朝"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">社会类型</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">氏族社会</span><span class="p">:</span> <span class="s2">"氏族社会"</span><span class="p">,</span>
+  <span class="err">母系社会</span><span class="p">:</span> <span class="s2">"母系社会"</span>
+<span class="p">});</span>
+
+<span class="c1">// TODO: 添加地点关系, 如国-地区-省-市-镇, 以及行政区划改变(村-&gt;镇等)</span>
+<span class="kd">var</span> <span class="err">地点</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">浙江</span><span class="p">:</span> <span class="s2">"浙江省"</span><span class="p">,</span>
+  <span class="err">余姚</span><span class="p">:</span> <span class="s2">"余姚市"</span><span class="p">,</span>
+  <span class="err">河姆渡</span><span class="p">:</span> <span class="s2">"河姆渡文化"</span><span class="p">,</span>
+  <span class="err">长江下游</span><span class="p">:</span> <span class="s2">"长江下游地区"</span><span class="p">,</span>
+  <span class="err">黄河中游</span><span class="p">:</span> <span class="s2">"黄河中游地区"</span><span class="p">,</span>
+  <span class="err">陕西</span><span class="p">:</span> <span class="s2">"陕西省"</span><span class="p">,</span>
+  <span class="err">西安</span><span class="p">:</span> <span class="s2">"西安市"</span><span class="p">,</span>
+  <span class="err">半坡</span><span class="p">:</span> <span class="s2">"半坡遗址"</span><span class="p">,</span>
+  <span class="err">长安</span><span class="p">:</span> <span class="s2">"长安"</span><span class="p">,</span>
+  <span class="err">洛阳</span><span class="p">:</span> <span class="s2">"洛阳"</span><span class="p">,</span>
+  <span class="err">齐</span><span class="p">:</span> <span class="s2">"齐国"</span><span class="p">,</span>
+  <span class="err">晋</span><span class="p">:</span> <span class="s2">"晋国"</span><span class="p">,</span>
+  <span class="err">宋</span><span class="p">:</span> <span class="s2">"宋国"</span><span class="p">,</span>
+  <span class="err">秦</span><span class="p">:</span> <span class="s2">"秦国"</span><span class="p">,</span>
+  <span class="err">楚</span><span class="p">:</span> <span class="s2">"楚国"</span><span class="p">,</span>
+  <span class="err">吴</span><span class="nx">_</span><span class="err">春秋</span><span class="p">:</span> <span class="s2">"吴国"</span><span class="p">,</span>
+  <span class="err">越</span><span class="p">:</span> <span class="s2">"越国"</span><span class="p">,</span>
+  <span class="err">燕</span><span class="p">:</span> <span class="s2">"燕国"</span><span class="p">,</span>
+  <span class="err">韩</span><span class="p">:</span> <span class="s2">"韩国"</span><span class="p">,</span>
+  <span class="err">赵</span><span class="p">:</span> <span class="s2">"赵国"</span><span class="p">,</span>
+  <span class="err">魏</span><span class="nx">_</span><span class="err">战国</span><span class="p">:</span> <span class="s2">"魏国"</span><span class="p">,</span>
+  <span class="err">鲁</span><span class="p">:</span> <span class="s2">"鲁国"</span><span class="p">,</span>
+  <span class="err">匈奴</span><span class="p">:</span> <span class="s2">"匈奴"</span><span class="p">,</span>
+  <span class="err">大月氏</span><span class="p">:</span> <span class="s2">"大月氏"</span><span class="p">,</span>
+  <span class="err">西域</span><span class="p">:</span> <span class="s2">"西域"</span><span class="p">,</span>
+  <span class="err">官渡</span><span class="p">:</span> <span class="s2">"官渡"</span><span class="p">,</span>
+  <span class="err">赤壁</span><span class="p">:</span> <span class="s2">"赤壁"</span><span class="p">,</span>
+  <span class="err">魏</span><span class="nx">_</span><span class="err">三国</span><span class="p">:</span> <span class="s2">"魏国"</span><span class="p">,</span>
+  <span class="err">蜀国</span><span class="p">:</span> <span class="s2">"蜀国"</span><span class="p">,</span>
+  <span class="err">吴</span><span class="nx">_</span><span class="err">三国</span><span class="p">:</span> <span class="s2">"吴国"</span><span class="p">,</span>
+  <span class="err">吐蕃</span><span class="p">:</span> <span class="s2">"西藏"</span><span class="p">,</span>
+  <span class="err">蒙古</span><span class="p">:</span> <span class="s2">"蒙古国"</span><span class="p">,</span>
+  <span class="err">中亚</span><span class="p">:</span> <span class="s2">"中亚"</span><span class="p">,</span>
+  <span class="err">东欧</span><span class="p">:</span> <span class="s2">"东欧"</span><span class="p">,</span>
+  <span class="err">西洋</span><span class="p">:</span> <span class="s2">"东南亚和印度洋沿海"</span>
+<span class="p">});</span>
+
+<span class="c1">// TODO: 更多人物信息, 如原名, 性别, 小名等等</span>
+<span class="kd">var</span> <span class="err">人物</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">周平王</span><span class="p">:</span> <span class="s2">"周平王"</span><span class="p">,</span>
+  <span class="err">齐桓公</span><span class="p">:</span> <span class="s2">"齐桓公"</span><span class="p">,</span>
+  <span class="err">晋文公</span><span class="p">:</span> <span class="s2">"晋文公"</span><span class="p">,</span>
+  <span class="err">宋襄公</span><span class="p">:</span> <span class="s2">"宋襄公"</span><span class="p">,</span>
+  <span class="err">秦穆公</span><span class="p">:</span> <span class="s2">"秦穆公"</span><span class="p">,</span>
+  <span class="err">楚庄王</span><span class="p">:</span> <span class="s2">"楚庄王"</span><span class="p">,</span>
+  <span class="err">吴王</span><span class="p">:</span> <span class="s2">"阖闾"</span><span class="p">,</span>
+  <span class="err">越王</span><span class="p">:</span> <span class="s2">"勾践"</span><span class="p">,</span>
+  <span class="err">孔子</span><span class="p">:</span> <span class="s2">"孔子"</span><span class="p">,</span>
+  <span class="err">老子</span><span class="p">:</span> <span class="s2">"老子"</span><span class="p">,</span>
+  <span class="err">墨子</span><span class="p">:</span> <span class="s2">"墨子"</span><span class="p">,</span>
+  <span class="err">孟子</span><span class="p">:</span> <span class="s2">"孟子"</span><span class="p">,</span>
+  <span class="err">秦王</span><span class="p">:</span> <span class="s2">"嬴政"</span><span class="p">,</span>
+  <span class="err">汉景帝</span><span class="p">:</span> <span class="s2">"汉景帝"</span><span class="p">,</span>
+  <span class="err">汉武帝</span><span class="p">:</span> <span class="s2">"刘彻"</span><span class="p">,</span>
+  <span class="err">卫青</span><span class="p">:</span> <span class="s2">"卫青"</span><span class="p">,</span>
+  <span class="err">霍去病</span><span class="p">:</span> <span class="s2">"霍去病"</span><span class="p">,</span>
+  <span class="err">张骞</span><span class="p">:</span> <span class="s2">"张骞"</span><span class="p">,</span>
+  <span class="err">袁绍</span><span class="p">:</span> <span class="s2">"袁绍"</span><span class="p">,</span>
+  <span class="err">袁术</span><span class="p">:</span> <span class="s2">"袁术"</span><span class="p">,</span>
+  <span class="err">曹操</span><span class="p">:</span> <span class="s2">"曹操"</span><span class="p">,</span>
+  <span class="err">孙坚</span><span class="p">:</span> <span class="s2">"孙坚"</span><span class="p">,</span>
+  <span class="err">刘备</span><span class="p">:</span> <span class="s2">"刘备"</span><span class="p">,</span>
+  <span class="err">孙权</span><span class="p">:</span> <span class="s2">"孙权"</span><span class="p">,</span>
+  <span class="err">曹丕</span><span class="p">:</span> <span class="s2">"曹丕"</span><span class="p">,</span>
+  <span class="err">汉献帝</span><span class="p">:</span> <span class="s2">"汉献帝"</span><span class="p">,</span>
+  <span class="err">唐太宗</span><span class="p">:</span> <span class="s2">"李世民"</span><span class="p">,</span>
+  <span class="err">李靖</span><span class="p">:</span> <span class="s2">"李靖"</span><span class="p">,</span>
+  <span class="err">尉迟恭</span><span class="p">:</span> <span class="s2">"尉迟恭"</span><span class="p">,</span>
+  <span class="err">李建成</span><span class="p">:</span> <span class="s2">"李建成"</span><span class="p">,</span>
+  <span class="err">魏征</span><span class="p">:</span> <span class="s2">"魏征"</span><span class="p">,</span>
+  <span class="err">文成公主</span><span class="p">:</span> <span class="s2">"文成公主"</span><span class="p">,</span>
+  <span class="err">松赞干布</span><span class="p">:</span> <span class="s2">"松赞干布"</span><span class="p">,</span>
+  <span class="err">武则天</span><span class="p">:</span> <span class="s2">"武则天"</span><span class="p">,</span>
+  <span class="err">唐高宗</span><span class="p">:</span> <span class="s2">"唐高宗"</span><span class="p">,</span>
+  <span class="err">成吉思汗</span><span class="p">:</span> <span class="s2">"铁木真"</span><span class="p">,</span>
+  <span class="err">忽必烈</span><span class="p">:</span> <span class="s2">"忽必烈"</span><span class="p">,</span>
+  <span class="err">郑和</span><span class="p">:</span> <span class="s2">"马和"</span><span class="p">,</span>
+  <span class="err">朱棣</span><span class="p">:</span> <span class="s2">"朱棣"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">年号</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">贞观</span><span class="p">:</span> <span class="s2">"贞观"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">路线</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">丝绸之路</span><span class="p">:</span> <span class="s2">"丝绸之路"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">群体</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">儒家</span><span class="p">:</span> <span class="s2">"儒家"</span><span class="p">,</span>
+  <span class="err">道家</span><span class="p">:</span> <span class="s2">"道家"</span><span class="p">,</span>
+  <span class="err">墨家</span><span class="p">:</span> <span class="s2">"墨家"</span>
+<span class="p">})</span>
+
+<span class="kd">var</span> <span class="err">行为</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">栽种</span><span class="p">:</span> <span class="s2">"栽种"</span><span class="p">,</span>
+  <span class="err">制作</span><span class="p">:</span> <span class="s2">"制作"</span><span class="p">,</span>
+  <span class="err">结婚</span><span class="p">:</span> <span class="s2">"结婚"</span><span class="p">,</span>
+  <span class="err">求教</span><span class="p">:</span> <span class="s2">"求教"</span><span class="p">,</span>
+  <span class="err">消灭</span><span class="p">:</span> <span class="s2">"消灭"</span><span class="p">,</span>
+  <span class="err">出使</span><span class="p">:</span> <span class="s2">"出使"</span><span class="p">,</span>
+  <span class="err">出击</span><span class="p">:</span> <span class="s2">"出击"</span><span class="p">,</span>
+  <span class="err">击败</span><span class="p">:</span> <span class="s2">"击败"</span><span class="p">,</span>
+  <span class="err">效力</span><span class="p">:</span> <span class="s2">"效力"</span><span class="p">,</span>
+  <span class="err">称帝</span><span class="p">:</span> <span class="s2">"称帝"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">植物</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">水稻</span><span class="p">:</span> <span class="s2">"水稻"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">物件</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="err">陶器</span><span class="p">:</span> <span class="s2">"陶器"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">国家所属时期</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">春秋</span><span class="p">]:</span> <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">齐</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">晋</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">宋</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">秦</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">楚</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">吴</span><span class="nx">_</span><span class="err">春秋</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">越</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">鲁</span><span class="p">],</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">战国</span><span class="p">]:</span> <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">齐</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">楚</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">燕</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">秦</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">韩</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">赵</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">魏</span><span class="nx">_</span><span class="err">战国</span><span class="p">],</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">三国</span><span class="p">]:</span> <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">魏</span><span class="nx">_</span><span class="err">三国</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">吴</span><span class="nx">_</span><span class="err">三国</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">蜀国</span><span class="p">]</span>
+<span class="p">});</span>
+
+<span class="c1">// 数字为公元纪年, 如-5000即公元前5000年, 221即公元后221年</span>
+<span class="c1">// TODO: 很多年份如秦代-200需更正</span>
+<span class="kd">var</span> <span class="err">时间跨度</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">河姆渡</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="o">-</span><span class="mi">6000</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="o">-</span><span class="mi">5000</span><span class="p">},</span>
+  <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">半坡</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="o">-</span><span class="mi">4400</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="o">-</span><span class="mi">4300</span><span class="p">},</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">东周</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="o">-</span><span class="mi">770</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="o">-</span><span class="mi">221</span><span class="p">},</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">秦</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="o">-</span><span class="mi">221</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="o">-</span><span class="mi">200</span><span class="p">},</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">西汉</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+  <span class="p">[</span><span class="err">朝代</span><span class="p">.</span><span class="err">东汉</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="mi">229</span><span class="p">},</span>
+  <span class="p">[</span><span class="err">年号</span><span class="p">.</span><span class="err">贞观</span><span class="p">]:</span> <span class="p">{</span><span class="err">开始</span><span class="p">:</span> <span class="mi">626</span><span class="p">,</span> <span class="err">结束</span><span class="p">:</span> <span class="mi">650</span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// TODO: 此表仅在人物无具体生卒年月时有用</span>
+<span class="kd">var</span> <span class="err">所属时期</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">半坡</span><span class="p">]:</span> <span class="err">朝代</span><span class="p">.</span><span class="err">新石器</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">河姆渡</span><span class="p">]:</span> <span class="err">朝代</span><span class="p">.</span><span class="err">新石器</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">孔子</span><span class="p">]:</span> <span class="err">朝代</span><span class="p">.</span><span class="err">春秋</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">老子</span><span class="p">]:</span> <span class="err">朝代</span><span class="p">.</span><span class="err">春秋</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">卫青</span><span class="p">]:</span> <span class="err">朝代</span><span class="p">.</span><span class="err">西汉</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">霍去病</span><span class="p">]:</span> <span class="err">朝代</span><span class="p">.</span><span class="err">西汉</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">所属地点</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">孔子</span><span class="p">]:</span> <span class="err">地点</span><span class="p">.</span><span class="err">鲁</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">人物所属群体</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">孔子</span><span class="p">]:</span> <span class="err">群体</span><span class="p">.</span><span class="err">儒家</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">孟子</span><span class="p">]:</span> <span class="err">群体</span><span class="p">.</span><span class="err">儒家</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">老子</span><span class="p">]:</span> <span class="err">群体</span><span class="p">.</span><span class="err">道家</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">墨子</span><span class="p">]:</span> <span class="err">群体</span><span class="p">.</span><span class="err">墨家</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">属性</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">河姆渡</span><span class="p">]:</span> <span class="err">社会类型</span><span class="p">.</span><span class="err">氏族社会</span><span class="p">,</span>
+  <span class="p">[</span><span class="err">地点</span><span class="p">.</span><span class="err">半坡</span><span class="p">]:</span> <span class="err">社会类型</span><span class="p">.</span><span class="err">母系社会</span>
+<span class="p">});</span>
+
+<span class="c1">// 行为方向为: 前者对后者</span>
+<span class="c1">// TODO: 加入事件发生时间, 地点</span>
+<span class="kd">var</span> <span class="err">事件</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">结婚</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">文成公主</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">松赞干布</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">武则天</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">唐高宗</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">栽种</span><span class="p">]:</span> <span class="p">[(</span><span class="err">地点</span><span class="p">.</span><span class="err">河姆渡</span><span class="p">,</span> <span class="err">植物</span><span class="p">.</span><span class="err">水稻</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">制作</span><span class="p">]:</span> <span class="p">[(</span><span class="err">地点</span><span class="p">.</span><span class="err">半坡</span><span class="p">,</span> <span class="err">物件</span><span class="p">.</span><span class="err">陶器</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">求教</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">孔子</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">老子</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">消灭</span><span class="p">]:</span> <span class="p">[(</span><span class="err">地点</span><span class="p">.</span><span class="err">秦</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">韩</span><span class="p">),</span> <span class="p">(</span><span class="err">地点</span><span class="p">.</span><span class="err">秦</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">赵</span><span class="p">),</span> <span class="p">(</span><span class="err">地点</span><span class="p">.</span><span class="err">秦</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">魏</span><span class="nx">_</span><span class="err">战国</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">出使</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">张骞</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">西域</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">郑和</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">西洋</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">出击</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">卫青</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">匈奴</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">霍去病</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">匈奴</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">击败</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">曹操</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">袁绍</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">效力</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">魏征</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">李建成</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">魏征</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">唐太宗</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">李靖</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">唐太宗</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">尉迟恭</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">唐太宗</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">郑和</span><span class="p">,</span> <span class="err">人物</span><span class="p">.</span><span class="err">朱棣</span><span class="p">)],</span>
+  <span class="p">[</span><span class="err">行为</span><span class="p">.</span><span class="err">称帝</span><span class="p">]:</span> <span class="p">[(</span><span class="err">人物</span><span class="p">.</span><span class="err">曹丕</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">魏</span><span class="nx">_</span><span class="err">三国</span><span class="p">,</span> <span class="mi">220</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">刘备</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">蜀国</span><span class="p">,</span> <span class="mi">221</span><span class="p">),</span> <span class="p">(</span><span class="err">人物</span><span class="p">.</span><span class="err">孙权</span><span class="p">,</span> <span class="err">地点</span><span class="p">.</span><span class="err">吴</span><span class="nx">_</span><span class="err">三国</span><span class="p">,</span> <span class="mi">229</span><span class="p">)]</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="err">名言</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span>
+  <span class="p">[</span><span class="err">人物</span><span class="p">.</span><span class="err">唐太宗</span><span class="p">]:</span> <span class="p">[</span><span class="s2">"民, 水也; 君, 舟也. 水能载舟, 亦能覆舟"</span><span class="p">]</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>之前问过的: <a href="https://www.zhihu.com/question/61607216">有没有公开的中国历史人物事件数据库?</a> 其中并没有很多事件数据, sqlite数据库就有230MB. 考虑将数据范围限制在教材内, 以避免数据量过度膨胀.</p>
+
+<p>源于讨论: <a href="https://github.com/program-in-chinese/overview/issues/97">通过中文命名将少儿编程与核心学科结合起来 · Issue #97 · program-in-chinese/overview</a></p>
+
+<p>相关问题: <a href="https://www.v2ex.com/t/500860">有哪些开源的知识库(数据, 非软件)? - V2EX</a></p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>中文代码示例之Programming in Scala学习笔记第二三章</title>
+  <meta name="description" content="对Programming in Scala书本中的二三章示例代码进行命名中文化. Translate identifiers in sample programs to Chinese.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/scala/2018/11/13/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%AB%A0.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>中文代码示例之Programming in Scala学习笔记第二三章 | 用中文编程</title>
+<meta property="og:title" content="中文代码示例之Programming in Scala学习笔记第二三章" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="对Programming in Scala书本中的二三章示例代码进行命名中文化. Translate identifiers in sample programs to Chinese." />
+<meta property="og:description" content="对Programming in Scala书本中的二三章示例代码进行命名中文化. Translate identifiers in sample programs to Chinese." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/scala/2018/11/13/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%AB%A0.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/scala/2018/11/13/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%AB%A0.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-12T23:00:00-08:00" />
+<script type="application/ld+json">
+{"name":null,"description":"对Programming in Scala书本中的二三章示例代码进行命名中文化. Translate identifiers in sample programs to Chinese.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/scala/2018/11/13/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%AB%A0.html","publisher":null,"image":null,"headline":"中文代码示例之Programming in Scala学习笔记第二三章","dateModified":"2018-11-12T23:00:00-08:00","datePublished":"2018-11-12T23:00:00-08:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/scala/2018/11/13/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%AB%A0.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">中文代码示例之Programming in Scala学习笔记第二三章</h1>
+    <p class="post-meta">
+      <time datetime="2018-11-12T23:00:00-08:00" itemprop="datePublished">
+        
+        Nov 13, 2018
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="http://localhost:4000/assets/2018-11-13-scala%E4%BA%8C%E4%B8%89%E7%AB%A0.png" alt="2018-11-13-scala二三章" /></p>
+
+<p><strong><em>由于拷贝后文档格式有变, 仅摘几段如下. 完整而且代码带语法高亮的源版在: <a href="https://github.com/program-in-chinese/Programming_in_Scala_study_notes_zh">program-in-chinese/Programming_in_Scala_study_notes_zh</a></em></strong></p>
+
+<p>前言: 本书已有中文版, 此笔记并不是对原教程的翻译, 而是围绕示例进行选摘, 并顺便将所有示例改成中文命名(不拘泥于原本命名用词, 而是融入中文特色).</p>
+
+<h4 id="本文代码在scala-2124-java-180_45下测试通过">本文代码在Scala 2.12.4, Java 1.8.0_45下测试通过</h4>
+<h3 id="第一章-普适的语言">第一章 普适的语言</h3>
+
+<p>1.1</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">首都</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="s">"中国"</span> <span class="o">-&gt;</span> <span class="s">"北京"</span><span class="o">,</span> <span class="s">"俄罗斯"</span> <span class="o">-&gt;</span> <span class="s">"莫斯科"</span><span class="o">)</span>
+<span class="n">首都</span> <span class="o">+=</span> <span class="o">(</span><span class="s">"德国"</span> <span class="o">-&gt;</span> <span class="s">"柏林"</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="n">首都</span><span class="o">(</span><span class="s">"俄罗斯"</span><span class="o">))</span>
+</code></pre></div></div>
+<p>(待续. 先从第二章开始)</p>
+<h3 id="第二章略">第二章略</h3>
+<h3 id="第三章">第三章</h3>
+
+<p>[略大部]</p>
+
+<p><em>第十步 使用集合(Set)和映射(Map)</em></p>
+
+<p>(这里开始仅包含例程与极简说明, 如有空再补详细说明) 不可变集合</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">客机厂商</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span><span class="s">"空客"</span><span class="o">,</span> <span class="s">"波音"</span><span class="o">)</span>
+<span class="n">客机厂商</span> <span class="o">+=</span> <span class="s">"商飞"</span>
+<span class="n">println</span><span class="o">(</span><span class="n">客机厂商</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="s">"大疆"</span><span class="o">))</span>
+</code></pre></div></div>
+<p>可变集合</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scala.collection.mutable</span>
+
+<span class="k">val</span> <span class="n">电影</span> <span class="k">=</span> <span class="n">mutable</span><span class="o">.</span><span class="nc">Set</span><span class="o">(</span><span class="s">"舌尖一"</span><span class="o">,</span> <span class="s">"舌尖二"</span><span class="o">)</span>
+<span class="n">电影</span> <span class="o">+=</span> <span class="s">"舌尖三"</span>
+<span class="n">println</span><span class="o">(</span><span class="n">电影</span><span class="o">)</span>
+</code></pre></div></div>
+<p>如需指定使用HashSet, 就<code class="highlighter-rouge">import scala.collection.immutable.HashSet</code></p>
+
+<p>可变映射</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scala.collection.mutable</span>
+
+<span class="k">val</span> <span class="n">寻宝指南</span> <span class="k">=</span> <span class="n">mutable</span><span class="o">.</span><span class="nc">Map</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">]()</span>
+<span class="n">寻宝指南</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">-&gt;</span> <span class="s">"上荒岛"</span><span class="o">)</span>
+<span class="n">寻宝指南</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">2</span> <span class="o">-&gt;</span> <span class="s">"在地上找个那啥"</span><span class="o">)</span>
+<span class="n">寻宝指南</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">3</span> <span class="o">-&gt;</span> <span class="s">"开挖"</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="n">寻宝指南</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
+</code></pre></div></div>
+<p>不变映射</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="n">中文数字</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="mi">1</span> <span class="o">-&gt;</span> <span class="s">"一"</span><span class="o">,</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="s">"二"</span><span class="o">,</span> <span class="mi">3</span> <span class="o">-&gt;</span> <span class="s">"三"</span><span class="o">,</span> <span class="mi">4</span> <span class="o">-&gt;</span> <span class="s">"四"</span><span class="o">,</span> <span class="mi">5</span> <span class="o">-&gt;</span> <span class="s">"五"</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="n">中文数字</span><span class="o">(</span><span class="mi">4</span><span class="o">))</span>
+</code></pre></div></div>
+<p><em>第十二步 从文件读行</em></p>
+
+<p>[部分略]</p>
+
+<p>如想输出更漂亮, 下面是最终版:</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scala.io.Source</span>
+
+<span class="k">def</span> <span class="n">字符数宽度</span><span class="o">(</span><span class="n">文本</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">文本</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">toString</span><span class="o">.</span><span class="n">length</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">行</span> <span class="k">=</span> <span class="nc">Source</span><span class="o">.</span><span class="n">fromFile</span><span class="o">(</span><span class="n">args</span><span class="o">(</span><span class="mi">0</span><span class="o">)).</span><span class="n">getLines</span><span class="o">().</span><span class="n">toList</span>
+  <span class="k">val</span> <span class="n">最长行</span> <span class="k">=</span> <span class="n">行</span><span class="o">.</span><span class="n">reduceLeft</span><span class="o">(</span>
+    <span class="o">(</span><span class="n">行1</span><span class="o">,</span> <span class="n">行2</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">行1</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">行2</span><span class="o">.</span><span class="n">length</span><span class="o">)</span> <span class="n">行1</span> <span class="k">else</span> <span class="n">行2</span>
+  <span class="o">)</span>
+  <span class="k">val</span> <span class="n">最大宽度</span> <span class="k">=</span> <span class="n">字符数宽度</span><span class="o">(</span><span class="n">最长行</span><span class="o">)</span>
+  <span class="k">for</span> <span class="o">(</span><span class="n">某行</span> <span class="k">&lt;-</span> <span class="n">行</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">空格数</span> <span class="k">=</span> <span class="n">最大宽度</span> <span class="o">-</span> <span class="n">字符数宽度</span><span class="o">(</span><span class="n">某行</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">缩进</span> <span class="k">=</span> <span class="s">" "</span> <span class="o">*</span> <span class="n">空格数</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">缩进</span> <span class="o">+</span> <span class="n">某行</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="s">" | "</span> <span class="o">+</span> <span class="n">某行</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="k">else</span>
+  <span class="nc">Console</span><span class="o">.</span><span class="n">err</span><span class="o">.</span><span class="n">println</span><span class="o">(</span><span class="s">"请输入文件名"</span><span class="o">)</span>
+</code></pre></div></div>
+<p>运行<code class="highlighter-rouge">scala 统计字符2.scala 统计字符2.scala</code>输出如下:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>22 | import scala.io.Source
+ 0 |
+49 | def 字符数宽度(文本: String) = 文本.length.toString.length
+ 0 |
+22 | if (args.length &gt; 0) {
+52 |   val 行 = Source.fromFile(args(0)).getLines().toList
+25 |   val 最长行 = 行.reduceLeft(
+53 |     (行1, 行2) =&gt; if (行1.length &gt; 行2.length) 行1 else 行2
+ 3 |   )
+23 |   val 最大宽度 = 字符数宽度(最长行)
+17 |   for (某行 &lt;- 行) {
+30 |     val 空格数 = 最大宽度 - 字符数宽度(某行)
+22 |     val 缩进 = " " * 空格数
+40 |     println(缩进 + 某行.length + " | " + 某行)
+ 3 |   }
+ 1 | }
+ 4 | else
+31 |   Console.err.println("请输入文件名")
+</code></pre></div></div>
+<p>(第三章完)</p>
+
+<h3 id="发现的中文相关问题">发现的中文相关问题</h3>
+
+<p>命令行交互环境中, 错误信息对中文字符的定位不准. 这很干扰排错. 比较如下两个同样出错信息:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scala&gt; println(["2"])
+&lt;console&gt;:1: error: illegal start of simple expression
+       println(["2"])
+               ^
+
+scala&gt; 打印参数(["2"])
+&lt;console&gt;:1: error: illegal start of simple expression
+       打印参数(["2"])
+            ^
+</code></pre></div></div>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

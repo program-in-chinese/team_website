@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>对在代码中使用中文命名的质疑与回应</title>
+  <meta name="description" content="对常见的对在编写代码时使用中文命名的反对声音进行小结, 并作针对回应. Q&amp;A of programming with naming in Chinese.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/27/%E5%AF%B9%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>对在代码中使用中文命名的质疑与回应 | 用中文编程</title>
+<meta property="og:title" content="对在代码中使用中文命名的质疑与回应" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="对常见的对在编写代码时使用中文命名的反对声音进行小结, 并作针对回应. Q&amp;A of programming with naming in Chinese." />
+<meta property="og:description" content="对常见的对在编写代码时使用中文命名的反对声音进行小结, 并作针对回应. Q&amp;A of programming with naming in Chinese." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/27/%E5%AF%B9%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/27/%E5%AF%B9%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-10-27T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"对常见的对在编写代码时使用中文命名的反对声音进行小结, 并作针对回应. Q&amp;A of programming with naming in Chinese.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/27/%E5%AF%B9%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html","publisher":null,"image":null,"headline":"对在代码中使用中文命名的质疑与回应","dateModified":"2017-10-27T00:00:00-07:00","datePublished":"2017-10-27T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/2017/10/27/%E5%AF%B9%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">对在代码中使用中文命名的质疑与回应</h1>
+    <p class="post-meta">
+      <time datetime="2017-10-27T00:00:00-07:00" itemprop="datePublished">
+        
+        Oct 27, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>有一部分质疑同样适用于英文代码, 比如”从命名看不出类型”, “命名可能词不达意”等等, 另外还有未经证实的”中文代码导致的未知错误”和没有根据的”比英文代码运行慢“等等, 就不一一回应了.</p>
+
+<h4 id="没有好处">没有好处</h4>
+<p>答：如之前的<a href="/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html">13年后的共鸣-在代码中用中文命名的优势和问题</a>一文所述，中文命名在很多时候可以更准确，也比英文命名更轻松。
+如果认为API以及内部方法/变量的命名无关紧要. 有不少可读性相关的文章对这个误区进行了阐述, 比如<a href="https://www.codeproject.com/tips/815600/writing-for-readability">Writing for Readability</a></p>
+
+<h4 id="不利于非中文编程者贡献">不利于非中文编程者贡献</h4>
+<p>答：现状是, 中文开发者主创的开源库/框架, 绝大多数的贡献者也都是中文开发者, 即使非常流行和国际化的框架如<a href="https://github.com/vuejs/vue/graphs/contributors">vuejs</a>也是如此. 原因肯定是多方面的. 能够想到的有:</p>
+
+<ul>
+  <li>有类似功能的国外开源项目. 作为外国程序员首选参与的肯定是那些</li>
+  <li>如果是和中文本身相关的库, 如结巴分词, 主要的用户也是中文开发者, 自然维护的也是</li>
+</ul>
+
+<p>个人也不赞成100%的中文化. 需要和国外交流的项目肯定有. 大胆假设:以中文为母语的所有程序员,从事的项目中,90%是单人项目(*),剩下的10%中,90%只有同样是中文为母语的程序员参与.这样,只有1%的项目有用英文写代码的硬性需要.为了这1%的需要,而在剩下的99%中使用英文,得不偿失.</p>
+
+<p>注： 根据<a href="https://blog.sourced.tech/post/github_stats/">Fun with GitHub repositories statistics</a>, github上的1-contributor repository大约是60%. 当然还有很多项目没有开源. 上面的90%仍然是假设.</p>
+
+<p>当然希望看到更多的国外开发者参与国人初创的项目. 不过，除去预测得到是否会有国外开发者参与的情况, 剩下的自己发起的项目, 首要考虑的是对自己的开发和维护最有利的编程方式. 因为在可以预见的将来, 我自己会是最主要的贡献者. 如果我自己的开发和维护成本随着项目变大而变得不可持续, 那么在项目成型和能够吸引其他开发者参与之前可能就夭折了. 个人的感觉是用中文命名是我更熟悉和容易的方式.</p>
+
+<p>osc上一些即使很热火的开源框架, 比如JFinal, 大多只有极少的其他开发者贡献. 个人认为一个很重要的原因, 就是代码阅读的难度, 而英文命名是一个额外的障碍. 也许对于开发者本人来说, 随着项目的开展, 一些开始时有些别扭的英文命名自己也习惯了, 但是对于刚拿到整个代码的新开发者, 任何不妥当的英文命名都会导致迷惑和时间的浪费. 为了吸引理论上的国外开发者参与, 而不优先选择对身边的中文开发者(包括自己)阅读代码有利的编程方式, 个人认为这种思路是很值得商榷和分情况探讨的.</p>
+
+<h4 id="芬兰人linus使用英语而非自己的母语来编写linux代码">芬兰人Linus，使用英语而非自己的母语来编写Linux代码</h4>
+
+<p>答：Linus的母语是瑞典语，根据<a href="https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers">wiki</a>使用者是八百七千万。中文（普通话）的母语使用者是九亿五千万。这是一百倍的差距。另外，英语母语使用者是3亿六百万。更重要的是，中文母语使用者基本集中在中国，而英语分布在不同国家。西班牙语也类似。从人口基础来看，用中文编程是非常有潜力的。</p>
+
+<h4 id="附上中文注释就够了">附上中文注释就够了</h4>
+
+<p>答：关于注释和命名, 在个人之前的工作环境里, 是第一次接触正式的可读性审核. 有个印象是, 审核员会尽量倾向于减少注释量, 而强调代码本身的可读性(其中最重要的因素之一就是命名). 审核里会不时出现”这个方法名已经self-explaining了,注释就不用了”之类的评语. 虽然没有当面确认过, 但写注释和维护注释的额外工作量应该也是这种倾向的动因之一.</p>
+
+<h4 id="绝大多数api-包括标准库都是英文的">绝大多数API, 包括标准库都是英文的</h4>
+
+<p>答: 没错, 但在代码中, 自己定义的类/方法/变量占的篇幅一般都不少于依赖库(包括标准库)的方法/类所占篇幅, 欢迎提供具体统计数据. 可以看看<a href="https://git.oschina.net/zhishi/assembler-in-chinese-v0/blob/master/src/cn/org/assembler/%E6%B1%87%E7%BC%96%E5%99%A8%E7%B1%BB.java">这里</a>的中英文代码篇幅的比例. 中文命名带来的代码改变是一目了然的. 更关键的是, 自定义的部分往往是<strong>业务逻辑最集中并且最需要可读性</strong>的部分.</p>
+
+<h4 id="如果关键词还是英文-用中文命名就没有意义">如果关键词还是英文, 用中文命名就没有意义</h4>
+
+<p>答: 用中文命名带来的好处是不分编程语言的, 甚至英文关键词和中文的显著区别可能带来额外的可读性增强. 另外, 至少短期内(5-10年), 英文关键词的编程语言还将在市场中占有不可忽视的份额, 在这个阶段使用中文命名是一条代价小而收益相对立竿见影的途径.</p>
+
+<h4 id="编程语言本身和英文语法无关">编程语言本身和英文语法无关</h4>
+
+<p>答: 虽然和英文自然语言相去甚远, 但仍然有不少设计是带着很多英文风格的. 如: 空格作为分隔符; <a href="https://github.com/program-in-chinese/overview/issues/40#issuecomment-337780621">for…in</a>等用法带有英文语法特色. for原意并没有循环的意思，而更接近”对于”，这在”for（A in B）“的语法中更明显，对应中文接近”对于B中的那些A“。while原意也没有‘循环’的意思，中文接近“只要”或者“当”。这恰恰说明了英文编程语言的设计与英文语法和词意的相关性。不懂英文的开发者在学习时就只能强记这些关键词（虽然也不是大麻烦），但假想这些关键词如果开始就是中文，那么肯定会更容易理解，也省去了强记的一步。</p>
+
+<h4 id="中文输入太慢-降低开发效率">中文输入太慢, 降低开发效率</h4>
+
+<p>答: 首先, 如果考虑推敲命名的时间, 对母语是中文的程序员, 中文命名应该比能够更恰当更快, 综合各种因素哪种方式写代码更快还待实践证实. 其次, 鉴于开发过程在整个软件生存周期中只占一小部分, 其他的部分(设计,调试,测试,维护)从良好的可读性获取的利远大于开发效率可能降低的弊.
+为避免频繁切换中英文: 为了在输入中文的同时不用切换就可以输入特殊符号(){};等等, 搜狗输入法支持”中文时使用英文标点”</p>
+
+<h4 id="会有各种汉字编码问题导致乱码">会有各种汉字编码问题导致乱码</h4>
+
+<p>答：汉字编码问题不仅限于代码, 使用的越少越不利于问题解决. 多数问题能通过使编码一致避免, UTF8和GBK互转的问题(<a href="https://github.com/program-in-chinese/overview/issues/26">实例</a>)可能会在长时间内存在。用中文命名能使这些问题更加凸显，促进问题解决，而不是拖延回避.</p>
+
+<h4 id="看多了中文程序会影响英文学习以及程序员前程">看多了中文程序会影响英文学习，以及程序员前程</h4>
+
+<p>答：就像搞学术的需要的时候自然逼着看英文刊物，有硬性需要的时候自然会去看国外网站。如果这就会影响，那么也许本来就不那么需要。</p>
+
+<h4 id="中英混用的问题">中英混用的问题</h4>
+<p>比如Java中有个回避不掉的问题JavaBeans规范一定要使用set/get命名。maven版本号的 -SNAPSHOT 特殊语义，旧junit中需要测试的方法必须以test开头等</p>
+
+<p>答: 确实在实践中碰到混用的情况, 个人基本上是能用多少中文就用多少. 比如<a href="https://github.com/program-in-chinese/jinxiaocun/blob/master/src/main/java/com/example/%E5%95%86%E5%93%81.java#L37">这里</a>set/get和中文混用，个人觉得可以接受。如果想在Java里用中文编写代码, 中英混用是不可能避免的.</p>
+
+<p>上面列出的之外， (转载)<a href="http://www.hystudio.net/726.html">发展中文编程的意义：让大众化编程促进软件产业的建设</a>也对一些质疑作出了<a href="http://www.hystudio.net/726.html#jieda">回应</a></p>
+
+<h4 id="没有先例">没有先例</h4>
+
+<p>答: 这个 2017 年的 quora 答案(<a href="https://www.quora.com/Has-any-serious-project-been-written-in-a-non-English-based-programming-language/answer/Alan-Mellor?share=78d29f62&amp;srid=hmU8k">Alan Mellor’s answer to Has any serious project been written in a non-English-based programming language?</a>)提到西门子(德)/爱立信(瑞典)内部有尽量用母语命名的 C/C++项目. 以及布拉格看到的一本编程书中的示例代码也是用母语命名.</p>
+
+<p>开源项目中也有不少. 这是一位台湾开发者用Python开发的自然语言处理工具: <a href="https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_kang1-ku7">臺灣言語工具</a> 项目成型于2013年, 代码目测数万行.</p>
+
+<p>最初在编程语言中添加支持 Unicode 的功能, 也应该有各个非英语母语国家/地区开发者的推动力量.</p>
+
+<p>2018-07-18更新</p>
+
+<h4 id="中文比英文更难以理解">中文比英文更难以理解</h4>
+
+<p>答: 比如<a href="https://www.zhihu.com/question/280213529/answer/434428745">假设中国人最先开发电脑和设计程序语言，那么各种程序语言会使用汉字吗？</a>. 问题是, 无论从什么角度说, 中文也是中国人的母语, 而母语优势已经由前面的”没有好处”一节说明. 退一万步说, 即使这个命题成立, 也只能用来说明中国人用中文作为母语导致了理解效率落后. 而不能说明中文命名不适合于国人.</p>
+
+<p>2018-07-22更新</p>
+
+<h4 id="我们在用cjavapython编程不是在用英文编程">“我们在用C++，Java，Python编程，不是在用英文编程”</h4>
+
+<p>答: 这是很常见的一个说法, 比如<a href="https://www.zhihu.com/question/280213529/answer/422953167">这里</a>. 之前的”没有好处”和”编程语言本身和英文语法无关”等节已经阐述了命名和编程语言语法和自然语言直接的关系. 如果还不够说服力, 也许可以看看国外非英语母语的开发者. Linus(Linux作者)的回答(原文在<a href="https://www.linux.com/news/interview-linus-without-linux">Interview: Linus without Linux</a>): “我一直用英文编程”. 而且他还提到编程语言都是基于英文的. 节选如下:</p>
+
+<blockquote>
+  <p>Question: What language did you use in comments to Linux while you were a student?
+Torvalds: English. I’ve always programmed in English. All the books were in English, and the programming-languages tend to be somewhat English-based too (i.e. “while (x) { … }”).</p>
+</blockquote>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

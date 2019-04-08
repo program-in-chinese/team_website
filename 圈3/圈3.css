@@ -1,0 +1,27 @@
+.运行 {
+  font-size: 26px;
+  margin: 10px;
+}
+
+.速度输入 {
+  margin: 10px;
+  width: 150px;
+}
+.速度输入 input {
+  font-size: 16px;
+  width: 40px;
+}
+.例程 {
+  margin: 10px;
+}
+
+.p5canvas {
+  position: absolute;
+  top: 0px;
+}
+
+#输入代码 {
+  font-size: 16px;
+  height: 500px;
+  width: 180px;
+}

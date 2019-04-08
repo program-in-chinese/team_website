@@ -1,0 +1,34 @@
+
+
+```
+$ yo code
+
+     _-----_     ╭──────────────────────────╮
+    |       |    │   Welcome to the Visual  │
+    |--(o)--|    │   Studio Code Extension  │
+   `---------´   │        generator!        │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |     
+   __'.___.'__   
+ ´   `  |° ´ Y ` 
+
+? What type of extension do you want to create? New Code Snippets
+Folder location that contains Text Mate (.tmSnippet) and Sublime snippets (.sublime-snippet) or press ENTER to start with an new snippet file.
+? Folder name for import or none for new: 
+? What's the name of your extension? python3_snippets_zh
+? What's the identifier of your extension? python3-snippets-zh
+? What's the description of your extension? 使用中文命名的Python 3代码片段
+? What's your publisher name (more info: https://code.visualstudio.com/docs/tools/vscecli#_publishing-extensions)? CodeInChinese
+Enter the language for which the snippets should appear. The id is an identifier and is single, lower-case name such as 'php', 'javascript'
+? Language id: python
+   create python3-snippets-zh/.vscode/launch.json
+   create python3-snippets-zh/package.json
+   create python3-snippets-zh/vsc-extension-quickstart.md
+   create python3-snippets-zh/README.md
+   create python3-snippets-zh/CHANGELOG.md
+   create python3-snippets-zh/snippets/snippets.json
+
+Your extension python3-snippets-zh has been created!
+
+```

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>1992年日本对母语编程的可读性比较实验</title>
+  <meta name="description" content="日本1992以来对在代码中使用母语对可读性的影响的研究. Research since 1992 in Japan about how programming in Japanese impacts code readability.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/02/14/1992%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%AF%B9%E6%AF%8D%E8%AF%AD%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%AF%94%E8%BE%83%E5%AE%9E%E9%AA%8C.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>1992年日本对母语编程的可读性比较实验 | 用中文编程</title>
+<meta property="og:title" content="1992年日本对母语编程的可读性比较实验" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="日本1992以来对在代码中使用母语对可读性的影响的研究. Research since 1992 in Japan about how programming in Japanese impacts code readability." />
+<meta property="og:description" content="日本1992以来对在代码中使用母语对可读性的影响的研究. Research since 1992 in Japan about how programming in Japanese impacts code readability." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/02/14/1992%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%AF%B9%E6%AF%8D%E8%AF%AD%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%AF%94%E8%BE%83%E5%AE%9E%E9%AA%8C.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/02/14/1992%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%AF%B9%E6%AF%8D%E8%AF%AD%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%AF%94%E8%BE%83%E5%AE%9E%E9%AA%8C.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-13T23:00:00-08:00" />
+<script type="application/ld+json">
+{"name":null,"description":"日本1992以来对在代码中使用母语对可读性的影响的研究. Research since 1992 in Japan about how programming in Japanese impacts code readability.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/02/14/1992%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%AF%B9%E6%AF%8D%E8%AF%AD%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%AF%94%E8%BE%83%E5%AE%9E%E9%AA%8C.html","publisher":null,"image":null,"headline":"1992年日本对母语编程的可读性比较实验","dateModified":"2019-02-13T23:00:00-08:00","datePublished":"2019-02-13T23:00:00-08:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/02/14/1992%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%AF%B9%E6%AF%8D%E8%AF%AD%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%AF%94%E8%BE%83%E5%AE%9E%E9%AA%8C.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">1992年日本对母语编程的可读性比较实验</h1>
+    <p class="post-meta">
+      <time datetime="2019-02-13T23:00:00-08:00" itemprop="datePublished">
+        
+        Feb 14, 2019
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>这是发现的最早一篇: <a href="https://ci.nii.ac.jp/naid/170000018966">CiNii 論文 - 母国語プログラミングへの方式，実践とその効果​</a></p>
+
+<p>pdf不能导出文本, 不会日语输入法, 因此论文其他部分意义仅靠猜. 请会日语的指正.</p>
+
+<p>主要看如下几个图, 大概推测是使用了A, B两份同样语义的代码, 每份都有英日两个版本(不确定如何保证英日版本的可读性同样好?):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A_日, A_英, B_日, B_英
+</code></pre></div></div>
+<p>由不同的母语为日语的被试者阅读两份代码后(第一组阅读了A_日和B_英, 第二组阅读了A_英和B_日), 还回答了相关问题. 柱形图好像只比较了代码阅读时间, 不确定”回答时间”是否有用.</p>
+
+<p>最后的结果, 代码阅读时间上, 平均值母语版本是英语版本的2/3左右, 方差要小很多. 个人认为<strong><em>方差体现了被试者的英语水平比母语水平相差更大, 而均值体现了母语版本的可读性较好</em></strong>. 希望会日语的翻译一下论文中原作者的结论.</p>
+
+<p><img src="http://localhost:4000/assets/2019-02-14-japanese%E6%AF%8D%E8%AF%AD%E5%8F%AF%E8%AF%BB%E6%80%A7_%E8%A1%A8.png" alt="2019-02-14-japanese母语可读性_表" /></p>
+
+<p><img src="http://localhost:4000/assets/2019-02-14-japanese%E6%AF%8D%E8%AF%AD%E5%8F%AF%E8%AF%BB%E6%80%A7_%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%831.png" alt="2019-02-14-japanese母语可读性_时间比较1" /></p>
+
+<p><img src="http://localhost:4000/assets/2019-02-14-japanese%E6%AF%8D%E8%AF%AD%E5%8F%AF%E8%AF%BB%E6%80%A7_%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%832.png" alt="2019-02-14-japanese母语可读性_时间比较2" /></p>
+
+<p>后续相关文章见最后. 比较不解的是中间为何有20年的空档, 不过期间有诸如なでしこ(见前文<a href="https://zhuanlan.zhihu.com/p/30800689">日语编程语言”抚子” - 第三版特色初探</a>)等日语编程语言的产生</p>
+
+<p>可以看到, 最近几年的文章已经不再关注代码可读性本身, 而是开始对日语编程的辅助工具(如辅助代码输入的IDE插件)进行研究, 个人推测是<strong><em>由于母语代码可读性的优势在日本学术界已不需再验证, 一个最可能的原因是日语命名已是业界常用实践</em></strong>. 这也印证了之前听说的(印象里有至少四五年前的帖子提到)外包业中一些日本软件公司使用日语命名.</p>
+
+<ul>
+  <li>1994 <a href="https://ci.nii.ac.jp/naid/110002722847/">CiNii 論文 - 日本語プログラミングの実践とその効果</a></li>
+  <li>1995 <a href="https://ci.nii.ac.jp/naid/110002931711">CiNii 論文 - 識別子と内部コード系に着目した日本語によるプログラムの可読性の一評価</a></li>
+  <li>1995 <a href="https://ci.nii.ac.jp/naid/110002878115">CiNii 論文 - プログラム理解における日本語使用の効果</a></li>
+  <li>1996 <a href="https://ci.nii.ac.jp/naid/110002887296">CiNii 論文 - プログラム理解における日本語使用の効果(2)</a> - 比较了有无注释的两个版本</li>
+  <li>2016 <a href="http://jssst.or.jp/files/user/taikai/2016/FOSE/fose1-3.pdf">PBLにおけるソースコード引き継ぎ支援～日本語と英語を交えた識別子命名によるソースコード可読性向上の試み～</a></li>
+  <li>2017 ローマ字入力時の日本語識別子入力補完プラグインの開発</li>
+  <li>2018 <a href="http://jssst.or.jp/files/user/taikai/2018/FOSE/fose1-5.pdf">ローマ字入力による日本語識別子入力補完プラグインの開発と評価</a></li>
+</ul>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

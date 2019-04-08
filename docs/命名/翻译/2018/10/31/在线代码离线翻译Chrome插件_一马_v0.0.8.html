@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>在线代码离线翻译Chrome插件&quot;一马&quot;v0.0.8</title>
+  <meta name="description" content="实现Chrome插件, 基于本地词典数据, 提供Github和码云在线源码翻译功能. Implement a Chrome extension to translate English source code to Chinese on Github pages.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/31/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.8.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>在线代码离线翻译Chrome插件”一马”v0.0.8 | 用中文编程</title>
+<meta property="og:title" content="在线代码离线翻译Chrome插件”一马”v0.0.8" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="实现Chrome插件, 基于本地词典数据, 提供Github和码云在线源码翻译功能. Implement a Chrome extension to translate English source code to Chinese on Github pages." />
+<meta property="og:description" content="实现Chrome插件, 基于本地词典数据, 提供Github和码云在线源码翻译功能. Implement a Chrome extension to translate English source code to Chinese on Github pages." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/31/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.8.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/31/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.8.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-31T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"实现Chrome插件, 基于本地词典数据, 提供Github和码云在线源码翻译功能. Implement a Chrome extension to translate English source code to Chinese on Github pages.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/31/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.8.html","publisher":null,"image":null,"headline":"在线代码离线翻译Chrome插件”一马”v0.0.8","dateModified":"2018-10-31T00:00:00-07:00","datePublished":"2018-10-31T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/31/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.8.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">在线代码离线翻译Chrome插件&quot;一马&quot;v0.0.8</h1>
+    <p class="post-meta">
+      <time datetime="2018-10-31T00:00:00-07:00" itemprop="datePublished">
+        
+        Oct 31, 2018
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>续前文: <a href="https://zhuanlan.zhihu.com/p/47215777">Chrome插件实现GitHub代码离线翻译v0.0.4</a></p>
+
+<p>添加了对”码云”在线代码的翻译支持, 因此改名暂为”一马”. 在此贴中调研了常用的在线代码网站: <a href="https://www.v2ex.com/t/502820">各位都在什么源码站上在线看代码? - V2EX</a>, 暂未发现其他.</p>
+
+<p><strong><em>注: 此插件调用<a href="https://zhuanlan.zhihu.com/p/48116424">浏览器插件-离线英汉词典 0.0.7</a>进行查词, 因此也不依赖任何在线翻译服务, 不存在API调用限制.</em></strong></p>
+
+<p>改进功能:</p>
+
+<ul>
+  <li>支持”码云”代码翻译</li>
+  <li>添加 C/PHP 关键词的翻译</li>
+  <li>删除释义中的括号内内容</li>
+</ul>
+
+<p><img src="http://localhost:4000/assets/2018-10-30-gitee%E6%BC%94%E7%A4%BA.png" alt="2018-10-30-gitee演示" /></p>
+
+<p>“码云”的代码段与GitHub的HTML结构略有不同, 暂时分别处理如下:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="err">获取代码段</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="err">当前域名</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">host</span><span class="p">;</span>
+  <span class="c1">// 默认, 适用于GitHub</span>
+  <span class="kd">var</span> <span class="err">代码段节点</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'table'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="err">当前域名</span> <span class="o">==</span> <span class="s2">"gitee.com"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">代码段节点</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'code'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// GitHub: 父节点的class包含编程语言信息, 如class="blob-wrapper data type-python "</span>
+  <span class="k">return</span> <span class="p">[</span><span class="err">代码段节点</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">outerHTML</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="err">翻译</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// TODO: 避免与`获取代码段()`重复</span>
+  <span class="kd">var</span> <span class="err">编程语言</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="err">原代码拷贝</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">'code'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="err">顶节点</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="err">原代码拷贝</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">原代码拷贝</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'table'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="err">顶节点</span> <span class="o">=</span> <span class="err">原代码拷贝</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
+    <span class="err">编程语言</span> <span class="o">=</span> <span class="err">取编程语言</span><span class="p">(</span><span class="err">顶节点</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="err">添加</span><span class="nx">CSS</span><span class="p">(</span><span class="s2">"https://gitee.com/assets/application-e5df8140372297eda15f23497886ffdb.css"</span><span class="p">);</span>
+    <span class="err">原代码拷贝</span> <span class="o">=</span> <span class="err">原代码拷贝</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>大幅增加了通用关键词的手工翻译, 以覆盖尽可能多的编程语言:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TODO: 并非所有编程语言都有. 会影响命名翻译.</span>
+<span class="kd">var</span> <span class="err">通用关键词</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"abstract"</span><span class="p">:</span> <span class="s2">"抽象"</span><span class="p">,</span>
+  <span class="s2">"and"</span><span class="p">:</span> <span class="s2">"且"</span><span class="p">,</span>
+  <span class="s2">"as"</span><span class="p">:</span> <span class="s2">"as"</span><span class="p">,</span>
+  <span class="s2">"assert"</span><span class="p">:</span> <span class="s2">"断言"</span><span class="p">,</span>
+  <span class="s2">"break"</span><span class="p">:</span> <span class="s2">"跳出"</span><span class="p">,</span>
+  <span class="s2">"boolean"</span><span class="p">:</span> <span class="s2">"布尔"</span><span class="p">,</span>
+  <span class="s2">"byte"</span><span class="p">:</span> <span class="s2">"字节"</span><span class="p">,</span>
+  <span class="s2">"char"</span><span class="p">:</span> <span class="s2">"字节"</span><span class="p">,</span>
+  <span class="s2">"const"</span><span class="p">:</span> <span class="s2">"const"</span><span class="p">,</span>
+  <span class="s2">"case"</span><span class="p">:</span> <span class="s2">"分支"</span><span class="p">,</span>
+  <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"类别"</span><span class="p">,</span>
+  <span class="s2">"catch"</span><span class="p">:</span> <span class="s2">"接住"</span><span class="p">,</span>
+  <span class="s2">"continue"</span><span class="p">:</span> <span class="s2">"继续"</span><span class="p">,</span>
+  <span class="s2">"default"</span><span class="p">:</span> <span class="s2">"默认"</span><span class="p">,</span>
+  <span class="s2">"do"</span><span class="p">:</span> <span class="s2">"执行"</span><span class="p">,</span>
+  <span class="s2">"double"</span><span class="p">:</span> <span class="s2">"双浮点"</span><span class="p">,</span>
+  <span class="s2">"else"</span><span class="p">:</span> <span class="s2">"否则"</span><span class="p">,</span>
+  <span class="s2">"enum"</span><span class="p">:</span> <span class="s2">"枚举"</span><span class="p">,</span>
+  <span class="s2">"extends"</span><span class="p">:</span> <span class="s2">"扩展"</span><span class="p">,</span>
+  <span class="s2">"extern"</span><span class="p">:</span> <span class="s2">"外部"</span><span class="p">,</span>
+  <span class="s2">"false"</span><span class="p">:</span> <span class="s2">"假"</span><span class="p">,</span>
+  <span class="s2">"final"</span><span class="p">:</span> <span class="s2">"最终"</span><span class="p">,</span>
+  <span class="s2">"finally"</span><span class="p">:</span> <span class="s2">"善后"</span><span class="p">,</span>
+  <span class="s2">"float"</span><span class="p">:</span> <span class="s2">"单浮点"</span><span class="p">,</span>
+  <span class="s2">"for"</span><span class="p">:</span> <span class="s2">"对于"</span><span class="p">,</span>
+  <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"函数"</span><span class="p">,</span>
+  <span class="s2">"global"</span><span class="p">:</span> <span class="s2">"全局"</span><span class="p">,</span>
+  <span class="s2">"goto"</span><span class="p">:</span> <span class="s2">"goto"</span><span class="p">,</span>
+  <span class="s2">"if"</span><span class="p">:</span> <span class="s2">"如果"</span><span class="p">,</span>
+  <span class="s2">"implements"</span><span class="p">:</span> <span class="s2">"实现"</span><span class="p">,</span>
+  <span class="s2">"import"</span><span class="p">:</span> <span class="s2">"导入"</span><span class="p">,</span>
+  <span class="s2">"in"</span><span class="p">:</span> <span class="s2">"在"</span><span class="p">,</span>
+  <span class="s2">"include"</span><span class="p">:</span> <span class="s2">"包括"</span><span class="p">,</span>
+  <span class="s2">"instanceof"</span><span class="p">:</span> <span class="s2">"为实例"</span><span class="p">,</span>
+  <span class="s2">"int"</span><span class="p">:</span> <span class="s2">"整数"</span><span class="p">,</span>
+  <span class="s2">"interface"</span><span class="p">:</span> <span class="s2">"接口"</span><span class="p">,</span>
+  <span class="s2">"is"</span><span class="p">:</span> <span class="s2">"为"</span><span class="p">,</span>
+  <span class="s2">"long"</span><span class="p">:</span> <span class="s2">"长整数"</span><span class="p">,</span>
+  <span class="s2">"native"</span><span class="p">:</span> <span class="s2">"native"</span><span class="p">,</span>
+  <span class="s2">"new"</span><span class="p">:</span> <span class="s2">"新"</span><span class="p">,</span>
+  <span class="s2">"null"</span><span class="p">:</span> <span class="s2">"空"</span><span class="p">,</span>
+  <span class="s2">"or"</span><span class="p">:</span> <span class="s2">"或"</span><span class="p">,</span>
+  <span class="s2">"package"</span><span class="p">:</span> <span class="s2">"包"</span><span class="p">,</span>
+  <span class="s2">"private"</span><span class="p">:</span> <span class="s2">"私有"</span><span class="p">,</span>
+  <span class="s2">"protected"</span><span class="p">:</span> <span class="s2">"保护"</span><span class="p">,</span>
+  <span class="s2">"public"</span><span class="p">:</span> <span class="s2">"公有"</span><span class="p">,</span>
+  <span class="s2">"return"</span><span class="p">:</span> <span class="s2">"返回"</span><span class="p">,</span>
+  <span class="s2">"short"</span><span class="p">:</span> <span class="s2">"短整数"</span><span class="p">,</span>
+  <span class="s2">"signed"</span><span class="p">:</span> <span class="s2">"有符号"</span><span class="p">,</span>
+  <span class="s2">"sizeof"</span><span class="p">:</span> <span class="s2">"大小"</span><span class="p">,</span>
+  <span class="s2">"static"</span><span class="p">:</span> <span class="s2">"静态"</span><span class="p">,</span>
+  <span class="s2">"struct"</span><span class="p">:</span> <span class="s2">"结构"</span><span class="p">,</span>
+  <span class="s2">"super"</span><span class="p">:</span> <span class="s2">"父类"</span><span class="p">,</span>
+  <span class="s2">"switch"</span><span class="p">:</span> <span class="s2">"岔"</span><span class="p">,</span>
+  <span class="s2">"synchronized"</span><span class="p">:</span> <span class="s2">"同步"</span><span class="p">,</span>
+  <span class="s2">"this"</span><span class="p">:</span> <span class="s2">"本身"</span><span class="p">,</span>
+  <span class="s2">"throw"</span><span class="p">:</span> <span class="s2">"抛出"</span><span class="p">,</span>
+  <span class="s2">"throws"</span><span class="p">:</span> <span class="s2">"会抛出"</span><span class="p">,</span>
+  <span class="s2">"transient"</span><span class="p">:</span> <span class="s2">"transient"</span><span class="p">,</span>
+  <span class="s2">"true"</span><span class="p">:</span> <span class="s2">"真"</span><span class="p">,</span>
+  <span class="s2">"try"</span><span class="p">:</span> <span class="s2">"尝试"</span><span class="p">,</span>
+  <span class="s2">"typedef"</span><span class="p">:</span> <span class="s2">"类型定义"</span><span class="p">,</span>
+  <span class="s2">"union"</span><span class="p">:</span> <span class="s2">"联合"</span><span class="p">,</span>
+  <span class="s2">"unsigned"</span><span class="p">:</span> <span class="s2">"无符号"</span><span class="p">,</span>
+  <span class="s2">"void"</span><span class="p">:</span> <span class="s2">"无值"</span><span class="p">,</span>
+  <span class="s2">"volatile"</span><span class="p">:</span> <span class="s2">"volatile"</span><span class="p">,</span>
+  <span class="s2">"while"</span><span class="p">:</span> <span class="s2">"每当"</span><span class="p">,</span>
+  <span class="s2">"with"</span><span class="p">:</span> <span class="s2">"with"</span><span class="p">,</span>
+  <span class="s2">"yield"</span><span class="p">:</span> <span class="s2">"产出"</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="err">专用关键词</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// https://msdn.microsoft.com/en-us/library/befeaky0.aspx</span>
+  <span class="s2">"c"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"auto"</span><span class="p">:</span> <span class="s2">"auto"</span><span class="p">,</span>
+    <span class="s2">"register"</span><span class="p">:</span> <span class="s2">"register"</span>
+  <span class="p">},</span>
+  <span class="c1">// http://php.net/manual/en/reserved.keywords.php</span>
+  <span class="s2">"php"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// array()</span>
+    <span class="s2">"callable"</span><span class="p">:</span> <span class="s2">"可调用"</span><span class="p">,</span>
+    <span class="s2">"clone"</span><span class="p">:</span> <span class="s2">"克隆"</span><span class="p">,</span>
+    <span class="s2">"const"</span><span class="p">:</span> <span class="s2">"const"</span><span class="p">,</span>
+    <span class="s2">"declare"</span><span class="p">:</span> <span class="s2">"声明"</span><span class="p">,</span>
+    <span class="c1">// die()</span>
+    <span class="s2">"echo"</span><span class="p">:</span> <span class="s2">"回响"</span><span class="p">,</span>
+    <span class="s2">"elseif"</span><span class="p">:</span> <span class="s2">"否则如果"</span><span class="p">,</span>
+    <span class="c1">// empty()</span>
+    <span class="s2">"enddeclare"</span><span class="p">:</span> <span class="s2">"结束声明"</span><span class="p">,</span>
+    <span class="s2">"endfor"</span><span class="p">:</span> <span class="s2">"结束for"</span><span class="p">,</span>
+    <span class="s2">"endforeach"</span><span class="p">:</span> <span class="s2">"结束foreach"</span><span class="p">,</span>
+    <span class="s2">"endif"</span><span class="p">:</span> <span class="s2">"结束if"</span><span class="p">,</span>
+    <span class="s2">"endswitch"</span><span class="p">:</span> <span class="s2">"结束switch"</span><span class="p">,</span>
+    <span class="s2">"endwhile"</span><span class="p">:</span> <span class="s2">"结束while"</span><span class="p">,</span>
+    <span class="c1">// eval()</span>
+    <span class="c1">// exit()</span>
+    <span class="s2">"foreach"</span><span class="p">:</span> <span class="s2">"对每个"</span><span class="p">,</span>
+    <span class="s2">"implements"</span><span class="p">:</span> <span class="s2">"实现"</span><span class="p">,</span>
+    <span class="s2">"include_once"</span><span class="p">:</span> <span class="s2">"包括_单次"</span><span class="p">,</span>
+    <span class="s2">"instanceof"</span><span class="p">:</span> <span class="s2">"为实例"</span><span class="p">,</span>
+    <span class="s2">"insteadof"</span><span class="p">:</span> <span class="s2">"insteadof"</span><span class="p">,</span>
+    <span class="s2">"interface"</span><span class="p">:</span> <span class="s2">"接口"</span><span class="p">,</span>
+    <span class="c1">// isset()</span>
+    <span class="c1">// list()</span>
+    <span class="s2">"namespace"</span><span class="p">:</span> <span class="s2">"命名空间"</span><span class="p">,</span>
+    <span class="s2">"print"</span><span class="p">:</span> <span class="s2">"打印"</span><span class="p">,</span>
+    <span class="s2">"require"</span><span class="p">:</span> <span class="s2">"需要"</span><span class="p">,</span>
+    <span class="s2">"require"</span><span class="p">:</span> <span class="s2">"需要_单次"</span><span class="p">,</span>
+    <span class="s2">"trait"</span><span class="p">:</span> <span class="s2">"trait"</span><span class="p">,</span>
+    <span class="c1">// unset()</span>
+    <span class="s2">"use"</span><span class="p">:</span> <span class="s2">"use"</span><span class="p">,</span>
+    <span class="s2">"var"</span><span class="p">:</span> <span class="s2">"var"</span><span class="p">,</span>
+    <span class="s2">"xor"</span><span class="p">:</span> <span class="s2">"异或"</span>
+  <span class="p">},</span>
+  <span class="s2">"javascript"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"arguments"</span><span class="p">:</span> <span class="s2">"参数"</span><span class="p">,</span>
+    <span class="s2">"await"</span><span class="p">:</span> <span class="s2">"等待"</span><span class="p">,</span>
+    <span class="s2">"debugger"</span><span class="p">:</span> <span class="s2">"调试器"</span><span class="p">,</span>
+    <span class="s2">"delete"</span><span class="p">:</span> <span class="s2">"删除"</span><span class="p">,</span>
+    <span class="s2">"eval"</span><span class="p">:</span> <span class="s2">"eval"</span><span class="p">,</span>
+    <span class="s2">"export"</span><span class="p">:</span> <span class="s2">"导出"</span><span class="p">,</span>
+    <span class="s2">"let"</span><span class="p">:</span> <span class="s2">"让"</span><span class="p">,</span>
+    <span class="s2">"typeof"</span><span class="p">:</span> <span class="s2">"为类型"</span><span class="p">,</span>
+    <span class="s2">"var"</span><span class="p">:</span> <span class="s2">"变量"</span>
+  <span class="p">},</span>
+  <span class="cm">/*
+  参考 http://zetcode.com/lang/python/keywords/
+  import keyword
+  print("Python keywords: ", keyword.kwlist)
+  */</span>
+  <span class="s2">"python"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"False"</span><span class="p">:</span> <span class="s2">"假"</span><span class="p">,</span>
+    <span class="s2">"None"</span><span class="p">:</span> <span class="s2">"空"</span><span class="p">,</span>
+    <span class="s2">"True"</span><span class="p">:</span> <span class="s2">"真"</span><span class="p">,</span>
+    <span class="s2">"def"</span><span class="p">:</span> <span class="s2">"定义"</span><span class="p">,</span>
+    <span class="s2">"del"</span><span class="p">:</span> <span class="s2">"删除"</span><span class="p">,</span>
+    <span class="s2">"elif"</span><span class="p">:</span> <span class="s2">"否则如果"</span><span class="p">,</span>
+    <span class="s2">"except"</span><span class="p">:</span> <span class="s2">"except"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"从"</span><span class="p">,</span>
+    <span class="s2">"lambda"</span><span class="p">:</span> <span class="s2">"lambda"</span><span class="p">,</span>
+    <span class="s2">"nonlocal"</span><span class="p">:</span> <span class="s2">"nonlocal"</span><span class="p">,</span>
+    <span class="s2">"not"</span><span class="p">:</span> <span class="s2">"不"</span><span class="p">,</span>
+    <span class="s2">"pass"</span><span class="p">:</span> <span class="s2">"轮空"</span><span class="p">,</span>
+    <span class="s2">"raise"</span><span class="p">:</span> <span class="s2">"抛出"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="c1">// 参考 https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html</span>
+  <span class="s2">"java"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"strictfp"</span><span class="p">:</span> <span class="s2">"strictfp"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><a href="https://chrome.google.com/webstore/detail/inicknfojohdbgekdffgcdfiheflpnbh/​">Chrome插件商店</a></p>
+
+<p>下个版本打算改进的(11/02/2018: 在0.0.11版中已基本完成):</p>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/program-in-chinese/webextension_github_code_translator/issues/3">让用户可以选择是否中文化关键词 · Issue #3 · program-in-chinese/webextension_github_code_translator</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/program-in-chinese/webextension_github_code_translator/issues/17">常用命名/缩写的手工翻译 · Issue #17 · program-in-chinese/webextension_github_code_translator</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/program-in-chinese/webextension_github_code_translator/issues/12">复数词汇取原词释义 · Issue #12 · program-in-chinese/webextension_github_code_translator: 也许还需要词频数据.</a></p>
+  </li>
+</ul>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

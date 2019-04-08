@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>用中文编程</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>用中文编程 | 尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</title>
+<meta property="og:title" content="用中文编程" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar." />
+<meta property="og:description" content="尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="用中文编程" />
+<script type="application/ld+json">
+{"name":"用中文编程","description":"尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.","author":null,"@type":"WebSite","url":"http://localhost:4000/","publisher":null,"image":null,"headline":"用中文编程","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+  <h1 class="page-heading">博文</h1>
+
+  
+
+
+  <ul class="post-list">
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">30日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/ide/2019/03/30/Java%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%97%B6%E5%9F%BA%E4%BA%8E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E7%9A%84%E8%A1%A5%E5%85%A8%E5%8E%9F%E5%9E%8B.html">Java实现文本编辑时基于拼音输入的补全原型</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">30日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/ide/2019/03/30/Java%E5%AE%9E%E7%8E%B0-%E5%91%BD%E4%BB%A4%E5%BC%8F-%E7%AE%80%E6%98%93%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%8E%9F%E5%9E%8B.html">Java实现&quot;命令式&quot;简易文本编辑器原型</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">21日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2019/03/21/%E6%BC%94%E7%A4%BAEclipse%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E5%92%8C%E8%A1%A5%E5%85%A8.html">演示Eclipse插件实现代码提示和补全</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">20日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2019/03/20/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-Eclipse%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE.html">重拾《 两周自制脚本语言 》- Eclipse插件实现语法高亮</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">17日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/17/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E4%B8%AD%E6%96%87%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8E%9F%E7%94%9F%E5%87%BD%E6%95%B0.html">重拾《 两周自制脚本语言 》- 中文关键字与原生函数</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">16日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/16/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E6%A0%87%E8%AF%86%E7%AC%A6.html">重拾《 两周自制脚本语言 》- 支持中文标识符</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">15日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/15/%E5%B0%86-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B5%8B%E8%AF%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%AD%E6%96%87%E5%8C%96.html">将《 两周自制脚本语言 》测试中使用的接口中文化</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">15日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/03/15/5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8LingaScript-%E5%B0%9D%E9%B2%9C%E4%B8%AD%E6%96%87%E7%89%88TypeScript.html">5分钟入门LingaScript-尝鲜中文版TypeScript</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">14日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html">为《 两周自制脚本语言 》添加中文测试代码</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">14日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2019/03/14/%E8%BD%AC%E8%BD%BD-LingaScript_TypeScript%E4%B8%AD%E6%96%87%E5%8C%96.html">[转载] 中文輸進去，程式出得來，開發者發大財 - LingaScript: 中文化TypeScript</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">9日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/03/09/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BNW.js%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%88%9D%E4%BD%93%E9%AA%8C.html">中文代码示例之NW.js桌面应用开发初体验</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">9日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/03/09/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BElectron%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%88%9D%E4%BD%93%E9%AA%8C.html">中文代码示例之Electron桌面应用开发初体验</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">20日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2019/02/20/%E5%9C%A8PyPI%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E5%8F%91%E5%B8%83Python%E5%8C%85.html">在PyPI测试平台发布Python包</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">18日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2019/02/18/%E6%89%A9%E5%B1%95Python%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%AE%9E%E7%8E%B0%E4%B8%AD%E6%96%87%E5%8F%8D%E9%A6%88%E4%BF%A1%E6%81%AF%E4%B9%8B%E4%BA%8C-%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2.html">扩展Python控制台实现中文反馈信息之二-正则替换</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">14日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/02/14/1992%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%AF%B9%E6%AF%8D%E8%AF%AD%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%AF%E8%AF%BB%E6%80%A7%E6%AF%94%E8%BE%83%E5%AE%9E%E9%AA%8C.html">1992年日本对母语编程的可读性比较实验</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">10日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2019/02/10/%E6%89%A9%E5%B1%95Python%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%AE%9E%E7%8E%B0%E4%B8%AD%E6%96%87%E5%8F%8D%E9%A6%88%E4%BF%A1%E6%81%AF.html">扩展Python控制台实现中文反馈信息</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">7日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E9%9D%A2%E8%AF%95/2019/02/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E6%97%B6%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%86%99%E7%99%BD%E6%9D%BF%E4%BB%A3%E7%A0%81%E7%9A%84%E5%A5%BD%E5%A4%84.html">程序员面试时用中文命名写白板代码的好处</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">30日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/2019/01/30/python3%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E6%8F%92%E4%BB%B6.html">Python3代码片段插件</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">29日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/vscode/2019/01/29/VS-Code%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89Python%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5.html">VS Code创建自定义Python代码片段</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">28日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/01/28/%E6%97%A5%E5%B8%B8-Beyond%E7%9A%84%E6%AD%8C%E9%87%8C%E6%9C%80%E5%A4%9A%E6%98%AF_%E5%94%8F%E5%98%98_%E5%90%97_Python%E5%88%86%E8%AF%8D_%E8%AF%8D%E9%A2%91.html">[日常]Beyond的歌里最多是&quot;唏嘘&quot;吗? - Python分词+词频</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">23日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%AE%97%E6%B3%95/2019/01/23/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO-%E6%80%A7%E8%83%BD%E6%94%B9%E8%BF%9B.html">JavaScript实现ZLOGO: 性能改进</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">20日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2019/01/20/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO-%E7%95%8C%E9%9D%A2%E6%94%B9%E8%BF%9B%E4%B8%8E%E9%80%9F%E5%BA%A6%E5%8F%AF%E8%B0%83.html">JavaScript实现ZLOGO: 界面改进与速度可调</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">13日, 2019</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/01/13/%E6%97%A5%E5%B8%B8-mov%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAgif.html">[日常]mov文件转换为gif</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">25日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/12/25/VS-Code%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8v0.0.8-%E6%89%B9%E9%87%8F%E7%BF%BB%E8%AF%91%E6%96%87%E4%BB%B6%E9%83%A8%E5%88%86%E5%91%BD%E5%90%8D.html">VS Code英汉词典v0.0.8: 批量翻译文件部分命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">22日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E5%BC%80%E6%BA%90/2018/12/22/%E5%9C%A8%E5%9B%BD%E5%86%85%E5%8E%9F%E5%88%9B%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E6%84%8F%E4%B9%89%E4%B8%8E%E6%96%B9%E5%BC%8F.html">在国内原创开源项目中使用中文命名的意义与方式</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">16日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/12/16/VS-Code%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8%E8%BF%9B%E5%8C%96%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA-%E7%BF%BB%E8%AF%91%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E5%91%BD%E5%90%8D.html">VS Code英汉词典进化效果演示: 翻译文件所有命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">14日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/12/14/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO-%E5%89%8D%E8%BF%9B%E6%96%B9%E5%90%91%E5%92%8C%E9%80%9F%E5%BA%A6.html">JavaScript实现ZLOGO: 前进方向和速度</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">10日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/scala/2018/12/10/Scala%E7%96%91%E4%BC%BC%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E9%97%AE%E9%A2%98%E5%90%8E%E7%BB%AD.html">Scala疑似中文命名问题后续</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">9日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/scala/2018/12/09/%E7%96%91%E4%BC%BCbug_%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B9%9D%E5%8D%81%E7%AB%A0.html">疑似bug_中文代码示例之Programming in Scala笔记第九十章</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">3日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E8%AF%8D%E5%85%B8/2018/12/03/VS-Code%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8%E6%8F%92%E4%BB%B6v0.0.7-%E5%B0%9D%E8%AF%95%E8%AF%8D%E6%80%A7%E6%90%AD%E9%85%8D.html">VS Code英汉词典插件v0.0.7-尝试词性搭配</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">1日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/python/2018/12/01/%E5%90%88%E8%BE%91-%E6%9C%80%E7%B2%BE%E8%87%B4%E7%9A%84python%E8%AE%BF%E5%AE%A2%E7%99%BB%E8%AE%B0%E7%B3%BB%E7%BB%9F%E5%AE%9E%E4%BE%8B%E9%A1%B9%E7%9B%AE,%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%8D%E5%86%8D%E5%8F%AA%E5%BD%93%E4%BA%BA%E5%B7%A5%E6%99%BA%E9%9A%9C.html">[合辑]最精致的python访客登记系统实例项目,微信机器人不再只当人工智障</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">29日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E8%AF%8D%E5%85%B8/2018/11/29/VS-Code%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8%E6%8F%92%E4%BB%B6v0.0.6-%E6%94%B9%E4%B8%BATS%E5%AE%9E%E7%8E%B0,-%E5%8A%A0%E6%B5%8B%E8%AF%95.html">VS Code英汉词典插件v0.0.6-改为TS实现, 加测试</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">27日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/scala/2018/11/27/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%83%E5%85%AB%E7%AB%A0.html">中文代码示例之Programming in Scala笔记第七八章</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">23日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/vuejs/2018/11/23/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91Vue.js%E6%BA%90%E7%A0%81-%E5%B0%9D%E8%AF%95%E9%87%8D%E5%91%BD%E5%90%8D%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E6%96%87%E6%9C%AC.html">手工翻译Vue.js源码:尝试重命名标识符与文本</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">21日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/vuejs/2018/11/21/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91Vue.js%E6%BA%90%E7%A0%81%E7%AC%AC%E4%B8%80%E6%AD%A5-14%E4%B8%AA%E6%96%87%E4%BB%B6%E9%87%8D%E5%91%BD%E5%90%8D.html">手工翻译Vue.js源码第一步:14个文件重命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">16日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/scala/2018/11/16/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E4%BA%94%E5%85%AD%E7%AB%A0.html">中文代码示例之Programming in Scala笔记第四五六章</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">13日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/scala/2018/11/13/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BProgramming-in-Scala%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%AB%A0.html">中文代码示例之Programming in Scala学习笔记第二三章</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">10日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/%E5%91%BD%E5%90%8D/2018/11/10/%E4%B8%93%E6%A0%8F%E5%85%A8%E5%B9%B4%E4%B8%BB%E9%A2%98%E5%90%88%E8%BE%91-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9B%B8%E5%85%B3%E5%AE%9E%E8%B7%B5.html">专栏全年主题合辑-代码中文命名相关实践</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">10日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/2018/11/10/%E4%B8%93%E6%A0%8F%E5%85%A8%E5%B9%B4%E4%B8%BB%E9%A2%98%E5%90%88%E8%BE%91-%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95.html">专栏全年主题合辑-中文编程语言开发尝试</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">9日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/11/09/VS-Code%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8%E6%8F%92%E4%BB%B6v0.0.4-%E9%A9%BC%E5%B3%B0%E4%B8%8B%E5%88%92%E7%BA%BF%E5%91%BD%E5%90%8D.html">VS Code英汉词典插件v0.0.4-驼峰下划线命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">8日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/2018/11/08/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E4%B8%93%E6%A0%8F%E5%88%9D%E8%A1%B7%E5%9B%9E%E9%A1%BE.html">用中文编程-专栏初衷回顾</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">6日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/11/06/Visual-Studio-Code%E6%8F%92%E4%BB%B6-%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83.html">Visual Studio Code插件-英汉词典初版发布</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">4日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/11/04/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.14.html">在线代码离线翻译Chrome插件&quot;一马&quot;v0.0.14</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">2日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/11/02/%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%BF%9B%E8%A1%8C%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E8%B7%B5%E7%9A%84%E7%9F%AD%E6%9C%9F%E7%9B%AE%E6%A0%87.html">在代码中进行中文命名实践的短期目标</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">1日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/2018/11/01/%E4%B8%93%E6%A0%8F%E4%B8%80%E5%B2%81%E4%BA%86-%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8A%95%E8%BA%AB%E4%BA%8E%E6%99%AE%E5%8F%8A%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B.html">专栏一岁了-我为什么投身于普及用中文编程</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">31日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/31/%E5%9C%A8%E7%BA%BF%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91Chrome%E6%8F%92%E4%BB%B6_%E4%B8%80%E9%A9%AC_v0.0.8.html">在线代码离线翻译Chrome插件&quot;一马&quot;v0.0.8</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">30日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E8%AF%8D%E5%85%B8/2018/10/30/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6-%E7%A6%BB%E7%BA%BF%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8-0.0.7.html">浏览器插件-离线英汉词典 0.0.7</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">27日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E5%AD%A6%E7%A7%91%E7%BB%93%E5%90%88/2018/10/27/%E5%88%9D%E6%AD%A5%E5%B0%9D%E8%AF%95%E5%B0%86%E4%BC%A0%E7%BB%9F%E5%AD%A6%E7%A7%91%E7%9A%84%E5%86%85%E5%AE%B9%E7%A8%8B%E5%BA%8F_%E6%95%B0%E6%8D%AE%E5%8C%96.html">初步尝试将传统学科的内容程序/数据化</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">19日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/19/Chrome%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0GitHub%E4%BB%A3%E7%A0%81%E7%A6%BB%E7%BA%BF%E7%BF%BB%E8%AF%91v0.0.4.html">Chrome插件实现GitHub代码离线翻译v0.0.4</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">18日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/10/18/%E5%AE%83%E5%B1%B1%E4%B9%8B%E7%9F%B3-%E6%97%A5%E6%9C%AC%E6%8E%A8%E5%B9%BF%E7%BC%96%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AF%AD%E5%91%BD%E5%90%8D%E7%9A%84%E6%B8%8A%E6%BA%90.html">它山之石-日本推广编程中使用日语命名的渊源</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">18日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/10/18/%E9%A6%96%E6%AC%A1%E5%8F%91%E7%8E%B0%E5%9C%A8%E4%BE%8B%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AF%AD%E5%91%BD%E5%90%8D%E7%9A%84%E7%BC%96%E7%A8%8B%E4%B9%A6%E7%B1%8D.html">首次发现在例程中使用日语命名的编程书籍</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">17日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/17/Chrome%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0GitHub%E4%BB%A3%E7%A0%81%E7%BF%BB%E8%AF%91v0.0.3.html">Chrome插件实现GitHub代码翻译v0.0.3</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">12日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E8%AF%8D%E5%85%B8/2018/10/12/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6-%E7%A6%BB%E7%BA%BF%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8.html">浏览器插件-离线英汉词典</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">10日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/10/10/%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E4%B8%AD%E8%AF%BB%E5%8F%96JSON%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6.html">在浏览器插件中读取JSON资源文件</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">8日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/10/08/Java%E6%BA%90%E7%A0%81%E8%8B%B1%E7%BF%BB%E4%B8%AD%E8%BF%9B%E5%B1%95-%E5%86%85%E6%B5%8B%E4%B8%8A%E7%BA%BF.html">Java源码英翻中进展-内测上线</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">4日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/10/04/%E6%97%A5%E5%B8%B8-%E7%94%A8Python%E8%AF%BB%E5%8F%96word%E6%96%87%E6%A1%A3%E4%B8%AD%E7%9A%84%E8%A1%A8%E6%A0%BC%E5%B9%B6%E6%AF%94%E8%BE%83.html">[日常]用Python读取word文档中的表格并比较</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">28日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/09/28/%E7%94%A8Python3%E5%92%8Ctkinter%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F.html">用Python3和tkinter开发简单图形界面程序</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">24日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/09/24/Java%E6%BA%90%E7%A0%81%E8%8B%B1%E7%BF%BB%E4%B8%AD%E7%BD%91%E9%A1%B5%E6%BC%94%E7%A4%BA.html">Java源码英翻中网页演示</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">19日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2018/09/19/%E4%BF%AE%E6%94%B9V8%E5%92%8Cnode.js%E5%BB%BA%E7%AB%8B%E4%B8%AD%E6%96%87%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.html">修改V8和node.js建立中文后端开发工具</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">15日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/09/15/Java%E6%BA%90%E7%A0%81%E8%8B%B1%E7%BF%BB%E4%B8%AD%E5%BA%93%E4%BB%A5%E5%8F%8A%E6%9C%8D%E5%8A%A1%E5%8E%9F%E5%9E%8B.html">Java源码英翻中库以及服务原型</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">13日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/09/13/%E4%BB%A3%E7%A0%81%E7%BF%BB%E8%AF%91%E5%B0%9D%E8%AF%95-%E4%BD%BF%E7%94%A8Roaster%E8%A7%A3%E6%9E%90%E5%92%8C%E7%94%9F%E6%88%90Java%E6%BA%90%E7%A0%81.html">代码翻译尝试-使用Roaster解析和生成Java源码</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">10日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BF%BB%E8%AF%91/2018/09/10/%E4%BD%BF%E7%94%A8%E7%8E%B0%E6%9C%89%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E7%BF%BB%E8%AF%91%E7%9A%84%E4%BD%93%E9%AA%8C.html">使用现有在线翻译服务进行代码翻译的体验</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        九月
+          
+        
+        <span class="post-meta">6日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/api/%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8/2018/09/06/Java%E5%AE%9E%E7%8E%B0%E8%8B%B1%E6%B1%89%E8%AF%8D%E5%85%B8API%E5%88%9D%E7%89%88%E5%8F%91%E5%B8%83%E5%9C%A8Maven.html">Java实现英汉词典API初版发布在Maven</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">29日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/08/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0GitHub%E4%BB%A3%E7%A0%81%E7%BF%BB%E8%AF%91%E5%8E%9F%E5%9E%8B%E6%BC%94%E7%A4%BA.html">浏览器插件实现GitHub代码翻译原型演示</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">27日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/java/2018/08/27/%E4%BD%BF%E7%94%A8JDT%E6%A0%B8%E5%BF%83%E5%BA%93%E8%A7%A3%E6%9E%90JDK%E6%BA%90%E7%A0%81%E5%90%8E%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90API%E5%91%BD%E5%90%8D.html">使用JDT核心库解析JDK源码后初步分析API命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">24日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/spring/h2/2018/08/24/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BSpring-Boot%E5%AF%B9H2%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2.html">中文代码之Spring Boot对H2数据库简单查询</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">22日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/api/2018/08/22/%E4%B8%BA%E4%B8%AD%E6%96%87API%E7%9A%84%E7%AE%80%E7%B9%81%E8%BD%AC%E6%8D%A2%E5%BA%93%E6%B7%BB%E5%8A%A0%E8%BF%9F%E5%88%B0%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90.html">为中文API的简繁转换库添加迟到的持续集成</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">21日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2018/08/21/%E4%B8%AD%E6%96%87%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9B%BF%E6%8D%A2%E4%BD%93%E9%AA%8C%E9%A1%B5%E9%9D%A2%E5%8E%9F%E5%9E%8B.html">中文关键词替换体验页面原型</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">20日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/spring/h2/2018/08/20/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BSpring-Boot%E9%9B%86%E6%88%90H2%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93.html">中文代码之Spring Boot集成H2内存数据库</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">19日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2018/08/19/%E6%94%B9%E9%80%A0JAVA-%E7%BB%99OpenJDK10%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E5%85%B3%E9%94%AE%E8%AF%8D.html">改造JAVA，给OpenJDK10添加中文关键词</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">18日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/2018/08/18/%E8%BD%AC%E8%BD%BD_%E6%89%8B%E6%9C%BA%E7%BC%96%E7%A8%8B%E4%B8%8EAIDE.html">[转载]手机编程与AIDE</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">16日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/spring/2018/08/16/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BSpring-Boot%E6%B7%BB%E5%8A%A0%E5%9F%BA%E6%9C%AC%E6%97%A5%E5%BF%97.html">中文代码之Spring Boot添加基本日志</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">14日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/spring/2018/08/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BSpring-Boot%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95REST%E6%9C%8D%E5%8A%A1.html">中文代码之Spring Boot实现简单REST服务</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">13日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/uml/2018/08/13/Head-First-OO%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B9%A6%E7%95%A5%E8%AF%BB%E4%B8%8E%E4%BE%8B%E5%AD%90%E4%B8%AD%E6%96%87%E5%8C%96.html">Head First OO分析设计一书略读与例子中文化</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">13日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/%E5%AE%88%E5%88%99/2018/08/13/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AE%A8%E8%AE%BA%E7%BB%84(GitHub)%E7%A4%BE%E5%8C%BA%E5%AE%88%E5%88%99%E4%B8%80%E5%91%A8%E5%B9%B4%E4%BF%AE%E8%AE%A2.html">中文编程讨论组(GitHub)社区守则一周年修订</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">11日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/spring/2018/08/11/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-2.0.3%E9%97%AE%E5%A5%BD.html">中文代码示例之Spring Boot 2.0.3问好</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">6日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/vba/2018/08/06/%E5%9C%A8Office%E7%9A%84VBA%E4%BB%A3%E7%A0%81%E9%87%8C%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html">在Office的VBA代码里中文命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        八月
+          
+        
+        <span class="post-meta">3日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/08/03/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BPython-%E5%A6%82%E4%BD%95%E9%81%8D%E5%8E%86%E5%AD%97%E5%85%B8.html">中文代码示例之Python-如何遍历字典</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">30日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/c++/2018/07/30/%E5%AF%B9DLL%E5%BA%93%E4%B8%AD%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%BF%9B%E8%A1%8C%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html">对DLL库中的接口进行中文命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">27日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/07/27/%E5%8F%88%E8%A7%81%E5%A5%97%E8%B7%AF-%E5%A6%82%E6%9E%9C%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B,%E4%BD%A0%E8%83%BD%E6%88%90%E4%B8%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E4%B8%93%E5%AE%B6%E5%90%97.html">又见套路:如果计算机是用中文编程,你能成为计算机编程专家吗？</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">26日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/%E5%B9%B4%E5%BA%A6/2018/07/26/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AE%A8%E8%AE%BA%E7%BB%84%E4%B8%80%E5%B2%81%E4%BA%86.html">中文编程讨论组一岁了</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">24日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/07/24/Z%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86.html">Z语言实现基本原理</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">19日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/07/19/%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%BF%9B%E8%A1%8C%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D(%E7%B1%BB-%E5%8F%98%E9%87%8F-%E6%96%B9%E6%B3%95%E7%AD%89)%E7%9A%84%E4%BC%98%E5%8A%BF.html">在代码中进行中文命名(类/变量/方法等)的优势</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">18日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/07/18/%E6%9C%80%E8%BF%91%E4%B8%80%E6%B3%A2%E5%AF%B9%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B(%E5%8C%85%E6%8B%AC%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D)%E7%9A%84%E6%94%BB%E5%8A%BF.html">最近一波对中文编程(包括中文命名)的攻势</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">18日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2018/07/18/%E4%B8%87%E9%A9%AC%E9%BD%90%E5%96%91%E7%A9%B6%E5%8F%AF%E5%93%80-%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E7%9A%84%E5%8F%88%E4%B8%80%E6%B3%A2_%E8%AE%A8%E8%AE%BA.html">万马齐喑究可哀-中文编程的又一波&quot;讨论&quot;</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">10日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/07/10/%E4%B8%BAChrome%E5%92%8C%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%96%E5%86%99%E6%89%A9%E5%B1%95.html">为Chrome和火狐浏览器编写扩展</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        六月
+          
+        
+        <span class="post-meta">29日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/06/29/%E8%A5%BF%E6%B8%B8%E8%AE%B0%E4%B8%BB%E9%A2%98Python%E5%85%A5%E9%97%A8%E7%A4%BA%E4%BE%8B%E5%B0%9D%E8%AF%95-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-5.1-5.1.2.html">&quot;西游记&quot;主题Python入门示例尝试-数据结构 5.1-5.1.2</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        六月
+          
+        
+        <span class="post-meta">26日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/06/26/%E8%A7%A3%E8%B0%9C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%A4%BA%E4%BE%8B%E6%B1%89%E5%8C%96%E5%B0%9D%E8%AF%95.html">解谜计算机科学第一章示例汉化尝试</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        六月
+          
+        
+        <span class="post-meta">21日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/06/21/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E8%A7%86%E9%A2%91%E6%BC%94%E7%A4%BAPython%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html">中文代码示例视频演示Python入门教程第五章 数据结构</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        六月
+          
+        
+        <span class="post-meta">20日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/06/20/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E8%A7%86%E9%A2%91%E6%BC%94%E7%A4%BAPython%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A7%E5%88%B6%E6%B5%81.html">中文代码示例视频演示Python入门教程第四章 控制流</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        六月
+          
+        
+        <span class="post-meta">20日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/06/20/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E8%A7%86%E9%A2%91%E6%BC%94%E7%A4%BAPython%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%AE%80%E4%BB%8BPython.html">中文代码示例视频演示Python入门教程第三章 简介Python</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        五月
+          
+        
+        <span class="post-meta">14日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/05/14/%E4%BB%A3%E7%A0%81%E8%80%83%E5%8F%A4-Python3%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E5%AD%97%E5%85%B8%E4%BE%8B%E7%A8%8B.html">代码考古-Python3官方教程字典例程</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        五月
+          
+        
+        <span class="post-meta">9日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/05/09/5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8CTS-%E5%B0%9D%E9%B2%9C%E4%B8%AD%E6%96%87%E7%89%88TypeScript.html">5分钟入门CTS-尝鲜中文版TypeScript</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        四月
+          
+        
+        <span class="post-meta">27日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/04/27/%E6%90%AD%E5%BB%BAPython%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E7%8E%AF%E5%A2%83-%E6%B1%89%E5%8C%96%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html">搭建Python官方文档翻译环境-汉化示例代码</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        四月
+          
+        
+        <span class="post-meta">21日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/04/21/%E6%90%AD%E5%BB%BAPython%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E7%8E%AF%E5%A2%83.html">搭建Python官方文档翻译环境</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        三月
+          
+        
+        <span class="post-meta">28日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/03/28/%E4%BB%8E%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">从人机交互角度看中文编程:&#39;打开微信&#39;</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">27日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E7%AC%94%E8%AE%B0/2018/02/27/Literate-Programming%E4%B8%80%E4%B9%A6%E6%91%98%E8%AE%B0%E4%B9%8B%E4%B8%80.html">&quot;Literate Programming&quot;一书摘记之一</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">24日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/02/24/%E9%A1%B9%E7%9B%AE_%E6%95%99%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%AF%8D%E8%AF%AD%E5%91%BD%E5%90%8D%E7%9A%84_%E9%97%AE%E9%A2%98.html">项目/教程中使用母语命名的&quot;问题&quot;</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">18日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/02/18/Antlr4%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5.html">Antlr4实现简单语言之条件语句</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">17日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2018/02/17/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B-%E8%AF%91-Scala%E4%B8%AD%E5%88%9B%E5%BB%BA%E9%9A%90%E5%BC%8F%E5%87%BD%E6%95%B0.html">中文代码示例[译]Scala中创建隐式函数</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">16日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%A4%BA%E4%BE%8B/2018/02/16/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8B%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95,-%E5%90%8E%E6%84%9F.html">中文代码示例之冒泡算法, 后感</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">6日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2018/02/06/%E7%BC%96%E7%A8%8B%E7%8C%ABIDE%E4%BD%93%E9%AA%8C-%E5%AF%B9Scratch%E7%9A%84%E6%94%B9%E8%BF%9B.html">编程猫IDE体验:对Scratch的改进</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">4日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/02/04/AppleScript%E7%B1%BB%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E4%B8%8E%E9%9D%9E%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E8%AE%BE%E8%AE%A1.html">AppleScript类自然语言与非英语语法设计</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        二月
+          
+        
+        <span class="post-meta">3日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/2018/02/03/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E4%B8%93%E6%A0%8F%E6%9C%88%E6%8A%A5-2018%E5%B9%B41%E6%9C%88.html">中文编程专栏月报：2018年1月</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">19日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/dsl/2018/01/19/Xtext%E8%AF%95%E7%94%A8-5%E6%AD%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA(%E4%B8%AD%E6%96%87)JVM%E8%AF%AD%E8%A8%80.html">Xtext试用: 5步实现一个(中文)JVM语言</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">19日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/dsl/2018/01/19/Xtext%E8%AF%95%E7%94%A8-%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E9%A2%86%E5%9F%9F%E4%B8%93%E7%94%A8%E8%AF%AD%E8%A8%80(DSL).html">Xtext试用: 快速实现简单领域专用语言(DSL)</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">17日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/17/Antlr4%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%95%B4%E6%95%B0%E6%AF%94%E8%BE%83%E8%A1%A8%E8%BE%BE%E5%BC%8F.html">Antlr4实现简单语言之整数比较表达式</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">15日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/15/History-in-Threads-%E7%81%AB%E7%8B%90%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%8E%86%E5%8F%B2%E6%8C%89%E4%B8%BB%E9%A2%98%E6%98%BE%E7%A4%BA(%E6%A0%91).html">History in Threads: 火狐插件实现浏览历史按主题显示(树)</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">15日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/15/Antlr4-%E4%BF%AE%E6%94%B9%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99%E6%9B%B4%E6%8E%A5%E8%BF%91%E6%99%AE%E9%80%9ABNF%E6%A0%BC%E5%BC%8F.html">Antlr4: 修改语法规则更接近普通BNF格式</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">12日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/12/Antlr4%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E5%8F%98%E9%87%8F%E8%B5%8B%E6%B1%82%E5%80%BC,%E6%8B%AC%E5%8F%B7,%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98.html">Antlr4添加中文变量赋求值,括号,各种问题</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">11日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/11/Antlr4%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97.html">Antlr4实现数学四则运算</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">11日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/11/Antlr4%E7%9A%84%E5%88%86%E6%9E%90%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86.html">Antlr4的分析错误处理</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">5日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/05/%E9%80%9A%E7%94%A8%E5%9E%8B%E7%9A%84%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%8E%A2%E8%AE%A8%E4%B9%8B%E4%B8%80-%E9%AB%98%E8%80%83.html">通用型的中文编程语言探讨之一: 高考</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">4日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/2018/01/04/%E6%B5%85%E5%B0%9DThe-Little-Prover%E4%B8%80%E4%B9%A6,-%E9%87%8D%E9%80%A2Chez-Scheme.html">浅尝The Little Prover一书, 重逢Chez Scheme</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">3日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E9%A1%B9%E7%9B%AE/2018/01/03/%E7%83%82%E5%B0%BE%E5%B7%A5%E7%A8%8B-Java%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8.html">烂尾工程: Java实现的汇编语言编译器</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">3日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/2018/01/03/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E4%B8%93%E6%A0%8F%E6%9C%88%E6%8A%A5-2017%E5%B9%B412%E6%9C%88.html">中文编程专栏月报：2017年12月</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        一月
+          
+        
+        <span class="post-meta">2日, 2018</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/01/02/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO-%E7%94%A8%E8%AF%AD%E6%B3%95%E6%A0%91%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%B1%82%E5%BE%AA%E7%8E%AF.html">JavaScript实现ZLOGO: 用语法树实现多层循环</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">26日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2017/12/26/Java%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E6%B1%89%E5%8C%96%E7%94%A8%E8%AF%8D%E6%8E%A2%E8%AE%A8.html">Java关键字的汉化用词探讨</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">24日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/ide/%E6%8F%92%E4%BB%B6/2017/12/24/%E4%B8%BA%E6%96%B0%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99Visual-Studio-Code%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6.html">为新语言编写Visual Studio Code语法高亮插件</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">24日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/12/24/%E6%89%8B%E6%9C%BA%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E5%88%9D%E5%B0%9D%E8%AF%95-%E7%94%A8AIDE%E5%BC%80%E5%8F%91Android%E5%BA%94%E7%94%A8.html">手机编程环境初尝试-用AIDE开发Android应用</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">22日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/12/22/%E6%97%A5%E8%AF%AD%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80_%E6%8A%9A%E5%AD%90_%E7%AC%AC%E4%B8%89%E7%89%88%E5%AE%9E%E7%8E%B0%E5%88%9D%E6%8E%A2.html">日语编程语言&quot;抚子&quot;-第三版实现初探</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">21日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/api/2017/12/21/FriceEngine%E8%AF%95%E7%94%A8%E4%B8%8EAPI%E4%B8%AD%E6%96%87%E5%8C%96.html">FriceEngine试用与API中文化</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">11日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%B0%8F%E7%BB%93/2017/12/11/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E4%B8%93%E6%A0%8F%E6%9C%88%E6%8A%A5-2017%E5%B9%B411%E6%9C%88.html">中文编程专栏月报：2017年11月</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">10日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/12/10/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8B5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8TypeScript.html">中文代码示例之5分钟入门TypeScript</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">9日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/12/09/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO%E5%AD%90%E9%9B%86-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.html">JavaScript实现ZLOGO子集: 测试用例</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">6日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/12/06/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO%E5%AD%90%E9%9B%86-%E5%8D%95%E5%B1%82%E5%BE%AA%E7%8E%AF%E5%8A%9F%E8%83%BD.html">JavaScript实现ZLOGO子集: 单层循环功能</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">5日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/12/05/JavaScript%E5%AE%9E%E7%8E%B0ZLOGO%E5%AD%90%E9%9B%86-%E5%89%8D%E8%BF%9B+%E8%BD%AC%E5%90%91.html">JavaScript实现ZLOGO子集: 前进+转向</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">4日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2017/12/04/%E7%BC%96%E5%86%99Visual-Studio-Code%E6%8F%92%E4%BB%B6%E5%88%9D%E5%B0%9D%E8%AF%95.html">编写Visual Studio Code插件初尝试</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">2日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/12/02/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E8%AF%95%E9%AA%8C%E4%B9%8BAntlr4_JavaScript%E5%AE%9E%E7%8E%B0_%E5%9C%884.html">编程语言试验之Antlr4+JavaScript实现&quot;圈4&quot;</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十二月
+        
+        
+        <span class="post-meta">1日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/logo/2017/12/01/%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%A3%E7%A0%81%E5%AF%B9%E6%AF%94%E4%B9%8BZLOGO-4-&-LOGO.html">中英文代码对比之ZLOGO 4 &amp; LOGO</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">30日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/11/30/Python3%E9%80%89%E6%8B%A9%E6%94%AF%E6%8C%81%E9%9D%9EASCII%E7%A0%81%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E7%BC%98%E7%94%B1.html">Python3选择支持非ASCII码标识符的缘由</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">28日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/logo/2017/11/28/%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%BD%91%E7%AB%99%E5%AF%B9%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%9A%84%E6%94%AF%E6%8C%81.html">在线编程网站对中文代码的支持</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">28日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/logo/2017/11/28/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B9%8BZ%E8%AF%AD%E8%A8%80%E5%88%9D%E5%B0%9D%E8%AF%95-ZLOGO-4.html">中文编程语言之Z语言初尝试 - ZLOGO 4</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">27日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/11/27/%E6%B1%89%E5%8C%96%E4%BA%86%E5%8D%81%E6%95%B0%E4%B8%AA%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E8%BE%88%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A.html">汉化了十数个编译器的前辈的心得体会</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">27日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/11/27/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E5%85%B4%E8%B5%B7%E7%9A%84%E5%8F%AF%E8%83%BD%E9%80%94%E5%BE%84.html">中文编程兴起的可能途径</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">27日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/11/27/%E5%AF%B9%E4%B8%AD%E6%96%87%E8%AF%AD%E6%B3%95%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html">对中文语法的编程语言的质疑与回应</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">26日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/11/26/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E8%AF%95%E9%AA%8C%E4%B9%8BAntlr4_Java%E5%AE%9E%E7%8E%B0_%E5%9C%882.html">编程语言试验之Antlr4+Java实现&quot;圈2&quot;</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">25日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/spring/2017/11/25/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-1.3.3%E6%BC%94%E7%A4%BA.html">中文代码示例之Spring Boot 1.3.3演示</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">24日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2017/11/24/%E4%B8%BAGCC%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E5%85%B3%E9%94%AE%E5%AD%97.html">为GCC添加中文关键字</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">24日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%BC%96%E8%AF%91%E5%99%A8/2017/11/24/%E5%A6%82%E4%BD%95%E4%BD%BFGCC%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87(utf-8)%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D-%E5%87%BD%E6%95%B0%E5%90%8D.html">如何使GCC支持中文(utf-8)的变量名、函数名？</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">23日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/11/23/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E5%85%B4%E8%B5%B7%E7%9A%84%E5%BF%85%E7%84%B6%E6%80%A7.html">中文编程兴起的必然性</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">20日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/11/20/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BVuejs%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B(%E4%B8%80)%E9%97%AE%E9%A2%98%E5%90%8E%E7%BB%AD.html">中文代码示例之Vuejs入门教程(一)问题后续</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">17日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/11/17/%E5%9B%BD%E4%BA%BA%E5%88%9B%E9%80%A0%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E5%8A%BF.html">国人创造中文编程语言的优势</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">17日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2017/11/17/%E4%B8%BAPython%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E5%85%B3%E9%94%AE%E5%AD%97.html">为Python添加中文关键字</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">17日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E6%B1%89%E5%8C%96%E5%85%B3%E9%94%AE%E8%AF%8D/2017/11/17/%E4%B8%BAclang%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E5%85%B3%E9%94%AE%E5%AD%97.html">为clang添加中文关键字</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">14日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/11/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E8%B7%B5%E7%9A%84%E9%98%BB%E5%8A%9B%E5%92%8C%E5%BA%94%E5%AF%B9.html">中文命名实践的阻力和应对</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">9日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E7%A4%BA%E4%BE%8B/2017/11/09/%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%A3%E7%A0%81%E5%AF%B9%E6%AF%94%E7%B3%BB%E5%88%97%E4%B9%8BJava%E4%B8%80%E4%BE%8B.html">中英文代码对比系列之Java一例</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">9日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/11/09/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BVuejs%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B(%E4%B8%80).html">中文代码示例之Vuejs入门教程(一)</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">7日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/11/07/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BAngular%E5%B0%9D%E8%AF%95.html">中文代码示例教程之Angular尝试</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十一月
+          
+        
+        <span class="post-meta">6日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2017/11/06/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AF%AD%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%8A%9A%E5%AD%90%E4%B9%8B%E7%AC%AC%E4%B8%89%E7%89%88%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E6%80%A7%E5%88%9D%E6%8E%A2.html">日语编程语言&quot;抚子&quot; - 第三版特色初探</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">31日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/10/31/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BVuejs%E5%85%A5%E9%97%A8.html">中文代码示例教程之Vuejs入门&amp;后续计划</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">29日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/api/2017/10/29/%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8DAPI%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E9%80%94%E5%BE%84.html">用中文命名API的意义和途径</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">27日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/10/27/%E5%AF%B9%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B8%8E%E5%9B%9E%E5%BA%94.html">对在代码中使用中文命名的质疑与回应</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">26日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/10/26/13%E5%B9%B4%E5%90%8E%E7%9A%84%E5%85%B1%E9%B8%A3-%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E4%BC%98%E5%8A%BF%E5%92%8C%E9%97%AE%E9%A2%98.html">13年后的共鸣-在代码中用中文命名的优势和问题</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">23日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/2017/10/23/%E5%9C%A8%E5%90%84%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html">在各种编程语言中使用中文命名</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">17日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%85%B3%E9%94%AE%E8%AF%8D/2017/10/17/%E5%BC%80%E6%BA%90%E9%9D%9E%E8%8B%B1%E6%96%87%E5%85%B3%E9%94%AE%E8%AF%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">开源非英文关键词编程语言</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        十月
+          
+        
+        <span class="post-meta">10日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E7%BC%96%E7%A0%81/2017/10/10/%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.html">都市传说: &quot;部分&quot;中文出现乱码</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">29日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/07/29/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BJava%E7%BC%96%E7%A8%8B%E4%B8%80%E5%A4%A9%E5%85%A5%E9%97%A8.html">中文代码示例教程之Java编程一天入门</a>
+        </h2>
+      </li>
+    
+      <li>
+        
+        七月
+          
+        
+        <span class="post-meta">20日, 2017</span>
+
+        <h2>
+          <a class="post-link" href="/%E5%91%BD%E5%90%8D/api/2017/07/20/%E5%9C%A8Maven-Central%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93.html">在Maven Central发布中文API的Java库</a>
+        </h2>
+      </li>
+    
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+
+</div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

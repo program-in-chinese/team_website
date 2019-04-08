@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>从人机交互角度看中文编程:&#39;打开微信&#39;</title>
+  <meta name="description" content="越来越多的人机交互使用自然语言, 比如移动设备. 从这个角度看, 中文编程已经非常普及了. Programming in Chinese seems popular already from perspective of human-machine interaction, especially mobile d...">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/03/28/%E4%BB%8E%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>从人机交互角度看中文编程:’打开微信’ | 用中文编程</title>
+<meta property="og:title" content="从人机交互角度看中文编程:’打开微信’" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="越来越多的人机交互使用自然语言, 比如移动设备. 从这个角度看, 中文编程已经非常普及了. Programming in Chinese seems popular already from perspective of human-machine interaction, especially mobile devices." />
+<meta property="og:description" content="越来越多的人机交互使用自然语言, 比如移动设备. 从这个角度看, 中文编程已经非常普及了. Programming in Chinese seems popular already from perspective of human-machine interaction, especially mobile devices." />
+<link rel="canonical" href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/03/28/%E4%BB%8E%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html" />
+<meta property="og:url" content="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/03/28/%E4%BB%8E%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-28T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"越来越多的人机交互使用自然语言, 比如移动设备. 从这个角度看, 中文编程已经非常普及了. Programming in Chinese seems popular already from perspective of human-machine interaction, especially mobile devices.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/03/28/%E4%BB%8E%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html","publisher":null,"image":null,"headline":"从人机交互角度看中文编程:’打开微信’","dateModified":"2018-03-28T00:00:00-07:00","datePublished":"2018-03-28T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/2018/03/28/%E4%BB%8E%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">从人机交互角度看中文编程:&#39;打开微信&#39;</h1>
+    <p class="post-meta">
+      <time datetime="2018-03-28T00:00:00-07:00" itemprop="datePublished">
+        
+        Mar 28, 2018
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>前文<a href="https://zhuanlan.zhihu.com/p/32677451">通用型的中文编程语言探讨之一: 高考</a>是基于现有英文编程语言的一个技术思路. 在<a href="https://www.zhihu.com/question/29895778/answer/150111814">这个回答</a>以及下面的讨论中, 又提到了编程其实是人机交互的一种形式. 不禁试着跳出程序员视角看这个问题.</p>
+
+<p>几年前才发现Mozilla的火狐浏览器早在2008年开始了一个叫Ubiquity的项目, 而且根据<a href="https://www.ghacks.net/2008/08/26/mozilla-labs-ubiquity-is-a-firefox-killer-application/">这里</a>介绍, 它直到最近的火狐浏览器大改才失效. <a href="https://wiki.mozilla.org/Labs/Ubiquity#What_is_Ubiquity.3F">官网介绍</a>摘选:</p>
+
+<blockquote>
+  <p>Its purpose was to explore whether a radically different type of interface to the Web — a task-centric, natural-language-based command line — could help us get common Web tasks done faster.</p>
+</blockquote>
+
+<p><a href="https://wiki.mozilla.org/Labs/Ubiquity/Ubiquity_0.5_User_Tutorial">用户手册</a>中, 有这样的例子:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>twitter updating my status with Ubiquity.
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>translate buenas tardes from spanish to french
+</code></pre></div></div>
+
+<p>它的界面会实时显示”运行”结果, 比如twitter的状态预览, 翻译的结果. 它也可以和浏览器操作结合起来, 比如选中网页的文本/图片后, 运行下面:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>email this to chris
+</code></pre></div></div>
+<p>就可以把选中的内容用email发给某个联系人(看到这里, 想起之前自己的一个<a href="https://github.com/program-in-chinese/overview/issues/33#issuecomment-331683386">原型设计</a>也许也是受到它的影响而不自知)</p>
+
+<p>很自然地也有<a href="https://groups.google.com/forum/#!forum/ubiquity-i18n">将它国际化的努力</a>. 这个插件一直没有被火狐转正的原因暂没有深究, 但也许和生不逢时有关. 2008年的自然语言交互还刚起步, 如<a href="https://baike.baidu.com/item/Google%E8%AF%AD%E9%9F%B3%E6%90%9C%E7%B4%A2/2716575">谷歌</a>直到几年之后才有简单自然语言语法的搜索命令. <a href="https://en.wikipedia.org/wiki/Natural-language_user_interface">这里</a>是更全的自然语言界面的软件/工具/平台列表.</p>
+
+<p>搜索引擎的自然语言界面似乎已经能够解决大多数人的大多数日常的信息搜索问题. 它也提升了人机交互的期望值. 而编程解决的问题和信息搜索差别很大. Ubiquity更接近专用脚本语言系统的范畴, 似乎也更可以借鉴. 更现实的例子是<a href="http://tech.sina.com.cn/roll/2017-03-31/doc-ifycwyxr8905389.shtml">手机语音功能(最后的系统功能和生活服务部分)</a>, 比如”打开微信”(可惜似乎国产语音助手在这方面好像还是短板). 从这个角度来说, <strong>中文编程已经被大量用于日常生活</strong>(<code class="highlighter-rouge">打开微信</code>和<code class="highlighter-rouge">print("Hello World!")</code>都是程序吧), 只是不被提及而已.</p>
+
+<p>个人认为, 通过第三方应用集成手机的系统和应用功能的方式, 中文编程的潜力很大, 别说基本的日常命令还有很大提升空间, 进一步的简单条件/循环语句也可以有很多功能增强(之前的<a href="http://www.zhihu.com/pin/933659183945998336">脑洞</a>), 而似乎现在的语音助手都不具备这个功能. 类似的服务如<a href="https://ifttt.com/">IFTTT</a>, 虽然只支持<code class="highlighter-rouge">如果...就...不然</code>的逻辑, 通过集成各种网络服务也有了很多用户.</p>
+
+<p>在浏览器平台上, 个人认为Ubiquity的插件方式还可以继续, 当然需要和移动设备结合. 只是由于和手机隔了一层浏览器API, 在可集成的系统功能上会受限一些, 但优势是可以集成浏览器本身的功能. 当然另一个优势是跨系统平台.</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

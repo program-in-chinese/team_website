@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>中文代码示例教程之Java编程一天入门</title>
+  <meta name="description" content="以中文编写示例代码的Java入门短教程. Short beginner&#39;s tutorial of Java programming with sample codes using Chinese naming.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/07/29/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BJava%E7%BC%96%E7%A8%8B%E4%B8%80%E5%A4%A9%E5%85%A5%E9%97%A8.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>中文代码示例教程之Java编程一天入门 | 用中文编程</title>
+<meta property="og:title" content="中文代码示例教程之Java编程一天入门" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="以中文编写示例代码的Java入门短教程. Short beginner’s tutorial of Java programming with sample codes using Chinese naming." />
+<meta property="og:description" content="以中文编写示例代码的Java入门短教程. Short beginner’s tutorial of Java programming with sample codes using Chinese naming." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/07/29/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BJava%E7%BC%96%E7%A8%8B%E4%B8%80%E5%A4%A9%E5%85%A5%E9%97%A8.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/07/29/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BJava%E7%BC%96%E7%A8%8B%E4%B8%80%E5%A4%A9%E5%85%A5%E9%97%A8.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-29T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"以中文编写示例代码的Java入门短教程. Short beginner’s tutorial of Java programming with sample codes using Chinese naming.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/07/29/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BJava%E7%BC%96%E7%A8%8B%E4%B8%80%E5%A4%A9%E5%85%A5%E9%97%A8.html","publisher":null,"image":null,"headline":"中文代码示例教程之Java编程一天入门","dateModified":"2017-07-29T00:00:00-07:00","datePublished":"2017-07-29T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2017/07/29/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B%E4%B9%8BJava%E7%BC%96%E7%A8%8B%E4%B8%80%E5%A4%A9%E5%85%A5%E9%97%A8.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">中文代码示例教程之Java编程一天入门</h1>
+    <p class="post-meta">
+      <time datetime="2017-07-29T00:00:00-07:00" itemprop="datePublished">
+        
+        Jul 29, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="java编程一天入门-v001-alpha">Java编程一天入门 v0.0.1 alpha</h2>
+
+<p>共享协议 本作使用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">署名-非商业使用-禁止演绎</a>协议共享。</p>
+
+<h1 id="前言">前言</h1>
+
+<p>Java入门代码用中文写(举例如下)更能被新手理解. 由于至今没有看到类似教程, 在此抛砖引玉. 欢迎指正/批评/意见/建议.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="err">小孩类</span> <span class="nc">extends</span> <span class="err">人类</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="err">想做的事</span> <span class="o">=</span> <span class="s">"大人的事"</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="err">小孩类</span><span class="o">(</span><span class="n">String</span> <span class="err">姓名</span><span class="o">,</span> <span class="kt">int</span> <span class="err">年龄</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="err">姓名</span><span class="o">,</span> <span class="err">年龄</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="err">长大</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"我要做"</span> <span class="o">+</span> <span class="err">想做的事</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>编程语言的语法是最机械的, 在阅读过程中, 请尽量关注于程序做了些什么, 而一些语法细节可以暂时忽略. 入门之后, 在接下去的写和读代码过程中, 语法自然会熟练起来.</p>
+
+<p>每一讲建议时间30分钟左右. 如果卡住(比如超过一小时), 欢迎在代码库<a href="https://github.com/program-in-chinese/java_in_hours_chn/issues">发问</a>. 目的是让总时间控制在8小时左右, 让”一天入门”更符合实际.</p>
+
+<h1 id="目录">目录</h1>
+<p>一 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E4%B8%80-%E5%87%86%E5%A4%87%E7%BC%96%E7%A8%8B">准备编程</a></p>
+
+<p>二 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E4%BA%8C-%E9%97%AE%E4%B8%AA%E5%A5%BD%E5%90%A7">问个好吧</a></p>
+
+<p>三 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E4%B8%89-java%E7%9A%84%E7%8E%B0%E7%8A%B6">Java的现状</a></p>
+
+<p>四 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%9B%9B-%E7%94%A8java%E7%AE%97%E6%9C%AF">用Java算术</a></p>
+
+<p>五 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E4%BA%94-%E5%8F%98%E9%87%8F-%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BF%9D%E5%AD%98%E4%BF%AE%E6%94%B9%E4%BF%A1%E6%81%AF">变量-在程序中保存修改信息</a></p>
+
+<p>六 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%85%AD-%E6%96%87%E5%AD%97">文字</a></p>
+
+<p>七 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E4%B8%83-%E5%A6%82%E6%9E%9C%E5%B0%B1%E4%B8%8D%E7%84%B6">如果…就…不然…</a></p>
+
+<p>八 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%85%AB-%E7%9B%B4%E5%88%B0%E4%B8%80%E7%9B%B4">直到…一直…</a></p>
+
+<p>九 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E4%B9%9D-%E9%80%A0%E4%B8%AA%E4%BA%BA">造个人</a></p>
+
+<p>十 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81-%E8%AE%A9%E5%AE%83%E6%9B%B4%E5%83%8F%E4%BA%BA">让它更像人</a></p>
+
+<p>十一 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%B8%80-%E6%95%B0%E6%8D%AE%E6%8E%92%E6%8E%92%E7%AB%99-%E6%95%B0%E7%BB%84">数据排排站-数组</a></p>
+
+<p>十二 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%BA%8C-%E6%9B%B4%E5%A4%9A%E7%BB%93%E6%9E%84">更多结构</a></p>
+
+<p>十三 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%B8%89-%E6%B4%BB%E4%B9%85%E8%A7%81">活久见</a></p>
+
+<p>十四 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E5%9B%9B-%E4%B8%BA%E4%BA%BA%E6%B0%91%E6%9C%8D%E5%8A%A1">为人民服务</a></p>
+
+<p>十五 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E5%8D%81%E4%BA%94-%E8%87%AA%E6%88%91%E8%82%AF%E5%AE%9A---%E6%B5%8B%E8%AF%95">自我肯定 - 测试</a></p>
+
+<p>零 <a href="https://github.com/program-in-chinese/java_in_hours_chn#%E9%9B%B6-%E6%B2%A1%E6%9C%89%E8%A7%84%E7%9F%A9-%E4%B8%8D%E6%88%90%E6%96%B9%E5%9C%86---%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC">没有规矩, 不成方圆 - 代码风格</a></p>
+
+<p>(完)</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

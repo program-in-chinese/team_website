@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>汉化了十数个编译器的前辈的心得体会</title>
+  <meta name="description" content="通过修改编译器, 实现对中文标识符支持的一位前辈的对于中文编程和中文编程语言的心得. View of programming in Chinese from a pioneer who modified a dozen compliers to add support of Chinese identifiers.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/11/27/%E6%B1%89%E5%8C%96%E4%BA%86%E5%8D%81%E6%95%B0%E4%B8%AA%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E8%BE%88%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>汉化了十数个编译器的前辈的心得体会 | 用中文编程</title>
+<meta property="og:title" content="汉化了十数个编译器的前辈的心得体会" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="通过修改编译器, 实现对中文标识符支持的一位前辈的对于中文编程和中文编程语言的心得. View of programming in Chinese from a pioneer who modified a dozen compliers to add support of Chinese identifiers." />
+<meta property="og:description" content="通过修改编译器, 实现对中文标识符支持的一位前辈的对于中文编程和中文编程语言的心得. View of programming in Chinese from a pioneer who modified a dozen compliers to add support of Chinese identifiers." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/11/27/%E6%B1%89%E5%8C%96%E4%BA%86%E5%8D%81%E6%95%B0%E4%B8%AA%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E8%BE%88%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/2017/11/27/%E6%B1%89%E5%8C%96%E4%BA%86%E5%8D%81%E6%95%B0%E4%B8%AA%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E8%BE%88%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-27T11:00:00-08:00" />
+<script type="application/ld+json">
+{"name":null,"description":"通过修改编译器, 实现对中文标识符支持的一位前辈的对于中文编程和中文编程语言的心得. View of programming in Chinese from a pioneer who modified a dozen compliers to add support of Chinese identifiers.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/2017/11/27/%E6%B1%89%E5%8C%96%E4%BA%86%E5%8D%81%E6%95%B0%E4%B8%AA%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E8%BE%88%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A.html","publisher":null,"image":null,"headline":"汉化了十数个编译器的前辈的心得体会","dateModified":"2017-11-27T11:00:00-08:00","datePublished":"2017-11-27T11:00:00-08:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/2017/11/27/%E6%B1%89%E5%8C%96%E4%BA%86%E5%8D%81%E6%95%B0%E4%B8%AA%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%89%8D%E8%BE%88%E7%9A%84%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">汉化了十数个编译器的前辈的心得体会</h1>
+    <p class="post-meta">
+      <time datetime="2017-11-27T11:00:00-08:00" itemprop="datePublished">
+        
+        Nov 27, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>@竹闲 的原文在<a href="http://tieba.baidu.com/p/3711851598?pn=2&amp;traceid=">【图片】回复：有筒子想用中文写汇编吗？_汇编吧_百度贴吧</a> 63楼. 特此转载, 并向所有勇于探索的前辈们致敬!</p>
+
+<p>他汉化的十余个编译器: <a href="https://www.zhihu.com/question/20184664/answer/21045030">竹闲：一般编程语言都是英文的，大家对中文编程有什么样的看法，中文编程有哪些优劣势？</a></p>
+
+<p>1)论点:应否「建立新的中文编程语言」,慎思之。</p>
+
+<p>2)理由:</p>
+
+<p>　2.1)旧编程语言的优点(代价)。</p>
+
+<p>　2.2)新编程语言的立足点。</p>
+
+<p>　2.3)旧径:绕过上述困难,直接沿用旧编程语言。</p>
+
+<p>　　仅「令其函数名、过程名、变量名均可用汉字」即可。</p>
+
+<p>3)致敬。</p>
+
+<h3 id="21">2.1)</h3>
+<p>旧的编程语言,仍在使用当中,未受淘汰。</p>
+
+<p>　且拥有庞大的用户群体,</p>
+
+<p>　多年的历史沉淀、技术支持,</p>
+
+<p>　出版的各种入门图书、文档、丰富详尽的函数手册,</p>
+
+<p>　繁杂全面的网络帮助与代码用例,</p>
+
+<p>　以及若干系列的测试工具(微秒级的各函数耗时百分比时间分析、</p>
+
+<p>　　符号级\源代码级别调试器、内存检查器、svn代码上传……),</p>
+
+<p>　全球多层面、多场合、多语言的产品测试,</p>
+
+<p>　完善的售後服务,</p>
+
+<p>　不断的根据用户反馈或硬件改革而进行软件升级,</p>
+
+<p>　保证20年後该产品\本公司依然存在。</p>
+
+<p>　　个人的作品与品牌公司在此得到最明显的对比:</p>
+
+<p>个人\小工作室\普通公司　难以提供上述任何一项,无法与之竞争。</p>
+
+<p>　　而且即令是完成了上述所有项的大公司,例如宝兰(borland)公司,</p>
+
+<p>全球320万用户,21年(1987～2008)的悠久历史,无数的测试工具……</p>
+
+<p>仍落得被易博龙收购的下场。所以新的编程语言,一开始就得做好亏本的打算。</p>
+
+<h3 id="22">2.2)</h3>
+<p>周思博有云,新技术若都用来解决一些「旧技术能解决的问题」,</p>
+
+<p>　则新技术必受诟病。老周此话原是揶揄微软,但换在编程语言身上,依然适合。</p>
+
+<p>　D语言与c–对于c来说,则患此弊。</p>
+
+<p>　甚至连ruby等新语言,亦因此被王垠将之与lisp相提并论,被批得烂额焦头。</p>
+
+<p>　　　所以一旦摒弃旧编程语言,则用户会循(2.1)为准　来要求新中文编程语言,</p>
+
+<p>　间中还夹杂着不少对中文的偏见(中国编程员对中文市场的敌视,天下知名。</p>
+
+<p>　无论规格书、说明书、函数手册……能不写汉字就决不用中文。</p>
+
+<p>　汉人学得胡儿语,却向城头骂汉人。今古皆然,不足为怪)。因而新语言的崛起,</p>
+
+<p>　纵不是一枝独秀、出类拔萃,也得解决一些「旧技术不能解决的问题」。</p>
+
+<p>　即使是内存自动回收、网络函数、反射、函数式编程……等等,都是题中</p>
+
+<p>　应有之义,而非亮点了。</p>
+
+<p>　　　此事并非苛求,因为既是一门全新的编程语言,众人当然认为作者是一位</p>
+
+<p>　开宗立派的大师,按《春秋》责备贤者的传统,臧否这位宗匠级别的作品而已。</p>
+
+<p>　　　当然,作者可以把新编程语言抛到网站上,然後撒手远飏。</p>
+
+<p>　通常众人亦会权当作者交了一趟作业、完成了一趟导师的论文答辩。</p>
+
+<p>　例如 Fabrice Bellard 的tiny cc,欠缺维护,现已少人问津了</p>
+
+<p>　(顺便说一句,把他的 libtcc.c\LIBTCCAPI TCCState *tcc_new(void)内</p>
+
+<p>　inline的preprocess_new()改一下,即可支持中文的标识符。</p>
+
+<p>　即令不改源代码、不重新编译,只把他的 libtcc.dll 相应改四十个字节,</p>
+
+<p>　也有同样效果)。</p>
+
+<p>　　　但退一步而言,如(2.1)所说,要作者熬廿年的苦日子,自费出版各种手册,</p>
+
+<p>　墙内墙外都租用服务器,为各国各族人民提供多语言技术支持,随时改bug,</p>
+
+<p>　不断推出新版本,而且这廿年很可能颗粒无收。太过强人所难了。</p>
+
+<h3 id="23综上所述">2.3)综上所述:</h3>
+
+<p>另起炉灶後,压力之大,无以复加;赢利之微,几乎倒贴。所以大部分人都蝇附骥尾,仅让</p>
+
+<p>「旧编译器在吃进中文程序时,能辨认出中文标识符,从而正常编译连接,不致报错」,</p>
+
+<p>就经已心满意足。</p>
+
+<p>　　在读秀或万方上搜索,可窥见众前贤的旧迹,谨录部分于下:</p>
+
+<p>　王其宏《用汉字标识符的PASCAL编译程序》,载诸《长春邮电学院学报》1987年02期,</p>
+
+<p>　李京　《PASCAL编译程序的改造》,载诸《计算机工程与应用》1987年09期,</p>
+
+<p>　苗庆斌《PASCAL语言汉化的设计与实现》,载诸《计算机工程与设计》1990年03期,</p>
+
+<p>　章继三《中文汇编语言编程》,载诸《软件世界》1994年06期,</p>
+
+<p>　黄志勇《Foxpro2.5的汉化方法》,载诸《电脑》1995年12期,</p>
+
+<p>　阙建军《在FOXBASE下使用汉字变量名及字段名》,载诸《中国金融电脑》1996年05期</p>
+
+<p>　……</p>
+
+<p>　　甚至连新人亦沿此旧径,例如aogo的masmplus,鼎龙的中文C++,竹闲的汉化各编译器。</p>
+
+<p>藉旧编程语言之势,让其函数名、过程名、变量名均可使用汉字(在此强调：均可≠均须！)。</p>
+
+<p>如此则旧的程序文档、编程员、代码用例……均纹风不动。</p>
+
+<p>　　此举虽有狐假虎威之嫌、鹊巢鸠占之喻,但终究算是把(2.1)的压力尽数卸开。</p>
+
+<p>然後他山之石,攻我之玉。自此,中文编程即可。终于可以不写</p>
+
+<p>“render_hexagon(last_descending_point)”,改为“_填6边形(_最近降点)”了。</p>
+
+<p>而且连接lib\跑lua虚拟机\正常运行python\……效果一切如常,简直有百利而无一害。</p>
+
+<p>　　有一害:编译器每出一趟新版本,上述工作者就须配合一版汉化包,跟游戏汉化者发行</p>
+
+<p>汉化包毫无区别。我这番话对游戏汉化者并无半分嘲讽之意:编译器是程序,游戏也是程序;</p>
+
+<p>编译器的用户(编程员)是人,游戏的用户(玩家)也是人;而且後者的市场还大些。</p>
+
+<p>而两厢的汉化者都在免费工作,都追赶在版本号後面而疲于奔命。</p>
+
+<p>　　「疲于奔命」是巫臣的原话,但汉化者的奔命何止七次,就因为他们的辛勤工作</p>
+
+<p>故意被原编译器作者所忽视(台面规则是编译器得支持unicode,潜规则却是欧美国家毋需</p>
+
+<p>理睬中文市场,例如以前 go语言组对导出中文函数名的争论,</p>
+
+<p>https://groups.google.com/forum/#!msg/golang-china/h_vxbPHaIvw/wFRw1Myrm3AJ</p>
+
+<p>该链接在墙外,不知是否失效了),就因为他们的劳动免费而不足挂齿。</p>
+
+<p>于是,总有人厌倦,就出手打造自己的中文编译器了。</p>
+
+<h3 id="3在此向所有披荆斩棘的中文编程员致敬">3)在此,向所有披荆斩棘的中文编程员致敬:</h3>
+
+<p>　例如(以下并非全集,且排名不分先後):O语言的作者,标天软件的BtAsm团队,</p>
+
+<p>　易语言的吴涛,Python的周蟒,法国的WinDev……</p>
+
+<p>　　　毋论他们在商业上是胜是败,但始终他们都为中文编程作出了自己的贡献,</p>
+
+<p>　默默耕耘,未必收获。全凭有他们,也纔能映照出中文编程之路,何等曲折,何等漫长,</p>
+
+<p>　虽是一脉如丝,仍是缕缕不断。</p>
+
+<p>　　　勉之矣,任重而道远。</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

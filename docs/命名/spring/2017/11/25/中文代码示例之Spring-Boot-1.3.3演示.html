@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>中文代码示例之Spring Boot 1.3.3演示</title>
+  <meta name="description" content="用一个简单的商品管理系统演示在Spring Boot最基本的功能中使用中文代码. Demostrate naming in Chinese in the basic features of Spring Boot 1.3.3, with a simple application for goods managem...">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/spring/2017/11/25/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-1.3.3%E6%BC%94%E7%A4%BA.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>中文代码示例之Spring Boot 1.3.3演示 | 用中文编程</title>
+<meta property="og:title" content="中文代码示例之Spring Boot 1.3.3演示" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="用一个简单的商品管理系统演示在Spring Boot最基本的功能中使用中文代码. Demostrate naming in Chinese in the basic features of Spring Boot 1.3.3, with a simple application for goods management." />
+<meta property="og:description" content="用一个简单的商品管理系统演示在Spring Boot最基本的功能中使用中文代码. Demostrate naming in Chinese in the basic features of Spring Boot 1.3.3, with a simple application for goods management." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/spring/2017/11/25/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-1.3.3%E6%BC%94%E7%A4%BA.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/spring/2017/11/25/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-1.3.3%E6%BC%94%E7%A4%BA.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-24T23:00:00-08:00" />
+<script type="application/ld+json">
+{"name":null,"description":"用一个简单的商品管理系统演示在Spring Boot最基本的功能中使用中文代码. Demostrate naming in Chinese in the basic features of Spring Boot 1.3.3, with a simple application for goods management.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/spring/2017/11/25/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-1.3.3%E6%BC%94%E7%A4%BA.html","publisher":null,"image":null,"headline":"中文代码示例之Spring Boot 1.3.3演示","dateModified":"2017-11-24T23:00:00-08:00","datePublished":"2017-11-24T23:00:00-08:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/spring/2017/11/25/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E4%B9%8BSpring-Boot-1.3.3%E6%BC%94%E7%A4%BA.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">中文代码示例之Spring Boot 1.3.3演示</h1>
+    <p class="post-meta">
+      <time datetime="2017-11-24T23:00:00-08:00" itemprop="datePublished">
+        
+        Nov 25, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://zhuanlan.zhihu.com/p/31417833">“中文编程”知乎专栏原文</a></p>
+
+<p>源码: <a href="https://github.com/program-in-chinese/jinxiaocun">program-in-chinese/jinxiaocun</a></p>
+
+<p>由于这个演示项目成型于去年(详见<a href="https://zhuanlan.zhihu.com/p/27537616">中文编程的尝试历程小记</a>), Spring Boot还是老版本. 尚未将其更新到最新版本, 先将其中的一些中文命名的部分小结在此.</p>
+<h3 id="url">URL</h3>
+
+<p>如: /商品表 /单位表</p>
+
+<p>实现方式见最后附上的”单位控制器”源码中的:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/单位表"</span><span class="o">)</span>
+</code></pre></div></div>
+<p>及</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">URL</span> <span class="o">=</span> <span class="s">"单位表"</span><span class="o">;</span>
+</code></pre></div></div>
+<h3 id="类方法变量用中文命名">类/方法/变量用中文命名</h3>
+
+<p>见后面附上的源码</p>
+<h3 id="jsp文件名-以及jsp中的变量名">jsp文件名, 以及jsp中的变量名</h3>
+
+<p>如”单位表.jsp”中的”${单位.名称}”.</p>
+
+<p>这需要”单位”类中的属性命名为”名称”. 由于命名约定, 需要将接口以get/set开头.</p>
+<h3 id="数据库的表列命名">数据库的表/列命名</h3>
+
+<p>下面是mysqldump的结果(“单位”部分)</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="nv">`单位`</span><span class="p">;</span>
+<span class="cm">/*!40101 SET @saved_cs_client     = @@character_set_client */</span><span class="p">;</span>
+<span class="cm">/*!40101 SET character_set_client = utf8 */</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`单位`</span> <span class="p">(</span>
+  <span class="nv">`id`</span> <span class="n">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="nv">`名称`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="nv">`id`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">19</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_unicode_ci</span><span class="p">;</span>
+</code></pre></div></div>
+<p>完整schema在<a href="https://github.com/program-in-chinese/jinxiaocun/blob/master/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93schema.sql">此</a></p>
+
+<h3 id="编码相关注意点现在想起的-欢迎补遗">编码相关注意点(现在想起的, 欢迎补遗)</h3>
+
+<p>需要在pom.xml中添加:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;properties&gt;</span>
+	<span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</code></pre></div></div>
+<ol>
+  <li>数据库(用的Mysql)指定编码:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.url= jdbc:mysql://localhost:3306/jinxiaocun?useUnicode=true&amp;characterEncoding=utf8
+spring.datasource.sqlScriptEncoding=UTF-8
+</code></pre></div>    </div>
+  </li>
+  <li>jsp文件头指定编码:
+    <pre><code class="language-jsp">&lt;%@ page pageEncoding="UTF-8" %&gt;
+</code></pre>
+  </li>
+  <li>如上面的mysqldump中所见, 表和列都设置为了utf8</li>
+</ol>
+
+<h3 id="附上单位相关部分源码"><em>附上单位相关部分源码</em></h3>
+
+<p>单位类:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="err">单位</span> <span class="err">{</span>
+
+  <span class="nc">private</span> <span class="kt">long</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="nd">@NotEmpty</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">"单位名称不可为空"</span><span class="o">)</span>
+  <span class="nd">@Size</span><span class="o">(</span><span class="n">max</span> <span class="o">=</span> <span class="mi">20</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"单位长度不可超过20"</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="err">名称</span><span class="o">;</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">Long</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="n">get</span><span class="err">名称</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="err">名称</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="n">set</span><span class="err">名称</span><span class="o">(</span><span class="n">String</span> <span class="err">名称</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="err">名称</span> <span class="o">=</span> <span class="err">名称</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>单位控制类:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/单位表"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="err">单位控制</span> <span class="err">{</span>
+
+  <span class="nc">protected</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">URL</span> <span class="o">=</span> <span class="s">"单位表"</span><span class="o">;</span>
+  <span class="kd">protected</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="err">表名</span> <span class="o">=</span> <span class="s">"单位表"</span><span class="o">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="err">单位库</span> <span class="err">单位库</span><span class="o">;</span>
+
+  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">列表</span><span class="o">(</span><span class="n">Model</span> <span class="err">模型</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="err">单位</span><span class="o">&gt;</span> <span class="err">表</span> <span class="o">=</span> <span class="err">单位库</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="err">表</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="err">模型</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="err">表名</span><span class="o">,</span> <span class="err">表</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// 需要初始化被校验的对象</span>
+    <span class="err">模型</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"单位"</span><span class="o">,</span> <span class="k">new</span> <span class="err">单位</span><span class="o">());</span>
+    <span class="k">return</span> <span class="n">URL</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="err">添加</span><span class="o">(</span><span class="nd">@Valid</span> <span class="err">单位</span> <span class="err">单位</span><span class="o">,</span> <span class="n">BindingResult</span> <span class="err">约束结果</span><span class="o">,</span> <span class="n">Model</span> <span class="err">模型</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="err">约束结果</span><span class="o">.</span><span class="na">hasErrors</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">URL</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="err">单位库</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="err">单位</span><span class="o">);</span>
+    <span class="k">return</span> <span class="err">列表</span><span class="o">(</span><span class="err">模型</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>单位表.jsp:</p>
+<pre><code class="language-jsp">&lt;body&gt;
+	&lt;jsp:include page="置顶.jsp" /&gt;
+	&lt;h2&gt;单位列表&lt;/h2&gt;
+	&lt;c:forEach var="单位" items="${单位表}"&gt;
+		&lt;div&gt;
+			&lt;c:out value="${单位.名称}"/&gt;
+		&lt;/div&gt;
+	&lt;/c:forEach&gt;
+	
+	&lt;h3&gt;添加单位&lt;/h3&gt;
+	&lt;form:form method="POST" modelAttribute="单位"&gt;
+		&lt;form:errors path="*" cssClass="errorblock" element="div" /&gt;
+		&lt;label for="名称"&gt;名称:&lt;/label&gt;
+		&lt;form:input type="text" path="名称" size="50" /&gt;
+		&lt;form:errors path="名称" cssClass="error"/&gt;
+		&lt;br/&gt;
+		&lt;input type="submit" value="提交"&gt;&lt;/input&gt;
+	&lt;/form:form&gt;
+&lt;/body&gt;
+</code></pre>
+<h3 id="注">注</h3>
+
+<p>演示本身非常幼稚, Spring Boot当时也是摸索学习中, 后也没有继续深入. 使用jsp而不是Thymeleaf的原因是, 后者当时不支持中文变量命名. 缘由详见<a href="http://tieba.baidu.com/p/4433232983">业余小项目, 学用Spring boot (如对中文写代码本能排斥, 求放过)</a>22楼.</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>

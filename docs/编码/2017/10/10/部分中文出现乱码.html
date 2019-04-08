@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>都市传说: &quot;部分&quot;中文出现乱码</title>
+  <meta name="description" content="只有部分中文出现乱码的编码问题分析. Analysing encoding issue where only part of text displays incorrectly.">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/%E7%BC%96%E7%A0%81/2017/10/10/%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.html">
+  <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
+  
+  
+  
+  <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>都市传说: “部分”中文出现乱码 | 用中文编程</title>
+<meta property="og:title" content="都市传说: “部分”中文出现乱码" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="只有部分中文出现乱码的编码问题分析. Analysing encoding issue where only part of text displays incorrectly." />
+<meta property="og:description" content="只有部分中文出现乱码的编码问题分析. Analysing encoding issue where only part of text displays incorrectly." />
+<link rel="canonical" href="http://localhost:4000/%E7%BC%96%E7%A0%81/2017/10/10/%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.html" />
+<meta property="og:url" content="http://localhost:4000/%E7%BC%96%E7%A0%81/2017/10/10/%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.html" />
+<meta property="og:site_name" content="用中文编程" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-10-10T00:00:00-07:00" />
+<script type="application/ld+json">
+{"name":null,"description":"只有部分中文出现乱码的编码问题分析. Analysing encoding issue where only part of text displays incorrectly.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E7%BC%96%E7%A0%81/2017/10/10/%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.html","publisher":null,"image":null,"headline":"都市传说: “部分”中文出现乱码","dateModified":"2017-10-10T00:00:00-07:00","datePublished":"2017-10-10T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E7%BC%96%E7%A0%81/2017/10/10/%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <style>
+    #搜索区 {
+      max-width: 40em;
+      padding: 1em;
+      margin: 1em auto;
+      border: 1px solid lightgrey;
+    }
+    #搜索输入 {
+      display: inline-block;
+      padding: .5em;
+      width: 100%;
+      font-size: 0.8em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">用中文编程</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E6%95%99%E7%A8%8B_%E7%AC%94%E8%AE%B0/">教程/笔记</a>
+            
+          
+            
+            
+            <a class="page-link" href="/%E5%91%A8%E6%8A%A5/">讨论组周报</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+    <a href="https://github.com/program-in-chinese/team_website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+    
+    <div id="搜索区">
+      <input type="text" id="搜索输入" placeholder="搜索...">
+      <ul id="搜索结果"></ul>
+    </div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">都市传说: &quot;部分&quot;中文出现乱码</h1>
+    <p class="post-meta">
+      <time datetime="2017-10-10T00:00:00-07:00" itemprop="datePublished">
+        
+        Oct 10, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>事情起源于项目另一开发者在中文Windows下构建时遇到的<a href="https://github.com/program-in-chinese/junit4_in_chinese/pull/11#issuecomment-324548860">部分中文出现乱码问题</a>.</p>
+
+<p>当时很不解的是, 为什么会只有部分出现乱码. 第一感觉是, 如果编码转换不正确, 要么全乱码, 要么全正确. 为何会”部分”出现乱码.</p>
+
+<p>初步分析<a href="https://github.com/program-in-chinese/junit4_in_chinese/pull/12#issuecomment-333757123">在此</a>. 简单说, 就是在转码过程中, Java会把某些它不认识的部分直接用某个值代替. 至于为何不默认保留原数据, 是个好的考古研究课题.</p>
+
+<p>示例如下(除了”开始检”, 其他都乱码了):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>编码</th>
+      <th>原字1</th>
+      <th>原字2</th>
+      <th>原字3</th>
+      <th>原字4</th>
+      <th>原字5</th>
+      <th>原字6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>原字</td>
+      <td>开</td>
+      <td>始</td>
+      <td>检</td>
+      <td>查</td>
+      <td>…</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>UTF8表示</td>
+      <td>e5 bc 80</td>
+      <td>e5 a7 8b</td>
+      <td>e6 a3 80</td>
+      <td>e6 9f a5</td>
+      <td>e2 80 a6</td>
+      <td>e2 80 a6</td>
+    </tr>
+    <tr>
+      <td>转为GBK后</td>
+      <td>e5 bc 3f</td>
+      <td>e5 a7 8b</td>
+      <td>e6 a3 80</td>
+      <td>e6 9f a5</td>
+      <td>e2 3f a6</td>
+      <td>e2 3f 3f</td>
+    </tr>
+    <tr>
+      <td>转回UTF8</td>
+      <td>�?</td>
+      <td>开</td>
+      <td>始</td>
+      <td>检</td>
+      <td>�?�</td>
+      <td>�??</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>网上很多资源提到字符数是奇数会有问题, 这是没错. 但实际上即使偶数也可能会有问题. 上面的转换过程中, <code class="highlighter-rouge">80</code>不是合法GBK字符, 就被替换成<code class="highlighter-rouge">3f</code>. 而替换过后再转回UTF8当然就挂了.</p>
+
+<p>这个问题里的插件就是把输出字符串指定编码成了UTF8格式的数据, 但输出/解码时又用了系统默认的编码格式(GBK). 详见 <a href="https://github.com/program-in-chinese/overview/issues/26#issuecomment-334206209">GBK&lt;-&gt;UTF8 互转问题: Maven checkstyle输出乱码 · Issue #26</a> · <a href="https://github.com/program-in-chinese/overview/issues/26#issuecomment-334206209">program-in-chinese/overview</a>, <a href="https://github.com/checkstyle/checkstyle/issues/3569#issuecomment-334245633">zh-cn ,,,, cmd gbk encode · Issue #3569 · checkstyle/checkstyle</a>.</p>
+
+<p>个人觉得这种转码问题是除了亚洲/非洲之外的开发者很容易忽视的. UTF8的字符除了亚洲(包括中日韩)和非洲语言的字符用三字节数据表示外, 其他多数语言的字符都是用单字节或双字节. <a href="https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane">来源</a>). 这些UTF8中三字节的字符和GBK之类的双字节码转码时会更容易出问题.</p>
+
+<p>在调查过程中, 还发现了其他一些类似疑问, 比如<a href="http://bbs.csdn.net/topics/390010852">UTF-8编码，部分中文正常，部分为乱码的问题？-CSDN论坛</a>.</p>
+
+<p>直觉是也是类似问题, 但想用编码互转的方式重现未果, 参考上面的例子试了几种2次转码, 都没有重现. <a href="http://blog.csdn.net/zyf814/article/details/17021949">JDBC连接MySQL抛出异常信息乱码 - insist的专栏 - CSDN博客</a>提到了CP1252编码, 又经过几次尝试, 才<a href="https://github.com/program-in-chinese/overview/issues/26#issuecomment-335617311">试出了这个过程</a>: “utf-8”-&gt;”windows-1252”-&gt;”iso-8859-1”-&gt;”utf-8”.</p>
+
+<p>阶段总结一下, 乱码问题的缘由都是编码互转. 全部乱码, 部分乱码都可能. 随着国外代码库/软件的编码方式更多地使用UTF8, 类似第二个问题的可能会变少, 但类似第一个的UTF8&lt;-&gt;GBK互转的问题也许会存在很长一段时间.</p>
+
+  </div>
+
+  
+    
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">用中文编程</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              用中文编程
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/program-in-chinese"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">program-in-chinese</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script src="/js/simple-jekyll-search.min.js"></script>
+
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('搜索输入'),
+        resultsContainer: document.getElementById('搜索结果'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: '未找到相关文章',
+        limit: 100,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
+  </body>
+
+</html>
