@@ -1,12 +1,22 @@
 [
   
     {
+      "title"    : "为Jekyll+GitHub Pages添加全文搜索功能",
+      "category" : "命名",
+      "description" : "为Jekyll+GitHub Pages添加全文搜索功能",
+      "tags"     : "",
+      "url"      : "/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html",
+      "date"     : "2019-04-08 00:00:00 -0700",
+      "content"  : "动态演示如下:源码库: program-in-chinese/team_website找到此JS工具: christian-fei/Simple-Jekyll-Search, 按安装说明先完成了对题目/类别/日期的搜索, 本地运行不错. 再接再厉添加了对描述和全文(post.content)的搜索, 详见全文索引.json发现生成的json文件中, 特殊字符如引号使得json语法出错:发现前人对同样问题的解决方法“full-text search” donot work! · Issue #63 · christian-fei/Simple-Jekyll-Search, 另参考christian-fei/Simple-Jekyll-Search, 在_plugins下添加脚本特殊字符过滤.rb:module Jekyll  module C字符过滤器    def remove_chars_cn(输入)      输入.gsub! '#92;#92;','amp;#92;'      输入.gsub! /#92;t/, '    '      输入.gsub! '',''      输入.gsub! '',''      输入.gsub! '',''      输入.gsub! 'amp;',''      输入.gsub! '',''      输入.gsub! '',''      输入.gsub! '',''      输入    end  endendLiquid::Template.register_filter(Jekyll::C字符过滤器)module名称如果没有大写字母开头, 报语法错误如下, 猜测原因与Scala疑似中文命名问题后续类似, 不过Ruby好像将中文字符认作了非大写的:特殊字符过滤.rb:2: class/module name must be CONSTANT (SyntaxError)方法remove_chars_cn未能中文, 由于Jekyll的Liquid脚本语言貌似不支持Unicode标识符, 会报错:Liquid Warning: Liquid syntax error (line 6): Unexpected character 删 in  in 全文索引.json在本地运行通过后, 将包括插件在内的修改提交到GitHub后, 发现网站加载json文件时报错”invalid JSON”, 查看取json的请求响应内容后, 各种尝试后初步认定是插件未成功运行, 一通搜之后发现, GitHub Pages不支持任意插件的运行: jekyll plugin not work on github解决方法就是本地jekyll生成网站源码后, 将网站源码提交到repo里.参考Configuration Options在_config.yml中将输出目录改为docs:destination: docs再将原本的jekyll文件都移到repo根下, 运行生成后提交, 搞定."
+    } ,
+  
+    {
       "title"    : "Java实现文本编辑时基于拼音输入的补全原型",
       "category" : "命名, IDE",
       "description" : "Java实现文本编辑时基于拼音输入的补全原型",
       "tags"     : "",
-      "url"      : "/%E5%91%BD%E5%90%8D/ide/2019/03/30/Java%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%97%B6%E5%9F%BA%E4%BA%8E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E7%9A%84%E8%A1%A5%E5%85%A8%E5%8E%9F%E5%9E%8B.html",
-      "date"     : "2019-03-30 00:00:00 -0700",
+      "url"      : "/%E5%91%BD%E5%90%8D/ide/2019/04/02/Java%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%97%B6%E5%9F%BA%E4%BA%8E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E7%9A%84%E8%A1%A5%E5%85%A8%E5%8E%9F%E5%9E%8B.html",
+      "date"     : "2019-04-02 00:00:00 -0700",
       "content"  : "续前文Java实现”命令式”简易文本编辑器原型. 效果如下:所在源码库同上文, 尚未和上文的编辑器右侧的命令区集成. 代码由How to show autocomplete as I type in JTextArea?修改得来.基本功能  英文输入至少一个匹配词典的字母后, 显示提示框  上下光标选中某提示项后按空格键自动替换  弹出提示框后, 如果继续键入, 提示框隐藏后, 根据新键入继续提示. 比如上面输入’t’后提示”退出”和”粘贴”两项, 继续输入’c’后就只显示”退出”IDE和中文输入法的深度集成是必然趋势. 虽然现在第三方的中文输入法可以解决”输入”的基本功能, 但在IDE自动补全/智能提示功能日益成为开发效率提升的必需辅助功能的现今, 只有实现了中文输入法和IDE补全/提示的集成, 中文编程才能更接近实用. 这早已在易语言开发环境中实现, 期待早日看到开源项目实现类似功能.源码简单说明监听文本框的按键输入, 并准备弹出提示框:    文本区.addKeyListener(new KeyListener()       Override      public void keyTyped(KeyEvent e)         随后显示提示();      ...    );弹出之前, 先获取此次输入的字符串, 并基于它生成/更新提示框:  private void 显示提示()     final int 文本位置 = 文本区.getCaretPosition();    Point 界面位置;    try       界面位置 = 文本区.modelToView(文本位置).getLocation();     catch (BadLocationException e2)       e2.printStackTrace();      return;        final String 提示源词 = 取提示源词(文本位置);    if (提示源词 == null)       return;        if (提示 == null)       提示 = new 提示框(文本区, 文本位置, 提示源词, 界面位置);     else       提示.更新(文本位置, 提示源词, 界面位置);      提示框部分, 由一个列表来管理提示项的选择, 文本的替换:  private JListlt;Stringgt; 创建提示列表(final String[] 提示列表)     JListlt;Stringgt; 列表 = new JListlt;gt;(提示列表);    列表.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));    列表.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    列表.setSelectedIndex(0);    列表.addKeyListener(new KeyListener()       Override      public void keyTyped(KeyEvent e)         if (e.getKeyChar() == KeyEvent.VK_SPACE)           if (插入选择文本())             隐藏();                   else           隐藏();          文本区.requestFocusInWindow();          文本区.dispatchEvent(e);                    Override      public void keyPressed(KeyEvent e)         if (e.getKeyCode() == KeyEvent.VK_DOWN)           下移();         else if (e.getKeyCode() == KeyEvent.VK_UP)           上移();              ...    );    return 列表;  当然少不了一个字符-gt;中文词典(如下), 实际应用时需要基于拼音生成提示的算法  private static final HashMaplt;String, String[]gt; 提示词典 = new HashMaplt;gt;();  static     提示词典.put(xj, new String[] 新建);    提示词典.put(dk, new String[] 打开);    提示词典.put(bc, new String[] 保存);    提示词典.put(jq, new String[] 剪切);    提示词典.put(fz, new String[] 复制);    提示词典.put(nt, new String[] 粘贴);    提示词典.put(zt, new String[] 粘贴);    提示词典.put(tc, new String[] 退出);    提示词典.put(j, new String[] 新建, 剪切);    提示词典.put(t, new String[] 退出, 粘贴);  "
     } ,
   
