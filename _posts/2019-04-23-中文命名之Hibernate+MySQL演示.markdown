@@ -19,7 +19,9 @@ categories: 命名 Hibernate
 运行`com.codeinchinese.App`, 在数据库表中插入一条记录并进行一次条件查询.
 
 ### 数据库
-[源码](https://github.com/nobodxbodon/HibernateExampleZh/blob/master/数据库/客户.sql); 需修改`hibernate.cfg.xml`中的数据库用户/密码部分.
+[源码](https://github.com/nobodxbodon/HibernateExampleZh/blob/master/数据库/客户.sql)如下, 与[前文](https://zhuanlan.zhihu.com/p/31417833)相比, 多了索引.
+
+需修改`hibernate.cfg.xml`中的数据库用户/密码部分.
 ```mysql
 DROP TABLE IF EXISTS `演示`.`客户`;
 CREATE TABLE  `演示`.`客户` (
