@@ -7,7 +7,7 @@ date:   2017-10-29 00:00:00 -0700
 categories: 命名 API
 ---
 
-在前文[对在代码中使用中文命名的质疑与回应]({{ site.baseurl }}{% link _posts/2017-10-27-对在代码中使用中文命名的质疑与回应.markdown %})中阐述了在代码中使用中文命名的益处. 此文将从软件使用者的角度阐述对API中文化的意义并探讨实现途径. 当然, 文中面向的用户是以中文为母语的开发者.
+在前文[对在代码中使用中文命名的质疑与回应](https://zhuanlan.zhihu.com/p/30529835)中阐述了在代码中使用中文命名的益处. 此文将从软件使用者的角度阐述对API中文化的意义并探讨实现途径. 当然, 文中面向的用户是以中文为母语的开发者.
 
 首先请看一个[实例](https://github.com/program-in-chinese/p5js_in_chinese/blob/master/%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%BD%A2/%E6%BC%94%E7%A4%BA.js), 演示效果在[此](https://p5js.org/examples/hello-p5-simple-shapes.html):
 

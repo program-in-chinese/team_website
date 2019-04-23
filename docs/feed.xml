@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-04-20T15:02:14-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">为Jekyll+GitHub Pages添加全文搜索功能</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html" rel="alternate" type="text/html" title="为Jekyll+GitHub Pages添加全文搜索功能" /><published>2019-04-08T00:00:00-07:00</published><updated>2019-04-08T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub%20Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-08_gh%E6%90%9C%E7%B4%A2%E6%BC%94%E7%A4%BA.png&quot; alt=&quot;2019-04-08_gh搜索演示&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-04-23T16:36:19-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">中文命名之Hibernate+MySQL演示</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html" rel="alternate" type="text/html" title="中文命名之Hibernate+MySQL演示" /><published>2019-04-23T00:00:00-07:00</published><updated>2019-04-23T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html">&lt;p&gt;最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: &lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh&quot;&gt;HibernateExampleZh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;当前用的是Hibernate 3.3.2.GA. 之后测试了更多版本, 彩蛋见最后一部分.&lt;/p&gt;
+
+&lt;h3 id=&quot;测试环境&quot;&gt;测试环境:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Windows 7 Pro 64bit, JDK 1.7.0_80, MySQL 5.5.62, Eclipse Kepler SR2&lt;/li&gt;
+  &lt;li&gt;MacOS 10.13.6, JDK 1.8.0_45, MySQL 5.5.24, Eclipse 4.7.3a&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;功能验证&quot;&gt;功能验证:&lt;/h3&gt;
+&lt;p&gt;运行&lt;code class=&quot;highlighter-rouge&quot;&gt;com.codeinchinese.App&lt;/code&gt;, 在数据库表中插入一条记录并进行一次条件查询.&lt;/p&gt;
+
+&lt;h3 id=&quot;数据库&quot;&gt;数据库&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh/blob/master/数据库/客户.sql&quot;&gt;源码&lt;/a&gt;; 需修改&lt;code class=&quot;highlighter-rouge&quot;&gt;hibernate.cfg.xml&lt;/code&gt;中的数据库用户/密码部分.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-mysql&quot;&gt;DROP TABLE IF EXISTS `演示`.`客户`;
+CREATE TABLE  `演示`.`客户` (
+  `客户_ID` bigint(20) unsigned COLLATE utf8_unicode_ci NOT NULL AUTO_INCREMENT,
+  `姓名` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `创建日期` datetime COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`客户_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
+
+ALTER TABLE `演示`.`客户`
+ADD INDEX `姓名_索引` (`姓名` ASC) ;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;java&quot;&gt;Java&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh/blob/master/src/main/java/com/codeinchinese/客户/模型/客户类.java&quot;&gt;模型类&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户类&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Serializable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户类&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户类&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;hibernate映射文件&quot;&gt;Hibernate映射文件&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh/blob/master/src/main/resources/com/codeinchinese/%E5%AE%A2%E6%88%B7/hibernate/%E5%AE%A2%E6%88%B7.hbm.xml&quot;&gt;客户.hbm.xml&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;hibernate-mapping&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;class&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.codeinchinese.客户.模型.客户类&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;table=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;客户&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;客户Id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;java.lang.Long&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;column&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;客户_ID&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;generator&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;identity&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;姓名&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;column&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;姓名&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;45&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;not-null=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;创建日期&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;column&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;创建日期&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;19&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;not-null=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/hibernate-mapping&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;检查更多hibernate版本&quot;&gt;检查更多Hibernate版本&lt;/h3&gt;
+
+&lt;p&gt;经测试, 到&lt;code class=&quot;highlighter-rouge&quot;&gt;4.2.21.Final&lt;/code&gt;都正常运行, 但从&lt;code class=&quot;highlighter-rouge&quot;&gt;5.0.0.Final&lt;/code&gt;开始到最近的&lt;code class=&quot;highlighter-rouge&quot;&gt;6.0.0.Alpha2&lt;/code&gt;, 都不支持模型类名的中文命名. 具体报错如下:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Caused by: org.xml.sax.SAXParseException; lineNumber: 6; columnNumber: 58; cvc-pattern-valid: Value 'com.codeinchinese.客户.模型.客户类' is not facet-valid with respect to pattern '([a-zA-Z_$][a-zA-Z\d_$]*\.)*[a-zA-Z_$][a-zA-Z\d_$]*' for type 'ClassNameType'.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(XMLSchemaValidator.java:452)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(XMLSchemaValidator.java:3230)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processOneAttribute(XMLSchemaValidator.java:2825)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processAttributes(XMLSchemaValidator.java:2762)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:2050)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl.startElement(ValidatorHandlerImpl.java:570)
+	at com.sun.xml.bind.v2.runtime.unmarshaller.ValidatingUnmarshaller.startElement(ValidatingUnmarshaller.java:101)
+	at com.sun.xml.bind.v2.runtime.unmarshaller.InterningXmlVisitor.startElement(InterningXmlVisitor.java:75)
+	at com.sun.xml.bind.v2.runtime.unmarshaller.StAXEventConnector.handleStartElement(StAXEventConnector.java:261)
+	at com.sun.xml.bind.v2.runtime.unmarshaller.StAXEventConnector.bridge(StAXEventConnector.java:130)
+	at com.sun.xml.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:460)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;修改为英文类名&lt;code class=&quot;highlighter-rouge&quot;&gt;com.codeinchinese.customer.model.Customer&lt;/code&gt;后, 保留MySQL中文命名和Hibernate相关映射, 仍能运行.&lt;/p&gt;
+
+&lt;p&gt;考虑到这是从版本4到5的功能退化, 而且在6.0版本并无修复的意思, 应该提issue反馈一下.&lt;/p&gt;
+
+&lt;h3 id=&quot;参考&quot;&gt;参考&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.mkyong.com/hibernate/maven-3-hibernate-3-6-oracle-11g-example-xml-mapping/&quot;&gt;Maven 3 + Hibernate 3.6 + Oracle 11g Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: HibernateExampleZh</summary></entry><entry><title type="html">为Jekyll+GitHub Pages添加全文搜索功能</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html" rel="alternate" type="text/html" title="为Jekyll+GitHub Pages添加全文搜索功能" /><published>2019-04-08T00:00:00-07:00</published><updated>2019-04-08T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub%20Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-08_gh%E6%90%9C%E7%B4%A2%E6%BC%94%E7%A4%BA.png&quot; alt=&quot;2019-04-08_gh搜索演示&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;动态演示如下:&lt;/p&gt;
 
@@ -686,83 +807,4 @@ Token.isIdentifier,为标识符
 
 &lt;blockquote&gt;
   &lt;p&gt;吃了么, 大林&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">续前文转载: 中文輸進去，程式出得來，開發者發大財 -LingaScript:中文化TypeScript, 虽然其中例程使用了繁体中文语法, 但它同时也支持简体中文语法.</summary></entry><entry><title type="html">为《 两周自制脚本语言 》添加中文测试代码</title><link href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html" rel="alternate" type="text/html" title="为《 两周自制脚本语言 》添加中文测试代码" /><published>2019-03-14T01:00:00-07:00</published><updated>2019-03-14T01:00:00-07:00</updated><id>http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA%E3%80%8A%20%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80%20%E3%80%8B%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81</id><content type="html" xml:base="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/14/%E4%B8%BA-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-03-13-stone%E6%B5%8B%E8%AF%95.png&quot; alt=&quot;2019-03-13-stone测试&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;源自&lt;a href=&quot;https://www.zhihu.com/question/27686032/answer/621549753&quot;&gt;自制编译器+自制脚本语言+自制编程语言 三书比较？&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;两年多前只看了一本的前六章: &lt;a href=&quot;http://tieba.baidu.com/p/4563689271&quot;&gt;实践”两周自制脚本语言”一书【java吧】_百度贴吧&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;当时是希望一路添加测试用例, 并且最终把语言改为中文语法. 但看到Gluonj之后,似乎必须要Loader.run来执行解释器, 得不到返回值, 只能打印解释结果.&lt;/p&gt;
-
-&lt;p&gt;今天从此书官网(&lt;a href=&quot;https://chibash.github.io/essays/book&quot;&gt;スクリプト言語の作り方&lt;/a&gt;)找到了它的附带源码库: &lt;a href=&quot;https://github.com/chibash/stone&quot;&gt;chibash/stone&lt;/a&gt;, 顺便研究了一下Gluonj源码, 找到了它的JUnit辅助功能: &lt;a href=&quot;https://github.com/chibash/gluonj/blob/master/src/javassist/gluonj/util/UTester.java&quot;&gt;https://github.com/chibash/gluonj/blob/master/src/javassist/gluonj/util/UTester.java&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;据此写了第五到十四章的测试, 运行效果见开头. 下面以第九章的为例:&lt;/p&gt;
-
-&lt;p&gt;测试用”石头”语言源码: &lt;a href=&quot;https://github.com/program-in-chinese/stone/blob/master/%E6%B5%8B%E8%AF%95%E6%BA%90%E7%A0%81/chap9/%E4%BD%8D%E7%BD%AE%E7%B1%BB.txt&quot;&gt;位置类&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Position {
-    x = y = 0
-    def move (nx, ny) {
-        x = nx; y = ny;
-    }
-}
-p = Position.new
-p.move(3, 4)
-p.x = 10
-sum = p.x + p.y
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;测试代码: &lt;a href=&quot;https://github.com/program-in-chinese/stone/blob/master/test/chap9/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%A7%A3%E9%87%8A%E5%99%A8Test.java&quot;&gt;面向对象解释器Test&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chap9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.nio.charset.StandardCharsets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.junit.Test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;chap7.NestedEnv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;chap8.Natives&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javassist.gluonj.util.UTester&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;stone.ClassParser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;stone.ParseException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;stone.util.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件功用&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;stone.util.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;解释器功用&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;面向对象解释器&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ClassInterpreter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;位置类&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;位置类&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件功用&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;读文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;测试源码/chap9/位置类.txt&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StandardCharsets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;UTF_8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;求值&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;源代码&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ParseException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;解释器功用&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;求值&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ClassParser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Natives&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NestedEnv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;源代码&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;例程&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UTester&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;runTestWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;chap9.ClassEvaluator&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;chap8.NativeEvaluator&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;chap7.ClosureEvaluator&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;求值&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;位置类&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;改写自&lt;a href=&quot;https://github.com/program-in-chinese/stone/blob/f8b447f9b4cfc671f1d2747c092774d24194ea36/src/chap6/BasicInterpreter.java#L10&quot;&gt;BasicInterpreter&lt;/a&gt;的&lt;a href=&quot;https://github.com/program-in-chinese/stone/blob/f8b447f9b4cfc671f1d2747c092774d24194ea36/test/stone/util/%E8%A7%A3%E9%87%8A%E5%99%A8%E5%8A%9F%E7%94%A8.java#L20&quot;&gt;解释器功用.求值()&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;求值&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BasicParser&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;基本分析器&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Environment&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;环境&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;源代码&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ParseException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Lexer&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;词法分析器&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Lexer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;源代码&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;终值&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;词法分析器&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;peek&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;ASTree&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;树&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;基本分析器&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;词法分析器&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;树&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NullStmnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;终值&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BasicEvaluator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ASTreeEx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;树&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;环境&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;终值&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;又有了深入学习此书(顺便将代码中文化, 像之前的&lt;a href=&quot;https://zhuanlan.zhihu.com/p/50726829&quot;&gt;中文编程：手工翻译Vue.js源码:尝试重命名标识符与文本&lt;/a&gt;), 并据此开发一些中文编程语言原型的动力.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;补&lt;/em&gt;&lt;/strong&gt;: 十四章中fib(33)的运行时间确实与Java的对应代码运行时间相差无几, 虽然如作者所言, 并不能以此判断语言的性能.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">续前文转载: 中文輸進去，程式出得來，開發者發大財 -LingaScript:中文化TypeScript, 虽然其中例程使用了繁体中文语法, 但它同时也支持简体中文语法.</summary></entry></feed>

@@ -5,6 +5,7 @@ title:  在Maven Central发布中文API的Java库
 description: 开发一个简单的Java库, 通过sonatype发布到Maven主库. Publish Java library with APIs in Chinese on Maven Central, through Sonatype.
 date:   2017-07-20 00:00:00 -0700
 categories: 命名 API
+
 ---
 
 [知乎原链](https://zhuanlan.zhihu.com/p/28024364)

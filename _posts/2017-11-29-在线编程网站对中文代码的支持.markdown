@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  在线编程网站对中文代码的支持
-description: 检验多个在线编程网站对中文标识符的支持, 包括运行和编译反馈信息. Verify support of Chinese identifiers on online programming websites, including running and compile messags.
+description: 检验多个在线编程网站对中文标识符的支持, 包括运行和编译反馈信息. Verify support of Chinese identifiers on online programming websites, including running and compile messages.
 date:   2017-11-28 00:00:00 -0700
 categories: 语言设计 LOGO
 ---

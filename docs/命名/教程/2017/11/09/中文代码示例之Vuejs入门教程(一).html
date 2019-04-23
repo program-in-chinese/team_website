@@ -138,8 +138,8 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>为了检验中文命名在主流框架中的支持程度, 在vuejs官方入门教程第一部分的示例代码中尽量使用了中文命名. 所有演示都在本地测试通过, 源码在这里. 下面省略了很多原教程的说明内容, 而着重于代码示例本身. 欢迎问题/批评.
-声明式渲染</p>
+    <p>为了检验中文命名在主流框架中的支持程度, 在vuejs<a href="https://cn.vuejs.org/v2/guide/">官方入门教程</a>第一部分的示例代码中尽量使用了中文命名. 所有演示都在本地测试通过, 源码在<a href="https://github.com/program-in-chinese/vuejs_guide_zh">这里</a>. 下面省略了很多原教程的说明内容, 而着重于代码示例本身. 欢迎问题/批评.</p>
+<h3 id="声明式渲染">声明式渲染</h3>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"元素id"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;p&gt;</span>{{ 问候 }}<span class="nt">&lt;/p&gt;</span>
@@ -153,7 +153,7 @@
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div></div>
-<p>打开你的浏览器的控制台 (就在这个页面打开)，并修改 应用1.问候，你将看到上例相应地更新。</p>
+<p>打开你的浏览器的控制台 (就在这个页面打开)，并修改<code class="highlighter-rouge">应用1.问候</code>，你将看到上例相应地更新。</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"元素id2"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">v-bind:title=</span><span class="s">"动态绑定信息"</span><span class="nt">&gt;</span>
         鼠标悬停几秒钟查看此处动态绑定的提示信息！
@@ -167,8 +167,8 @@
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div></div>
-<p>再次打开浏览器的 JavaScript 控制台输入 应用2.动态绑定信息 = ‘新消息’，就会再一次看到这个绑定了 title 属性的 HTML 已经进行了更新
-条件与循环</p>
+<p>再次打开浏览器的 JavaScript 控制台输入<code class="highlighter-rouge">应用2.动态绑定信息 = '新消息'</code>，就会再一次看到这个绑定了<code class="highlighter-rouge">title</code>属性的HTML已经进行了更新</p>
+<h3 id="条件与循环">条件与循环</h3>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"元素id3"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;p</span> <span class="na">v-if=</span><span class="s">"看得到"</span><span class="nt">&gt;</span>现在你看到我了<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span> 
@@ -202,7 +202,7 @@
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div></div>
-<p>警告如下, 但列表仍然显示. 已经在Vue项目新建issue</p>
+<p>警告如下, 但列表仍然显示. 已经在Vue项目新建<a href="https://github.com/vuejs/vue/issues/6971">issue</a></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Vue warn]: Error compiling template:
 
@@ -219,10 +219,10 @@
 
 (found in &lt;Root&gt;)
 </code></pre></div></div>
-<p>在控制台里，输入 应用4.任务表.push({ 内容: ‘新项目’ })，你会发现列表中添加了一个新项。
-处理用户输入</p>
+<p>在控制台里，输入<code class="highlighter-rouge">应用4.任务表.push({ 内容: '新项目' })</code>，你会发现列表中添加了一个新项。</p>
+<h4 id="处理用户输入">处理用户输入</h4>
 
-<p>v-on:click支持中文方法名, 但需要(). 为此在Vue项目新建issue, 经社区建议得知并检验, 另一种方式@click也支持中文命名, 同样需要().</p>
+<p><code class="highlighter-rouge">v-on:click</code>支持中文方法名, 但需要<code class="highlighter-rouge">()</code>. 为此在Vue项目新建<a href="https://github.com/vuejs/vue/issues/6975">issue</a>, 经社区建议得知并检验, 另一种方式<code class="highlighter-rouge">@click</code>也支持中文命名, 同样需要<code class="highlighter-rouge">()</code>.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"元素id5"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;p&gt;</span>{{ 问好 }}<span class="nt">&lt;/p&gt;</span>
@@ -258,7 +258,7 @@
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div></div>
-<p>组件化应用构建</p>
+<h3 id="组件化应用构建">组件化应用构建</h3>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"元素id7"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ol&gt;</span>
         <span class="nt">&lt;todo-item</span>
@@ -286,10 +286,10 @@
 <span class="p">})</span>
 </code></pre></div></div>
 
-<p>这里的HTML标签todo-item和其他标签(如div, ol)一样, 不支持中文命名.</p>
+<p>这里的HTML标签<code class="highlighter-rouge">todo-item</code>和其他标签(如div, ol)一样, 不支持中文命名.</p>
 
-<p>核心基本功能介绍结束.
-后记</p>
+<p>核心基本功能介绍结束.</p>
+<h3 id="后记">后记</h3>
 
 <p>初步看来Vuejs对中文命名的支持不错, 尤其是模板的部分. 个别改进建议已经在Vue的github库以issue的方式提出, 社区的活跃度很高, 开发者对这些issue的反应很快, 标记上了”改进”标签, 并针对一个不支持中文命名的问题提供了解决方案.</p>
 
@@ -297,7 +297,7 @@
 
 <p>11/20/2017 补记:</p>
 
-<p>中文代码示例之Vuejs入门教程(一)问题后续</p>
+<p><a href="https://zhuanlan.zhihu.com/p/31253256">中文代码示例之Vuejs入门教程(一)问题后续</a></p>
 
   </div>
 

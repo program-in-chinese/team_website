@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  编程语言试验之Antlr4+Java实现"圈2"
-description: 参考网文, 使用Antlr生成Java分析器, 实现一个简单的编程语言. Implement a pretotype programming language with Antlr4 and Java, based on an online article..
+description: 参考网文, 使用Antlr生成Java分析器, 实现一个简单的编程语言. Implement a pretotype programming language with Antlr4 and Java, based on an online article.
 date:   2017-11-26 00:00:00 -0700
 categories: 语言设计
 ---

@@ -24,7 +24,7 @@ categories: 语言设计
 
 
 另: 运行"npm run test"时, 发现了一个关于[时间处理的bug](https://github.com/kujirahand/nadesiko3/issues/233). 将继续跟进; 暂时没有发现断点调试等功能.
-源码学习
+### 源码学习
 
 在/src下, 源码文件不多, 分类如下, 连同基于源码和注释个人整理的简单介绍:
 

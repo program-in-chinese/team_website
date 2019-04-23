@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  编程语言试验之Antlr4+JavaScript实现"圈4"
-description: 参考网文, 倚靠Antlr生成JavaScript实现的分析器, 实现一个简单的编程语言. Implement a pretotype programming language with Antlr4 and JavaScript, based on an online article..
+description: 参考网文, 倚靠Antlr生成JavaScript实现的分析器, 实现一个简单的编程语言. Implement a pretotype programming language with Antlr4 and JavaScript, based on an online article.
 date:   2017-12-02 00:00:00 -0700
 categories: 语言设计
 ---
