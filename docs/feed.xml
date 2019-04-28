@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-04-23T16:49:22-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">中文命名之Hibernate+MySQL演示</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html" rel="alternate" type="text/html" title="中文命名之Hibernate+MySQL演示" /><published>2019-04-23T00:00:00-07:00</published><updated>2019-04-23T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html">&lt;p&gt;最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: &lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh&quot;&gt;HibernateExampleZh&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-04-28T12:27:35-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">“用中文编程”微信公众号和今日头条开通, 其他各交流渠道小结</title><link href="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html" rel="alternate" type="text/html" title="&quot;用中文编程&quot;微信公众号和今日头条开通, 其他各交流渠道小结" /><published>2019-04-28T00:00:00-07:00</published><updated>2019-04-28T00:00:00-07:00</updated><id>http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%22%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%22%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0</id><content type="html" xml:base="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html">&lt;p&gt;前几天开始运营”用中文编程”微信公众号和同名&lt;a href=&quot;https://www.toutiao.com/c/user/690130635195164/&quot;&gt;今日头条号&lt;/a&gt;. 有必要对积累至今的各种交流渠道作一阶段小结.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/program-in-chinese&quot;&gt;“中文编程”GitHub组&lt;/a&gt;创建将近两年, 组员40人, 积累了不少源码使用中文命名以及的开源项目.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/codeInChinese&quot;&gt;“中文编程”知乎专栏&lt;/a&gt;建立一年半, 在一周年时关注人数350, 当时小目标是在二周年时达到关注1000人. 现在关注650人, 看起来应该可以达标. 尤其最近专栏有越来越多文章出自其他作者, 是非常可喜的势头. (更详细数据如阅读量等请见微信公众号文章)&lt;/p&gt;
+
+&lt;p&gt;已在CSDN和cnblog建立知乎专栏文章的镜像博客. 从数据看来(详见公众号首篇文章), CSDN影响较大.&lt;/p&gt;
+
+&lt;p&gt;2018年12月开展”中文编程”qq群&lt;code class=&quot;highlighter-rouge&quot;&gt;620225373&lt;/code&gt;, 当前102人. 主要是考虑交流习惯, 每周一次(一般北京时间周六下午)的语音例会也通过qq群进行.&lt;/p&gt;
+
+&lt;p&gt;根据各个渠道的不同受众, 不同的定位初步打算如下:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;GitHub组, 继续进行围绕具体项目(中文编程相关)的技术交流与合作. 公众号内公布的数据应该也会最早在这里整理和备份.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;知乎专栏, 继续对GitHub组的项目进行阶段宣传, 中文编程相关技术的讨论以及其他作者的相关文章发布. CSDN和cnblog继续镜像.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今日头条/搜狐号, 短期的主要目标是推广中文命名, 今后当有较成熟的中文编程相关工具项目(主要包括本GitHub组的或者其他开发组的相关开源项目), 进行试用宣传. 主要内容来源仍为GitHub项目与知乎专栏文章.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;微信公众号, 主要对推广进展进行小结, 公众号文章不会与中文编程技术直接相关, 而是着重推广过程的”内部资料” – 首发一些推广本身的数据(包括可能的财务收支数据), 比如每篇头条文章的推荐阅读数跟踪, 各个渠道的关注人数跟踪等等, 以及相应调整的计划. 这些资料也会适时在其他渠道发布, 但不会像这里的详尽和即时.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;qq群, 继续作为较宽松的交流以及每周末语音组会的渠道.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今日头条号已发布两篇文章, 根据推荐/阅读数据和回复/转发等, 几点初步感觉:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果内容较宽泛且较”标题党”, 推荐量会较大, 但阅读数/推荐量(个人理解就是点击率)较低; 相对的如果内容详实干货较多, 推荐量少的多, 但点击率高的多(两篇比较大约四倍).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;干货较多的文章, 读者的回复较为友好. 猜测是推荐目标群体不同的缘故?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;详细数据跟踪当然 –&lt;/p&gt;
+
+&lt;h4 id=&quot;敬请关注用中文编程微信公众号&quot;&gt;敬请关注”用中文编程”微信公众号~&lt;/h4&gt;
+
+&lt;p&gt;另, 搜狐号的文章已经快两天了还在审核, 不知正常吗?&lt;/p&gt;</content><author><name></name></author><summary type="html">前几天开始运营”用中文编程”微信公众号和同名今日头条号. 有必要对积累至今的各种交流渠道作一阶段小结.</summary></entry><entry><title type="html">中文命名之Hibernate+MySQL演示</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html" rel="alternate" type="text/html" title="中文命名之Hibernate+MySQL演示" /><published>2019-04-23T00:00:00-07:00</published><updated>2019-04-23T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html">&lt;p&gt;最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: &lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh&quot;&gt;HibernateExampleZh&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;当前用的是Hibernate 3.3.2.GA. 之后测试了更多版本, 彩蛋见最后一部分.&lt;/p&gt;
 
@@ -752,61 +797,4 @@ Natives.environment,环境
 Token.getText,取文本
 Token.isNumber,为数
 Token.isIdentifier,为标识符
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">5分钟入门LingaScript-尝鲜中文版TypeScript</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/03/15/5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8LingaScript-%E5%B0%9D%E9%B2%9C%E4%B8%AD%E6%96%87%E7%89%88TypeScript.html" rel="alternate" type="text/html" title="5分钟入门LingaScript-尝鲜中文版TypeScript" /><published>2019-03-15T00:00:00-07:00</published><updated>2019-03-15T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/03/15/5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8LingaScript-%E5%B0%9D%E9%B2%9C%E4%B8%AD%E6%96%87%E7%89%88TypeScript</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/03/15/5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8LingaScript-%E5%B0%9D%E9%B2%9C%E4%B8%AD%E6%96%87%E7%89%88TypeScript.html">&lt;p&gt;续前文&lt;a href=&quot;https://zhuanlan.zhihu.com/p/59308226&quot;&gt;转载: 中文輸進去，程式出得來，開發者發大財 -LingaScript:中文化TypeScript&lt;/a&gt;, 虽然其中例程使用了繁体中文语法, 但它同时也支持简体中文语法.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;注: 此文中VS Code的TypeScript环境设置为了中文, 因此错误信息也是中文. 方法见&lt;a href=&quot;https://zhuanlan.zhihu.com/p/59308226&quot;&gt;VS Code 有哪些必不可少的设置项？&lt;/a&gt; 这是VS Code提供的功能.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;按照前文&lt;a href=&quot;https://zhuanlan.zhihu.com/p/36559989&quot;&gt;5分钟入门CTS-尝鲜中文版TypeScript&lt;/a&gt;的过程, 对它的简体版&lt;a href=&quot;https://www.npmjs.com/package/lingascript-cn&quot;&gt;lingascript-cn&lt;/a&gt;进行实测.&lt;/p&gt;
-
-&lt;p&gt;源码库: &lt;a href=&quot;https://github.com/program-in-chinese/LingaScript_cn_in_5_min&quot;&gt;program-in-chinese/LingaScript_cn_in_5_min&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;采用本地安装, 第一个LingaScript程序, 关键字看上去与CTS相同:&lt;/p&gt;
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;函数&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问好&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;吃了么, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt;变量&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;路人&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;打酱油的&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问好&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;路人&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;由于仍使用.ts后缀, 在VS Code下被认作TypeScript源码, 因而有很多语法错误提示, 但不影响编译.&lt;/p&gt;
-
-&lt;p&gt;运行编译后正确生成&lt;code class=&quot;highlighter-rouge&quot;&gt;问好.js&lt;/code&gt;. 与中文代码示例之5分钟入门TypeScript文末一样, 在火狐中打开测试HTML文件仍需将编码改为Unicode.&lt;/p&gt;
-
-&lt;p&gt;添加参数类型:&lt;/p&gt;
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;函数&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问好&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;吃了么, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;如果’那谁’的类型不符, 比如是数组类型&lt;code class=&quot;highlighter-rouge&quot;&gt;[0,1,2]&lt;/code&gt;, 编译时会报错:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;问好.ts:7:30 - error TS2345: 类型“number[]”的参数不能赋给类型“string”的参数。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;添加接口和类. 最终的&lt;a href=&quot;https://github.com/program-in-chinese/LingaScript_cn_in_5_min/blob/master/%E9%97%AE%E5%A5%BD.ts&quot;&gt;问好.ts&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;类别&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;学生&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;全名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;构造&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;公开&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;公开&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;本体&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;全名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt;接口&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;人&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;姓&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt;函数&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问好&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;人&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;吃了么, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;那谁&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt;变量&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;路人&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;新建&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;学生&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;大&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;林&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问好&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;路人&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;编译无误, 运行正常, 网页显示如下:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;吃了么, 大林&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">续前文转载: 中文輸進去，程式出得來，開發者發大財 -LingaScript:中文化TypeScript, 虽然其中例程使用了繁体中文语法, 但它同时也支持简体中文语法.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
