@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-04-28T12:27:35-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">“用中文编程”微信公众号和今日头条开通, 其他各交流渠道小结</title><link href="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html" rel="alternate" type="text/html" title="&quot;用中文编程&quot;微信公众号和今日头条开通, 其他各交流渠道小结" /><published>2019-04-28T00:00:00-07:00</published><updated>2019-04-28T00:00:00-07:00</updated><id>http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%22%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%22%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0</id><content type="html" xml:base="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html">&lt;p&gt;前几天开始运营”用中文编程”微信公众号和同名&lt;a href=&quot;https://www.toutiao.com/c/user/690130635195164/&quot;&gt;今日头条号&lt;/a&gt;. 有必要对积累至今的各种交流渠道作一阶段小结.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-04-28T22:27:18-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">谁说API必须用英文？中文API的Java库可以有！</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/api/2019/04/28/%E5%A4%B4%E6%9D%A1-%E5%9C%A8Maven%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93.html" rel="alternate" type="text/html" title="谁说API必须用英文？中文API的Java库可以有！" /><published>2019-04-28T12:00:00-07:00</published><updated>2019-04-28T12:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/api/2019/04/28/%E5%A4%B4%E6%9D%A1-%E5%9C%A8Maven%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/api/2019/04/28/%E5%A4%B4%E6%9D%A1-%E5%9C%A8Maven%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93.html">&lt;p&gt;是不是看惯了文档里的英文接口（API），也在 IDE 里看惯了自动补全里的英文接口？&lt;/p&gt;
+
+&lt;p&gt;现今的绝大多数 API 的确是英文命名没错，但绝非不能或者不应该实现和发布中文 API 的库。&lt;/p&gt;
+
+&lt;p&gt;这里用一个简单的汉字简繁转换库为例。在命名上，API 的方法名、参数名以及类名都用了中文。下面是 Eclipse 中的 Javadoc 弹窗：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-28_zhconverter%E6%BC%94%E7%A4%BA.png&quot; alt=&quot;中文API的Java库&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;中文 API 的 Java 库，实现汉字的简繁转换。演示在 Eclipse 中的 JavaDoc。&lt;/p&gt;
+
+&lt;p&gt;这个 Java 库已经发布到了 Maven 仓库，可以和其他英文 Java 库一样方便地调用。在 GitHub 上搜索”com.github.nobodxbodon”就可以看到不少 pom.xml 文件中依赖了这个库。&lt;/p&gt;
+
+&lt;p&gt;现在国内自研的 API 面向的主要用户群应该也是国内开发者。即便仍保留英文 API ，&lt;strong&gt;如果能另外提供一套中文的，必然更易于学习和使用，也可以吸引更多使用者&lt;/strong&gt;。即使是额外维护一套中文 API，工作量也很有限，相比起为最终用户带来的益处，可说是相当值得的。&lt;/p&gt;
+
+&lt;p&gt;另外，这个库的实现代码中的标识符也都用了中文命名。原因很简单，这个库的使用者和潜在合作开发者应该都会中文。下面是其中的一段主要代码：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-28_zhconverter%E6%BA%90%E7%A0%81.png&quot; alt=&quot;简繁转换库源码&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;测试代码也都使用了中文命名。其中还引用了另一个中文 API 的库，而且那个库的功能非常通用，多半你的 Java 项目也用得到哦。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-28_zhconvert%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.png&quot; alt=&quot;简繁转换库测试源码&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;项目源码和库使用方法在：https://github.com/program-in-chinese/zhconverter&lt;/p&gt;
+
+&lt;p&gt;更多中文编程推广过程内情，请关注“&lt;strong&gt;用中文编程&lt;/strong&gt;”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">是不是看惯了文档里的英文接口（API），也在 IDE 里看惯了自动补全里的英文接口？</summary></entry><entry><title type="html">“用中文编程”微信公众号和今日头条开通, 其他各交流渠道小结</title><link href="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html" rel="alternate" type="text/html" title="&quot;用中文编程&quot;微信公众号和今日头条开通, 其他各交流渠道小结" /><published>2019-04-28T00:00:00-07:00</published><updated>2019-04-28T00:00:00-07:00</updated><id>http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%22%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%22%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0</id><content type="html" xml:base="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html">&lt;p&gt;前几天开始运营”用中文编程”微信公众号和同名&lt;a href=&quot;https://www.toutiao.com/c/user/690130635195164/&quot;&gt;今日头条号&lt;/a&gt;. 有必要对积累至今的各种交流渠道作一阶段小结.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/program-in-chinese&quot;&gt;“中文编程”GitHub组&lt;/a&gt;创建将近两年, 组员40人, 积累了不少源码使用中文命名以及的开源项目.&lt;/p&gt;
 
@@ -720,81 +744,4 @@ this,本体
 位置.经 = 10
 和 = 位置.经 + 位置.纬
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;测试通过~ 源码提交在&lt;a href=&quot;https://github.com/program-in-chinese/stone/commit/ca0c6715dcc1c43eb30082e266ab17bcada076b8&quot;&gt;此&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">续前文将《 两周自制脚本语言 》测试中使用的接口中文化. 在将此脚本语言改为中文关键字之前, 需要先让它支持中文标识符.</summary></entry><entry><title type="html">将《 两周自制脚本语言 》测试中使用的接口中文化</title><link href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/15/%E5%B0%86-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B5%8B%E8%AF%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%AD%E6%96%87%E5%8C%96.html" rel="alternate" type="text/html" title="将《 两周自制脚本语言 》测试中使用的接口中文化" /><published>2019-03-15T00:00:00-07:00</published><updated>2019-03-15T00:00:00-07:00</updated><id>http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/15/%E5%B0%86%E3%80%8A%20%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80%20%E3%80%8B%E6%B5%8B%E8%AF%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%AD%E6%96%87%E5%8C%96</id><content type="html" xml:base="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/%E5%91%BD%E5%90%8D/2019/03/15/%E5%B0%86-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-%E6%B5%8B%E8%AF%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%AD%E6%96%87%E5%8C%96.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-03-15-stone%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E5%8C%96.png&quot; alt=&quot;2019-03-15-stone测试中文化&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;续前文&lt;a href=&quot;https://zhuanlan.zhihu.com/p/59247625&quot;&gt;为《 两周自制脚本语言 》添加中文测试代码&lt;/a&gt;. 之前在&lt;a href=&quot;https://zhuanlan.zhihu.com/p/50726829&quot;&gt;手工翻译Vue.js源码:尝试重命名标识符与文本&lt;/a&gt;时, 采用的顺序是从主程序入口开始. 这次从自己编写的测试代码开始, 一是较为熟悉代码, 二是测试驱动开发的思路.&lt;/p&gt;
-
-&lt;p&gt;在过程中, 基本依托Eclipse的”重命名”功能, 尚未发现功能上的问题.&lt;/p&gt;
-
-&lt;p&gt;在修改&lt;code class=&quot;highlighter-rouge&quot;&gt;eval&lt;/code&gt;方法名时, 一开始只重命名了&lt;code class=&quot;highlighter-rouge&quot;&gt;ASTreeEx&lt;/code&gt;中的, 后发觉需要将&lt;code class=&quot;highlighter-rouge&quot;&gt;ASTree&lt;/code&gt;的所有子类中的&lt;code class=&quot;highlighter-rouge&quot;&gt;eval&lt;/code&gt;一并重命名. 其他子类递归调用的API也如此. GluonJ的机制如下(摘自原书), 开发时需要注意.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;eval 方法 看似 定义 于 ASTreeEx 类 中， 其实 该类 的 定义 将被 替换， eval 方法 实际上 将由 ASTree 类 定义。 其他 类 的 eval 方法 同样 如此。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;翻译的中英对应在&lt;a href=&quot;https://github.com/program-in-chinese/stone/tree/master/%E8%AF%8D%E5%85%B8&quot;&gt;词典&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;类名:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Lexer,词法分析器类
-Token,词类
-BasicParser,基本语法分析器类
-ASTree,语法树类
-BinaryExpr,二元表达式类
-ASTLeaf,语法树叶类
-WhileStmnt,While声明类
-ParseException,分析例外
-BasicInterpreter,基本解释器类
-BasicEnv,基本环境类
-BasicEvaluator,基本求值器类
-FuncInterpreter,函数解释器类
-FuncParser,函数语法分析器类
-NestedEnv,嵌套环境类
-FuncEvaluator,函数求值器类
-ClosureInterpreter,闭包解释器类
-ClosureParser,闭包语法分析器类
-ClosureEvaluator,闭包求值器类
-NativeInterpreter,原生解释器类
-NativeEvaluator,原生求值器类
-Natives,原生类
-ClassEvaluator,类求值器类
-ClassInterpreter,类解释器类
-ClassParser,类语法分析器类
-ArrayEvaluator,数组求值器类
-EnvOptimizer,环境优化器类
-InlineCache,内联缓存类
-ObjOptimizer,对象优化器类
-VmInterpreter,虚拟机解释器类
-StoneVMEnv,虚拟机环境类
-VmEvaluator,虚拟机求值器类
-TypedInterpreter,带类型解释器类
-TypeEnv,类型环境类
-TypedParser,带类型语法分析器类
-TypedNatives,带类型原生类
-ToJava,变Java类
-InferFuncTypes,推导函数类型类
-TypeException,类型例外
-TypeInfo,类型信息类
-Environment,环境类
-NullStmnt,空声明类
-ASTreeEx,语法树扩展类
-ASTreeOptEx,语法树优化扩展类
-EnvEx2,环境扩展类2
-TypeChecker,类型检查器类
-ASTreeTypeEx,语法树类型扩展类
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;方法名:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Lexer.read,读
-ASTree.numChildren,子个数
-ASTree.child,子
-ASTLeaf.token,词
-Lexer.peek,瞄
-ASTree.parse,分析
-Natives.environment,环境
-*.eval,求值
-*.lookup,查找
-*.symbols,所有符号
-*.typeCheck,类型检查
-Token.getText,取文本
-Token.isNumber,为数
-Token.isIdentifier,为标识符
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
+&lt;p&gt;测试通过~ 源码提交在&lt;a href=&quot;https://github.com/program-in-chinese/stone/commit/ca0c6715dcc1c43eb30082e266ab17bcada076b8&quot;&gt;此&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">续前文将《 两周自制脚本语言 》测试中使用的接口中文化. 在将此脚本语言改为中文关键字之前, 需要先让它支持中文标识符.</summary></entry></feed>
