@@ -1,0 +1,88 @@
+---
+layout: post
+comments: true
+title:  中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射
+description: 用一个简单例子演示Hibernate 5 + MySQL基本功能中使用中文命名.
+date:   2019-05-14 00:00:00 -0700
+categories: 命名 Hibernate
+---
+
+![2019-05-14-hibernateAnnotation]({{ "/assets/2019-05-14-hibernateAnnotation.png" | absolute_url }})
+
+前文[中文编程：中文命名之Hibernate 4+MySQL演示](https://zhuanlan.zhihu.com/p/63518209)最后留下了个Hibernate 5之后出现的问题, 于是在Hibernate社区提交了报告: [Seemingly regression since Hibernate 5: unicode support for class name in XML mapping file](https://hibernate.atlassian.net/browse/HHH-13383)
+
+开发组(👍Gail Badner)反应很快, 一同确认了当前稳定版5.4.2.Final和最新的6.0.0.Alpha2都有此问题, 并且基于官方测试用例[重现了问题](https://github.com/nobodxbodon/hibernate-test-case-templates/commit/b3d805b7abe848b27c7370c2409baecb296d2136). 初步诊断病因是这个[xsd约束](https://github.com/hibernate/hibernate-orm/blob/b7b8f44298191db050f12819ca0594a30124df75/hibernate-core/src/main/resources/org/hibernate/xsd/mapping/legacy-mapping-4.0.xsd#L2073)(***可以继续深究一下源头, 如果是从其他地方拷贝过来的话***). 将此问题添加到了5.4版本的待修复问题列表, 并建议用注解(annotation)而不是xml配置. 经测试的确可通过注解支持与前文相同的中文命名.
+
+完整源码在此分支: [nobodxbodon/HibernateExampleZh](https://github.com/nobodxbodon/HibernateExampleZh/tree/annotation)
+
+带注解的Java源码:
+```java
+@Entity
+@Table(name="客户")
+public class 客户类 implements java.io.Serializable {
+
+  private Long 客户_ID;
+  private String 姓名;
+  private Date 创建日期;
+
+  public 客户类() {
+  }
+
+  public 客户类(String 姓名, Date 创建日期) {
+      this.姓名 = 姓名;
+      this.创建日期 = 创建日期;
+  }
+
+  @Id
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  @Column(name = "客户_ID", length=20)
+  public Long get客户Id() {
+      return this.客户_ID;
+  }
+
+  public void set客户Id(Long 客户Id) {
+      this.客户_ID = 客户Id;
+  }
+
+  @Column(name = "姓名", nullable = false, length=45)
+  public String get姓名() {
+      return this.姓名;
+  }
+
+  public void set姓名(String 姓名) {
+      this.姓名 = 姓名;
+  }
+
+  @Column(name = "创建日期", nullable = false, length=19)
+  public Date get创建日期() {
+      return this.创建日期;
+  }
+
+  public void set创建日期(Date 创建日期) {
+      this.创建日期 = 创建日期;
+  }
+
+  @Override
+  public String toString() {
+    return 客户_ID + " " + 姓名 + " " + 创建日期;
+  }
+
+}
+```
+在Hibernate配置文件中指定类, 而非xml映射文件:
+```xml
+		<mapping class="com.codeinchinese.客户.模型.客户类"></mapping>
+```
+期间碰到一个问题:
+
+> Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'å®¢æˆ·ç±»0_.å®¢æˆ·Id' in 'field list'
+
+是由于id的默认数据库列名为Id, 而数据库中使用了客户_ID作为列名. 添加如下注解后解决:
+```java
+  @Column(name = "客户_ID", length=20)
+```
+#### 参考
+
+[Chapter 2. Mapping Entities](https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html)
+
+[org.hibernate.MappingException: Unknown entity: annotations.Users](https://stackoverflow.com/questions/23214454/org-hibernate-mappingexception-unknown-entity-annotations-users)

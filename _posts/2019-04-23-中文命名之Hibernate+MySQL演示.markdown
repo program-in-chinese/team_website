@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  中文命名之Hibernate+MySQL演示
+title:  中文命名之Hibernate 4 + MySQL演示
 description: 用一个简单例子演示Hibernate + MySQL基本功能中使用中文命名. Demostrate naming in Chinese in the basic features of Hibernate + MySQL.
 date:   2019-04-23 00:00:00 -0700
 categories: 命名 Hibernate

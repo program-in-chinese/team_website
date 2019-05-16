@@ -1,0 +1,29 @@
+
+新建文件夹test，vsc打开
+
+建立“源码”文件夹。
+
+在命令行中，进入“源码”文件夹，输入：
+tsc - init
+
+创建了 源码/tsconfig.json
+在文件中添加：
+"cts": true
+
+将tsconfig.json移动到“源码”同级
+
+在“源码”文件夹中创建`index.cts`文件
+
+输入(可关闭中文输入法)：
+```
+变量 临时 = 100；
+控制台.日志(临时);
+```
+
+运行vsc命令"cts:构建"后, 生成`index.js`文件:
+```
+"use strict"
+var 临时 = 100;
+console.log(临时)
+```
+

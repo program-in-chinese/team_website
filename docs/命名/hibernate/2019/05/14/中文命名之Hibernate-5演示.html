@@ -6,28 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>中文命名之Hibernate 4 + MySQL演示</title>
-  <meta name="description" content="用一个简单例子演示Hibernate + MySQL基本功能中使用中文命名. Demostrate naming in Chinese in the basic features of Hibernate + MySQL.">
+  <title>中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射</title>
+  <meta name="description" content="用一个简单例子演示Hibernate 5 + MySQL基本功能中使用中文命名.">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html">
+  <link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html">
   <link rel="alternate" type="application/rss+xml" title="用中文编程" href="/feed.xml">
   
   
   
   <!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>中文命名之Hibernate 4 + MySQL演示 | 用中文编程</title>
-<meta property="og:title" content="中文命名之Hibernate 4 + MySQL演示" />
+<title>中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射 | 用中文编程</title>
+<meta property="og:title" content="中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射" />
 <meta property="og:locale" content="zh" />
-<meta name="description" content="用一个简单例子演示Hibernate + MySQL基本功能中使用中文命名. Demostrate naming in Chinese in the basic features of Hibernate + MySQL." />
-<meta property="og:description" content="用一个简单例子演示Hibernate + MySQL基本功能中使用中文命名. Demostrate naming in Chinese in the basic features of Hibernate + MySQL." />
-<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html" />
-<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html" />
+<meta name="description" content="用一个简单例子演示Hibernate 5 + MySQL基本功能中使用中文命名." />
+<meta property="og:description" content="用一个简单例子演示Hibernate 5 + MySQL基本功能中使用中文命名." />
+<link rel="canonical" href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html" />
 <meta property="og:site_name" content="用中文编程" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-23T00:00:00-07:00" />
+<meta property="article:published_time" content="2019-05-14T00:00:00-07:00" />
 <script type="application/ld+json">
-{"name":null,"description":"用一个简单例子演示Hibernate + MySQL基本功能中使用中文命名. Demostrate naming in Chinese in the basic features of Hibernate + MySQL.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html","publisher":null,"image":null,"headline":"中文命名之Hibernate 4 + MySQL演示","dateModified":"2019-04-23T00:00:00-07:00","datePublished":"2019-04-23T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"用一个简单例子演示Hibernate 5 + MySQL基本功能中使用中文命名.","author":null,"@type":"BlogPosting","url":"http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html","publisher":null,"image":null,"headline":"中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射","dateModified":"2019-05-14T00:00:00-07:00","datePublished":"2019-05-14T00:00:00-07:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <style>
@@ -128,48 +128,28 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">中文命名之Hibernate 4 + MySQL演示</h1>
+    <h1 class="post-title" itemprop="name headline">中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射</h1>
     <p class="post-meta">
-      <time datetime="2019-04-23T00:00:00-07:00" itemprop="datePublished">
+      <time datetime="2019-05-14T00:00:00-07:00" itemprop="datePublished">
         
-        Apr 23, 2019
+        May 14, 2019
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: <a href="https://github.com/nobodxbodon/HibernateExampleZh">HibernateExampleZh</a></p>
+    <p><img src="http://localhost:4000/assets/2019-05-14-hibernateAnnotation.png" alt="2019-05-14-hibernateAnnotation" /></p>
 
-<p>当前用的是Hibernate 3.3.2.GA. 之后测试了更多版本, 彩蛋见最后一部分.</p>
+<p>前文<a href="https://zhuanlan.zhihu.com/p/63518209">中文编程：中文命名之Hibernate 4+MySQL演示</a>最后留下了个Hibernate 5之后出现的问题, 于是在Hibernate社区提交了报告: <a href="https://hibernate.atlassian.net/browse/HHH-13383">Seemingly regression since Hibernate 5: unicode support for class name in XML mapping file</a></p>
 
-<h3 id="测试环境">测试环境:</h3>
-<ul>
-  <li>Windows 7 Pro 64bit, JDK 1.7.0_80, MySQL 5.5.62, Eclipse Kepler SR2</li>
-  <li>MacOS 10.13.6, JDK 1.8.0_45, MySQL 5.5.24, Eclipse 4.7.3a</li>
-</ul>
+<p>开发组(👍Gail Badner)反应很快, 一同确认了当前稳定版5.4.2.Final和最新的6.0.0.Alpha2都有此问题, 并且基于官方测试用例<a href="https://github.com/nobodxbodon/hibernate-test-case-templates/commit/b3d805b7abe848b27c7370c2409baecb296d2136">重现了问题</a>. 初步诊断病因是这个<a href="https://github.com/hibernate/hibernate-orm/blob/b7b8f44298191db050f12819ca0594a30124df75/hibernate-core/src/main/resources/org/hibernate/xsd/mapping/legacy-mapping-4.0.xsd#L2073">xsd约束</a>(<strong><em>可以继续深究一下源头, 如果是从其他地方拷贝过来的话</em></strong>). 将此问题添加到了5.4版本的待修复问题列表, 并建议用注解(annotation)而不是xml配置. 经测试的确可通过注解支持与前文相同的中文命名.</p>
 
-<h3 id="功能验证">功能验证:</h3>
-<p>运行<code class="highlighter-rouge">com.codeinchinese.App</code>, 在数据库表中插入一条记录并进行一次条件查询.</p>
+<p>完整源码在此分支: <a href="https://github.com/nobodxbodon/HibernateExampleZh/tree/annotation">nobodxbodon/HibernateExampleZh</a></p>
 
-<h3 id="数据库">数据库</h3>
-<p><a href="https://github.com/nobodxbodon/HibernateExampleZh/blob/master/数据库/客户.sql">源码</a>如下, 与<a href="https://zhuanlan.zhihu.com/p/31417833">前文</a>相比, 多了索引.</p>
-
-<p>需修改<code class="highlighter-rouge">hibernate.cfg.xml</code>中的数据库用户/密码部分.</p>
-<pre><code class="language-mysql">DROP TABLE IF EXISTS `演示`.`客户`;
-CREATE TABLE  `演示`.`客户` (
-  `客户_ID` bigint(20) unsigned COLLATE utf8_unicode_ci NOT NULL AUTO_INCREMENT,
-  `姓名` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `创建日期` datetime COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`客户_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
-
-ALTER TABLE `演示`.`客户`
-ADD INDEX `姓名_索引` (`姓名` ASC) ;
-</code></pre>
-
-<h3 id="java">Java</h3>
-<p><a href="https://github.com/nobodxbodon/HibernateExampleZh/blob/master/src/main/java/com/codeinchinese/客户/模型/客户类.java">模型类</a></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="err">客户类</span> <span class="nc">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
+<p>带注解的Java源码:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"客户"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="err">客户类</span> <span class="nc">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
 
   <span class="kd">private</span> <span class="n">Long</span> <span class="err">客户</span><span class="n">_ID</span><span class="o">;</span>
   <span class="kd">private</span> <span class="n">String</span> <span class="err">姓名</span><span class="o">;</span>
@@ -183,6 +163,9 @@ ADD INDEX `姓名_索引` (`姓名` ASC) ;
       <span class="k">this</span><span class="o">.</span><span class="err">创建日期</span> <span class="o">=</span> <span class="err">创建日期</span><span class="o">;</span>
   <span class="o">}</span>
 
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"客户_ID"</span><span class="o">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">20</span><span class="o">)</span>
   <span class="kd">public</span> <span class="n">Long</span> <span class="n">get</span><span class="err">客户</span><span class="n">Id</span><span class="o">()</span> <span class="o">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="err">客户</span><span class="n">_ID</span><span class="o">;</span>
   <span class="o">}</span>
@@ -191,6 +174,7 @@ ADD INDEX `姓名_索引` (`姓名` ASC) ;
       <span class="k">this</span><span class="o">.</span><span class="err">客户</span><span class="n">_ID</span> <span class="o">=</span> <span class="err">客户</span><span class="n">Id</span><span class="o">;</span>
   <span class="o">}</span>
 
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"姓名"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">45</span><span class="o">)</span>
   <span class="kd">public</span> <span class="n">String</span> <span class="n">get</span><span class="err">姓名</span><span class="o">()</span> <span class="o">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="err">姓名</span><span class="o">;</span>
   <span class="o">}</span>
@@ -199,6 +183,7 @@ ADD INDEX `姓名_索引` (`姓名` ASC) ;
       <span class="k">this</span><span class="o">.</span><span class="err">姓名</span> <span class="o">=</span> <span class="err">姓名</span><span class="o">;</span>
   <span class="o">}</span>
 
+  <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"创建日期"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">19</span><span class="o">)</span>
   <span class="kd">public</span> <span class="n">Date</span> <span class="n">get</span><span class="err">创建日期</span><span class="o">()</span> <span class="o">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="err">创建日期</span><span class="o">;</span>
   <span class="o">}</span>
@@ -214,54 +199,23 @@ ADD INDEX `姓名_索引` (`姓名` ASC) ;
 
 <span class="o">}</span>
 </code></pre></div></div>
-
-<h3 id="hibernate映射文件">Hibernate映射文件</h3>
-<p><a href="https://github.com/nobodxbodon/HibernateExampleZh/blob/master/src/main/resources/com/codeinchinese/%E5%AE%A2%E6%88%B7/hibernate/%E5%AE%A2%E6%88%B7.hbm.xml">客户.hbm.xml</a></p>
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hibernate-mapping&gt;</span>
-    <span class="nt">&lt;class</span> <span class="na">name=</span><span class="s">"com.codeinchinese.客户.模型.客户类"</span> <span class="na">table=</span><span class="s">"客户"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;id</span> <span class="na">name=</span><span class="s">"客户Id"</span> <span class="na">type=</span><span class="s">"java.lang.Long"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">"客户_ID"</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;generator</span> <span class="na">class=</span><span class="s">"identity"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"姓名"</span> <span class="na">type=</span><span class="s">"string"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">"姓名"</span> <span class="na">length=</span><span class="s">"45"</span> <span class="na">not-null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/property&gt;</span>
-        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"创建日期"</span> <span class="na">type=</span><span class="s">"timestamp"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">"创建日期"</span> <span class="na">length=</span><span class="s">"19"</span> <span class="na">not-null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/property&gt;</span>
-    <span class="nt">&lt;/class&gt;</span>
-<span class="nt">&lt;/hibernate-mapping&gt;</span>
+<p>在Hibernate配置文件中指定类, 而非xml映射文件:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>		<span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">"com.codeinchinese.客户.模型.客户类"</span><span class="nt">&gt;&lt;/mapping&gt;</span>
 </code></pre></div></div>
+<p>期间碰到一个问题:</p>
 
-<h3 id="检查更多hibernate版本">检查更多Hibernate版本</h3>
+<blockquote>
+  <p>Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column ‘å®¢æˆ·ç±»0_.å®¢æˆ·Id’ in ‘field list’</p>
+</blockquote>
 
-<p>经测试, 到<code class="highlighter-rouge">4.2.21.Final</code>都正常运行, 但从<code class="highlighter-rouge">5.0.0.Final</code>开始到最近的<code class="highlighter-rouge">6.0.0.Alpha2</code>, 都不支持模型类名的中文命名. 具体报错如下:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Caused by: org.xml.sax.SAXParseException; lineNumber: 6; columnNumber: 58; cvc-pattern-valid: Value 'com.codeinchinese.客户.模型.客户类' is not facet-valid with respect to pattern '([a-zA-Z_$][a-zA-Z\d_$]*\.)*[a-zA-Z_$][a-zA-Z\d_$]*' for type 'ClassNameType'.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(XMLSchemaValidator.java:452)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(XMLSchemaValidator.java:3230)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processOneAttribute(XMLSchemaValidator.java:2825)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processAttributes(XMLSchemaValidator.java:2762)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:2050)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
-	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl.startElement(ValidatorHandlerImpl.java:570)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.ValidatingUnmarshaller.startElement(ValidatingUnmarshaller.java:101)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.InterningXmlVisitor.startElement(InterningXmlVisitor.java:75)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.StAXEventConnector.handleStartElement(StAXEventConnector.java:261)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.StAXEventConnector.bridge(StAXEventConnector.java:130)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:460)
+<p>是由于id的默认数据库列名为Id, 而数据库中使用了客户_ID作为列名. 添加如下注解后解决:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"客户_ID"</span><span class="o">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">20</span><span class="o">)</span>
 </code></pre></div></div>
-<p>修改为英文类名<code class="highlighter-rouge">com.codeinchinese.customer.model.Customer</code>后, 保留MySQL中文命名和Hibernate相关映射, 仍能运行.</p>
+<h4 id="参考">参考</h4>
 
-<p>考虑到这是从版本4到5的功能退化, 而且在6.0版本并无修复的意思, 应该提issue反馈一下.</p>
+<p><a href="https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html">Chapter 2. Mapping Entities</a></p>
 
-<h3 id="参考">参考</h3>
-
-<p><a href="https://www.mkyong.com/hibernate/maven-3-hibernate-3-6-oracle-11g-example-xml-mapping/">Maven 3 + Hibernate 3.6 + Oracle 11g Example</a></p>
+<p><a href="https://stackoverflow.com/questions/23214454/org-hibernate-mappingexception-unknown-entity-annotations-users">org.hibernate.MappingException: Unknown entity: annotations.Users</a></p>
 
   </div>
 

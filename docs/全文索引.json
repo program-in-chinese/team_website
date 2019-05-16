@@ -1,6 +1,26 @@
 [
   
     {
+      "title"    : "中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射",
+      "category" : "命名, Hibernate",
+      "description" : "用一个简单例子演示Hibernate 5 + MySQL基本功能中使用中文命名.",
+      "tags"     : "",
+      "url"      : "/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html",
+      "date"     : "2019-05-14 00:00:00 -0700",
+      "content"  : "前文中文编程：中文命名之Hibernate 4+MySQL演示最后留下了个Hibernate 5之后出现的问题, 于是在Hibernate社区提交了报告: Seemingly regression since Hibernate 5: unicode support for class name in XML mapping file开发组(👍Gail Badner)反应很快, 一同确认了当前稳定版5.4.2.Final和最新的6.0.0.Alpha2都有此问题, 并且基于官方测试用例重现了问题. 初步诊断病因是这个xsd约束(可以继续深究一下源头, 如果是从其他地方拷贝过来的话). 将此问题添加到了5.4版本的待修复问题列表, 并建议用注解(annotation)而不是xml配置. 经测试的确可通过注解支持与前文相同的中文命名.完整源码在此分支: nobodxbodon/HibernateExampleZh带注解的Java源码:EntityTable(name=客户)public class 客户类 implements java.io.Serializable   private Long 客户_ID;  private String 姓名;  private Date 创建日期;  public 客户类()     public 客户类(String 姓名, Date 创建日期)       this.姓名 = 姓名;      this.创建日期 = 创建日期;    Id  GeneratedValue(strategy=GenerationType.IDENTITY)  Column(name = 客户_ID, length=20)  public Long get客户Id()       return this.客户_ID;    public void set客户Id(Long 客户Id)       this.客户_ID = 客户Id;    Column(name = 姓名, nullable = false, length=45)  public String get姓名()       return this.姓名;    public void set姓名(String 姓名)       this.姓名 = 姓名;    Column(name = 创建日期, nullable = false, length=19)  public Date get创建日期()       return this.创建日期;    public void set创建日期(Date 创建日期)       this.创建日期 = 创建日期;    Override  public String toString()     return 客户_ID +   + 姓名 +   + 创建日期;  在Hibernate配置文件中指定类, 而非xml映射文件:        lt;mapping class=com.codeinchinese.客户.模型.客户类gt;lt;/mappinggt;期间碰到一个问题:  Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column ‘å®¢æˆ·ç±»0_.å®¢æˆ·Id’ in ‘field list’是由于id的默认数据库列名为Id, 而数据库中使用了客户_ID作为列名. 添加如下注解后解决:  Column(name = 客户_ID, length=20)参考Chapter 2. Mapping Entitiesorg.hibernate.MappingException: Unknown entity: annotations.Users"
+    } ,
+  
+    {
+      "title"    : "Cts内测 5分钟入门",
+      "category" : "",
+      "description" : "",
+      "tags"     : "",
+      "url"      : "/2019/05/11/CTS%E5%86%85%E6%B5%8B-5%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8.html",
+      "date"     : "2019-05-11 00:00:00 -0700",
+      "content"  : "新建文件夹test，vsc打开建立“源码”文件夹。在命令行中，进入“源码”文件夹，输入：tsc - init创建了 源码/tsconfig.json在文件中添加：“cts”: true将tsconfig.json移动到“源码”同级在“源码”文件夹中创建index.cts文件输入(可关闭中文输入法)：变量 临时 = 100；控制台.日志(临时);运行vsc命令”cts:构建”后, 生成index.js文件:use strictvar 临时 = 100;console.log(临时)"
+    } ,
+  
+    {
       "title"    : "中文方便就用中文编程！Python图形界面开发实例",
       "category" : "命名, 教程",
       "description" : "以一个Python实现的实用小工具为例, 演示中文命名标识符的可行易用, 以及带来的好处, 包括易于阅读理解, 维护改进, 更可以鼓励其他开发者包括编程新手参与.",
@@ -31,7 +51,7 @@
     } ,
   
     {
-      "title"    : "中文命名之Hibernate+MySQL演示",
+      "title"    : "中文命名之Hibernate 4 + MySQL演示",
       "category" : "命名, Hibernate",
       "description" : "用一个简单例子演示Hibernate + MySQL基本功能中使用中文命名. Demostrate naming in Chinese in the basic features of Hibernate + MySQL.",
       "tags"     : "",
@@ -83,7 +103,7 @@
     {
       "title"    : "重拾《 两周自制脚本语言 》- Eclipse插件实现语法高亮",
       "category" : "语言设计, IDE",
-      "description" : "为《 两周自制脚本语言 》的语言",
+      "description" : "为参考《 两周自制脚本语言 》进行中文化后的语言编写Eclipse插件, 实现基本语法高亮显示",
       "tags"     : "",
       "url"      : "/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2019/03/20/%E9%87%8D%E6%8B%BE-%E4%B8%A4%E5%91%A8%E8%87%AA%E5%88%B6%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-Eclipse%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE.html",
       "date"     : "2019-03-20 00:00:00 -0700",
