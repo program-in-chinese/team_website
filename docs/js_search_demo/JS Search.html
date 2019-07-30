@@ -10,30 +10,26 @@
 <body>
 
 <div class="container">
-  <h1>JS Search Demo</h1>
-  <h4>
-    <i class="fa fa-github-square"></i>
-    <a href="https://github.com/bvaughn/js-search">github.com/bvaughn/js-search</a>
-  </h4>
+  <h1>JS Search 演示</h1>
 
   <ul class="list-inline">
-    <li>Books indexed by:</li>
+    <li>索引:</li>
     <li><input type="checkbox" checked id="indexOnTitleCheckbox"> Title</li>
     <li><input type="checkbox" checked id="indexOnAuthorCheckbox"> Author</li>
-    <li>Index strategy:</li>
+    <li>索引方式:</li>
     <li>
       <select id="indexStrategySelect">
-        <option value="JsSearch.AllSubstringsIndexStrategy">All substrings</option>
-        <option value="JsSearch.ExactWordIndexStrategy">Exact match</option>
-        <option value="JsSearch.PrefixIndexStrategy" selected>Prefix matching</option>
+        <option value="JsSearch.AllSubstringsIndexStrategy">所有子字符串</option>
+        <option value="JsSearch.ExactWordIndexStrategy">完全匹配</option>
+        <option value="JsSearch.PrefixIndexStrategy" selected>前缀匹配</option>
       </select>
     </li>
-    <li><input type="checkbox" id="removeStopWordsCheckbox"> Remove stop words</li>
+    <li><input type="checkbox" id="removeStopWordsCheckbox"> 删除停顿词</li>
     <li>Sanitizer:</li>
     <li>
       <select id="sanitizerSelect">
-        <option value="JsSearch.CaseSensitiveSanitizer">Case Sensitive</option>
-        <option value="JsSearch.LowerCaseSanitizer" selected>Lower Case</option>
+        <option value="JsSearch.CaseSensitiveSanitizer">大小写敏感</option>
+        <option value="JsSearch.LowerCaseSanitizer" selected>小写</option>
       </select>
     </li>
     <li><input type="checkbox" id="useStemmingCheckbox"> Use stemming</li>
@@ -43,10 +39,10 @@
   <form>
     <div class="form-group">
       <label for="searchInput">
-        Filter text
+        过滤文本
         <span id="bookCountBadge" class="badge"></span>
       </label>
-      <input class="form-control" type="search" id="searchInput" placeholder="Search..">
+      <input class="form-control" type="search" id="searchInput" placeholder="搜索..">
     </div>
   </form>
 
@@ -67,7 +63,7 @@
     <div class="progress-bar progress-bar-striped active"
          role="progressbar"
          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-      Loading book data...
+      加载数据...
     </div>
   </div>
 </div>
