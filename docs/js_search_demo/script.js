@@ -1,3 +1,10 @@
+var 中英词典 = {
+  "搜索": "search",
+  "排序": "sort",
+  "打乱": "shuffle",
+  "流": "stream"
+}
+
 var 搜索, 搜索结果, 所有数据 = [];
 
 var 使能类索引 = document.getElementById('使能类索引');
@@ -50,8 +57,8 @@ var 重建索引 = function() {
   搜索.addDocuments(所有数据);
 };
 
-var indexedBooksTable = document.getElementById('indexedBooksTable');
-var indexedBooksTBody = indexedBooksTable.tBodies[0];
+var 结果表格 = document.getElementById('结果表格');
+var indexedBooksTBody = 结果表格.tBodies[0];
 var 搜索框 = document.getElementById('搜索框');
 var bookCountBadge = document.getElementById('bookCountBadge');
 
@@ -93,16 +100,21 @@ var 更新显示 = function() {
 };
 
 var 进行搜索 = function() {
-  搜索结果 = 搜索.search(搜索框.value);
+  var 原始输入 = 搜索框.value;
+  var 关键字 = 原始输入;
+  if (中英词典[原始输入]) {
+    关键字 = 中英词典[原始输入]
+  }
+  搜索结果 = 搜索.search(关键字);
   更新显示();
 };
 
 搜索框.oninput = 进行搜索;
 
-var hideElement  = function(element) {
+var 隐藏元素 = function(element) {
   element.className += ' hidden';
 };
-var showElement = function(element) {
+var 显示元素 = function(element) {
   element.className = element.className.replace(/\s*hidden/, '');
 };
 
@@ -113,9 +125,9 @@ xmlhttp.onreadystatechange = function() {
 
     所有数据 = json.API;
 
-    var loadingProgressBar = document.getElementById('loadingProgressBar');
-    hideElement(loadingProgressBar);
-    showElement(indexedBooksTable);
+    var 数据载入进度 = document.getElementById('数据载入进度');
+    隐藏元素(数据载入进度);
+    显示元素(结果表格);
 
     重建索引();
     更新结果(所有数据);
