@@ -5,6 +5,7 @@ var 中英词典 = {
   "流": "stream"
 }
 
+var 在线文档URL = 'https://devdocs.io/openjdk~8/';
 var 搜索, 搜索结果, 所有数据 = [];
 
 var 重新搜索 = function() {
@@ -25,34 +26,49 @@ var 重建索引 = function() {
 };
 
 var 结果表格 = document.getElementById('结果表格');
-var indexedBooksTBody = 结果表格.tBodies[0];
+var 表格内容 = 结果表格.tBodies[0];
 var 搜索框 = document.getElementById('搜索框');
 
-var 更新结果 = function(books) {
-  indexedBooksTBody.innerHTML = '';
+var 更新结果 = function(结果) {
+  表格内容.innerHTML = '';
 
   var tokens = 搜索.tokenizer.tokenize(搜索框.value);
 
-  for (var i = 0, length = books.length; i < length; i++) {
-    var book = books[i];
+  for (var i = 0, length = 结果.length; i < length; i++) {
+    var 某结果 = 结果[i];
 
     var 包列 = document.createElement('td');
-    包列.innerText = book.包;
+    包列.innerText = 某结果.包;
 
     var 类列 = document.createElement('td');
-    类列.innerHTML = book.类;
+    类列.innerHTML = 取类url(某结果);
 
     var 方法列 = document.createElement('td');
-    方法列.innerHTML = book.名;
+    方法列.innerHTML = 取方法url(某结果);
 
     var 行 = document.createElement('tr');
     行.appendChild(包列);
     行.appendChild(类列);
     行.appendChild(方法列);
 
-    indexedBooksTBody.appendChild(行);
+    表格内容.appendChild(行);
   }
 };
+
+var 取类url = function(某结果) {
+  return "<a href='" + 在线文档URL + 某结果.包.replace(/\./g, '/') + '/' +
+    某结果.类.toLowerCase() + "'>" + 某结果.类 + "</a>";
+}
+
+// TODO: 方法位置由参数决定:
+/* read(byte[] b,
+int off,
+int len)*/
+// #read-byte:A-int-int-
+var 取方法url = function(某结果) {
+  return "<a href='" + 在线文档URL + 某结果.包.replace(/\./g, '/') + '/' +
+    某结果.类.toLowerCase() + "#" + 某结果.名 + "--" + "'>" + 某结果.名 + "</a>";
+}
 
 var 更新显示 = function() {
 
