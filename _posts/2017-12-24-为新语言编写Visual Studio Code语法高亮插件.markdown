@@ -60,6 +60,8 @@ Your extension quan4-highlighter has been created!
 ```
 运行插件后(F5新运行, Command+R可以在插件修改后刷新)实现:
 
+![2017-12-24_quan4语法高亮]({{ "/assets/2017-12-24_quan4语法高亮.jpg" | absolute_url }})
+
 很明显它是最直接的正则表达式匹配. 还不确定是否能做到空格敏感, 以及语法检验.
 
 这只是第一步, 之后还需对语法定义格式([TextMate Manual & Language Grammars](https://manual.macromates.com/en/language_grammars))进行深入学习.
