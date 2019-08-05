@@ -28,6 +28,13 @@ var 重建索引 = function() {
 var 结果表格 = document.getElementById('结果表格');
 var 表格内容 = 结果表格.tBodies[0];
 var 搜索框 = document.getElementById('搜索框');
+var 例程区 = document.getElementById("例程区");
+var 例程框 = document.getElementById("中文例程");
+var 例程 = CodeMirror.fromTextArea(例程框, {
+  mode : "text/x-java",
+  lineNumbers : true,
+  matchBrackets : true
+});
 
 var 更新结果 = function(结果) {
   表格内容.innerHTML = '';
@@ -53,6 +60,27 @@ var 更新结果 = function(结果) {
 
     表格内容.appendChild(行);
   }
+
+  if (结果.length == 1 && 结果[0].名 == "binarySearch") {
+
+    例程区.style.display = 'block';
+    例程.setValue(
+    "import java.util.Arrays;\n" +
+    "import java.util.Collections;\n" +
+    "import java.util.List;\n" +
+    
+    "public class 二分查找空比较器 {\n" +
+    "    public static void main (String args[]) throws Exception {\n" +
+    "        List 列表 = Arrays.asList(new String[] {\"昨天\", \"今天\", \"明天\"});\n" +
+    
+    "        int 结果 = Collections.binarySearch(列表, \"明天\", null);\n" +
+    "        if (结果 != 2)\n" +
+    "            throw new Exception(\"Result: \" + 结果);\n" +
+    "    }\n" +
+    "}")
+  } else {
+    例程区.style.display = 'none';
+  }
 };
 
 var 取类url = function(某结果) {
@@ -67,7 +95,7 @@ int len)*/
 // #read-byte:A-int-int-
 var 取方法url = function(某结果) {
   return "<a href='" + 在线文档URL + 某结果.包.replace(/\./g, '/') + '/' +
-    某结果.类.toLowerCase() + "#" + 某结果.名 + "--" + "'>" + 某结果.名 + "</a>";
+    某结果.类.toLowerCase() + "#" + 某结果.名 + 某结果.网页位置 + "'>" + 某结果.名 + "</a>";
 }
 
 var 更新显示 = function() {
