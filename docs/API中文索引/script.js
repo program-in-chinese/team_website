@@ -1,5 +1,6 @@
 var 中英词典 = {
   "搜索": "search",
+  "二分": "binary",
   "排序": "sort",
   "打乱": "shuffle",
   "流": "stream"
