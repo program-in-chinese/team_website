@@ -1,0 +1,57 @@
+---
+layout: post
+comments: true
+title:  尝试方舟编译器下对Java中标识符中文命名
+description: 
+date:   2019-09-08 00:00:00 -0700
+categories: 命名 方舟编译器
+---
+
+之前承蒙这位测试, 方舟编译器支持Java下的中文命名标识符: [跑不通的可参考Z乎的这篇文章，已找到一个可使测试用例编译通过的java-core库 · Issue #I11R87 · HarmonyOS/OpenArkCompiler - 码云 Gitee.com](https://gitee.com/harmonyos/OpenArkCompiler/issues/I11R87#note_1975102)
+
+为了确认之前([手工翻译方舟编译器源码:尝试重命名标识符与文本](https://zhuanlan.zhihu.com/p/81450947))的源码汉化不会影响编译, 自己也试试.
+
+编译方法参考: [小乖他爹：方舟编译器学习笔记8 工具链可运行（helloworld编译成功）](https://zhuanlan.zhihu.com/p/81340230)
+
+注: 留意jbc2mpl命令需在libjava-core下运行, 否则报错"Unable to open java-core.jar".
+
+编译helloworld后, 运行$java HelloWorld输出"Hello World!"无误.
+
+下面改为你好.java 如下:
+```java
+public class 你好 {
+    public static void main(String[] args) {
+        System.out.println("吃了么!");
+    }
+}
+```
+Makefile修改为:
+```makefile
+APP = 你好
+include $(MAPLE_BUILD_CORE)/maple_test.mk
+```
+照前一样编译, 运行`$java 你好`也正确输出"吃了么!" (09/13补: 貌似生成.class这步是用了OpenJDK而非方舟?)
+
+比较在意的是, 生成的.class文件小一些在预料之内, 但其他所有文件比英文的大一圈(如下):
+```
+-rw-r--r-- 1 xw xw   534 Sep  8 03:25 HelloWorld.class
+-rw-r--r-- 1 xw xw   790 Sep  8 03:25 HelloWorld.jar
+-rw-r--r-- 1 xw xw   124 Sep  8 04:33 HelloWorld.java
+-rw-r--r-- 1 xw xw  2442 Sep  8 03:47 HelloWorld.mpl
+-rw-r--r-- 1 xw xw   488 Sep  8 03:47 HelloWorld.mplt
+-rw-r--r-- 1 xw xw     0 Sep  8 03:47 HelloWorld.VtableImpl.groots.txt
+-rw-r--r-- 1 xw xw 12517 Sep  8 03:47 HelloWorld.VtableImpl.mpl
+-rw-r--r-- 1 xw xw   118 Sep  8 03:47 HelloWorld.VtableImpl.primordials.txt
+-rw-r--r-- 1 xw xw 20520 Sep  8 03:47 HelloWorld.VtableImpl.s
+-rw-r--r-- 1 xw xw    55 Sep  8 03:49 Makefile
+-rw-r--r-- 1 xw xw   520 Sep  8 03:49 你好.class
+-rw-r--r-- 1 xw xw  1248 Sep  8 03:49 你好.jar
+-rw-r--r-- 1 xw xw   118 Sep  8 03:49 你好.java
+-rw-r--r-- 1 xw xw  4370 Sep  8 03:49 你好.mpl
+-rw-r--r-- 1 xw xw   712 Sep  8 03:49 你好.mplt
+-rw-r--r-- 1 xw xw     0 Sep  8 03:49 你好.VtableImpl.groots.txt
+-rw-r--r-- 1 xw xw 17231 Sep  8 03:49 你好.VtableImpl.mpl
+-rw-r--r-- 1 xw xw   142 Sep  8 03:49 你好.VtableImpl.primordials.txt
+-rw-r--r-- 1 xw xw 30927 Sep  8 03:49 你好.VtableImpl.s
+```
+有兴趣的可以先研究下.

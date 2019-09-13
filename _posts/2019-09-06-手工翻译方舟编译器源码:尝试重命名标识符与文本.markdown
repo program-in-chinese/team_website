@@ -1,0 +1,66 @@
+---
+layout: post
+comments: true
+title:  手工翻译方舟编译器源码:尝试重命名标识符与文本
+description: 
+date:   2019-09-08 00:00:00 -0700
+categories: 命名 方舟编译器
+---
+
+![2019-09-06_ark尝试重命名]({{ "/assets/2019-09-06_ark尝试重命名.png" | absolute_url }})
+
+参考: [小乖他爹：方舟编译器学习笔记6 方舟开源目录简介](https://zhuanlan.zhihu.com/p/81046562), 先从`maple.cpp`入口代码开始中文化(与前作[手工翻译Vue.js源码:尝试重命名标识符与文本](https://zhuanlan.zhihu.com/p/50726829)类似), 作为初步的可行性实验.
+
+[之前](https://github.com/program-in-chinese/overview/issues/166#issuecomment-528321173)以为编译输出文件在重命名标识符后不会有变化, 尝试后发现天真了. 于是现在仅检验是否能够编译通过.
+
+下面是中文化后的`src/maple_driver/src/maple.cpp`代码:
+```c
+using namespace maple;
+void 报错(int 返回) {
+  switch (返回) {
+    case 无误:
+    case 退出帮助:
+      break;
+    case 退出:
+      错误(错误日志, "因错误退出!");
+      break;
+    case 非法参数:
+      错误(错误日志, "非法参数!");
+      break;
+    case 初始化失败:
+      错误(错误日志, "初始化失败!");
+      break;
+    case 文件未找到:
+      错误(错误日志, "文件未找到!");
+      break;
+    case 工具未找到:
+      错误(错误日志, "工具未找到!");
+      break;
+    case 编译失败:
+      错误(错误日志, "编译失败!");
+      break;
+    case 未实现:
+      错误(错误日志, "未实现!");
+      break;
+    default:
+      break;
+  }
+}
+
+using namespace maple;
+
+int main(int argc, char **argv) {
+  选项类 选项;
+  int 返回 = 选项.分析(argc, argv);
+  if (返回 == 错误码::无误) {
+    返回 = 编译器工厂类::取个例().编译(选项);
+  }
+  报错(返回);
+  return 返回;
+}
+```
+可按原官方编译方法编译通过的完整源码在: [中文编程/OpenArkCompiler](https://gitee.com/Program-in-Chinese/OpenArkCompiler)
+
+下面打算参考[如何看待方舟编译器于 2019 年 8 月 31 日开源？](https://www.zhihu.com/question/343431810/answer/808816079), 先对编译到AnalysisResult的部分进行中文化.
+
+注: 开发环境 -- Ubuntu 18.04, [中文输入法](https://blog.csdn.net/weixin_42445727/article/details/81270916), VS Code & 微软C++插件(标识符重命名有时不靠谱, 如`return ret`, 重命名`ret`会影响`return`) 
