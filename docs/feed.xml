@@ -1,4 +1,494 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-05-15T22:21:40-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html" rel="alternate" type="text/html" title="中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射" /><published>2019-05-14T00:00:00-07:00</published><updated>2019-05-14T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate%205%E6%BC%94%E7%A4%BA</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-05-14-hibernateAnnotation.png&quot; alt=&quot;2019-05-14-hibernateAnnotation&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-09-13T13:14:12-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">尝试方舟编译器下对Java中标识符中文命名</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/08/%E5%B0%9D%E8%AF%95%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8B%E5%AF%B9Java%E4%B8%AD%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html" rel="alternate" type="text/html" title="尝试方舟编译器下对Java中标识符中文命名" /><published>2019-09-08T00:00:00-07:00</published><updated>2019-09-08T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/08/%E5%B0%9D%E8%AF%95%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8B%E5%AF%B9Java%E4%B8%AD%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/08/%E5%B0%9D%E8%AF%95%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8B%E5%AF%B9Java%E4%B8%AD%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html">&lt;p&gt;之前承蒙这位测试, 方舟编译器支持Java下的中文命名标识符: &lt;a href=&quot;https://gitee.com/harmonyos/OpenArkCompiler/issues/I11R87#note_1975102&quot;&gt;跑不通的可参考Z乎的这篇文章，已找到一个可使测试用例编译通过的java-core库 · Issue #I11R87 · HarmonyOS/OpenArkCompiler - 码云 Gitee.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;为了确认之前(&lt;a href=&quot;https://zhuanlan.zhihu.com/p/81450947&quot;&gt;手工翻译方舟编译器源码:尝试重命名标识符与文本&lt;/a&gt;)的源码汉化不会影响编译, 自己也试试.&lt;/p&gt;
+
+&lt;p&gt;编译方法参考: &lt;a href=&quot;https://zhuanlan.zhihu.com/p/81340230&quot;&gt;小乖他爹：方舟编译器学习笔记8 工具链可运行（helloworld编译成功）&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;注: 留意jbc2mpl命令需在libjava-core下运行, 否则报错”Unable to open java-core.jar”.&lt;/p&gt;
+
+&lt;p&gt;编译helloworld后, 运行$java HelloWorld输出”Hello World!”无误.&lt;/p&gt;
+
+&lt;p&gt;下面改为你好.java 如下:&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;你好&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;吃了么!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Makefile修改为:&lt;/p&gt;
+&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;APP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 你好
+&lt;span class=&quot;err&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$(MAPLE_BUILD_CORE)/maple_test.mk&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;照前一样编译, 运行&lt;code class=&quot;highlighter-rouge&quot;&gt;$java 你好&lt;/code&gt;也正确输出”吃了么!” (09/13补: 貌似生成.class这步是用了OpenJDK而非方舟?)&lt;/p&gt;
+
+&lt;p&gt;比较在意的是, 生成的.class文件小一些在预料之内, 但其他所有文件比英文的大一圈(如下):&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-rw-r--r-- 1 xw xw   534 Sep  8 03:25 HelloWorld.class
+-rw-r--r-- 1 xw xw   790 Sep  8 03:25 HelloWorld.jar
+-rw-r--r-- 1 xw xw   124 Sep  8 04:33 HelloWorld.java
+-rw-r--r-- 1 xw xw  2442 Sep  8 03:47 HelloWorld.mpl
+-rw-r--r-- 1 xw xw   488 Sep  8 03:47 HelloWorld.mplt
+-rw-r--r-- 1 xw xw     0 Sep  8 03:47 HelloWorld.VtableImpl.groots.txt
+-rw-r--r-- 1 xw xw 12517 Sep  8 03:47 HelloWorld.VtableImpl.mpl
+-rw-r--r-- 1 xw xw   118 Sep  8 03:47 HelloWorld.VtableImpl.primordials.txt
+-rw-r--r-- 1 xw xw 20520 Sep  8 03:47 HelloWorld.VtableImpl.s
+-rw-r--r-- 1 xw xw    55 Sep  8 03:49 Makefile
+-rw-r--r-- 1 xw xw   520 Sep  8 03:49 你好.class
+-rw-r--r-- 1 xw xw  1248 Sep  8 03:49 你好.jar
+-rw-r--r-- 1 xw xw   118 Sep  8 03:49 你好.java
+-rw-r--r-- 1 xw xw  4370 Sep  8 03:49 你好.mpl
+-rw-r--r-- 1 xw xw   712 Sep  8 03:49 你好.mplt
+-rw-r--r-- 1 xw xw     0 Sep  8 03:49 你好.VtableImpl.groots.txt
+-rw-r--r-- 1 xw xw 17231 Sep  8 03:49 你好.VtableImpl.mpl
+-rw-r--r-- 1 xw xw   142 Sep  8 03:49 你好.VtableImpl.primordials.txt
+-rw-r--r-- 1 xw xw 30927 Sep  8 03:49 你好.VtableImpl.s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;有兴趣的可以先研究下.&lt;/p&gt;</content><author><name></name></author><summary type="html">之前承蒙这位测试, 方舟编译器支持Java下的中文命名标识符: 跑不通的可参考Z乎的这篇文章，已找到一个可使测试用例编译通过的java-core库 · Issue #I11R87 · HarmonyOS/OpenArkCompiler - 码云 Gitee.com</summary></entry><entry><title type="html">手工翻译方舟编译器源码:尝试重命名标识符与文本</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/08/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81-%E5%B0%9D%E8%AF%95%E9%87%8D%E5%91%BD%E5%90%8D%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E6%96%87%E6%9C%AC.html" rel="alternate" type="text/html" title="手工翻译方舟编译器源码:尝试重命名标识符与文本" /><published>2019-09-08T00:00:00-07:00</published><updated>2019-09-08T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/08/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81:%E5%B0%9D%E8%AF%95%E9%87%8D%E5%91%BD%E5%90%8D%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E6%96%87%E6%9C%AC</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/08/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81-%E5%B0%9D%E8%AF%95%E9%87%8D%E5%91%BD%E5%90%8D%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E6%96%87%E6%9C%AC.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-09-06_ark%E5%B0%9D%E8%AF%95%E9%87%8D%E5%91%BD%E5%90%8D.png&quot; alt=&quot;2019-09-06_ark尝试重命名&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;参考: &lt;a href=&quot;https://zhuanlan.zhihu.com/p/81046562&quot;&gt;小乖他爹：方舟编译器学习笔记6 方舟开源目录简介&lt;/a&gt;, 先从&lt;code class=&quot;highlighter-rouge&quot;&gt;maple.cpp&lt;/code&gt;入口代码开始中文化(与前作&lt;a href=&quot;https://zhuanlan.zhihu.com/p/50726829&quot;&gt;手工翻译Vue.js源码:尝试重命名标识符与文本&lt;/a&gt;类似), 作为初步的可行性实验.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/program-in-chinese/overview/issues/166#issuecomment-528321173&quot;&gt;之前&lt;/a&gt;以为编译输出文件在重命名标识符后不会有变化, 尝试后发现天真了. 于是现在仅检验是否能够编译通过.&lt;/p&gt;
+
+&lt;p&gt;下面是中文化后的&lt;code class=&quot;highlighter-rouge&quot;&gt;src/maple_driver/src/maple.cpp&lt;/code&gt;代码:&lt;/p&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;报错&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;无误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;退出帮助&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;退出&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;因错误退出!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;非法参数&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;非法参数!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;初始化失败&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;初始化失败!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件未找到&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;文件未找到!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;工具未找到&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;工具未找到!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;编译失败&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;编译失败!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;未实现&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;错误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;错误日志&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;未实现!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;选项类&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;分析&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;错误码&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;无误&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;编译器工厂类&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;取个例&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;编译&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;报错&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;返回&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;可按原官方编译方法编译通过的完整源码在: &lt;a href=&quot;https://gitee.com/Program-in-Chinese/OpenArkCompiler&quot;&gt;中文编程/OpenArkCompiler&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;下面打算参考&lt;a href=&quot;https://www.zhihu.com/question/343431810/answer/808816079&quot;&gt;如何看待方舟编译器于 2019 年 8 月 31 日开源？&lt;/a&gt;, 先对编译到AnalysisResult的部分进行中文化.&lt;/p&gt;
+
+&lt;p&gt;注: 开发环境 – Ubuntu 18.04, &lt;a href=&quot;https://blog.csdn.net/weixin_42445727/article/details/81270916&quot;&gt;中文输入法&lt;/a&gt;, VS Code &amp;amp; 微软C++插件(标识符重命名有时不靠谱, 如&lt;code class=&quot;highlighter-rouge&quot;&gt;return ret&lt;/code&gt;, 重命名&lt;code class=&quot;highlighter-rouge&quot;&gt;ret&lt;/code&gt;会影响&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;)&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Django例程</title><link href="http://localhost:4000/2019/07/03/django%E4%BE%8B%E7%A8%8B.note" rel="alternate" type="text/html" title="Django例程" /><published>2019-07-03T00:00:00-07:00</published><updated>2019-07-03T00:00:00-07:00</updated><id>http://localhost:4000/2019/07/03/django%E4%BE%8B%E7%A8%8B</id><content type="html" xml:base="http://localhost:4000/2019/07/03/django%E4%BE%8B%E7%A8%8B.note">```
+$ python3 manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+July 03, 2019 - 18:18:18
+Django version 2.2.3, using settings 'django_mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+```
+
+```
+$ python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+```
+
+```
+$ python3 manage.py makemigrations 投票
+```
+```
+ModuleNotFoundError: No module named '投票.apps.投票Configdjango'; '投票.apps' is not a package
+```
+少了末尾的逗号:
+```
+    '投票.apps.投票Config'&lt;---这里
+```
+加上后:
+```
+$ python3 manage.py makemigrations 投票
+Migrations for '投票':
+  投票/migrations/0001_initial.py
+    - Create model 问题
+    - Create model 选项
+$ python3 manage.py sqlmigrate 投票 0001
+BEGIN;
+--
+-- Create model 问题
+--
+CREATE TABLE &quot;投票_问题&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY AUTOINCREMENT, &quot;内容&quot; varchar(200) NOT NULL, &quot;发问日期&quot; datetime NOT NULL);
+--
+-- Create model 选项
+--
+CREATE TABLE &quot;投票_选项&quot; (&quot;id&quot; integer NOT NULL PRIMARY KEY AUTOINCREMENT, &quot;内容&quot; varchar(200) NOT NULL, &quot;票数&quot; integer NOT NULL, &quot;问题_id&quot; integer NOT NULL REFERENCES &quot;投票_问题&quot; (&quot;id&quot;) DEFERRABLE INITIALLY DEFERRED);
+CREATE INDEX &quot;投票_选项_问题_id_4c48b252&quot; ON &quot;投票_选项&quot; (&quot;问题_id&quot;);
+COMMIT;
+$ python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, 投票
+Running migrations:
+  Applying 投票.0001_initial... OK
+```
+
+数据库API
+```
+$ python3 manage.py shell
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+(InteractiveConsole)
+&gt;&gt;&gt; from 投票.models import 选项, 问题
+&gt;&gt;&gt; 问题.Objects.all()
+Traceback (most recent call last):
+  File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: type object '问题' has no attribute 'Objects'
+&gt;&gt;&gt; 问题.objects.all()
+&lt;QuerySet []&gt;
+&gt;&gt;&gt; from django.utils import timezone
+&gt;&gt;&gt; 问 = 问题(内容=&quot;最近咋样?&quot;, 发问日期=timezone.now())
+&gt;&gt;&gt; 问.save()
+&gt;&gt;&gt; 问.id
+1
+&gt;&gt;&gt; 问.内容
+'最近咋样?'
+&gt;&gt;&gt; 问.发问日期
+datetime.datetime(2019, 7, 3, 19, 8, 27, 215031, tzinfo=&lt;UTC&gt;)
+&gt;&gt;&gt; 问.内容=&quot;最近可好?&quot;
+&gt;&gt;&gt; 问.save()
+&gt;&gt;&gt; 问题.objects.all()
+&lt;QuerySet [&lt;问题: 问题 object (1)&gt;]&gt;
+```
+
+添加`刚发问`接口:
+```
+$ python3 manage.py shell
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 16:52:21) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+(InteractiveConsole)
+&gt;&gt;&gt; 问题.objects.all()
+Traceback (most recent call last):
+  File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name '问题' is not defined
+&gt;&gt;&gt; from 投票.models import 选项, 问题
+&gt;&gt;&gt; 问题.objects.all()
+&lt;QuerySet [&lt;问题: 最近可好?&gt;]&gt;
+&gt;&gt;&gt; 问题.objects.filter(id=1)
+&lt;QuerySet [&lt;问题: 最近可好?&gt;]&gt;
+&gt;&gt;&gt; 问题.objects.filter(内容__startswith='最')
+&lt;QuerySet [&lt;问题: 最近可好?&gt;]&gt;
+&gt;&gt;&gt; from django.utils import timezone
+&gt;&gt;&gt; 今年=timezone.now().year
+&gt;&gt;&gt; 
+&gt;&gt;&gt; 问题.objects.get(发问日期__year=今年)
+&lt;问题: 最近可好?&gt;
+&gt;&gt;&gt; 问题.objects.get(id=2)
+Traceback (most recent call last):
+  File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/models/manager.py&quot;, line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/models/query.py&quot;, line 408, in get
+    self.model._meta.object_name
+投票.models.问题.DoesNotExist: 问题 matching query does not exist.
+&gt;&gt;&gt; 问问
+&gt;&gt;&gt; 问=问题.objects.get(pk=1)
+&gt;&gt;&gt; 问.刚发问()
+True
+&gt;&gt;&gt; 问.选项_set.all()
+&lt;QuerySet []&gt;
+&gt;&gt;&gt; 问.选项_set.create(内容='没啥', 票数=0)
+&lt;选项: 没啥&gt;
+&gt;&gt;&gt; 问.选项_set.create(内容='看天', 票数=0)
+&lt;选项: 看天&gt;
+&gt;&gt;&gt; 选选-问.选项_set.create(内容='打字', 数=0)
+Traceback (most recent call last):
+  File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name '选' is not defined
+&gt;&gt;&gt; 选问问选项_set.create(内容='打字', 票数=0)
+&gt;&gt;&gt; 选.问题
+&lt;问题: 最近可好?&gt;
+&gt;&gt;&gt; 问.选项_set.all()
+&lt;QuerySet [&lt;选项: 没啥&gt;, &lt;选项: 看天&gt;, &lt;选项: 打字&gt;]&gt;
+&gt;&gt;&gt; 问.选项_set.count()
+3
+&gt;&gt;&gt; 选项.objects.filter(问题__发问日期__year=今年)
+&lt;QuerySet [&lt;选项: 没啥&gt;, &lt;选项: 看天&gt;, &lt;选项: 打字&gt;]&gt;
+&gt;&gt;&gt; 选=问.选项_set.filter(内容__startswith='打')
+&gt;&gt;&gt; 选.delete()
+(1, {'投票.选项': 1})
+&gt;&gt;&gt; 选项.objects.filter(问题__发问日期__year=今年)
+&lt;QuerySet [&lt;选项: 没啥&gt;, &lt;选项: 看天&gt;]&gt;
+```</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">从立创EDA，Gratipay看中文编程开发环境和推广运营的一个趋势</title><link href="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/07/01/%E4%BB%8E%E7%AB%8B%E5%88%9BEDA-Gratipay%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E6%8E%A8%E5%B9%BF%E8%BF%90%E8%90%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E8%B6%8B%E5%8A%BF.html" rel="alternate" type="text/html" title="从立创EDA，Gratipay看中文编程开发环境和推广运营的一个趋势" /><published>2019-07-01T00:00:00-07:00</published><updated>2019-07-01T00:00:00-07:00</updated><id>http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/07/01/%E4%BB%8E%E7%AB%8B%E5%88%9BEDA,Gratipay%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E6%8E%A8%E5%B9%BF%E8%BF%90%E8%90%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E8%B6%8B%E5%8A%BF</id><content type="html" xml:base="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/07/01/%E4%BB%8E%E7%AB%8B%E5%88%9BEDA-Gratipay%E7%9C%8B%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E6%8E%A8%E5%B9%BF%E8%BF%90%E8%90%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E8%B6%8B%E5%8A%BF.html">&lt;p&gt;前不久听说&lt;a href=&quot;https://zhuanlan.zhihu.com/p/32744735&quot;&gt;立创EDA&lt;/a&gt;，对比之前的讨论: &lt;a href=&quot;https://github.com/program-in-chinese/overview/issues/11&quot;&gt;适合中文用户的编程语言和IDE, 侧重于现有语言/IDE不具备的特性 · Issue #11 · program-in-chinese/overview&lt;/a&gt;，觉得颇有共鸣。&lt;/p&gt;
+
+&lt;h3 id=&quot;库管理和共享&quot;&gt;库管理和共享&lt;/h3&gt;
+
+&lt;p&gt;虽然EDA开发和传统软件开发看起来相去甚远，但一个很大的共通点是，硬件库和软件库的管理和共享。软件本来源于硬件，库自然也存在依赖关系，EDA中的元件库，类似于编程语言的标准库和第三方库。&lt;/p&gt;
+
+&lt;p&gt;立创的开发环境集成了&lt;strong&gt;库管理和分享功能&lt;/strong&gt;，这是一个降低入门门槛、提高开发效率进而迅速积累人气的强大优势。&lt;/p&gt;
+
+&lt;p&gt;现有的英文编程语言，多数是语言与IDE分离，在IDE中同时提供库管理加上开发者共享库功能的并不多见。&lt;/p&gt;
+
+&lt;p&gt;– 7/3 补: 经指点，有类似紧密集成语言和库管理的例子，如微软.NET的&lt;a href=&quot;https://docs.microsoft.com/en-us/nuget/what-is-nuget&quot;&gt;NuGet&lt;/a&gt;也集成在了Visual Studio。个人认为也佐证这项功能的重要性。&lt;/p&gt;
+
+&lt;p&gt;中文编程语言和开发环境，作为后起，需要利用各种加速积累人气的功能。&lt;strong&gt;库管理和分享功能看来是其中之一。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;运营和筹款&quot;&gt;运营和筹款&lt;/h3&gt;
+
+&lt;p&gt;这几天恰好得知一个开放项目在讨论筹资方式，觉得有些共通性，一并说说。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/27858574/answer/190813491&quot;&gt;几年前&lt;/a&gt;参与过一个很特别的项目Gratipay。它的理念是不仅代码开源，而且运营决策和财务都尽量在公开平台进行。它自身的产品就是一个众筹平台，而且筹款主要通过自己的平台进行。这个公司由于种种原因未能延续，但经验教训可供借鉴。&lt;/p&gt;
+
+&lt;p&gt;它的创始人最后写的回顾文章在&lt;a href=&quot;https://gratipay.news/the-end-cbfba8f50981&quot;&gt;这里&lt;/a&gt;。注意它是曾经有过指数增长期的，但2015年有断崖事故，具体可以自行了解。下面只是我参与后的一些状况。&lt;/p&gt;
+
+&lt;p&gt;主要参与的是财务方面，包括预算清理、收支数据整理和可视化等等。在2016年末刚参与时，就想首先了解财务状况。账面余额之外，还需要了解支出的细节，包括办公地点租金、使用第三方服务的开销等等。于是开始了持续了几个月的&lt;a href=&quot;https://github.com/gratipay/inside.gratipay.com/issues/928&quot;&gt;整理和优化&lt;/a&gt;。由于都是通过网络联系，各地的参与者意见整合都使这个过程更久。下面是一些节流效果：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有些第三方服务并不属于必需，或者只需基本功能（更便宜的月费）&lt;/li&gt;
+  &lt;li&gt;有些服务对开源项目有特别照顾，由于Gratipay的开源性质和历史，往往这些服务都很快通过了免费请求的申请。期间还提出了一个对这些提供”资助“的对开源项目友好的服务商&lt;a href=&quot;https://github.com/gratipay/inside.gratipay.com/issues/950&quot;&gt;进行推介的想法&lt;/a&gt;，可惜没有成型。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;省下的经费，一部分投入了其他更需要的服务，或者对其他服务进行捐款（比如&lt;a href=&quot;https://github.com/gratipay/inside.gratipay.com/issues/928#issuecomment-285506054&quot;&gt;Read the Docs&lt;/a&gt;)。&lt;/p&gt;
+
+&lt;p&gt;在收支数据方面，主要是通过一个基于文本的会计软件BeanCount进行了尝试：&lt;a href=&quot;https://github.com/gratipay/finances/pull/35&quot;&gt;Port to Beancount by chadwhitacre · Pull Request #35 · gratipay/finances&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;简单说说在预算和收支方面的个人体会：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;公开平台讨论运营当然有好处，但副效应就是人多嘴杂，能够干实事的在任何时候都是少数。&lt;/li&gt;
+  &lt;li&gt;开源项目加开放运营，已经够另类和边缘。这种情况下，需要争取任何可以争取的资源，开源节流必须都要抓。很难想象这个项目开始了四年之久但除了报税之外没有非常规整的流水和定期的预算审核。&lt;/li&gt;
+  &lt;li&gt;财务数据虽然一直打算公开，但一直没有合适的软件进行可视化，也没有与主网站进行整合，导致财务透明这一项本来非常独特也很有区别度的产品/企业特色没有起到应有的作用。&lt;/li&gt;
+  &lt;li&gt;在筹款方面，单一倚靠众筹。原本的思路是，Gratipay这个众筹平台可供所有开源项目的作者进行众筹，而Gratipay平台本身也是自己的客户。但这就导致，收入完全依赖于众筹平台本身的推广程度。而开源项目毕竟是小众，相对于其他的众筹平台，总用户和捐款数完全不在一个数量级。创始人希望从这其中通过完全平等的身份分得一部分，而不是使用类似”收税“的方式，这也有很大的不确定性。&lt;/li&gt;
+  &lt;li&gt;多数项目参与者都是志愿者，由于每周仅有几百美元众筹收入，除了维持服务之外，几乎没有盈余。所以多数人很长时间内都只是非常象征性的拿些”咖啡钱“，包括主创。收入分配方面，话就长了（也是一个独特之处），以后可以另说。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;说回立创，对比上面第四点，通过免费版积攒巨大的用户基础，通过收费版本提供更多专业服务。一方面给出了非常明确的”为什么花这钱“的理由，另一方面收费版是通过按人/天收费，给了足够付费灵活度，更关键的是有了相对稳定的收入流（毕竟这月缴费下个月停缴的是少数）。&lt;/p&gt;
+
+&lt;p&gt;再说说1-3点，下面想哪说哪。&lt;/p&gt;
+
+&lt;p&gt;一旦选择公开运营，就要准备好应对各种不同声音，尤其是牵涉到资金使用的问题。最好一开始就建立一套比较合规的会计流程，为定期讨论预算、收支等等提供基础。&lt;/p&gt;
+
+&lt;p&gt;通过网络的合作有很大的延迟，各种讨论经常是等你一天，等他一天，一会就是几周过去。这对项目进度管控是很大的考验。&lt;/p&gt;
+
+&lt;p&gt;在GitHub这样的平台讨论有一个好处，就是随时可以@到各种相关服务/工具的开发者。比如在用Beancount的时候，就拉进了它的原作者作为顾问。这样的平台很助力交流。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;开源/开放项目的最大优势，在于项目透明度&lt;/strong&gt;，以及由此形成的相比其他平台更稳固的用户基础（因为有更高的信任度）。上面的收支情况如果公开，也可以进一步增加透明度，因此最好尽可能利用这一优势，比如把收支、盈亏情况在主页进行公示，提供链接了解更多细节等等。&lt;/p&gt;
+
+&lt;p&gt;团队都是志愿者的情况下，大家往往图的都不是钱（至少不是眼前的钱）。那么如何激励参与呢？包括原本的团队成员，也需要持续的动力。个人认为，一个“成果单”可以提供非物质激励，比如每月写出团队各人对项目进展的贡献（甚至包括一些代码链接）。对个人来说，可以看到一路以来对项目的投入；对其他人（包括外人）来说，也可以了解团队中其他人都在做什么。有一定影响之后，甚至可以通过公开招聘一些暑假实习生，好处是，他们的贡献都可以直接体现在这份成果单中。而成果单的公开透明也可以保证相对公正。&lt;/p&gt;
+
+&lt;p&gt;内部团队建设之外，与合作的第三方联系很重要。尤其是上下游合作者和服务提供商（尤其是提供了某种程度资助的），有条件的话应该借助自身平台和影响力，有忙就帮（包括在网站进行某种感谢/公示），尽量扩大企业/实体层面的朋友圈。&lt;/p&gt;
+
+&lt;p&gt;开源和开放，对于中文编程语言和开发环境来说，现在看来是必由之路。上面的经验教训，希望对来者有所裨益。&lt;/p&gt;</content><author><name></name></author><summary type="html">前不久听说立创EDA，对比之前的讨论: 适合中文用户的编程语言和IDE, 侧重于现有语言/IDE不具备的特性 · Issue #11 · program-in-chinese/overview，觉得颇有共鸣。</summary></entry><entry><title type="html">Python3中文命名</title><link href="http://localhost:4000/2019/06/18/Python3%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html" rel="alternate" type="text/html" title="Python3中文命名" /><published>2019-06-18T00:00:00-07:00</published><updated>2019-06-18T00:00:00-07:00</updated><id>http://localhost:4000/2019/06/18/Python3%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D</id><content type="html" xml:base="http://localhost:4000/2019/06/18/Python3%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html">&lt;p&gt;分类：科技
+已经十多年了! 你知道Python3可以用中文命名变量吗?&lt;/p&gt;
+
+&lt;p&gt;Python3本身支持中文命名类/方法/变量
+任何额外的库和工具都不需要，不需要，不需要！重要的话三遍。Python3本身就可以正确运行下面的代码：&lt;/p&gt;
+
+&lt;p&gt;请输入图片描述&lt;/p&gt;
+
+&lt;p&gt;补一句, 不光是Python3支持中文命名哦，以后一个一个语言讲过来，九成九你用的编程语言也支持。&lt;/p&gt;
+
+&lt;p&gt;下面是一个Python实用小程序的代码片段：&lt;/p&gt;
+
+&lt;p&gt;请输入图片描述&lt;/p&gt;
+
+&lt;p&gt;Python3为什么支持非ASCII码命名标识符
+Python2并不支持非ASCII码标识符。于2008年12月发布的Python3开始支持。2008年！也就是十多年前。现在还不知道的话，你就OUT大了。&lt;/p&gt;
+
+&lt;p&gt;创建于2007年5月的Python增强提案PEP 3131 – Supporting Non-ASCII Identifiers阐述了支持非ASCII码命名标识符的缘由。Rationale (依据) 一节开篇明义，指出很多Python开发者并不熟悉英语，更希望用母语对类/方法进行命名，而不是用经常有误的英文翻译。对使用同样母语的开发者来说，用母语命名的标识符可以提高代码清晰度和可维护性。&lt;/p&gt;
+
+&lt;p&gt;Python code is written by many people in the world who are not familiar with the English language, or even well-acquainted with the Latin writing system. Such developers often desire to define classes and functions with names in their native languages, rather than having to come up with an (often incorrect) English translation of the concept they want to name. By using identifiers in their native language, code clarity and maintainability of the code among speakers of that language improves.&lt;/p&gt;
+
+&lt;p&gt;更多用中文编程的教程和演示，请关注“用中文编程”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">分类：科技 已经十多年了! 你知道Python3可以用中文命名变量吗?</summary></entry><entry><title type="html">编程教程中的英文示例翻译成中文命名看看？想不到原来是这意思！</title><link href="http://localhost:4000/2019/05/29/%E7%BC%96%E7%A8%8B%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%8B%B1%E6%96%87%E7%A4%BA%E4%BE%8B%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9C%8B%E7%9C%8B-%E6%83%B3%E4%B8%8D%E5%88%B0%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%BF%99%E6%84%8F%E6%80%9D.html" rel="alternate" type="text/html" title="编程教程中的英文示例翻译成中文命名看看？想不到原来是这意思！" /><published>2019-05-29T00:00:00-07:00</published><updated>2019-05-29T00:00:00-07:00</updated><id>http://localhost:4000/2019/05/29/%E7%BC%96%E7%A8%8B%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%8B%B1%E6%96%87%E7%A4%BA%E4%BE%8B%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9C%8B%E7%9C%8B%3F%E6%83%B3%E4%B8%8D%E5%88%B0%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%BF%99%E6%84%8F%E6%80%9D!</id><content type="html" xml:base="http://localhost:4000/2019/05/29/%E7%BC%96%E7%A8%8B%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%8B%B1%E6%96%87%E7%A4%BA%E4%BE%8B%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9C%8B%E7%9C%8B-%E6%83%B3%E4%B8%8D%E5%88%B0%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%BF%99%E6%84%8F%E6%80%9D.html">&lt;p&gt;更多用中文编写代码的技术文章，请关注本号。&lt;/p&gt;
+
+&lt;p&gt;前几天有幸看到Quora不久前的一个回复: Has any serious project been written in a non-English-based programming language? （有没有非英文编程语言写的项目？）&lt;/p&gt;
+
+&lt;p&gt;得知西门子和爱立信内部都有使用母语命名的C/C++代码(德语/瑞典语). 原文如下:&lt;/p&gt;
+
+&lt;p&gt;At both Siemens (German) and Ericsson (Swedish), I have seen programs written in C, and C++ where the only English words are the keywords. So if, new, else, for and the standard libraries like std::vector&amp;lt;&amp;gt;
+Everything else was in German or Swedish.
+另外, 答者还提到在布拉格碰到过一本Java编程书, 也是用非英语进行命名写的示例代码.&lt;/p&gt;
+
+&lt;p&gt;以母语命名可读性强的优势, 照理说编程教程应该是非常适合这一实践的. 那么来试试:&lt;/p&gt;
+
+&lt;p&gt;图片描述(最多50字)
+观感如何? 个人觉得是非常一目了然, 但代码本身自带不少槽点，和生活现实相去甚远。&lt;/p&gt;
+
+&lt;p&gt;下面看看英文原版(Effective Java第三版, Item 34的例程):&lt;/p&gt;
+
+&lt;p&gt;图片描述(最多50字)
+意思一样, 但是不是看上去有了些”距离感”, 槽点似乎就没那么明显了, 尤其不会有太多代入感. 可以想见, 在翻译英文原著时, 译者对代码本身的命名进行中文化也许会吃力却讨不到多少好.&lt;/p&gt;
+
+&lt;p&gt;翻了也许会有其他麻烦的还有这种(同一本书, Item 68):&lt;/p&gt;
+
+&lt;p&gt;图片描述(最多50字)
+还有这种(Item 4):&lt;/p&gt;
+
+&lt;p&gt;String s = “bikini”;
+至于下面这个例子(Item 34), 问题是想翻译都只能找到音译词, 也许还不如不翻. 而且, 在示例代码里用”桔子”, “苹果”之类在外文编程书籍中屡见不鲜, 但如果真用在中文代码中, 似乎第一感觉就有点幼稚.&lt;/p&gt;
+
+&lt;p&gt;public enum Apple  { FUJI, PIPPIN, GRANNY_SMITH }
+public enum Orange { NAVEL, TEMPLE, BLOOD }
+还有一种问题比如(Programming in Scala 第三版, 7.5节):&lt;/p&gt;
+
+&lt;p&gt;图片描述(最多50字)
+直译过来是:&lt;/p&gt;
+
+&lt;p&gt;图片描述(最多50字)
+这几个词对于不大了解西方饮食习惯的读者来说, 读起来完全没有感觉. 与其费口舌在注解里普及西方文化, 也许改成这样更自然:&lt;/p&gt;
+
+&lt;p&gt;图片描述(最多50字)
+但这比起翻译本身来, 又多了不少工作量, 估计还很难获得原作者的同意. 当然, 如果是自编文献, 就没有原作的限制了, 但就像之前的例子所示, 恐怕选材和尺度都会比用英文代码更加敏感.&lt;/p&gt;
+
+&lt;p&gt;类似的, 在项目中使用中文命名也比英文命名更需要推敲. 随手写个奇怪的英文名看起来也许不那么显眼, 但用了中文, 就会非常扎眼. 所谓”文如其人”, 也许语文的实用性会随着中文编程的推广而逐渐回归.&lt;/p&gt;
+
+&lt;p&gt;更多中文编程推广过程内情，请关注“用中文编程”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">更多用中文编写代码的技术文章，请关注本号。</summary></entry><entry><title type="html">对中文命名的质疑之二</title><link href="http://localhost:4000/2019/05/22/%E5%AF%B9%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B9%8B%E4%BA%8C.note" rel="alternate" type="text/html" title="对中文命名的质疑之二" /><published>2019-05-22T00:00:00-07:00</published><updated>2019-05-22T00:00:00-07:00</updated><id>http://localhost:4000/2019/05/22/%E5%AF%B9%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B9%8B%E4%BA%8C</id><content type="html" xml:base="http://localhost:4000/2019/05/22/%E5%AF%B9%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B9%8B%E4%BA%8C.note">0. 为何不把关键字改成中文
+1. 为何不把阿拉伯数字改成中文数字 -- 因为数字只有十个，英文单词有成千上万，
+2. 键盘还是英文的
+3. 中英文没区别 -- 改例程试试
+4. 实话说中英文混编，看着别扭 -- 大飞机预研时国产率目标是10%，现在的国产率是60%，还在增大。-- 一时的混用又如何？
+5. 可能性有些，不过中文中多意字有些多，谁能说说“好”有几种解释？ -- 知道&quot;good&quot;的在韦氏词典里的英文解释有多少条吗? 不同语境和领域下的少说20条. 往往是因为中文比英文好, 才觉得中文一个词的意思多.
+6. 操作系统和电脑要是中国人发明的就一定可以 -- 这和谁发明的有毛关系？指南针还是中国人发明的呢，现在所有罗盘上都写“东南西北”吗？
+7. 用英文思维拿中文写代码那不是扯淡吗？当初用中文设计的话你用英语也不行 -- 哦，那这些编程语言让你可以用中文命名是它们2B吗？
+8. 小学生全知道=是啥意思，小学生都认识kiwi吗？//@乐人说天地一号:符号也要中文 ＝换成等于
+9. 因为电脑是外国人发明的，所以不用汉语编程 -- 你咋不用英文写帖子呢？
+10. 如果中文编程不方便，能否用拼音？ -- DangRanKeYi（GouTou. 代码是你的，看不看得懂是你的事。
+11. 只有百分百的中文才叫中国人的系统 -- 在研的大飞机国产化率多少知道吗？少来绝对化。
+12. 汉语是一种语意丰富，千变万化的语言，适合文艺创作，文化传承。编程这种格式呆板，高度符号化的工作，反而过于啰嗦。所以不必强求。 -- 少玩捧杀。合同够需要严谨了吧，不照样用中文写？
+13. 可以用拼音 -- 你帖子用拼音写试试？张口就来本事不小
+
+
+神话
+0. 汉语编程、汉语内核的操作系统和汉字加密技术绝对会成为洋骇客的超级噩梦！
+-- 可烦这种外行话，你以为黑客必须要靠看源码来黑你吗？中文编程的最重要意义根本不在于防贼，而在于提高自身竞争力。
+1. 中文编程不是你这样把标识符、关键字变成中文方块字就是中文编程了！你这是用中文字符的外衣装着英文编程的老酒“包装”罢了！真正的中文编程，讲究的是利用中文自然语言编程，编译器自带AI理解中文的自然语言，然后变成机器的二进制编码指令！你还自己标榜还什么高级软件工程师？扯淡吧！滚你的蛋吧！！
+-- 拜托你先把市面上流行的几十种英文编程语言怼一遍: &quot;都迭代50多年了, 竟然还没有达到英文自然语言编程! 竟然还没有一点AI! 还标榜什么编程语言领路人? 扯淡吧! 还好意思出什么龙书鲸书虎书教编译原理?? 滚蛋吧!&quot; 请!
+
+
+语文差达不到精准语义也就罢了，要是自己英文差却认为自己英文表达很精确，那就是自欺欺人了。</content><author><name></name></author><summary type="html">0. 为何不把关键字改成中文 1. 为何不把阿拉伯数字改成中文数字 -- 因为数字只有十个，英文单词有成千上万， 2. 键盘还是英文的 3. 中英文没区别 -- 改例程试试 4. 实话说中英文混编，看着别扭 -- 大飞机预研时国产率目标是10%，现在的国产率是60%，还在增大。-- 一时的混用又如何？ 5. 可能性有些，不过中文中多意字有些多，谁能说说“好”有几种解释？ -- 知道&quot;good&quot;的在韦氏词典里的英文解释有多少条吗? 不同语境和领域下的少说20条. 往往是因为中文比英文好, 才觉得中文一个词的意思多. 6. 操作系统和电脑要是中国人发明的就一定可以 -- 这和谁发明的有毛关系？指南针还是中国人发明的呢，现在所有罗盘上都写“东南西北”吗？ 7. 用英文思维拿中文写代码那不是扯淡吗？当初用中文设计的话你用英语也不行 -- 哦，那这些编程语言让你可以用中文命名是它们2B吗？ 8. 小学生全知道=是啥意思，小学生都认识kiwi吗？//@乐人说天地一号:符号也要中文 ＝换成等于 9. 因为电脑是外国人发明的，所以不用汉语编程 -- 你咋不用英文写帖子呢？ 10. 如果中文编程不方便，能否用拼音？ -- DangRanKeYi（GouTou. 代码是你的，看不看得懂是你的事。 11. 只有百分百的中文才叫中国人的系统 -- 在研的大飞机国产化率多少知道吗？少来绝对化。 12. 汉语是一种语意丰富，千变万化的语言，适合文艺创作，文化传承。编程这种格式呆板，高度符号化的工作，反而过于啰嗦。所以不必强求。 -- 少玩捧杀。合同够需要严谨了吧，不照样用中文写？ 13. 可以用拼音 -- 你帖子用拼音写试试？张口就来本事不小</summary></entry><entry><title type="html">中文代码之Django官方入门：建立模型</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BDjango%E5%AE%98%E6%96%B9%E5%85%A5%E9%97%A8-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B.html" rel="alternate" type="text/html" title="中文代码之Django官方入门：建立模型" /><published>2019-05-14T00:00:00-07:00</published><updated>2019-05-14T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BDjango%E5%AE%98%E6%96%B9%E5%85%A5%E9%97%A8:%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BDjango%E5%AE%98%E6%96%B9%E5%85%A5%E9%97%A8-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B.html">&lt;p&gt;参考&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.2/intro/tutorial02/&quot;&gt;编写你的第一个 Django 应用，第 2 部分&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;创建项目后，首先用中文命名应用：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python3 manage.py startapp 投票
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;之后在&lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;建立模型，其他各种相关配置略去，详细请见末尾源码库：&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'发布问题日期'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;刚发问(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on_delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CASCADE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;交互环境测试API通过：&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Python&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ef4ec6ed12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mar&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2019&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Clang&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;6.0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;600.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;57&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;darwin&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;help&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;copyright&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;credits&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;more&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InteractiveConsole&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;投票&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'最'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;console&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/models/manager.py&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manager_method&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getattr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_queryset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kwargs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/models/query.py&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;408&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_meta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object_name&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;投票&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DoesNotExist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matching&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;does&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问问&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;刚发问&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'没啥'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'看天'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'打字'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;打字&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;打字&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'打'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'投票.选项'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;完整源码在：&lt;a href=&quot;https://github.com/program-in-chinese/Django_tutorial_zh&quot;&gt;program-in-chinese/Django_tutorial_zh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;测试环境：Python 3.7.3, Django-2.2.3, Mac&lt;/p&gt;</content><author><name></name></author><summary type="html">参考编写你的第一个 Django 应用，第 2 部分</summary></entry><entry><title type="html">中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html" rel="alternate" type="text/html" title="中文命名之Hibernate 5演示 - 使用注解(annotation)而非xml定义映射" /><published>2019-05-14T00:00:00-07:00</published><updated>2019-05-14T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate%205%E6%BC%94%E7%A4%BA</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate-5%E6%BC%94%E7%A4%BA.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-05-14-hibernateAnnotation.png&quot; alt=&quot;2019-05-14-hibernateAnnotation&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;前文&lt;a href=&quot;https://zhuanlan.zhihu.com/p/63518209&quot;&gt;中文编程：中文命名之Hibernate 4+MySQL演示&lt;/a&gt;最后留下了个Hibernate 5之后出现的问题, 于是在Hibernate社区提交了报告: &lt;a href=&quot;https://hibernate.atlassian.net/browse/HHH-13383&quot;&gt;Seemingly regression since Hibernate 5: unicode support for class name in XML mapping file&lt;/a&gt;&lt;/p&gt;
 
@@ -99,605 +589,4 @@ tsc - init&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;use strict&quot;
 var 临时 = 100;
 console.log(临时)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">新建文件夹test，vsc打开</summary></entry><entry><title type="html">中文方便就用中文编程！Python图形界面开发实例</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/05/01/%E4%B8%AD%E6%96%87%E6%96%B9%E4%BE%BF%E5%B0%B1%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-Python%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B.html" rel="alternate" type="text/html" title="中文方便就用中文编程！Python图形界面开发实例" /><published>2019-05-01T00:00:00-07:00</published><updated>2019-05-01T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/05/01/%E4%B8%AD%E6%96%87%E6%96%B9%E4%BE%BF%E5%B0%B1%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B!Python%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%95%99%E7%A8%8B/2019/05/01/%E4%B8%AD%E6%96%87%E6%96%B9%E4%BE%BF%E5%B0%B1%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-Python%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B.html">&lt;p&gt;之前做的一个Python小程序，功能很简单，面对用户群也很窄，是五笔编码编、校人员使用。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2018-09-28-wubi%E7%BC%96%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8.png&quot; alt=&quot;2018-09-28-wubi编码编辑器&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这样的“周末”项目（即一个周末就能完成雏形的项目）很常见，项目需求往往源于某小小想法，用户很可能只有自己，功能不很复杂，但需求非常领域相关。&lt;/p&gt;
-
-&lt;p&gt;比如上面的应用，界面上就可以看到有很多字体名称，比如“花园明朝”，在代码里该如何命名呢？&lt;/p&gt;
-
-&lt;p&gt;在线翻译告诉我：GardenMingDynasty 我。。。先忍了。&lt;/p&gt;
-
-&lt;p&gt;“汉仪仿宋”呢？HanYiImitationSong 啥？？先竞猜“Yi”后面那是“I”还是“l”吧（大写的i还是小写的L）更不用说这拼音和英文混的叫一个酸爽啊。&lt;/p&gt;
-
-&lt;p&gt;可以想象，如果使用了这样的命名，自己看代码都要挠头，不用说其他人了。&lt;/p&gt;
-
-&lt;p&gt;当然，没有悬念地，我决定用&lt;strong&gt;中文命名标识符&lt;/strong&gt;：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-05-01-wubi%E5%AD%97%E4%BD%93%E5%91%BD%E5%90%8D.png&quot; alt=&quot;2019-05-01-wubi字体命名&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在整个项目中使用了中文命名标识符，和界面显示非常一致：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-05-01-wubi%E6%A0%87%E8%AF%86%E7%AC%A6.png&quot; alt=&quot;2019-05-01-wubi标识符&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;不仅让代码更可读，改进和维护更简单，也鼓励了原本没有编程经验也没什么编程动力的需求提出者参与到了开发过程中，提交了后续的几个PR。一个重要原因是，尤其对编程新手来说，代码中使用中文命名大大降低了阅读和理解代码的难度。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;中文命名，该出手时就出手！&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;源码库在：https://github.com/program-in-chinese/wubi_code_editor&lt;/p&gt;
-
-&lt;p&gt;项目来龙去脉见：https://github.com/CNMan/UnicodeCJK-WuBi/issues/1&lt;/p&gt;
-
-&lt;p&gt;更多中文编程推广过程内情，请关注“&lt;strong&gt;用中文编程&lt;/strong&gt;”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">之前做的一个Python小程序，功能很简单，面对用户群也很窄，是五笔编码编、校人员使用。</summary></entry><entry><title type="html">谁说API必须用英文？中文API的Java库可以有！</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/api/2019/04/28/%E5%A4%B4%E6%9D%A1-%E5%9C%A8Maven%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93.html" rel="alternate" type="text/html" title="谁说API必须用英文？中文API的Java库可以有！" /><published>2019-04-28T12:00:00-07:00</published><updated>2019-04-28T12:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/api/2019/04/28/%E5%A4%B4%E6%9D%A1-%E5%9C%A8Maven%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/api/2019/04/28/%E5%A4%B4%E6%9D%A1-%E5%9C%A8Maven%E5%8F%91%E5%B8%83%E4%B8%AD%E6%96%87API%E7%9A%84Java%E5%BA%93.html">&lt;p&gt;是不是看惯了文档里的英文接口（API），也在 IDE 里看惯了自动补全里的英文接口？&lt;/p&gt;
-
-&lt;p&gt;现今的绝大多数 API 的确是英文命名没错，但绝非不能或者不应该实现和发布中文 API 的库。&lt;/p&gt;
-
-&lt;p&gt;这里用一个简单的汉字简繁转换库为例。在命名上，API 的方法名、参数名以及类名都用了中文。下面是 Eclipse 中的 Javadoc 弹窗：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-28_zhconverter%E6%BC%94%E7%A4%BA.png&quot; alt=&quot;中文API的Java库&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;中文 API 的 Java 库，实现汉字的简繁转换。演示在 Eclipse 中的 JavaDoc。&lt;/p&gt;
-
-&lt;p&gt;这个 Java 库已经发布到了 Maven 仓库，可以和其他英文 Java 库一样方便地调用。在 GitHub 上搜索”com.github.nobodxbodon”就可以看到不少 pom.xml 文件中依赖了这个库。&lt;/p&gt;
-
-&lt;p&gt;现在国内自研的 API 面向的主要用户群应该也是国内开发者。即便仍保留英文 API ，&lt;strong&gt;如果能另外提供一套中文的，必然更易于学习和使用，也可以吸引更多使用者&lt;/strong&gt;。即使是额外维护一套中文 API，工作量也很有限，相比起为最终用户带来的益处，可说是相当值得的。&lt;/p&gt;
-
-&lt;p&gt;另外，这个库的实现代码中的标识符也都用了中文命名。原因很简单，这个库的使用者和潜在合作开发者应该都会中文。下面是其中的一段主要代码：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-28_zhconverter%E6%BA%90%E7%A0%81.png&quot; alt=&quot;简繁转换库源码&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;测试代码也都使用了中文命名。其中还引用了另一个中文 API 的库，而且那个库的功能非常通用，多半你的 Java 项目也用得到哦。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-28_zhconvert%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81.png&quot; alt=&quot;简繁转换库测试源码&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;项目源码和库使用方法在：https://github.com/program-in-chinese/zhconverter&lt;/p&gt;
-
-&lt;p&gt;更多中文编程推广过程内情，请关注“&lt;strong&gt;用中文编程&lt;/strong&gt;”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">是不是看惯了文档里的英文接口（API），也在 IDE 里看惯了自动补全里的英文接口？</summary></entry><entry><title type="html">“用中文编程”微信公众号和今日头条开通, 其他各交流渠道小结</title><link href="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html" rel="alternate" type="text/html" title="&quot;用中文编程&quot;微信公众号和今日头条开通, 其他各交流渠道小结" /><published>2019-04-28T00:00:00-07:00</published><updated>2019-04-28T00:00:00-07:00</updated><id>http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%22%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%22%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0</id><content type="html" xml:base="http://localhost:4000/%E5%B0%8F%E7%BB%93/2019/04/28/%E7%94%A8%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E5%BC%80%E9%80%9A%E5%B0%8F%E8%AE%B0.html">&lt;p&gt;前几天开始运营”用中文编程”微信公众号和同名&lt;a href=&quot;https://www.toutiao.com/c/user/690130635195164/&quot;&gt;今日头条号&lt;/a&gt;. 有必要对积累至今的各种交流渠道作一阶段小结.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/program-in-chinese&quot;&gt;“中文编程”GitHub组&lt;/a&gt;创建将近两年, 组员40人, 积累了不少源码使用中文命名以及的开源项目.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/codeInChinese&quot;&gt;“中文编程”知乎专栏&lt;/a&gt;建立一年半, 在一周年时关注人数350, 当时小目标是在二周年时达到关注1000人. 现在关注650人, 看起来应该可以达标. 尤其最近专栏有越来越多文章出自其他作者, 是非常可喜的势头. (更详细数据如阅读量等请见微信公众号文章)&lt;/p&gt;
-
-&lt;p&gt;已在CSDN和cnblog建立知乎专栏文章的镜像博客. 从数据看来(详见公众号首篇文章), CSDN影响较大.&lt;/p&gt;
-
-&lt;p&gt;2018年12月开展”中文编程”qq群&lt;code class=&quot;highlighter-rouge&quot;&gt;620225373&lt;/code&gt;, 当前102人. 主要是考虑交流习惯, 每周一次(一般北京时间周六下午)的语音例会也通过qq群进行.&lt;/p&gt;
-
-&lt;p&gt;根据各个渠道的不同受众, 不同的定位初步打算如下:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;GitHub组, 继续进行围绕具体项目(中文编程相关)的技术交流与合作. 公众号内公布的数据应该也会最早在这里整理和备份.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;知乎专栏, 继续对GitHub组的项目进行阶段宣传, 中文编程相关技术的讨论以及其他作者的相关文章发布. CSDN和cnblog继续镜像.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;今日头条/搜狐号, 短期的主要目标是推广中文命名, 今后当有较成熟的中文编程相关工具项目(主要包括本GitHub组的或者其他开发组的相关开源项目), 进行试用宣传. 主要内容来源仍为GitHub项目与知乎专栏文章.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;微信公众号, 主要对推广进展进行小结, 公众号文章不会与中文编程技术直接相关, 而是着重推广过程的”内部资料” – 首发一些推广本身的数据(包括可能的财务收支数据), 比如每篇头条文章的推荐阅读数跟踪, 各个渠道的关注人数跟踪等等, 以及相应调整的计划. 这些资料也会适时在其他渠道发布, 但不会像这里的详尽和即时.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;qq群, 继续作为较宽松的交流以及每周末语音组会的渠道.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;今日头条号已发布两篇文章, 根据推荐/阅读数据和回复/转发等, 几点初步感觉:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;如果内容较宽泛且较”标题党”, 推荐量会较大, 但阅读数/推荐量(个人理解就是点击率)较低; 相对的如果内容详实干货较多, 推荐量少的多, 但点击率高的多(两篇比较大约四倍).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;干货较多的文章, 读者的回复较为友好. 猜测是推荐目标群体不同的缘故?&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;详细数据跟踪当然 –&lt;/p&gt;
-
-&lt;h4 id=&quot;敬请关注用中文编程微信公众号&quot;&gt;敬请关注”用中文编程”微信公众号~&lt;/h4&gt;
-
-&lt;p&gt;另, 搜狐号的文章已经快两天了还在审核, 不知正常吗?&lt;/p&gt;</content><author><name></name></author><summary type="html">前几天开始运营”用中文编程”微信公众号和同名今日头条号. 有必要对积累至今的各种交流渠道作一阶段小结.</summary></entry><entry><title type="html">中文命名之Hibernate 4 + MySQL演示</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html" rel="alternate" type="text/html" title="中文命名之Hibernate 4 + MySQL演示" /><published>2019-04-23T00:00:00-07:00</published><updated>2019-04-23T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/04/23/%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E4%B9%8BHibernate+MySQL%E6%BC%94%E7%A4%BA.html">&lt;p&gt;最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: &lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh&quot;&gt;HibernateExampleZh&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;当前用的是Hibernate 3.3.2.GA. 之后测试了更多版本, 彩蛋见最后一部分.&lt;/p&gt;
-
-&lt;h3 id=&quot;测试环境&quot;&gt;测试环境:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Windows 7 Pro 64bit, JDK 1.7.0_80, MySQL 5.5.62, Eclipse Kepler SR2&lt;/li&gt;
-  &lt;li&gt;MacOS 10.13.6, JDK 1.8.0_45, MySQL 5.5.24, Eclipse 4.7.3a&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;功能验证&quot;&gt;功能验证:&lt;/h3&gt;
-&lt;p&gt;运行&lt;code class=&quot;highlighter-rouge&quot;&gt;com.codeinchinese.App&lt;/code&gt;, 在数据库表中插入一条记录并进行一次条件查询.&lt;/p&gt;
-
-&lt;h3 id=&quot;数据库&quot;&gt;数据库&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh/blob/master/数据库/客户.sql&quot;&gt;源码&lt;/a&gt;如下, 与&lt;a href=&quot;https://zhuanlan.zhihu.com/p/31417833&quot;&gt;前文&lt;/a&gt;相比, 多了索引.&lt;/p&gt;
-
-&lt;p&gt;需修改&lt;code class=&quot;highlighter-rouge&quot;&gt;hibernate.cfg.xml&lt;/code&gt;中的数据库用户/密码部分.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-mysql&quot;&gt;DROP TABLE IF EXISTS `演示`.`客户`;
-CREATE TABLE  `演示`.`客户` (
-  `客户_ID` bigint(20) unsigned COLLATE utf8_unicode_ci NOT NULL AUTO_INCREMENT,
-  `姓名` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `创建日期` datetime COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`客户_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
-
-ALTER TABLE `演示`.`客户`
-ADD INDEX `姓名_索引` (`姓名` ASC) ;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;java&quot;&gt;Java&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh/blob/master/src/main/java/com/codeinchinese/客户/模型/客户类.java&quot;&gt;模型类&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户类&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Serializable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户类&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户类&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;客户&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;姓名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建日期&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;hibernate映射文件&quot;&gt;Hibernate映射文件&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/nobodxbodon/HibernateExampleZh/blob/master/src/main/resources/com/codeinchinese/%E5%AE%A2%E6%88%B7/hibernate/%E5%AE%A2%E6%88%B7.hbm.xml&quot;&gt;客户.hbm.xml&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;hibernate-mapping&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;class&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.codeinchinese.客户.模型.客户类&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;table=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;客户&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;客户Id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;java.lang.Long&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;column&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;客户_ID&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;generator&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;identity&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;姓名&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;column&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;姓名&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;45&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;not-null=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;创建日期&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;column&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;创建日期&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;length=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;19&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;not-null=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/class&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/hibernate-mapping&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;检查更多hibernate版本&quot;&gt;检查更多Hibernate版本&lt;/h3&gt;
-
-&lt;p&gt;经测试, 到&lt;code class=&quot;highlighter-rouge&quot;&gt;4.2.21.Final&lt;/code&gt;都正常运行, 但从&lt;code class=&quot;highlighter-rouge&quot;&gt;5.0.0.Final&lt;/code&gt;开始到最近的&lt;code class=&quot;highlighter-rouge&quot;&gt;6.0.0.Alpha2&lt;/code&gt;, 都不支持模型类名的中文命名. 具体报错如下:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Caused by: org.xml.sax.SAXParseException; lineNumber: 6; columnNumber: 58; cvc-pattern-valid: Value 'com.codeinchinese.客户.模型.客户类' is not facet-valid with respect to pattern '([a-zA-Z_$][a-zA-Z\d_$]*\.)*[a-zA-Z_$][a-zA-Z\d_$]*' for type 'ClassNameType'.
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(XMLSchemaValidator.java:452)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(XMLSchemaValidator.java:3230)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processOneAttribute(XMLSchemaValidator.java:2825)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processAttributes(XMLSchemaValidator.java:2762)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:2050)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
-	at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl.startElement(ValidatorHandlerImpl.java:570)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.ValidatingUnmarshaller.startElement(ValidatingUnmarshaller.java:101)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.InterningXmlVisitor.startElement(InterningXmlVisitor.java:75)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.StAXEventConnector.handleStartElement(StAXEventConnector.java:261)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.StAXEventConnector.bridge(StAXEventConnector.java:130)
-	at com.sun.xml.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:460)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;修改为英文类名&lt;code class=&quot;highlighter-rouge&quot;&gt;com.codeinchinese.customer.model.Customer&lt;/code&gt;后, 保留MySQL中文命名和Hibernate相关映射, 仍能运行.&lt;/p&gt;
-
-&lt;p&gt;考虑到这是从版本4到5的功能退化, 而且在6.0版本并无修复的意思, 应该提issue反馈一下.&lt;/p&gt;
-
-&lt;h3 id=&quot;参考&quot;&gt;参考&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.mkyong.com/hibernate/maven-3-hibernate-3-6-oracle-11g-example-xml-mapping/&quot;&gt;Maven 3 + Hibernate 3.6 + Oracle 11g Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">最近有个契机, 需要在一个给定开发环境中验证中文命名的可行性. 达成的例子源码在: HibernateExampleZh</summary></entry><entry><title type="html">为Jekyll+GitHub Pages添加全文搜索功能</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html" rel="alternate" type="text/html" title="为Jekyll+GitHub Pages添加全文搜索功能" /><published>2019-04-08T00:00:00-07:00</published><updated>2019-04-08T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub%20Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/2019/04/08/%E4%B8%BAJekyll+GitHub-Pages%E6%B7%BB%E5%8A%A0%E5%85%A8%E6%96%87%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-08_gh%E6%90%9C%E7%B4%A2%E6%BC%94%E7%A4%BA.png&quot; alt=&quot;2019-04-08_gh搜索演示&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;动态演示如下:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-08_gh%E6%90%9C%E7%B4%A2.gif&quot; alt=&quot;2019-04-08_gh搜索&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;源码库: &lt;a href=&quot;https://github.com/program-in-chinese/team_website&quot;&gt;program-in-chinese/team_website&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;找到此JS工具: &lt;a href=&quot;https://github.com/christian-fei/Simple-Jekyll-Search&quot;&gt;christian-fei/Simple-Jekyll-Search&lt;/a&gt;, 按安装说明先完成了对题目/类别/日期的搜索, 本地运行不错. 再接再厉添加了对描述和全文(post.content)的搜索, 详见&lt;a href=&quot;https://github.com/program-in-chinese/team_website/blob/master/%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.json&quot;&gt;全文索引.json&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;发现生成的json文件中, 特殊字符如引号使得json语法出错:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-08_invalidJSON.png&quot; alt=&quot;2019-04-08_invalidJSON&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;发现前人对同样问题的解决方法&lt;a href=&quot;https://github.com/christian-fei/Simple-Jekyll-Search/issues/63&quot;&gt;“full-text search” donot work! · Issue #63 · christian-fei/Simple-Jekyll-Search&lt;/a&gt;, 另参考&lt;a href=&quot;https://github.com/christian-fei/Simple-Jekyll-Search/wiki#if-search-isnt-working-due-to-invalid-json&quot;&gt;christian-fei/Simple-Jekyll-Search&lt;/a&gt;, 在&lt;code class=&quot;highlighter-rouge&quot;&gt;_plugins&lt;/code&gt;下添加脚本&lt;code class=&quot;highlighter-rouge&quot;&gt;特殊字符过滤.rb&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Jekyll&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;字符过滤器&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;remove_chars_cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'\\'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&amp;amp;#92;'&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\t/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'    '&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'%'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;amp;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&quot;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gsub!&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;输入&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Liquid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;字符过滤器&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;module名称如果没有大写字母开头, 报语法错误如下, 猜测原因与&lt;a href=&quot;https://zhuanlan.zhihu.com/p/52114604&quot;&gt;Scala疑似中文命名问题后续&lt;/a&gt;类似, 不过Ruby好像将中文字符认作了非大写的:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;特殊字符过滤.rb:2: class/module name must be CONSTANT (SyntaxError)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;方法remove_chars_cn未能中文, 由于Jekyll的Liquid脚本语言貌似不支持Unicode标识符, 会报错:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Liquid Warning: Liquid syntax error (line 6): Unexpected character 删 in &quot;&quot; in 全文索引.json
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;在本地运行通过后, 将包括插件在内的修改提交到GitHub后, 发现网站加载json文件时报错”invalid JSON”, 查看取json的请求响应内容后, 各种尝试后初步认定是插件未成功运行, 一通搜之后发现, GitHub Pages不支持任意插件的运行: &lt;a href=&quot;https://stackoverflow.com/questions/20369397/jekyll-plugin-not-work-on-github/20377640#20377640&quot;&gt;jekyll plugin not work on github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;解决方法就是本地jekyll生成网站源码后, 将网站源码提交到repo里.&lt;/p&gt;
-
-&lt;p&gt;参考&lt;a href=&quot;https://jekyllrb.com/docs/configuration/options/&quot;&gt;Configuration Options&lt;/a&gt;在&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;中将输出目录改为&lt;code class=&quot;highlighter-rouge&quot;&gt;docs&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;destination: docs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;再将原本的jekyll文件都移到repo根下, 运行生成后提交, 搞定.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Java实现文本编辑时基于拼音输入的补全原型</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/ide/2019/04/02/Java%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%97%B6%E5%9F%BA%E4%BA%8E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E7%9A%84%E8%A1%A5%E5%85%A8%E5%8E%9F%E5%9E%8B.html" rel="alternate" type="text/html" title="Java实现文本编辑时基于拼音输入的补全原型" /><published>2019-04-02T00:00:00-07:00</published><updated>2019-04-02T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/ide/2019/04/02/Java%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%97%B6%E5%9F%BA%E4%BA%8E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E7%9A%84%E8%A1%A5%E5%85%A8%E5%8E%9F%E5%9E%8B</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/ide/2019/04/02/Java%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%97%B6%E5%9F%BA%E4%BA%8E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E7%9A%84%E8%A1%A5%E5%85%A8%E5%8E%9F%E5%9E%8B.html">&lt;p&gt;续前文&lt;a href=&quot;https://zhuanlan.zhihu.com/p/60946984&quot;&gt;Java实现”命令式”简易文本编辑器原型&lt;/a&gt;. 效果如下:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-04-02_text%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8.gif&quot; alt=&quot;2019-04-02_text拼音输入自动补全&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;所在源码库同上文, 尚未和上文的编辑器右侧的命令区集成. 代码由&lt;a href=&quot;https://stackoverflow.com/questions/10873748/how-to-show-autocomplete-as-i-type-in-jtextarea&quot;&gt;How to show autocomplete as I type in JTextArea?&lt;/a&gt;修改得来.&lt;/p&gt;
-&lt;h4 id=&quot;基本功能&quot;&gt;基本功能&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;英文输入至少一个匹配词典的字母后, 显示提示框&lt;/li&gt;
-  &lt;li&gt;上下光标选中某提示项后按空格键自动替换&lt;/li&gt;
-  &lt;li&gt;弹出提示框后, 如果继续键入, 提示框隐藏后, 根据新键入继续提示. 比如上面输入’t’后提示”退出”和”粘贴”两项, 继续输入’c’后就只显示”退出”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;IDE和中文输入法的深度集成是必然趋势. 虽然现在第三方的中文输入法可以解决”输入”的基本功能, 但在IDE自动补全/智能提示功能日益成为开发效率提升的必需辅助功能的现今, 只有实现了中文输入法和IDE补全/提示的集成, 中文编程才能更接近实用. 这早已在易语言开发环境中实现, 期待早日看到开源项目实现类似功能.&lt;/p&gt;
-&lt;h4 id=&quot;源码简单说明&quot;&gt;源码简单说明&lt;/h4&gt;
-
-&lt;p&gt;监听文本框的按键输入, 并准备弹出提示框:&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addKeyListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-      &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;keyTyped&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;随后显示提示&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;弹出之前, 先获取此次输入的字符串, 并基于它生成/更新提示框:&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;显示提示&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本位置&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCaretPosition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;界面位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;界面位置&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;modelToView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文本位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLocation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BadLocationException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;e2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;提示源词&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;取提示源词&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文本位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;提示源词&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;提示&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;提示&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;提示框&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;提示源词&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;界面位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;提示&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;更新&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文本位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;提示源词&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;界面位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;提示框部分, 由一个列表来管理提示项的选择, 文本的替换:&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;创建提示列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;提示列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;JList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;列表&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;提示列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setBorder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BorderFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createLineBorder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DARK_GRAY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setSelectionMode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ListSelectionModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SINGLE_SELECTION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setSelectedIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addKeyListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-      &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;keyTyped&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getKeyChar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VK_SPACE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;插入选择文本&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;隐藏&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;err&quot;&gt;隐藏&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-          &lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;requestFocusInWindow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-          &lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dispatchEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-      &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;keyPressed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getKeyCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VK_DOWN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;err&quot;&gt;下移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getKeyCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VK_UP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;err&quot;&gt;上移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;列表&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;当然少不了一个字符-&amp;gt;中文词典(如下), 实际应用时需要基于拼音生成提示的算法&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xj&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;新建&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dk&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;打开&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;保存&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jq&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;剪切&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fz&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;复制&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nt&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;粘贴&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;zt&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;粘贴&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;退出&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;j&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;新建&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;剪切&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;提示词典&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;t&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;退出&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;粘贴&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">续前文Java实现”命令式”简易文本编辑器原型. 效果如下:</summary></entry><entry><title type="html">Java实现”命令式”简易文本编辑器原型</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/ide/2019/03/30/Java%E5%AE%9E%E7%8E%B0-%E5%91%BD%E4%BB%A4%E5%BC%8F-%E7%AE%80%E6%98%93%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%8E%9F%E5%9E%8B.html" rel="alternate" type="text/html" title="Java实现&quot;命令式&quot;简易文本编辑器原型" /><published>2019-03-30T00:00:00-07:00</published><updated>2019-03-30T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/ide/2019/03/30/Java%E5%AE%9E%E7%8E%B0%22%E5%91%BD%E4%BB%A4%E5%BC%8F%22%E7%AE%80%E6%98%93%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%8E%9F%E5%9E%8B</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/ide/2019/03/30/Java%E5%AE%9E%E7%8E%B0-%E5%91%BD%E4%BB%A4%E5%BC%8F-%E7%AE%80%E6%98%93%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%8E%9F%E5%9E%8B.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-03-30_text%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8.png&quot; alt=&quot;2019-03-30_text文本编辑器&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;源自&lt;a href=&quot;https://github.com/program-in-chinese/overview/issues/33#issuecomment-332047778&quot;&gt;早先&lt;/a&gt;想法, 打算从界面方向做些尝试. 找到个简单文本编辑器的实现: &lt;a href=&quot;http://forum.codecall.net/topic/49721-simple-text-editor/&quot;&gt;Simple Text Editor - Java Tutorials&lt;/a&gt;. 原本的菜单/按钮界面如下. 包括基本功能: 新建/打开/保存文件, 文本编辑与剪切/复制/粘贴.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-03-30_UI%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8.gif&quot; alt=&quot;2019-03-30_UI文本编辑器&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;把所有菜单/按钮替换为命令输入后效果如下, 源码库在: &lt;a href=&quot;https://github.com/program-in-chinese/simple-text-editor-in-Java&quot;&gt;program-in-chinese/simple-text-editor-in-Java&lt;/a&gt;. 与其他命令行工具一样, 省去界面元素的代价是输入较繁琐. 在文本和命令两处切换也有点麻烦.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-03-30_text%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8.gif&quot; alt=&quot;2019-03-30_text文本编辑器&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;接下去试着实现命令输入的自动补全等等.&lt;/p&gt;
-
-&lt;p&gt;实现源码如下. 不采用第三方库, 比较粗糙的代码180行.&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本编辑器&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFrame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;默认文件名&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;无名&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JTextArea&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JTextArea&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JTextArea&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JTextArea&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFileChooser&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;对话框&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFileChooser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user.dir&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;默认文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前命令&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;已改&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本编辑器&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本编辑器&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFont&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Font&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Monospaced&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Font&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;PLAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VERTICAL_SCROLLBAR_ALWAYS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;HORIZONTAL_SCROLLBAR_ALWAYS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BorderLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CENTER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFont&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Font&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Monospaced&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Font&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;PLAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令区&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VERTICAL_SCROLLBAR_ALWAYS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;JScrollPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;HORIZONTAL_SCROLLBAR_ALWAYS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;命令区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BorderLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;EAST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;setDefaultCloseOperation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EXIT_ON_CLOSE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addKeyListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;监听文本输入&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addKeyListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;命令监听&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;setTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;setVisible&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyListener&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;监听文本输入&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;keyPressed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;已改&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyListener&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令监听&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;keyPressed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getKeyCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VK_ENTER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行数&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLineCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;行数&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;err&quot;&gt;当前命令&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;上一行末位置&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLineEndOffset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;行数&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;当前命令&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;命令文本区&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;上一行末位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BadLocationException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;执行&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前命令&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;执行&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前命令&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前命令&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;新建&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;新建操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;打开&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;打开操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;保存&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;保存操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;另存&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;另存文件为&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;退出&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;退出操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;剪切&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;复制&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;粘贴&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// TODO: 提示无此命令或显示帮助&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;新建操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;保存旧文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;默认文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;setTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;已改&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;打开操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;保存旧文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;对话框&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;showOpenDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFileChooser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;APPROVE_OPTION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;读入文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;对话框&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getSelectedFile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAbsolutePath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;保存操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;默认文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;保存文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;另存文件为&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;退出操作&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;保存旧文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;另存文件为&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;对话框&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;showSaveDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFileChooser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;APPROVE_OPTION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;保存文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;对话框&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getSelectedFile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAbsolutePath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;保存旧文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;已改&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JOptionPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;showConfirmDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;保存 &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; 吗?&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;保存&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;JOptionPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;YES_NO_OPTION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JOptionPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;YES_OPTION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;err&quot;&gt;保存文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;读入文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;FileReader&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;读&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;读&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;读&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;setTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;已改&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;Toolkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDefaultToolkit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;beep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;JOptionPane&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;showMessageDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;找不到 &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;保存文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;FileWriter&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;写&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileWriter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;文本区域&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;写&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;写&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;setTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;err&quot;&gt;已改&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;参考&quot;&gt;参考&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/10239258/adding-a-console-to-a-jframe&quot;&gt;adding a console to a Jframe&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/4673350/detecting-when-user-presses-enter-in-java&quot;&gt;Detecting when user presses enter in Java&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://javatutorial.net/java-swing-jframe-layouts&quot;&gt;Java SWING JFrame Layouts Example&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">演示Eclipse插件实现代码提示和补全</title><link href="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2019/03/21/%E6%BC%94%E7%A4%BAEclipse%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E5%92%8C%E8%A1%A5%E5%85%A8.html" rel="alternate" type="text/html" title="演示Eclipse插件实现代码提示和补全" /><published>2019-03-21T00:00:00-07:00</published><updated>2019-03-21T00:00:00-07:00</updated><id>http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2019/03/21/%E6%BC%94%E7%A4%BAEclipse%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E5%92%8C%E8%A1%A5%E5%85%A8</id><content type="html" xml:base="http://localhost:4000/%E8%AF%AD%E8%A8%80%E8%AE%BE%E8%AE%A1/ide/2019/03/21/%E6%BC%94%E7%A4%BAEclipse%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E5%92%8C%E8%A1%A5%E5%85%A8.html">&lt;p&gt;续上文&lt;a href=&quot;https://zhuanlan.zhihu.com/p/59890614&quot;&gt;重拾《 两周自制脚本语言 》- Eclipse插件实现语法高亮&lt;/a&gt;, 但仅达到了演示Eclipse本身功能的程度, 与石头语言并无直接联系. 源码库相同, 仍在同一插件. 演示效果如下:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-03-21-eclipse%E6%8F%90%E7%A4%BA.gif&quot; alt=&quot;2019-03-21-eclipse提示&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;悬浮窗显示的是当前所在行内容. 而键入”新”字会弹出自动补全, 选项仅有”新建”一项. 再进一步的话, 两者都应该需要准确获取鼠标所在位置字段的语法信息, 即集成语法分析器的功能, 而那还只是第一步.&lt;/p&gt;
-
-&lt;p&gt;由于仅作演示功能, 相关代码还较简短. &lt;a href=&quot;https://github.com/program-in-chinese/stone-editor-eclipse/blob/master/src/stone_editor/%E5%86%85%E5%AE%B9%E8%BE%85%E5%8A%A9%E5%A4%84%E7%90%86%E5%99%A8.java&quot;&gt;内容辅助处理器&lt;/a&gt;, 提供自动补全功能.&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;所有建议&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;新建&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICompletionProposal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;computeCompletionProposals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ITextViewer&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;视图&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;IDocument&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;视图&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDocument&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;偏移所在行&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLineOfOffset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行头偏移&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLineOffset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;偏移所在行&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前行文本长度&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;偏移&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行头偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前行文本&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;行头偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前行文本长度&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;所有建议&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;建议&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;视图&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDocument&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;建议&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;建议&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当前行文本&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;建议&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CompletionProposal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;建议&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行头偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;当前行文本长度&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;建议&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICompletionProposal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BadLocationException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICompletionProposal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getCompletionProposalAutoActivationCharacters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;新&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toCharArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/program-in-chinese/stone-editor-eclipse/blob/master/src/stone_editor/%E6%82%AC%E6%B5%AE%E6%8F%90%E4%BE%9B%E5%99%A8.java&quot;&gt;悬浮提供器&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getHoverInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ITextViewer&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本视图&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IRegion&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;悬浮位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;偏移&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;悬浮位置&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getOffset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;IDocument&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文本视图&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDocument&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;// 仅提取当前所在行, 如要取得当前鼠标所在词, 需进一步词法分析?&lt;/span&gt;
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;所在行&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLineOfOffset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;IRegion&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行信息&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLineInformation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;所在行&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行长&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行信息&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLength&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行偏移&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行信息&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getOffset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;行偏移&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行长&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BadLocationException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">续上文重拾《 两周自制脚本语言 》- Eclipse插件实现语法高亮, 但仅达到了演示Eclipse本身功能的程度, 与石头语言并无直接联系. 源码库相同, 仍在同一插件. 演示效果如下:</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">新建文件夹test，vsc打开</summary></entry></feed>
