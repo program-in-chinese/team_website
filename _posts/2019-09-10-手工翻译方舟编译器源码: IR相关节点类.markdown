@@ -1,0 +1,50 @@
+---
+layout: post
+comments: true
+title:  "手工翻译方舟编译器源码: IR相关节点类"
+description: 
+date:   2019-09-10 00:00:00 -0700
+categories: 命名 方舟编译器
+---
+
+![2019-09-10_ark重命名IR]({{ "/assets/2019-09-10_ark重命名IR.png" | absolute_url }})
+
+本系列进展跟踪帖: [方舟编译器中文化的相关话题 · Issue #166 · program-in-chinese/overview](https://github.com/program-in-chinese/overview/issues/166)
+
+续上文: [吴烜：手工翻译方舟编译器源码:尝试重命名标识符与文本](https://zhuanlan.zhihu.com/p/81450947)
+
+节点类中文化后的`opcodes.def`节选如下:
+```c
+  OPCODE(dassign, 直接赋值节点类, (OPCODEISSTMT | OPCODENOTMMPL | OPCODEHASSSADEF), 8)
+  OPCODE(maydassign, 直接赋值节点类, (OPCODEISSTMT | OPCODENOTMMPL | OPCODEHASSSADEF), 8)
+  OPCODE(iassign, 间接赋值节点类, (OPCODEISSTMT | OPCODENOTMMPL | OPCODEHASSSADEF), 12)
+  // hierarchical control flow opcodes
+  OPCODE(block, 块节点类, (OPCODEISSTMT | OPCODENOTMMPL), 0)
+  OPCODE(doloop, 循环节点类, (OPCODEISSTMT | OPCODENOTMMPL), 0)
+  OPCODE(dowhile, While声明节点类, (OPCODEISSTMT | OPCODENOTMMPL), 0)
+  OPCODE(if, If声明节点类, (OPCODEISSTMT | OPCODENOTMMPL), 0)
+  OPCODE(while, While声明节点类, (OPCODEISSTMT | OPCODENOTMMPL), 0)
+  OPCODE(switch, Switch节点类, (OPCODEISSTMT | OPCODENOTMMPL), 8)
+  OPCODE(multiway, 多路节点类, (OPCODEISSTMT | OPCODENOTMMPL), 8)
+  OPCODE(foreachelem, 遍历元素节点类, (OPCODEISSTMT | OPCODENOTMMPL), 0)
+```
+完整在: [src/maple_ir/include/opcodes.def · 中文编程/OpenArkCompiler - Gitee](https://gitee.com/Program-in-Chinese/OpenArkCompiler/blob/master/src/maple_ir/include/opcodes.def)
+
+仍可编译输出, 自带helloworld例程编译运行通过.
+
+期间发现几个文档中没说明的操作符, 问题已提交到官网: [华为开源平台](https://code.opensource.huaweicloud.com/HarmonyOS/OpenArkCompiler/issues/168)[👍, 刚收到官方回复]:
+
+>语法是: fieldsdist <int-prim-type> <type> <field-id1> <field-id2>
+>这个opcode的作用是得到一个类型<type>里两个域<field-id1>和<field-id2>的距离。
+
+>resolveinterfacefunc和resolvevirtualfunc这两个和fielddist都是编译器内部优化引入的，不在对外暴露和使用的IR内，所以没有放在MapleIRDesign中。
+
+另有几个问题:
+
+1. `NaryStmtNode`中的"Nary"不知何意.
+2. `IntrinsiccallNode`和`IntrinsicopNode`中的"Intrinsic"还在斟酌对应中文, 欢迎建议.
+3. `StmtNode`重命名为"声明节点类"后, 编译报错: "undefined reference to "maple::FuncOptimizeImpl::ProcessBlock(声明节点类 *stmt)", 不知是否与deplibs中的库有关. 暂时跳过此类.
+
+基本上重命名采取vscode中批量替换, 如果用change all occurrences, 好像只能替换当前文件中的引用. 除了`StmtNode`之外没有发现重构导致的问题. 编译一次约用2分钟, 尚可接受.
+
+在中文化过程中, 通过阅读MapleIRDesign.md(希望早出中文版)对不同分类的IR节点有了初步理解, 操作符从接近汇编的到高层工作流(如循环/遍历)都有, 下面想试着了解一下整体编译过程. 如已有文章梳理请不吝告知!
