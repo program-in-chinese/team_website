@@ -1,0 +1,64 @@
+---
+layout: post
+comments: true
+title:  自制TTS引擎第0.01步-Python实现拼接单字wav文件
+description: 
+date:   2019-10-07 00:00:00 -0700
+categories: 命名 Python
+---
+
+![2019-10-07_audacity]({{ "/assets/2019-10-07_audacity.png" | absolute_url }})
+
+一些参考资料在: [怎样自己做一个tts引擎？](https://www.zhihu.com/question/263570139/answer/845792385)
+
+演示(文本源自小学一年级课文):
+[Python实现wav文件合并演示1: 我是中国人​](https://www.bilibili.com/audio/au1100814?type=1)
+[Python实现拼接wav文件演示: 我是小学生​](https://www.bilibili.com/audio/au1100815?type=1)
+
+尚未找到开源和成熟的中文TTS引擎, 于是先自己摸索一下. 实现思路很原始, 自己读一系列单字, 用Audacity录成wav文件. 再写个Python脚本, 将输入文本中的单字对应的wav文件进行直接拼接生成新wav文件.
+
+源码和单字音频资源在: [wav文件处理/合成.py](https://github.com/program-in-chinese/study/blob/master/1-%E5%9F%BA%E7%A1%80/wav%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/%E5%90%88%E6%88%90.py)
+```python
+import wave
+
+# 参考: https://blog.csdn.net/qq_39516859/article/details/79819276
+def 从wav文件读取信息(文件名):
+    #打开wav文件 ，open返回一个的是一个Wave_read类的实例，通过调用它的方法读取WAV文件的格式和数据。
+    文件 = wave.open(文件名,"rb")
+    #读取格式信息
+    帧数 = 文件.getnframes()
+    信息 = {
+        "帧": 文件.readframes(帧数),
+        "频道数": 文件.getnchannels(),
+        "量化位数": 文件.getsampwidth(),
+        "帧速": 文件.getframerate()
+    }
+    文件.close()
+    return 信息
+
+# 参考: https://blog.csdn.net/zzZ_CMing/article/details/81739193
+def 合成(文字):
+    帧 = b''
+    格式信息 = {}
+    for 字 in 文字:
+        # TODO: 多系统/
+        格式信息 = 从wav文件读取信息("单字/" + 字 + ".wav")
+        帧 += 格式信息["帧"]
+
+    文件 = wave.open("输出/" + 文字 + ".wav", 'wb')
+    文件.setnchannels(格式信息["频道数"])
+    文件.setsampwidth(格式信息["量化位数"])
+    文件.setframerate(格式信息["帧速"])
+    文件.writeframes(帧)
+    文件.close()
+
+    print("*"*10, "合成结束\n")
+
+合成("我是中国人")
+合成("我是小学生")
+```
+### 待改进
+
+- 需对单字音频作修剪处理, 否则单字间的间隔太大
+- 更全的单字音频. 之前还在算要怎么先录最常用的几千字的音频, 刚意识到不如录所有拼音的音频, 然后将文字转换成拼音(是的这里就有坑, 但是TTS本身就是大坑). 粗看一下拼音组合大概不到500(汉语拼音最全组合 - 百度文库), 按4个音调不到2000.
+- 欢迎拍砖

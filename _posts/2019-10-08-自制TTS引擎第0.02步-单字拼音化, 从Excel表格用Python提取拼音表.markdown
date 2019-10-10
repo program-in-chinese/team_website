@@ -1,0 +1,72 @@
+---
+layout: post
+comments: true
+title:  自制TTS引擎第0.02步-单字拼音化, 从Excel表格用Python提取拼音表
+description: 
+date:   2019-10-08 00:00:00 -0700
+categories: 命名 Python
+---
+
+续上文: [自制TTS引擎第0.01步-Python实现拼接单字wav文件](https://zhuanlan.zhihu.com/p/85486162)
+
+首先, 利用第三方库[获取中文字符对应拼音](https://github.com/program-in-chinese/study/blob/master/1-%E5%9F%BA%E7%A1%80/wav%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/%E5%90%88%E6%88%90.py):
+```python
+from xpinyin import Pinyin
+...
+    for 单字 in 文字:
+        # TODO: 多系统/
+        拼音 = 拼音库.get_pinyin(单字, tone_marks='numbers')
+        格式信息 = 从wav文件读取信息("单字/" + 拼音 + ".wav")
+```
+然后将wav文件改为拼音命名, 比如"中.wav"改为"zhong1.wav", 顺手将单字("我是中国人"五个字)的wav文件裁剪为0.35秒左右, 减少了前后空白, 拼接起来效果听起来好一些.
+
+下面需要整理一份拼音全表. 用了网上下载的一个xls表, 格式如下:
+
+![2019-10-08_excel拼音表]({{ "/assets/2019-10-08_excel拼音表.png" | absolute_url }})
+
+输出所有存在的拼音, 比如a, 包括入声和四声都有, 则输出 a0, a1, a2, a3, a4; 如`bu`, 则输出bu1, bu3, bu4
+
+同样用Python处理xlsx表格, 之前好像没有贴过类似代码. 节选如下(完整代码[在此](https://github.com/program-in-chinese/study/blob/master/2.1-topic%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E6%8B%BC%E9%9F%B3%E8%A1%A8/%E6%8B%BC%E9%9F%B3%E6%8F%90%E5%8F%96.py)):
+```python
+from openpyxl import load_workbook
+
+开始行 = 3
+结束行 = 205
+
+所有拼音 = []
+
+def 遍历表格(文件名):
+    工作簿 = load_workbook(文件名)
+    表单 = 工作簿.active
+    for 行 in range(开始行, 结束行):
+        for 拼音序号 in range(0, 2):
+            拼音所在列 = 拼音序号 * 6 + 1
+            拼音 = 表单.cell(row = 行, column = 拼音所在列).value.lower()
+
+            for 列 in range(拼音所在列 + 1, 拼音所在列 + 6):
+                对应字 = 表单.cell(row = 行, column = 列).value
+                if 对应字 != None:
+                    所有拼音.append(拼音 + str(列 - 拼音所在列 - 1))
+```
+输出***1238***个, 如下:
+```
+a0
+a1
+a2
+a3
+a4
+ai1
+ai2
+ai3
+ai4
+an1
+an3
+an4
+ang1
+ang2
+ang4
+...
+```
+全表见此: [所有拼音](https://github.com/program-in-chinese/study/blob/master/2.1-topic%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E6%8B%BC%E9%9F%B3%E8%A1%A8/%E6%89%80%E6%9C%89%E6%8B%BC%E9%9F%B3.txt)
+
+接下去就是体力活, 录音. 打算用一段稍长的文字作演示.
