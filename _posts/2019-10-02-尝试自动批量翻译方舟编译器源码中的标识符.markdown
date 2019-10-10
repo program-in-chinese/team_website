@@ -1,0 +1,59 @@
+---
+layout: post
+comments: true
+title:  尝试自动批量翻译方舟编译器源码中的标识符
+description: 
+date:   2019-10-02 00:00:00 -0700
+categories: 命名 方舟编译器
+---
+
+在对方舟编译器源码中的近百个标识符/字符串常量进行手工汉化后, 尝试用[批量替换+字典](https://github.com/program-in-chinese/ark_compiler_source_translation)的方式对源码标识符进行自动翻译, 目标是自动翻译后达到与手工相同的效果.
+
+[字典](https://github.com/program-in-chinese/ark_compiler_source_translation/blob/master/src/com/codeinchinese/%E6%BA%90%E7%A0%81/%E7%BF%BB%E8%AF%91/%E6%BA%90%E7%A0%81%E5%A4%84%E7%90%86.java#L25)来源于[之前的手动提交](https://gitee.com/Program-in-Chinese/OpenArkCompiler/commits/master). 批量替换之前基本没有任何语法分析, 仅有不完全的注释/字符串识别处理. 阶段小结如下.
+
+处理的结果与之前的手动修改比较. 生成的diff大约30k, 大约60多处不同. 相对修改的上千处代码来说, 比例很小.
+### 存在的几种问题
+
+1. 同名标识符
+    有些本地标识符没有被替换的, 如`DefaultOption`中的`mplOptions`. 在汉化过程中, 同名标识符可能属于不同类, 不一定使用同一中文翻译, 这种情况暂时无法处理, 需要语法分析.
+
+    统计(diff中的出现次数, 下同): 4 8 5 3 1 3 2
+
+    ret是否全都是"返回"的语义需逐个检查. 之前并非全局替换.
+
+    统计: 7
+
+    还有`OptionParser`中的`Parse`, 也和`Compiler`的`Parse`重名.
+
+    统计: 2 1
+2. 注释与字符串
+    一些标识符在注释/字符串中也应翻译, 如:`ASSERT(i == 0, "Invalid operand idx in UnaryNode");`中的`UnaryNode`.
+    统计: 15 11 1
+    当前默认不翻译, 是为了避免不完整翻译. 比如避免`"Error while Exe, cmd: "`这一字符串被译为`"Error while 运行, cmd: "`
+3. 标识符替换的硬伤:
+```diff
+-    LogInfo::MapleLogger() << "/* &" << GlobalTables::GetGsymTable().GetSymbolFromStidx(m.first.Idx())->求名称();
++    LogInfo::MapleLogger() << "/* &" << GlobalTables::GetGsymTable().GetSymbolFromStidx(m.first.Idx())->GetName();
+```
+此处由于字符串中带有`/*`, 因此被误判为注释因而`GetName`未被翻译
+
+统计: 2 1 2
+
+4. 命名冲突
+```cpp
+const int 运行(const 选项类 &mplOptions, const std::string &options) const;
+```
+其他多数情况下, `mplOptions`和`options`都被翻译成"选项", 并无冲突. 但这种情况下, 需要区别.
+
+统计: 1
+### 问题分析
+
+- 2可通过只当某些标识符在注释/字符串中出现时翻译来规避.
+- 多数问题(1, 3, 4)需要更进一步的语法分析. 包括字符串/注释的识别, 以及不同类中的同名域的区分等等. 最好借助于现成的C++语言分析器.
+### 自动修改的优点
+
+相比手工修改, 减少了不少低级错误(已在主库修正). 比如手工替换时[未注意大小写](https://gitee.com/Program-in-Chinese/OpenArkCompiler/commit/8fb2df390111bfb87b811ae59a1d67e472f304ca), 以及未对整体标识符[进行替换](https://gitee.com/Program-in-Chinese/OpenArkCompiler/commit/09f53b582b5d0b05600894c5a289c11673413948)等等.
+### 结论
+
+1. 使用程序进行源码自动修改有可行性, 即使工具很简陋
+2. 在找到好用的C++源码分析器之前, 暂停改进此自动修改工具
