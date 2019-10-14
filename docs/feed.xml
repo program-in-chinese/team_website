@@ -1,4 +1,330 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-09-16T22:42:47-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">手工翻译方舟编译器源码: IR相关节点类</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/10/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81-IR%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E7%B1%BB.html" rel="alternate" type="text/html" title="手工翻译方舟编译器源码: IR相关节点类" /><published>2019-09-10T00:00:00-07:00</published><updated>2019-09-10T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/10/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81:%20IR%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E7%B1%BB</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/10/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81-IR%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E7%B1%BB.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-09-10_ark%E9%87%8D%E5%91%BD%E5%90%8DIR.png&quot; alt=&quot;2019-09-10_ark重命名IR&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2019-10-13T22:32:30-07:00</updated><id>http://localhost:4000/</id><title type="html">用中文编程</title><subtitle>尽量用中文编写代码. 包括中文命名, 汉化库, 汉化关键词, 新创中文语法的编程语言等等. Program in Chinese wherever possible. Including using Chinese naming in code, making API in Chinese, supporting Chinese keywords in existing programming languages, and creating new programming languages with Chinese grammar.</subtitle><entry><title type="html">(多图)火热出炉的大疆机甲大师教育机器人开箱组装小记</title><link href="http://localhost:4000/%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88/2019/10/11/(%E5%A4%9A%E5%9B%BE)%E7%81%AB%E7%83%AD%E5%87%BA%E7%82%89%E7%9A%84%E5%A4%A7%E7%96%86%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88%E5%BC%80%E7%AE%B1%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0.html" rel="alternate" type="text/html" title="(多图)火热出炉的大疆机甲大师教育机器人开箱组装小记" /><published>2019-10-11T00:00:00-07:00</published><updated>2019-10-11T00:00:00-07:00</updated><id>http://localhost:4000/%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88/2019/10/11/(%E5%A4%9A%E5%9B%BE)%E7%81%AB%E7%83%AD%E5%87%BA%E7%82%89%E7%9A%84%E5%A4%A7%E7%96%86%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88%E5%BC%80%E7%AE%B1%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88/2019/10/11/(%E5%A4%9A%E5%9B%BE)%E7%81%AB%E7%83%AD%E5%87%BA%E7%82%89%E7%9A%84%E5%A4%A7%E7%96%86%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88%E5%BC%80%E7%AE%B1%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0.html">&lt;p&gt;2010年之后再没碰过机器人的准新手在向大疆官方确认过Python开发支持使用中文命名标识符之后(应该是独一无二的理由吧), 终于下决心入手.&lt;/p&gt;
+
+&lt;p&gt;昨日(现在半夜1点多, 趁还记得清来复盘)周五中午12点半, 如期等到门铃. 今天的快递大妈看起来分外和蔼啊. 抱进来先…清二十分钟地板…再照箱子:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%851.jpg&quot; alt=&quot;2019-10-11_robomaster安装1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;拆开(废话), 裹得挺严实:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%852.jpg&quot; alt=&quot;2019-10-11_robomaster安装2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;挖到宝了!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%853.jpg&quot; alt=&quot;2019-10-11_robomaster安装3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;挖出来冷静下, 破箱而入前来一张:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%854.jpg&quot; alt=&quot;2019-10-11_robomaster安装4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这才一点钟, 5点去日托之前还有4个小时, 大概..应该够了吧. 开工!&lt;/p&gt;
+
+&lt;p&gt;之前看到官网上摆出来的零件一大片, 先准备好~&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%855.jpg&quot; alt=&quot;2019-10-11_robomaster安装5&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第一层. 盒子里大概是说明书吧~~并不是! 看了一眼像是视觉训练用的卡片, 嗯…有点想要说明书. 轮子用的小零件排的挺齐哈.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%856.jpg&quot; alt=&quot;2019-10-11_robomaster安装6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第二层, 哦豁有点”机器人”的感觉了有没有.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%857.jpg&quot; alt=&quot;2019-10-11_robomaster安装7&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;三层都拿出来, 虽然好几个零件还不明觉厉, 至少包装很专业的样子.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%858.jpg&quot; alt=&quot;2019-10-11_robomaster安装8&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到底了?? 还是没有说明书? 找手机app里的文档, 打开了”How to Assemble RoboMaster S1”官方安装教学视频, 终于有了点底. 才12分钟多的视频, 为啥印象里说安装耗时从两个半到四个小时呢?&lt;/p&gt;
+
+&lt;p&gt;既然有护目镜, 最好戴一下(脑补零件/火花乱飞)?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%859.jpg&quot; alt=&quot;2019-10-11_robomaster安装9&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;视频一开始说先把电池充上电, 嗯有道理, 开始找电池. 第一层先放一边, 第三层的工具比较多先拿出来, 充电器看到了! 电池么得.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8510.jpg&quot; alt=&quot;2019-10-11_robomaster安装10&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第二层的大件拿出来之后, 等等好像有神秘夹层, 好像看到了大脑! 电池…还是么得.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8511.jpg&quot; alt=&quot;2019-10-11_robomaster安装11&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;把第二层的全铺出来. 电池呢?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8512.jpg&quot; alt=&quot;2019-10-11_robomaster安装12&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;全都在这了, 可是电池呢??&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8513.jpg&quot; alt=&quot;2019-10-11_robomaster安装13&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;难道要出师未捷…? 不应该怀疑专业度吧(包装的印象分很高啊喂), 忍住了把泡沫包装破拆的冲动, 在这些零件里找电池, 果然!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8514.jpg&quot; alt=&quot;2019-10-11_robomaster安装14&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;满上! 一开始是25-50%的样子. 半个小时, 终于要进入正题了!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8515.jpg&quot; alt=&quot;2019-10-11_robomaster安装15&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;视频的第一步是装轮子(最没技术含量的一步?), 花二十分钟装好了第一个之后发觉润滑也许挤得不够多, 不管先这样了, 后面的补点.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8516.jpg&quot; alt=&quot;2019-10-11_robomaster安装16&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从第二个开始就是这样, 润滑不会挤得太多了吧..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8517.jpg&quot; alt=&quot;2019-10-11_robomaster安装17&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;果然, 润滑剂比想象中的少(像牙膏一样有大气泡竟然), 到了第四个轮子已经这样了, 本来还以为有很多能剩下之后用. 希望不是过犹不及了.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8518.jpg&quot; alt=&quot;2019-10-11_robomaster安装18&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;四个轮子装完(每个上的12个小转轮都试了一下转动情况, 有点强迫症), 用了将近一个小时..有点玄了好像.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8519.jpg&quot; alt=&quot;2019-10-11_robomaster安装19&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;视频第二步(才到三分钟处! 原来十二分钟的视频是这个密度吗?!), 开始装机身. 这里的电源线头要从这个口拉出来接到主机板, 折腾了一下(也许有点太小心了?)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8520.jpg&quot; alt=&quot;2019-10-11_robomaster安装20&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这块板要先掀开再往下装(有了之前电池的波折这就不算事了)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8521.jpg&quot; alt=&quot;2019-10-11_robomaster安装21&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;装上了控制板(为固定往里按的时候啪了一声后壁, 应该不那么娇贵震坏吧), 接上电源线.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8522.jpg&quot; alt=&quot;2019-10-11_robomaster安装22&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;对了, 从装轮子开始就把护目镜脱了(后果自负). 给四个装甲装上了LED. 才发觉螺丝钉的数量很可观啊…手已经有点感觉了.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8523.jpg&quot; alt=&quot;2019-10-11_robomaster安装23&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;装左边装甲, 为啥装不上? 按照视频的嵌入凹槽了, 但上面那片装甲又卡着前轴那边??&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8524.jpg&quot; alt=&quot;2019-10-11_robomaster安装24&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;果然, 装不上意味着装错了. 换一边即可(还好没硬来), 接下来走线, 继续穿门洞:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8525.jpg&quot; alt=&quot;2019-10-11_robomaster安装25&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;装了三边装甲(左右,后), 又是一个钟头(中间去厨房把炖排骨放下, 大概刨去15分钟). 好像电池这时已经满了, 就装上了.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8526.jpg&quot; alt=&quot;2019-10-11_robomaster安装26&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;眼看着快四点了! 加速加速, 图也少点了. 花了十五分钟装完马达. 12个螺丝…继续酸爽. 话说那些个连接线(黑色的)有三四种长度. 多亏有了视频, 不然感觉很容易分不清哪条该用在哪里.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8527.jpg&quot; alt=&quot;2019-10-11_robomaster安装27&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;开始装前部马达, 走线有点考验手指, 中间要穿过一个洞, 设计的蛮细致的(其实一直都有感觉), 排线固定, 专业范啊.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8528.jpg&quot; alt=&quot;2019-10-11_robomaster安装28&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;二十分钟左右装完了马达, 排线还算可以吧hoho.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8529.jpg&quot; alt=&quot;2019-10-11_robomaster安装29&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;十分钟装完轮子, 快快快(期间照顾排骨大概刨去15分钟)! 眼看着4点半了, 还有一堆的样子.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8530.jpg&quot; alt=&quot;2019-10-11_robomaster安装30&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;十分钟才搞定前部装甲+排线. 初见雏形, 手感挺皮实厚重的.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8531.jpg&quot; alt=&quot;2019-10-11_robomaster安装31&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;五分钟装上云台, 装螺钉的时候转转, 好像有个限度, 一个方向只能转一圈还是两圈. 轮胎晒热了…今后就先不在大太阳底下玩了.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8532.jpg&quot; alt=&quot;2019-10-11_robomaster安装32&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;十分钟装枪(因为不打算用水弹, 一开始就没有处理, 这里也是直接拆掉了弹匣没打算装), 和顶上的”大脑”. 螺丝已经拧木了..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8533.jpg&quot; alt=&quot;2019-10-11_robomaster安装33&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最后十分钟冲刺! 前置摄像头, 连线, 扬声器连线! 五点钟终于完成!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8534.jpg&quot; alt=&quot;2019-10-11_robomaster安装34&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;昂首挺胸来一张!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-11_robomaster%E5%AE%89%E8%A3%8535.jpg&quot; alt=&quot;2019-10-11_robomaster安装35&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;结果摄像头对着夕阳十分钟才发现…希望没事啊…&lt;/p&gt;
+
+&lt;p&gt;因为完全没来得及试机, 所以只能算到了门前, 还差临门一脚. 敬请期待吧!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;此文写了两个钟头. 请不吝三连!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(刚看到新闻说大疆因为关税在美国产品涨价…难怪机甲涨了10%)&lt;/p&gt;</content><author><name></name></author><summary type="html">2010年之后再没碰过机器人的准新手在向大疆官方确认过Python开发支持使用中文命名标识符之后(应该是独一无二的理由吧), 终于下决心入手.</summary></entry><entry><title type="html">自制TTS引擎第0.02步-单字拼音化, 从Excel表格用Python提取拼音表</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/python/2019/10/08/%E8%87%AA%E5%88%B6TTS%E5%BC%95%E6%93%8E%E7%AC%AC0.02%E6%AD%A5-%E5%8D%95%E5%AD%97%E6%8B%BC%E9%9F%B3%E5%8C%96,-%E4%BB%8EExcel%E8%A1%A8%E6%A0%BC%E7%94%A8Python%E6%8F%90%E5%8F%96%E6%8B%BC%E9%9F%B3%E8%A1%A8.html" rel="alternate" type="text/html" title="自制TTS引擎第0.02步-单字拼音化, 从Excel表格用Python提取拼音表" /><published>2019-10-08T00:00:00-07:00</published><updated>2019-10-08T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/python/2019/10/08/%E8%87%AA%E5%88%B6TTS%E5%BC%95%E6%93%8E%E7%AC%AC0.02%E6%AD%A5-%E5%8D%95%E5%AD%97%E6%8B%BC%E9%9F%B3%E5%8C%96,%20%E4%BB%8EExcel%E8%A1%A8%E6%A0%BC%E7%94%A8Python%E6%8F%90%E5%8F%96%E6%8B%BC%E9%9F%B3%E8%A1%A8</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/python/2019/10/08/%E8%87%AA%E5%88%B6TTS%E5%BC%95%E6%93%8E%E7%AC%AC0.02%E6%AD%A5-%E5%8D%95%E5%AD%97%E6%8B%BC%E9%9F%B3%E5%8C%96,-%E4%BB%8EExcel%E8%A1%A8%E6%A0%BC%E7%94%A8Python%E6%8F%90%E5%8F%96%E6%8B%BC%E9%9F%B3%E8%A1%A8.html">&lt;p&gt;续上文: &lt;a href=&quot;https://zhuanlan.zhihu.com/p/85486162&quot;&gt;自制TTS引擎第0.01步-Python实现拼接单字wav文件&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先, 利用第三方库&lt;a href=&quot;https://github.com/program-in-chinese/study/blob/master/1-%E5%9F%BA%E7%A1%80/wav%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/%E5%90%88%E6%88%90.py&quot;&gt;获取中文字符对应拼音&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;xpinyin&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pinyin&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;单字&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# TODO: 多系统/&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;拼音&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音库&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_pinyin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;单字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tone_marks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'numbers'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;从&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wav&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件读取信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;单字/&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;.wav&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;然后将wav文件改为拼音命名, 比如”中.wav”改为”zhong1.wav”, 顺手将单字(“我是中国人”五个字)的wav文件裁剪为0.35秒左右, 减少了前后空白, 拼接起来效果听起来好一些.&lt;/p&gt;
+
+&lt;p&gt;下面需要整理一份拼音全表. 用了网上下载的一个xls表, 格式如下:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-08_excel%E6%8B%BC%E9%9F%B3%E8%A1%A8.png&quot; alt=&quot;2019-10-08_excel拼音表&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输出所有存在的拼音, 比如a, 包括入声和四声都有, 则输出 a0, a1, a2, a3, a4; 如&lt;code class=&quot;highlighter-rouge&quot;&gt;bu&lt;/code&gt;, 则输出bu1, bu3, bu4&lt;/p&gt;
+
+&lt;p&gt;同样用Python处理xlsx表格, 之前好像没有贴过类似代码. 节选如下(完整代码&lt;a href=&quot;https://github.com/program-in-chinese/study/blob/master/2.1-topic%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E6%8B%BC%E9%9F%B3%E8%A1%A8/%E6%8B%BC%E9%9F%B3%E6%8F%90%E5%8F%96.py&quot;&gt;在此&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;openpyxl&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_workbook&lt;/span&gt;
+
+&lt;span class=&quot;err&quot;&gt;开始行&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;结束行&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;205&lt;/span&gt;
+
+&lt;span class=&quot;err&quot;&gt;所有拼音&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;遍历表格(文件名):
+    工作簿 = &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;load_workbook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;表单&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;工作簿&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;开始行&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;结束行&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音序号&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;拼音所在列&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音序号&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;拼音&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;表单&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音所在列&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;列&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;拼音所在列&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音所在列&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;err&quot;&gt;对应字&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;表单&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;行&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;列&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;对应字&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;err&quot;&gt;所有拼音&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;拼音&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;列&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;拼音所在列&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出&lt;strong&gt;&lt;em&gt;1238&lt;/em&gt;&lt;/strong&gt;个, 如下:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a0
+a1
+a2
+a3
+a4
+ai1
+ai2
+ai3
+ai4
+an1
+an3
+an4
+ang1
+ang2
+ang4
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;全表见此: &lt;a href=&quot;https://github.com/program-in-chinese/study/blob/master/2.1-topic%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E6%8B%BC%E9%9F%B3%E8%A1%A8/%E6%89%80%E6%9C%89%E6%8B%BC%E9%9F%B3.txt&quot;&gt;所有拼音&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;接下去就是体力活, 录音. 打算用一段稍长的文字作演示.&lt;/p&gt;</content><author><name></name></author><summary type="html">续上文: 自制TTS引擎第0.01步-Python实现拼接单字wav文件</summary></entry><entry><title type="html">自制TTS引擎第0.01步-Python实现拼接单字wav文件</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/python/2019/10/07/%E8%87%AA%E5%88%B6TTS%E5%BC%95%E6%93%8E%E7%AC%AC0.01%E6%AD%A5-Python%E5%AE%9E%E7%8E%B0%E6%8B%BC%E6%8E%A5%E5%8D%95%E5%AD%97wav%E6%96%87%E4%BB%B6.html" rel="alternate" type="text/html" title="自制TTS引擎第0.01步-Python实现拼接单字wav文件" /><published>2019-10-07T00:00:00-07:00</published><updated>2019-10-07T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/python/2019/10/07/%E8%87%AA%E5%88%B6TTS%E5%BC%95%E6%93%8E%E7%AC%AC0.01%E6%AD%A5-Python%E5%AE%9E%E7%8E%B0%E6%8B%BC%E6%8E%A5%E5%8D%95%E5%AD%97wav%E6%96%87%E4%BB%B6</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/python/2019/10/07/%E8%87%AA%E5%88%B6TTS%E5%BC%95%E6%93%8E%E7%AC%AC0.01%E6%AD%A5-Python%E5%AE%9E%E7%8E%B0%E6%8B%BC%E6%8E%A5%E5%8D%95%E5%AD%97wav%E6%96%87%E4%BB%B6.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-10-07_audacity.png&quot; alt=&quot;2019-10-07_audacity&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;一些参考资料在: &lt;a href=&quot;https://www.zhihu.com/question/263570139/answer/845792385&quot;&gt;怎样自己做一个tts引擎？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;演示(文本源自小学一年级课文):
+&lt;a href=&quot;https://www.bilibili.com/audio/au1100814?type=1&quot;&gt;Python实现wav文件合并演示1: 我是中国人​&lt;/a&gt;
+&lt;a href=&quot;https://www.bilibili.com/audio/au1100815?type=1&quot;&gt;Python实现拼接wav文件演示: 我是小学生​&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;尚未找到开源和成熟的中文TTS引擎, 于是先自己摸索一下. 实现思路很原始, 自己读一系列单字, 用Audacity录成wav文件. 再写个Python脚本, 将输入文本中的单字对应的wav文件进行直接拼接生成新wav文件.&lt;/p&gt;
+
+&lt;p&gt;源码和单字音频资源在: &lt;a href=&quot;https://github.com/program-in-chinese/study/blob/master/1-%E5%9F%BA%E7%A1%80/wav%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/%E5%90%88%E6%88%90.py&quot;&gt;wav文件处理/合成.py&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wave&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 参考: https://blog.csdn.net/qq_39516859/article/details/79819276&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;从&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wav&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件读取信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#打开wav文件 ，open返回一个的是一个Wave_read类的实例，通过调用它的方法读取WAV文件的格式和数据。&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wave&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件名&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#读取格式信息&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;帧数&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getnframes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;信息&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;帧&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readframes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;帧数&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;频道数&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getnchannels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;量化位数&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getsampwidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;帧速&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getframerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;信息&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 参考: https://blog.csdn.net/zzZ_CMing/article/details/81739193&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;合成(文字):
+    帧 = &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;字&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# TODO: 多系统/&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;从&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wav&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;文件读取信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;单字/&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;字&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;.wav&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;帧&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;帧&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wave&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;输出/&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;文字&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;.wav&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setnchannels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;频道数&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setsampwidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;量化位数&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setframerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;格式信息&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;帧速&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writeframes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;帧&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;文件&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;合成结束&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;err&quot;&gt;合成&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;我是中国人&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;合成&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;我是小学生&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;待改进&quot;&gt;待改进&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;需对单字音频作修剪处理, 否则单字间的间隔太大&lt;/li&gt;
+  &lt;li&gt;更全的单字音频. 之前还在算要怎么先录最常用的几千字的音频, 刚意识到不如录所有拼音的音频, 然后将文字转换成拼音(是的这里就有坑, 但是TTS本身就是大坑). 粗看一下拼音组合大概不到500(汉语拼音最全组合 - 百度文库), 按4个音调不到2000.&lt;/li&gt;
+  &lt;li&gt;欢迎拍砖&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">尝试自动批量翻译方舟编译器源码中的标识符</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/10/02/%E5%B0%9D%E8%AF%95%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6.html" rel="alternate" type="text/html" title="尝试自动批量翻译方舟编译器源码中的标识符" /><published>2019-10-02T00:00:00-07:00</published><updated>2019-10-02T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/10/02/%E5%B0%9D%E8%AF%95%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/10/02/%E5%B0%9D%E8%AF%95%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6.html">&lt;p&gt;在对方舟编译器源码中的近百个标识符/字符串常量进行手工汉化后, 尝试用&lt;a href=&quot;https://github.com/program-in-chinese/ark_compiler_source_translation&quot;&gt;批量替换+字典&lt;/a&gt;的方式对源码标识符进行自动翻译, 目标是自动翻译后达到与手工相同的效果.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/program-in-chinese/ark_compiler_source_translation/blob/master/src/com/codeinchinese/%E6%BA%90%E7%A0%81/%E7%BF%BB%E8%AF%91/%E6%BA%90%E7%A0%81%E5%A4%84%E7%90%86.java#L25&quot;&gt;字典&lt;/a&gt;来源于&lt;a href=&quot;https://gitee.com/Program-in-Chinese/OpenArkCompiler/commits/master&quot;&gt;之前的手动提交&lt;/a&gt;. 批量替换之前基本没有任何语法分析, 仅有不完全的注释/字符串识别处理. 阶段小结如下.&lt;/p&gt;
+
+&lt;p&gt;处理的结果与之前的手动修改比较. 生成的diff大约30k, 大约60多处不同. 相对修改的上千处代码来说, 比例很小.&lt;/p&gt;
+&lt;h3 id=&quot;存在的几种问题&quot;&gt;存在的几种问题&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;同名标识符
+ 有些本地标识符没有被替换的, 如&lt;code class=&quot;highlighter-rouge&quot;&gt;DefaultOption&lt;/code&gt;中的&lt;code class=&quot;highlighter-rouge&quot;&gt;mplOptions&lt;/code&gt;. 在汉化过程中, 同名标识符可能属于不同类, 不一定使用同一中文翻译, 这种情况暂时无法处理, 需要语法分析.&lt;/p&gt;
+
+    &lt;p&gt;统计(diff中的出现次数, 下同): 4 8 5 3 1 3 2&lt;/p&gt;
+
+    &lt;p&gt;ret是否全都是”返回”的语义需逐个检查. 之前并非全局替换.&lt;/p&gt;
+
+    &lt;p&gt;统计: 7&lt;/p&gt;
+
+    &lt;p&gt;还有&lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser&lt;/code&gt;中的&lt;code class=&quot;highlighter-rouge&quot;&gt;Parse&lt;/code&gt;, 也和&lt;code class=&quot;highlighter-rouge&quot;&gt;Compiler&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;Parse&lt;/code&gt;重名.&lt;/p&gt;
+
+    &lt;p&gt;统计: 2 1&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;注释与字符串
+ 一些标识符在注释/字符串中也应翻译, 如:&lt;code class=&quot;highlighter-rouge&quot;&gt;ASSERT(i == 0, &quot;Invalid operand idx in UnaryNode&quot;);&lt;/code&gt;中的&lt;code class=&quot;highlighter-rouge&quot;&gt;UnaryNode&lt;/code&gt;.
+ 统计: 15 11 1
+ 当前默认不翻译, 是为了避免不完整翻译. 比如避免&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Error while Exe, cmd: &quot;&lt;/code&gt;这一字符串被译为&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Error while 运行, cmd: &quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;标识符替换的硬伤:
+    &lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gd&quot;&gt;-    LogInfo::MapleLogger() &amp;lt;&amp;lt; &quot;/* &amp;amp;&quot; &amp;lt;&amp;lt; GlobalTables::GetGsymTable().GetSymbolFromStidx(m.first.Idx())-&amp;gt;求名称();
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    LogInfo::MapleLogger() &amp;lt;&amp;lt; &quot;/* &amp;amp;&quot; &amp;lt;&amp;lt; GlobalTables::GetGsymTable().GetSymbolFromStidx(m.first.Idx())-&amp;gt;GetName();
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;此处由于字符串中带有&lt;code class=&quot;highlighter-rouge&quot;&gt;/*&lt;/code&gt;, 因此被误判为注释因而&lt;code class=&quot;highlighter-rouge&quot;&gt;GetName&lt;/code&gt;未被翻译&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;统计: 2 1 2&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;命名冲突
+    &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;运行&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项类&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mplOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;其他多数情况下, &lt;code class=&quot;highlighter-rouge&quot;&gt;mplOptions&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;options&lt;/code&gt;都被翻译成”选项”, 并无冲突. 但这种情况下, 需要区别.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;统计: 1&lt;/p&gt;
+&lt;h3 id=&quot;问题分析&quot;&gt;问题分析&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2可通过只当某些标识符在注释/字符串中出现时翻译来规避.&lt;/li&gt;
+  &lt;li&gt;多数问题(1, 3, 4)需要更进一步的语法分析. 包括字符串/注释的识别, 以及不同类中的同名域的区分等等. 最好借助于现成的C++语言分析器.
+    &lt;h3 id=&quot;自动修改的优点&quot;&gt;自动修改的优点&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;相比手工修改, 减少了不少低级错误(已在主库修正). 比如手工替换时&lt;a href=&quot;https://gitee.com/Program-in-Chinese/OpenArkCompiler/commit/8fb2df390111bfb87b811ae59a1d67e472f304ca&quot;&gt;未注意大小写&lt;/a&gt;, 以及未对整体标识符&lt;a href=&quot;https://gitee.com/Program-in-Chinese/OpenArkCompiler/commit/09f53b582b5d0b05600894c5a289c11673413948&quot;&gt;进行替换&lt;/a&gt;等等.&lt;/p&gt;
+&lt;h3 id=&quot;结论&quot;&gt;结论&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;使用程序进行源码自动修改有可行性, 即使工具很简陋&lt;/li&gt;
+  &lt;li&gt;在找到好用的C++源码分析器之前, 暂停改进此自动修改工具&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">在对方舟编译器源码中的近百个标识符/字符串常量进行手工汉化后, 尝试用批量替换+字典的方式对源码标识符进行自动翻译, 目标是自动翻译后达到与手工相同的效果.</summary></entry><entry><title type="html">手工翻译方舟编译器源码: IR相关节点类</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/10/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81-IR%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E7%B1%BB.html" rel="alternate" type="text/html" title="手工翻译方舟编译器源码: IR相关节点类" /><published>2019-09-10T00:00:00-07:00</published><updated>2019-09-10T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/10/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81:%20IR%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E7%B1%BB</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8/2019/09/10/%E6%89%8B%E5%B7%A5%E7%BF%BB%E8%AF%91%E6%96%B9%E8%88%9F%E7%BC%96%E8%AF%91%E5%99%A8%E6%BA%90%E7%A0%81-IR%E7%9B%B8%E5%85%B3%E8%8A%82%E7%82%B9%E7%B1%BB.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/2019-09-10_ark%E9%87%8D%E5%91%BD%E5%90%8DIR.png&quot; alt=&quot;2019-09-10_ark重命名IR&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;本系列进展跟踪帖: &lt;a href=&quot;https://github.com/program-in-chinese/overview/issues/166&quot;&gt;方舟编译器中文化的相关话题 · Issue #166 · program-in-chinese/overview&lt;/a&gt;&lt;/p&gt;
 
@@ -397,173 +723,4 @@ NameError: name '选' is not defined
 
 &lt;p&gt;内部团队建设之外，与合作的第三方联系很重要。尤其是上下游合作者和服务提供商（尤其是提供了某种程度资助的），有条件的话应该借助自身平台和影响力，有忙就帮（包括在网站进行某种感谢/公示），尽量扩大企业/实体层面的朋友圈。&lt;/p&gt;
 
-&lt;p&gt;开源和开放，对于中文编程语言和开发环境来说，现在看来是必由之路。上面的经验教训，希望对来者有所裨益。&lt;/p&gt;</content><author><name></name></author><summary type="html">前不久听说立创EDA，对比之前的讨论: 适合中文用户的编程语言和IDE, 侧重于现有语言/IDE不具备的特性 · Issue #11 · program-in-chinese/overview，觉得颇有共鸣。</summary></entry><entry><title type="html">Python3中文命名</title><link href="http://localhost:4000/2019/06/18/Python3%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html" rel="alternate" type="text/html" title="Python3中文命名" /><published>2019-06-18T00:00:00-07:00</published><updated>2019-06-18T00:00:00-07:00</updated><id>http://localhost:4000/2019/06/18/Python3%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D</id><content type="html" xml:base="http://localhost:4000/2019/06/18/Python3%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D.html">&lt;p&gt;分类：科技
-已经十多年了! 你知道Python3可以用中文命名变量吗?&lt;/p&gt;
-
-&lt;p&gt;Python3本身支持中文命名类/方法/变量
-任何额外的库和工具都不需要，不需要，不需要！重要的话三遍。Python3本身就可以正确运行下面的代码：&lt;/p&gt;
-
-&lt;p&gt;请输入图片描述&lt;/p&gt;
-
-&lt;p&gt;补一句, 不光是Python3支持中文命名哦，以后一个一个语言讲过来，九成九你用的编程语言也支持。&lt;/p&gt;
-
-&lt;p&gt;下面是一个Python实用小程序的代码片段：&lt;/p&gt;
-
-&lt;p&gt;请输入图片描述&lt;/p&gt;
-
-&lt;p&gt;Python3为什么支持非ASCII码命名标识符
-Python2并不支持非ASCII码标识符。于2008年12月发布的Python3开始支持。2008年！也就是十多年前。现在还不知道的话，你就OUT大了。&lt;/p&gt;
-
-&lt;p&gt;创建于2007年5月的Python增强提案PEP 3131 – Supporting Non-ASCII Identifiers阐述了支持非ASCII码命名标识符的缘由。Rationale (依据) 一节开篇明义，指出很多Python开发者并不熟悉英语，更希望用母语对类/方法进行命名，而不是用经常有误的英文翻译。对使用同样母语的开发者来说，用母语命名的标识符可以提高代码清晰度和可维护性。&lt;/p&gt;
-
-&lt;p&gt;Python code is written by many people in the world who are not familiar with the English language, or even well-acquainted with the Latin writing system. Such developers often desire to define classes and functions with names in their native languages, rather than having to come up with an (often incorrect) English translation of the concept they want to name. By using identifiers in their native language, code clarity and maintainability of the code among speakers of that language improves.&lt;/p&gt;
-
-&lt;p&gt;更多用中文编程的教程和演示，请关注“用中文编程”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">分类：科技 已经十多年了! 你知道Python3可以用中文命名变量吗?</summary></entry><entry><title type="html">编程教程中的英文示例翻译成中文命名看看？想不到原来是这意思！</title><link href="http://localhost:4000/2019/05/29/%E7%BC%96%E7%A8%8B%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%8B%B1%E6%96%87%E7%A4%BA%E4%BE%8B%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9C%8B%E7%9C%8B-%E6%83%B3%E4%B8%8D%E5%88%B0%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%BF%99%E6%84%8F%E6%80%9D.html" rel="alternate" type="text/html" title="编程教程中的英文示例翻译成中文命名看看？想不到原来是这意思！" /><published>2019-05-29T00:00:00-07:00</published><updated>2019-05-29T00:00:00-07:00</updated><id>http://localhost:4000/2019/05/29/%E7%BC%96%E7%A8%8B%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%8B%B1%E6%96%87%E7%A4%BA%E4%BE%8B%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9C%8B%E7%9C%8B%3F%E6%83%B3%E4%B8%8D%E5%88%B0%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%BF%99%E6%84%8F%E6%80%9D!</id><content type="html" xml:base="http://localhost:4000/2019/05/29/%E7%BC%96%E7%A8%8B%E6%95%99%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%8B%B1%E6%96%87%E7%A4%BA%E4%BE%8B%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9C%8B%E7%9C%8B-%E6%83%B3%E4%B8%8D%E5%88%B0%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%BF%99%E6%84%8F%E6%80%9D.html">&lt;p&gt;更多用中文编写代码的技术文章，请关注本号。&lt;/p&gt;
-
-&lt;p&gt;前几天有幸看到Quora不久前的一个回复: Has any serious project been written in a non-English-based programming language? （有没有非英文编程语言写的项目？）&lt;/p&gt;
-
-&lt;p&gt;得知西门子和爱立信内部都有使用母语命名的C/C++代码(德语/瑞典语). 原文如下:&lt;/p&gt;
-
-&lt;p&gt;At both Siemens (German) and Ericsson (Swedish), I have seen programs written in C, and C++ where the only English words are the keywords. So if, new, else, for and the standard libraries like std::vector&amp;lt;&amp;gt;
-Everything else was in German or Swedish.
-另外, 答者还提到在布拉格碰到过一本Java编程书, 也是用非英语进行命名写的示例代码.&lt;/p&gt;
-
-&lt;p&gt;以母语命名可读性强的优势, 照理说编程教程应该是非常适合这一实践的. 那么来试试:&lt;/p&gt;
-
-&lt;p&gt;图片描述(最多50字)
-观感如何? 个人觉得是非常一目了然, 但代码本身自带不少槽点，和生活现实相去甚远。&lt;/p&gt;
-
-&lt;p&gt;下面看看英文原版(Effective Java第三版, Item 34的例程):&lt;/p&gt;
-
-&lt;p&gt;图片描述(最多50字)
-意思一样, 但是不是看上去有了些”距离感”, 槽点似乎就没那么明显了, 尤其不会有太多代入感. 可以想见, 在翻译英文原著时, 译者对代码本身的命名进行中文化也许会吃力却讨不到多少好.&lt;/p&gt;
-
-&lt;p&gt;翻了也许会有其他麻烦的还有这种(同一本书, Item 68):&lt;/p&gt;
-
-&lt;p&gt;图片描述(最多50字)
-还有这种(Item 4):&lt;/p&gt;
-
-&lt;p&gt;String s = “bikini”;
-至于下面这个例子(Item 34), 问题是想翻译都只能找到音译词, 也许还不如不翻. 而且, 在示例代码里用”桔子”, “苹果”之类在外文编程书籍中屡见不鲜, 但如果真用在中文代码中, 似乎第一感觉就有点幼稚.&lt;/p&gt;
-
-&lt;p&gt;public enum Apple  { FUJI, PIPPIN, GRANNY_SMITH }
-public enum Orange { NAVEL, TEMPLE, BLOOD }
-还有一种问题比如(Programming in Scala 第三版, 7.5节):&lt;/p&gt;
-
-&lt;p&gt;图片描述(最多50字)
-直译过来是:&lt;/p&gt;
-
-&lt;p&gt;图片描述(最多50字)
-这几个词对于不大了解西方饮食习惯的读者来说, 读起来完全没有感觉. 与其费口舌在注解里普及西方文化, 也许改成这样更自然:&lt;/p&gt;
-
-&lt;p&gt;图片描述(最多50字)
-但这比起翻译本身来, 又多了不少工作量, 估计还很难获得原作者的同意. 当然, 如果是自编文献, 就没有原作的限制了, 但就像之前的例子所示, 恐怕选材和尺度都会比用英文代码更加敏感.&lt;/p&gt;
-
-&lt;p&gt;类似的, 在项目中使用中文命名也比英文命名更需要推敲. 随手写个奇怪的英文名看起来也许不那么显眼, 但用了中文, 就会非常扎眼. 所谓”文如其人”, 也许语文的实用性会随着中文编程的推广而逐渐回归.&lt;/p&gt;
-
-&lt;p&gt;更多中文编程推广过程内情，请关注“用中文编程”微信公众号。&lt;/p&gt;</content><author><name></name></author><summary type="html">更多用中文编写代码的技术文章，请关注本号。</summary></entry><entry><title type="html">对中文命名的质疑之二</title><link href="http://localhost:4000/2019/05/22/%E5%AF%B9%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B9%8B%E4%BA%8C.note" rel="alternate" type="text/html" title="对中文命名的质疑之二" /><published>2019-05-22T00:00:00-07:00</published><updated>2019-05-22T00:00:00-07:00</updated><id>http://localhost:4000/2019/05/22/%E5%AF%B9%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B9%8B%E4%BA%8C</id><content type="html" xml:base="http://localhost:4000/2019/05/22/%E5%AF%B9%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E7%9A%84%E8%B4%A8%E7%96%91%E4%B9%8B%E4%BA%8C.note">0. 为何不把关键字改成中文
-1. 为何不把阿拉伯数字改成中文数字 -- 因为数字只有十个，英文单词有成千上万，
-2. 键盘还是英文的
-3. 中英文没区别 -- 改例程试试
-4. 实话说中英文混编，看着别扭 -- 大飞机预研时国产率目标是10%，现在的国产率是60%，还在增大。-- 一时的混用又如何？
-5. 可能性有些，不过中文中多意字有些多，谁能说说“好”有几种解释？ -- 知道&quot;good&quot;的在韦氏词典里的英文解释有多少条吗? 不同语境和领域下的少说20条. 往往是因为中文比英文好, 才觉得中文一个词的意思多.
-6. 操作系统和电脑要是中国人发明的就一定可以 -- 这和谁发明的有毛关系？指南针还是中国人发明的呢，现在所有罗盘上都写“东南西北”吗？
-7. 用英文思维拿中文写代码那不是扯淡吗？当初用中文设计的话你用英语也不行 -- 哦，那这些编程语言让你可以用中文命名是它们2B吗？
-8. 小学生全知道=是啥意思，小学生都认识kiwi吗？//@乐人说天地一号:符号也要中文 ＝换成等于
-9. 因为电脑是外国人发明的，所以不用汉语编程 -- 你咋不用英文写帖子呢？
-10. 如果中文编程不方便，能否用拼音？ -- DangRanKeYi（GouTou. 代码是你的，看不看得懂是你的事。
-11. 只有百分百的中文才叫中国人的系统 -- 在研的大飞机国产化率多少知道吗？少来绝对化。
-12. 汉语是一种语意丰富，千变万化的语言，适合文艺创作，文化传承。编程这种格式呆板，高度符号化的工作，反而过于啰嗦。所以不必强求。 -- 少玩捧杀。合同够需要严谨了吧，不照样用中文写？
-13. 可以用拼音 -- 你帖子用拼音写试试？张口就来本事不小
-
-
-神话
-0. 汉语编程、汉语内核的操作系统和汉字加密技术绝对会成为洋骇客的超级噩梦！
--- 可烦这种外行话，你以为黑客必须要靠看源码来黑你吗？中文编程的最重要意义根本不在于防贼，而在于提高自身竞争力。
-1. 中文编程不是你这样把标识符、关键字变成中文方块字就是中文编程了！你这是用中文字符的外衣装着英文编程的老酒“包装”罢了！真正的中文编程，讲究的是利用中文自然语言编程，编译器自带AI理解中文的自然语言，然后变成机器的二进制编码指令！你还自己标榜还什么高级软件工程师？扯淡吧！滚你的蛋吧！！
--- 拜托你先把市面上流行的几十种英文编程语言怼一遍: &quot;都迭代50多年了, 竟然还没有达到英文自然语言编程! 竟然还没有一点AI! 还标榜什么编程语言领路人? 扯淡吧! 还好意思出什么龙书鲸书虎书教编译原理?? 滚蛋吧!&quot; 请!
-
-
-语文差达不到精准语义也就罢了，要是自己英文差却认为自己英文表达很精确，那就是自欺欺人了。</content><author><name></name></author><summary type="html">0. 为何不把关键字改成中文 1. 为何不把阿拉伯数字改成中文数字 -- 因为数字只有十个，英文单词有成千上万， 2. 键盘还是英文的 3. 中英文没区别 -- 改例程试试 4. 实话说中英文混编，看着别扭 -- 大飞机预研时国产率目标是10%，现在的国产率是60%，还在增大。-- 一时的混用又如何？ 5. 可能性有些，不过中文中多意字有些多，谁能说说“好”有几种解释？ -- 知道&quot;good&quot;的在韦氏词典里的英文解释有多少条吗? 不同语境和领域下的少说20条. 往往是因为中文比英文好, 才觉得中文一个词的意思多. 6. 操作系统和电脑要是中国人发明的就一定可以 -- 这和谁发明的有毛关系？指南针还是中国人发明的呢，现在所有罗盘上都写“东南西北”吗？ 7. 用英文思维拿中文写代码那不是扯淡吗？当初用中文设计的话你用英语也不行 -- 哦，那这些编程语言让你可以用中文命名是它们2B吗？ 8. 小学生全知道=是啥意思，小学生都认识kiwi吗？//@乐人说天地一号:符号也要中文 ＝换成等于 9. 因为电脑是外国人发明的，所以不用汉语编程 -- 你咋不用英文写帖子呢？ 10. 如果中文编程不方便，能否用拼音？ -- DangRanKeYi（GouTou. 代码是你的，看不看得懂是你的事。 11. 只有百分百的中文才叫中国人的系统 -- 在研的大飞机国产化率多少知道吗？少来绝对化。 12. 汉语是一种语意丰富，千变万化的语言，适合文艺创作，文化传承。编程这种格式呆板，高度符号化的工作，反而过于啰嗦。所以不必强求。 -- 少玩捧杀。合同够需要严谨了吧，不照样用中文写？ 13. 可以用拼音 -- 你帖子用拼音写试试？张口就来本事不小</summary></entry><entry><title type="html">中文代码之Django官方入门：建立模型</title><link href="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BDjango%E5%AE%98%E6%96%B9%E5%85%A5%E9%97%A8-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B.html" rel="alternate" type="text/html" title="中文代码之Django官方入门：建立模型" /><published>2019-05-14T00:00:00-07:00</published><updated>2019-05-14T00:00:00-07:00</updated><id>http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BDjango%E5%AE%98%E6%96%B9%E5%85%A5%E9%97%A8:%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B</id><content type="html" xml:base="http://localhost:4000/%E5%91%BD%E5%90%8D/hibernate/2019/05/14/%E4%B8%AD%E6%96%87%E4%BB%A3%E7%A0%81%E4%B9%8BDjango%E5%AE%98%E6%96%B9%E5%85%A5%E9%97%A8-%E5%BB%BA%E7%AB%8B%E6%A8%A1%E5%9E%8B.html">&lt;p&gt;参考&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.2/intro/tutorial02/&quot;&gt;编写你的第一个 Django 应用，第 2 部分&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;创建项目后，首先用中文命名应用：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python3 manage.py startapp 投票
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;之后在&lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;建立模型，其他各种相关配置略去，详细请见末尾源码库：&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'发布问题日期'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;刚发问(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on_delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CASCADE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;交互环境测试API通过：&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Python&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ef4ec6ed12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mar&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2019&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Clang&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;6.0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;600.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;57&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;darwin&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;help&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;copyright&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;credits&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;more&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InteractiveConsole&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;投票&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'最'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; 
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;console&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/models/manager.py&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manager_method&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getattr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_queryset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kwargs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/db/models/query.py&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;408&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;
-    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_meta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object_name&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;投票&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DoesNotExist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matching&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;does&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问问&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;刚发问&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'没啥'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'看天'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'打字'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;票数&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;最近可好?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;打字&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;打字&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__startswith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'打'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'投票.选项'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;问题&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;发问日期&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;今年&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QuerySet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;没啥&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;选项&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;看天&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;完整源码在：&lt;a href=&quot;https://github.com/program-in-chinese/Django_tutorial_zh&quot;&gt;program-in-chinese/Django_tutorial_zh&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;测试环境：Python 3.7.3, Django-2.2.3, Mac&lt;/p&gt;</content><author><name></name></author><summary type="html">参考编写你的第一个 Django 应用，第 2 部分</summary></entry></feed>
+&lt;p&gt;开源和开放，对于中文编程语言和开发环境来说，现在看来是必由之路。上面的经验教训，希望对来者有所裨益。&lt;/p&gt;</content><author><name></name></author><summary type="html">前不久听说立创EDA，对比之前的讨论: 适合中文用户的编程语言和IDE, 侧重于现有语言/IDE不具备的特性 · Issue #11 · program-in-chinese/overview，觉得颇有共鸣。</summary></entry></feed>

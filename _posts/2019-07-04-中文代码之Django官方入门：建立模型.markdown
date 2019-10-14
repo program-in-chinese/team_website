@@ -4,7 +4,7 @@ comments: true
 title:  中文代码之Django官方入门：建立模型
 description: 
 date:   2019-05-14 00:00:00 -0700
-categories: 命名 Hibernate
+categories: 命名 Python
 ---
 
 参考[编写你的第一个 Django 应用，第 2 部分](https://docs.djangoproject.com/zh-hans/2.2/intro/tutorial02/)
