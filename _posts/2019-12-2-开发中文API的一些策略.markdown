@@ -75,6 +75,8 @@ https://www.zhihu.com/question/345834422/answer/841269850)入手。这也符合 
 
 把源码、文档放到 github 等平台只是第一步。发布方式经常会影响用户愿不愿意试用。以 Java 为例，个人对尝试没在 maven 发布的库的动力很小。毕竟类似功能（不偏门）的一般都能找到在 maven 发布的库，或者说，能够流传开并且持续维护的，大多发布在了类似 maven 的库管理和发布平台。JS，python 等等也是类似。估计大多数开发者也更乐意使用在常用渠道发布，并可以非常容易集成到项目中的库。
 
+之前提到的简繁转换库，在maven 发布一年后，就引起了 v2 的一个话题：[第一次见以汉字命名的 Java 类 - V2EX](https://www.v2ex.com/t/480623)。
+
 如果英文库本身就在发布平台，那么中文化之后的库一般也可以发布在同一平台。一个例子是之前[对 JUnit4 的汉化](https://github.com/program-in-chinese/junit4_in_chinese)。
 
 创建一个发行平台也有好处。但并非一定要创建另一个 maven。之前想到的一个可能是，[针对中文用户开发 API 门户](https://github.com/program-in-chinese/overview/issues/165)，辅助用户用中文对 API 进行搜索，在此基础上逐渐向[面向 API 的 编程语言和IDE](https://github.com/program-in-chinese/overview/issues/54#issuecomment-511582976) 发展。中文 API 可以选择任何库发布平台发布，然后在此门户登记并加入索引。可以认为这是个***针对中文的 API 搜索引擎***。这个途径的另一个好处是，可以逐步完善通用术语的中文命名，为 1.2 提供一个开发者学习适应的平台。
