@@ -1,0 +1,230 @@
+
+参考官方入门：The Swift Programming Language
+
+废话少说，掐秒表一口气读完看看要多久：
+
+print("吃了么")
+
+// 简单值部分
+
+var 某变量 = 42
+某变量 = 50
+let 某常量 = 42
+
+let 隐式整数 = 70
+let 隐式小数 = 70.0
+let 显式小数: Double = 70
+
+let 标签 = "宽度为"
+let 宽度 = 94
+let 宽度标签 = 标签 + String(宽度)
+
+let 苹果 = 3
+let 桔子 = 5
+let 苹果小结 = "我有\(苹果)个苹果."
+let 水果小结 = "我有\(苹果 + 桔子)个水果."
+
+let 引用 = """
+我说"我有\(苹果)个苹果."
+我又说"我有\(苹果 + 桔子)个水果."
+"""
+
+var 购物单 = ["鱼", "水", "花"]
+购物单[1] = "瓶水"
+
+var 职位 = [
+    "小二": "船长",
+    "小王": "机械师",
+ ]
+职位["小刘"] = "公关"
+
+购物单.append("颜料")
+print(购物单)
+
+let 空数组 = [String]()
+let 空字典 = [String: Float]()
+
+购物单 = []
+职位 = [:]
+
+// 控制流部分
+
+let 个人得分 = [75, 43, 103, 87, 12]
+var 队得分 = 0
+for 得分 in 个人得分 {
+    if 得分 > 50 {
+        队得分 += 3
+    } else {
+        队得分 += 1
+    }
+}
+print(队得分)
+
+var 可缺字符串: String? = "Hello"
+print(可缺字符串 == nil)
+
+var 可缺名字: String? = "鸟布拉斯基"
+var 问好 = "吃了么!"
+if let 名字 = 可缺名字 {
+    问好 = "吃了么, \(名字)"
+}
+
+let 绰号: String? = nil
+let 全名: String = "鸟布拉斯基"
+let 打招呼 = "你好\(绰号 ?? 全名)"
+
+let 蔬菜 = "红椒"
+switch 蔬菜 {
+    case "西芹":
+        print("纤维素高")
+    case "黄瓜", "胡萝卜":
+        print("干啃不错")
+    case let x where x.hasSuffix("椒"):
+        print("\(x)辣么?")
+    default:
+        print("炖汤里都行")
+}
+
+let 有趣的数 = [
+    "质数": [2, 3, 5, 7, 11, 13],
+    "斐波那契": [1, 1, 2, 3, 5, 8],
+    "平方": [1, 4, 9, 16, 25],
+]
+var 最大 = 0
+for (种类, 数) in 有趣的数 {
+    for 某数 in 数 {
+        if 某数 > 最大 {
+            最大 = 某数
+        }
+    }
+}
+print(最大)
+
+var 翻番 = 2
+while 翻番 < 100 {
+    翻番 *= 2
+}
+print(翻番)
+
+var 也翻 = 2
+repeat {
+    也翻 *= 2
+} while 也翻 < 100
+print(也翻)
+
+var 总和 = 0
+for i in 0..<4 {
+    总和 += i
+}
+print(总和)
+
+// 函数和闭包
+
+func 问好(人: String, 日子: String) -> String {
+    return "吃了么\(人), 今天是\(日子)."
+}
+问好(人: "小白", 日子: "周二")
+
+func 问好(_ 人: String, 在 日子: String) -> String {
+    return "吃了么\(人), 今天是\(日子)."
+}
+问好("小黑", 在: "周三")
+
+func 统计(得分: [Int]) -> (最小: Int, 最大: Int, 总和: Int) {
+    var 最小 = 得分[0]
+    var 最大 = 得分[0]
+    var 总和 = 0
+
+    for 分 in 得分 {
+        if 分 > 最大 {
+            最大 = 分
+        } else if 分 < 最小 {
+            最小 = 分
+        }
+        总和 += 分
+    }
+
+    return (最小, 最大, 总和)
+}
+let 结果 = 统计(得分: [5, 3, 100, 3, 9])
+print(结果.总和)
+print(结果.2)
+
+func 返回十五() -> Int {
+    var y = 10
+    func 加() {
+        y += 5
+    }
+    加()
+    return y
+}
+返回十五()
+
+func 造累加器() -> ((Int) -> Int) {
+    func 加一(数: Int) -> Int {
+        return 1 + 数
+    }
+    return 加一
+}
+var 累加 = 造累加器()
+累加(7)
+
+func 有匹配(列表: [Int], 条件: (Int) -> Bool) -> Bool {
+    for 某项 in 列表 {
+        if 条件(某项) {
+            return true
+        }
+    }
+    return false
+}
+func 小于十(数: Int) -> Bool {
+    return 数 < 10
+}
+var 数列 = [20, 19, 7, 12]
+有匹配(列表: 数列, 条件: 小于十)
+
+数列.map({ (数: Int) -> Int in
+    let 结果 = 3 * 数
+    return 结果
+})
+
+let 映射后 = 数列.map({ 数 in 3 * 数 })
+print(映射后)
+
+let 排序 = 数列.sorted { $0 > $1 }
+print(排序)
+
+多少分钟呢？欢迎留言攀比。
+
+至此是入门的一半。只有最后两个有点不解：
+
+为什么是5 times? 在之前还是 4 次而已：
+曲折
+
+目标是想快速入门 Swift，根据之前经验，用中文命名改写一遍比较有感觉。
+
+先是在 Mac 终端下运行了swift，结果发现退格键会有显示问题：
+
+  2> var 某变量 = 42
+某变量: Int = 42
+  3>  某变量=50
+error: repl.swift:3:14: error: '=' must have consistent whitespace on both sides
+ 某变量 = =50
+
+error: repl.swift:3:14: error: expected expression in assignment
+ 某变量 = =50
+
+顺带发现赋值的等号两边空格不对称也不行，严格喔：
+
+  5> 某变量= 50
+error: /var/folders/kj/81xj42996nb3w1gthbdzld380000gn/T/repl10-d1359d..swift:2:10: error: '=' must have consistent whitespace on both sides
+某变量= 50
+
+于是应官方文档开头建议，在 xcode 9.4.1 下按照 playground 打开。结果，遇到了神奇的 xcode 安装问题。
+
+修改了中文命名刚到宽度标签，结果cpu 100%，结果出不来了（期间系统时间没有从为解决神奇问题而改成的 2019 年 10 月 1 日改回去，不知有没有影响）。
+
+改回了系统时间，重启 xcode 再打开,终于能看到结果了:
+
+
+明日继续后半程。
