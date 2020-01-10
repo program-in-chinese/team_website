@@ -1,8 +1,18 @@
+---
+layout: post
+comments: true
+title:  Swift 官方入门例程中文化（上）
+description: 
+date:   2019-11-20 00:00:00 -0700
+categories: 命名 Swift
+---
 
-参考官方入门：The Swift Programming Language
+![2019-11-20_swift演示]({{ "/assets/2019-11-20_swift演示.png" | absolute_url }})
+
+参考官方入门：[The Swift Programming Language](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html)
 
 废话少说，掐秒表一口气读完看看要多久：
-
+```swift
 print("吃了么")
 
 // 简单值部分
@@ -193,18 +203,23 @@ print(映射后)
 
 let 排序 = 数列.sorted { $0 > $1 }
 print(排序)
-
+```
 多少分钟呢？欢迎留言攀比。
 
 至此是入门的一半。只有最后两个有点不解：
 
-为什么是5 times? 在之前还是 4 次而已：
-曲折
+![2019-11-20_swift次数5]({{ "/assets/2019-11-20_swift次数5.png" | absolute_url }})
 
-目标是想快速入门 Swift，根据之前经验，用中文命名改写一遍比较有感觉。
+为什么是`5 times`? 在之前还是 4 次而已：
+
+![2019-11-20_swift次数4]({{ "/assets/2019-11-20_swift次数4.png" | absolute_url }})
+
+### 曲折
+
+目标是想快速入门 Swift，根据[之前经验](https://zhuanlan.zhihu.com/p/50979126)，用中文命名改写一遍比较有感觉。
 
 先是在 Mac 终端下运行了swift，结果发现退格键会有显示问题：
-
+```swift
   2> var 某变量 = 42
 某变量: Int = 42
   3>  某变量=50
@@ -213,18 +228,19 @@ error: repl.swift:3:14: error: '=' must have consistent whitespace on both sides
 
 error: repl.swift:3:14: error: expected expression in assignment
  某变量 = =50
-
+```
 顺带发现赋值的等号两边空格不对称也不行，严格喔：
-
+```
   5> 某变量= 50
 error: /var/folders/kj/81xj42996nb3w1gthbdzld380000gn/T/repl10-d1359d..swift:2:10: error: '=' must have consistent whitespace on both sides
 某变量= 50
+```
+于是应[官方文档](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html)开头建议，在 xcode 9.4.1 下按照 playground 打开。结果，遇到了神奇的 [xcode 安装问题](https://stackoverflow.com/questions/58550284/mobiledevice-pkg-untrusted-cannot-open-xcode-after-os-x-update/58550426#58550426)。
 
-于是应官方文档开头建议，在 xcode 9.4.1 下按照 playground 打开。结果，遇到了神奇的 xcode 安装问题。
-
-修改了中文命名刚到宽度标签，结果cpu 100%，结果出不来了（期间系统时间没有从为解决神奇问题而改成的 2019 年 10 月 1 日改回去，不知有没有影响）。
+修改了中文命名刚到`宽度标签`，结果cpu 100%，结果出不来了（期间系统时间没有从为解决神奇问题而改成的 2019 年 10 月 1 日改回去，不知有没有影响）。
 
 改回了系统时间，重启 xcode 再打开,终于能看到结果了:
 
+![2019-11-20_swift时间]({{ "/assets/2019-11-20_swift时间.png" | absolute_url }})
 
 明日继续后半程。
