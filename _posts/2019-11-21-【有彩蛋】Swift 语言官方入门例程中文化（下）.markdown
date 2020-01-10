@@ -7,6 +7,8 @@ date:   2019-11-21 00:00:00 -0700
 categories: 命名 Swift
 ---
 
+参考官方入门：[The Swift Programming Language](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html)
+
 ### 个体和类
 
 ```swift
@@ -183,6 +185,8 @@ let 黑桃三描述 = 黑桃三.简述()
 ```
 
 又碰到了空转问题:
+
+![2019-11-21_swift无响应]({{ "/assets/2019-11-21_swift无响应.png" | absolute_url }})
 
 重启xcode后正常
 
