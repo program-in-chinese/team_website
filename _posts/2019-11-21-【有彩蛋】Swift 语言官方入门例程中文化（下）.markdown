@@ -1,0 +1,331 @@
+---
+layout: post
+comments: true
+title:  【有彩蛋】Swift 语言官方入门例程中文化（下）
+description: 
+date:   2019-11-21 00:00:00 -0700
+categories: 命名 Swift
+---
+
+### 个体和类
+
+```swift
+class 形状类 {
+    var 边数 = 0
+    func 简述() -> String {
+        return "这个形状有\(边数)条边."
+    }
+}
+
+var 形状 = 形状类()
+形状.边数 = 7
+var 描述 = 形状.简述()
+
+class 有名形状 {
+    var 边数: Int = 0
+    var 名称: String
+
+    init(名称: String) {
+       self.名称 = 名称
+    }
+
+    func 简述() -> String {
+       return "这个形状有\(边数)条边."
+    }
+}
+
+class 正方形: 有名形状 {
+    var 边长: Double
+
+    init(边长: Double, 名称: String) {
+        self.边长 = 边长
+        super.init(名称: 名称)
+        边数 = 4
+    }
+
+    func 面积() -> Double {
+        return 边长 * 边长
+    }
+
+    override func 简述() -> String {
+        return "正方形边长\(边长)."
+    }
+}
+let 测试 = 正方形(边长: 5.2, 名称: "样品")
+测试.面积()
+测试.简述()
+
+class 正三角形: 有名形状 {
+    var 边长: Double = 0.0
+
+    init(边长: Double, 名称: String) {
+        self.边长 = 边长
+        super.init(名称: 名称)
+        边数 = 3
+    }
+
+    var 周长: Double {
+        get {
+             return 3.0 * 边长
+        }
+        set {
+            边长 = newValue / 3.0 // newValue 指代set 的新值，可以自行命名
+        }
+    }
+
+    override func 简述() -> String {
+        return "An equilateral triangle with sides of length \(边长)."
+    }
+}
+var 三角形 = 正三角形(边长: 3.1, 名称: "a triangle")
+print(三角形.周长)
+三角形.周长 = 9.9
+print(三角形.边长)
+
+class 三角和正方形 {
+    var 三角: 正三角形 {
+        willSet {
+            方块.边长 = newValue.边长
+        }
+    }
+    var 方块: 正方形 {
+        willSet {
+            三角.边长 = newValue.边长
+        }
+    }
+    init(大小: Double, 名称: String) {
+        方块 = 正方形(边长: 大小, 名称: 名称)
+        三角 = 正三角形(边长: 大小, 名称: 名称)
+    }
+}
+var 三角正方 = 三角和正方形(大小: 10, 名称: "另一样品")
+print(三角正方.方块.边长)
+print(三角正方.三角.边长)
+三角正方.方块 = 正方形(边长: 50, 名称: "更大正方")
+print(三角正方.三角.边长)
+
+let 可缺正方形: 正方形? = 正方形(边长: 2.5, 名称: "可缺正方")
+let 边长 = 可缺正方形?.边长
+
+```
+
+### 枚举和结构
+
+```swift
+enum 排位: Int {
+    case 尖 = 1
+    case 二, 三, 四, 五, 六, 七, 八, 九, 十
+    case 子, 后, 王
+
+    func 简述() -> String {
+        switch self {
+            case .子:
+                return "子"
+            case .后:
+                return "后"
+            case .王:
+                return "王"
+            default:
+                return String(self.rawValue)
+        }
+    }
+}
+let 尖 = 排位.尖
+let 尖值 = 尖.rawValue
+
+if let 转化排位 = 排位(rawValue: 3) {
+    let 三啥 = 转化排位.简述()
+}
+
+enum 花 {
+    case 黑桃, 红心, 方块, 梅花
+
+    func 简述() -> String {
+        switch self {
+            case .黑桃:
+                return "黑桃"
+            case .红心:
+                return "红心"
+            case .方块:
+                return "方块"
+            case .梅花:
+                return "梅花"
+        }
+    }
+}
+let 红心 = 花.红心
+let 红心描述 = 红心.简述()
+
+enum 服务器响应 {
+    case 结果(String, String)
+    case 失利(String)
+}
+
+let 成 = 服务器响应.结果("晨6:00", "夜8:09")
+let 败 = 服务器响应.失利("醋没了")
+
+switch 成 {
+    case let .结果(日出, 日落):
+        print("\(日出)日出，\(日落)日落.")
+    case let .失利(信息):
+        print("败了...  \(信息)")
+}
+
+struct 牌 {
+    var 排位: 排位
+    var 花: 花
+    func 简述() -> String {
+        return "The \(排位.简述()) of \(花.简述())"
+    }
+}
+let 黑桃三 = 牌(排位: .三, 花: .黑桃)
+let 黑桃三描述 = 黑桃三.简述()
+```
+
+又碰到了空转问题:
+
+重启xcode后正常
+
+### 协议和扩展
+
+```swift
+protocol 协议范例 {
+     var 简述: String { get }
+     mutating func 调整()
+}
+
+class 简单类型: 协议范例 {
+     var 简述: String = "简单类型"
+     var anotherProperty: Int = 69105
+     func 调整() {
+          简述 += "已完全校正."
+     }
+}
+var a = 简单类型()
+a.调整()
+let aDescription = a.简述
+
+struct 简单结构: 协议范例 {
+     var 简述: String = "简单结构"
+     mutating func 调整() {
+          简述 += "(已校正)"
+     }
+}
+var b = 简单结构()
+b.调整()
+let b描述 = b.简述
+
+extension Int: 协议范例 {
+    var 简述: String {
+        return "数字\(self)"
+    }
+    mutating func 调整() {
+        self += 42
+    }
+ }
+print(7.简述)
+
+let 协议值: 协议范例 = a
+print(协议值.简述)
+// print(协议值.犯二)  // 去掉注释即报错
+```
+
+又重启一次 xcode
+
+### 错误处理
+
+```swift
+enum 打印机故障: Error {
+    case 没纸
+    case 没墨
+    case 着火
+}
+
+func 发送(任务: Int, 到打印机 名称: String) throws -> String {
+    if 名称 == "总没墨" {
+        throw 打印机故障.没墨
+    }
+    return "已发任务"
+}
+
+do {
+    let 打印机响应 = try 发送(任务: 1040, 到打印机: "毕昇")
+    print(打印机响应)
+} catch {
+    print(error)
+}
+
+do {
+    let 打印机响应 = try 发送(任务: 1440, 到打印机: "Johannes Gutenberg")
+    print(打印机响应)
+} catch 打印机故障.着火 {
+    print("丢在那一块烧")
+} catch let 故障 as 打印机故障 {
+    print("打印机故障: \(故障).")
+} catch {
+    print(error)
+}
+
+let 成功 = try? 发送(任务: 1884, 到打印机: "Ottmar Mergenthaler")
+let 失败 = try? 发送(任务: 1885, 到打印机: "总没墨")
+
+var 冰箱开着 = false
+let 冰箱内容 = ["奶", "蛋", "残羹冷炙"]
+
+func 冰箱里有(_ 吃的: String) -> Bool {
+    冰箱开着 = true
+    defer {
+        冰箱开着 = false
+    }
+
+    let 结果 = 冰箱内容.contains(吃的)
+    print(冰箱开着)   // 原本没这句，但就反映不出 defer 的作用
+    return 结果
+}
+冰箱里有("香蕉")
+print(冰箱开着)
+```
+
+看到彩蛋了吗? 原始代码中, 用的是"Bi Sheng". 马上想到了是不是"毕昇". 另两个原本只写了姓, Gutenberg 和 Mergenthaler, 搜了后者才发现都是打印相关技术发明者.
+这还没完. 看到任务号了吗? 这些数字也都有意义, 小赞一下写例程的用心之处. 不过, 对一般读者, 还是藏的深了点吧!
+
+最后的 defer 例程, 似乎少了一句(已补上). 这个 defer 功能有点不明觉厉...
+
+### 泛型
+
+```swift
+func 造数组<事项>(重复 做: 事项, 次数: Int) -> [事项] {
+    var 结果 = [事项]()
+    for _ in 0..<次数 {
+         结果.append(做)
+    }
+    return 结果
+}
+造数组(重复: "笃", 次数: 4)
+
+// 重新实现 Swift 标准库的 optional 类型
+enum 可缺值<馅> {
+    case 空
+    case 有(馅)
+}
+var 疑似整数: 可缺值<Int> = .空
+疑似整数 = .有(100)
+
+func 都有某项<T: Sequence, U: Sequence>(_ 左侧: T, _ 右侧: U) -> Bool
+    where T.Element: Equatable, T.Element == U.Element
+{
+    for 左项 in 左侧 {
+        for 右项 in 右侧 {
+            if 左项 == 右项 {
+                return true
+            }
+        }
+    }
+   return false
+}
+都有某项([1, 2, 3], [3])
+```
+
+入门部分完. 下面做个 iOS 小程序试试.
+
+
