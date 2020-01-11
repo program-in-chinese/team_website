@@ -1,0 +1,58 @@
+---
+layout: post
+comments: true
+title:  编程也可以走中国风
+description: 
+date:   2019-12-19 00:00:00 -0700
+categories: 命名
+---
+
+源自之前回答：[怎么将中国风与编程结合在一起？](https://www.zhihu.com/question/357194866/answer/917799022)
+
+教程中实践过：
+
+![2019-12-19_python西游记]({{ "/assets/2019-12-19_python西游记.png" | absolute_url }})
+
+["西游记"主题Python入门示例尝试-数据结构 5.1-5.1.2​](https://zhuanlan.zhihu.com/p/38653108)
+
+还有Python官方入门教程的这段新手看来不知所谓的：
+
+![2019-12-19_python英文]({{ "/assets/2019-12-19_python英文.png" | absolute_url }})
+
+中国风的就可以这样：
+```python
+def 妖精(能耐, 名字='白骨精', 降服者='孙悟空', 原形='骷髅'):
+    print("尽管善于" + 能耐 + ", "
+      + 名字 + "仍被" + 降服者 + "制服,"
+      + " 变回" + 原形)
+```
+
+![2019-12-19_arg西游记]({{ "/assets/2019-12-19_arg西游记.png" | absolute_url }})
+
+对了之前还看到了如此接地气的教程：
+
+[[转载] 做煎饼果子的N种方式——From Sequential to Reactive​](https://zhuanlan.zhihu.com/p/53416369)
+
+
+还有结合中国历史的：
+[曹江：文科生自学Python编程（二）：人脑和电脑的交流​](https://zhuanlan.zhihu.com/p/79725109)
+
+也有编程书籍在用中文命名的例程：(源自"Java Web程序设计任务教程"一书)
+
+![2019-09-13_XML中文命名]({{ "/assets/2019-09-13_XML中文命名.png" | absolute_url }})
+
+视频教程也有：
+
+![2019-09-16_django登录注册]({{ "/assets/2019-09-16_django登录注册.png" | absolute_url }})
+
+[Django 2 之登录注册(2018.6.18更新)_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili​](https://www.bilibili.com/video/av24753518?p=9)
+
+不仅代码可以用，早在 8 年前就有用中文 UML 的：
+
+![2019-12-19_UML]({{ "/assets/2019-12-19_UML.png" | absolute_url }})
+
+[（中文命名）UML类图新手入门级介绍​](https://zhuanlan.zhihu.com/p/65391563)
+
+***跳出英文和英语国家文化的框框，程序原来可以这样平易近人。***
+
+期待更多类似教程出现，欢迎投稿到[中文编程](https://zhuanlan.zhihu.com/codeInChinese)知乎专栏！
