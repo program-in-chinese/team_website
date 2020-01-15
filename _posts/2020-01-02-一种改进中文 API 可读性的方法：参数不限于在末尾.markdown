@@ -1,0 +1,109 @@
+---
+layout: post
+comments: true
+title:  一种改进中文 API 可读性的方法：参数不限于在末尾
+description: 
+date:   2020-01-03 00:00:00 -0700
+categories: 小结 API
+---
+
+[前两天](https://github.com/program-in-chinese/overview/issues/11#issuecomment-569463904)才想到（起），常见英文编程语言的方法命名都将参数全部置于方法名末尾，猜测历史上是沿用自数理函数的表示（题外话：记不清当时学数学/物理时有什么英文/中文命名了，似乎都是 x,y,z，abc? 这么想来，代码可读性的根还要往理科教学挖？），现在觉得应该也与英文特性有关。
+
+因为英文命名本身已经去掉了空格，如果拆分成几段的话就会比较别扭。以假想中的方法为例作中英对比(暂不讨论 API 设计和语言实现问题）：
+```
+startsWith("a")endsWith("b")
+以("a")开始("b")结束
+```
+相对而言中文版更加接近自然语言用法。以几个常见编程语言的标准库中 api 为例作对比：
+
+Java的`Collections.replaceAll(List list, T oldVal, T newVal)`
+调用时：
+```
+replaceAll(列表, "aa", "bb")
+```
+一个问题是，在读代码时不能一目了然哪个是新值，哪个是旧值。
+
+如果用中文命名，可以是：
+```
+用("bb")替换(列表)中的("aa")
+```
+虽然`replace`已经基本约定俗成为旧值在前、新值在后，但中文命名接近自然语言的优势仍在。感觉把参数命名的意义相对弱化了。好处是 API 的用途更加一目了然。
+
+不免在想是否已有中文编程语言设计允许方法的参数在命名的非末尾位置出现，类似这样：
+```
+定义 以(开头)开始(结尾)结束 {
+   ...
+}
+```
+果不其然，没几天就在楼下被指出，@TKT2016 开发的卓语言（[TKT2016：Z语言实现基本原理](https://zhuanlan.zhihu.com/p/40523508)）就有类似特性（翻了与作者的聊天记录才发现之前说起过，惭愧我的后知后觉和烂记性）。借用了作者的 ppt 中相关页：
+
+![2020-01-02_z函数]({{ "/assets/2020-01-02_z函数.jpg" | absolute_url }})
+
+初步尝试了一下，发现标准库中就有`把(...)替换为(...)`这样的 API：
+
+![2020-01-02_z演示]({{ "/assets/2020-01-02_z演示.png" | absolute_url }})
+
+这样的中文命名方式是一种突破，但在语言设计和实现上也会带来一些挑战，比如避免与关键字的冲突、与类型强制转换语法的区分等等。
+
+相对英文语言延续 70 年的发展历史，中文编程语言的迭代和尝试还很稀疏（参考：[曹江：步履蹒跚六十年：中文编程史话](https://zhuanlan.zhihu.com/p/98677771)）。
+
+期待像这种符合中文特性的语法特性更多地被探索和实践。
+
+--------------------------------- 2020.1.2 同日补 ----------------
+
+下面回复时想到，之前还发现过类似的中文 API。
+
+在之前[汉化大疆机甲大师的 Python API](https://zhuanlan.zhihu.com/p/87999734)时，注意到对应的 Scratch API 有着类似设计，比如”设置(...)LED 闪烁(...)Hz"：
+
+![2020-01-02_dji灯效]({{ "/assets/2020-01-02_dji灯效.png" | absolute_url }})
+
+我汉化的 Python API 是“LED灯.闪烁(位置, 频率)”，相比之下，Scratch API 的用途更加一目了然。
+
+类似的，在前年发现的[吴烜：编程猫IDE体验:对Scratch的改进](https://zhuanlan.zhihu.com/p/33650956)中，也有类似的 API：
+
+![2018-02-06-7scratch运算]({{ "/assets/2018-02-06-7scratch运算.png" | absolute_url }})
+
+![2018-02-06-2scratch_UI]({{ "/assets/2018-02-06-2scratch_UI.png" | absolute_url }})
+
+从这个角度说，已经有确切的商业产品使用这一 API 设计方式，也说明它的市场需求。
+
+只是在文本型编程语言工具中，除了卓语言，尚未发现其他包含这一特性的（欢迎指正）。
+
+可以看到英文 Scratch API 也用了参数居中的一些命名，以更接近英文自然语言：
+
+![2020-01-02_scratchAPI]({{ "/assets/2020-01-02_scratchAPI.png" | absolute_url }})
+
+但是，英文特性决定了，这种命名方式很难在文本型编程语言中实现，原因就如开头的例子，只要命名中不带空格，那么拆分开后的命名就仍然和自然语言有相当距离，以上面的一个 Scratch API 为例，如果改成驼峰命名：
+```
+glide(1)secondsTo(RandomPosition)
+```
+且不论 seconds 的 S 是否需要大写，这样的视觉效果和中文的相比：
+```
+滑行(1)秒到(随机位置)
+```
+好吧，除了中文本身无空格更加接近自然语言之外，中文本身的简洁性也是一个非常重要的能使 API 更接近自然语言的因素。因为英文命名一旦要追求接近自然语言，字符数就不可避免地要比中文更加多的多。
+
+这样说来，将参数位置从末尾解脱出来后，相对获益更大的是中文编程语言。
+
+越发觉得这是一个中文编程语言的优势特性。
+
+也许，这个特性会成为中文编程语言的一个“标志”呢。
+
+--------------------------------- 2020.1.3 补 ----------------
+
+经评论区指点，ObjectC 和 Swift 语言有这样的语法：[NSString | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/nsstring/1412937-replacingoccurrences)
+```swift
+func replacingOccurrences(of target: String, 
+                     with replacement: String)
+```
+另外，Agda 等语言还直接[支持参数非末尾声明](https://agda.readthedocs.io/en/v2.5.4.1/language/mixfix-operators.html#mixfix-operators)，比如”长度为_的数组“（详见前年的[千里冰封 你懂吗：带空格的中文编程都是垃圾](https://zhuanlan.zhihu.com/p/34805891)，抱歉又大大后知后觉了）：
+
+![2020-01-03_agda中文]({{ "/assets/2020-01-03_agda中文.png" | absolute_url }})
+
+从 Swift 语言的[字符串相关 API 设计](https://developer.apple.com/documentation/foundation/nsstring)可见，大多数 API 的参数以 at、of、by、with、through、upto 等等介词连接，基本能保证以参数结尾时仍较接近自然语言。但中文 API 就不一定能达到同样效果。可以试试汉化下面 API：
+```
+insert(contentsOf:, at:)
+```
+从这个角度说，允许参数在非末尾声明这一特性，***中文编程语言更加需要***。
+
+[中文编程圈 - 知乎​](https://www.zhihu.com/club/1193188240134332416?ab_signature=CiRBSUFsTHBScE9nOUxCYzFueEFrb2lxZVRZVWcyV2RteXpfMD0SIDNiNGE5ODQ3ZjcxNTJkMzNlYzQzNzVjMWI2Zjk1N2QzGhAIAhIGNi4yNS4wGgQxNzM4)
