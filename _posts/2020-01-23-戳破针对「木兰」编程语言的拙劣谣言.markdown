@@ -1,3 +1,11 @@
+---
+layout: post
+comments: true
+title:  戳破针对「木兰」编程语言的拙劣谣言
+description: 
+date:   2020-01-23 00:00:00 -0700
+categories:  小结
+---
 
 ### 谣言一：「木兰」就是 Python 换了个名字
 
