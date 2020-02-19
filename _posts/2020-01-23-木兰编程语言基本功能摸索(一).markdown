@@ -7,7 +7,7 @@ date:   2020-01-23 22:05:00 -0700
 categories:  命名 木兰
 ---
 
-早先 @ 摸索出部分[测试代码](https://www.zhihu.com/question/366509495/answer/975810766). 下面打算对木兰的各个基本功能进行逐步测试, 尽量用中文命名标识符(内置函数和关键字暂不打算汉化). 
+早先 @yang leonier 摸索出部分[测试代码](https://www.zhihu.com/question/366509495/answer/975810766). 下面打算对木兰的各个基本功能进行逐步测试, 尽量用中文命名标识符(内置函数和关键字暂不打算汉化). 
 
 顺序参考标识符中文化后的[Python 3 官方入门文档](https://nobodxbodon.github.io/py36zh/tutorial/introduction.html) :)
 
@@ -19,7 +19,7 @@ categories:  命名 木兰
 
 ### 数字
 
-```python
+```
 > 2 + 2
 4
 > 50 - 5*6
@@ -32,7 +32,7 @@ categories:  命名 木兰
 
 与 Python 不同的是, 它的单杠除法是整除, 而不留小数点. 继续:
 
-```python
+```
 > 17/3
 5
 > 17 // 3
@@ -47,7 +47,7 @@ categories:  命名 木兰
 
 看来它的双斜杠是注释. 还不知道小数除法怎么做, 待研究.
 
-```python
+```
 > 5 ** 2
 SyntaxError: File "<STDIN>", line 1:1, unexpected token "INTEGER_LITERAL"
 5 ** 2
@@ -56,7 +56,7 @@ SyntaxError: File "<STDIN>", line 1:1, unexpected token "INTEGER_LITERAL"
 
 hmm, 乘方不是**, 待研究. 下面是变量赋值:
 
-```python
+```
 > 宽 = 20
 > 高 = 5 * 9
 > 宽 * 高
@@ -65,7 +65,7 @@ hmm, 乘方不是**, 待研究. 下面是变量赋值:
 
 变量不存在时, 与 Python 报错信息一样, 但是没有所在行数显示:
 
-```python
+```
 > 数
 NameError: name '数' is not defined
 ```
@@ -103,7 +103,7 @@ NameError: name '_' is not defined
 
 很高兴看到支持中文字符串, 不用魔改了. 在输出显示上, 与 Python 不同的是, 略去了首尾的单双引号. 视觉上倒是比较清爽.
 
-```python
+```
 > '数'
 数
 > 'spam eggs'
@@ -122,7 +122,7 @@ doesn't
 
 看来, 字符串的显示, 与 println 的效果相同(带换行), 对应 python 中的 print. 而 print 是不带换行的输出. 以后的测试打算用 println 替代python 中的 print 进行.
 
-```python
+```
 > '"Isn\'t," they said.'
 "Isn't," they said.
 > print('"Isn\'t," they said.')
@@ -139,7 +139,7 @@ Second line.>
 
 不支持在 python 中可以输出原始字符串(raw)的 r . 取代的是双反斜杠, 这个蛮接近其他编程语言的. 挺好.
 
-```python
+```
 > println('C:\some\name')
 C:\some
 ame
@@ -154,7 +154,7 @@ ame
 
 不知如何支持多行字符串, 待研究:
 
-```python
+```
 > println("""\
 >> 用途: 东西 [选项]
 SyntaxError: File "<STDIN>", line 1:1, unknown token is found here
@@ -172,7 +172,7 @@ SyntaxError: File "<STDIN>", line 2:1, unexpected token "$end"
 
 支持字乘和加:
 
-```python
+```
 > 6 * '长' + '消'
 长长长长长长消
 > 6 * '长长' + '消'
@@ -181,7 +181,7 @@ SyntaxError: File "<STDIN>", line 2:1, unexpected token "$end"
 
 不支持这样拼接:
 
-```python
+```
 > '木' '兰'
 SyntaxError: File "<STDIN>", line 1:5, unexpected token "STRING_LITERAL_II"
 '木' '兰'
@@ -190,7 +190,7 @@ SyntaxError: File "<STDIN>", line 1:5, unexpected token "STRING_LITERAL_II"
 
 也不支持如下拼接:
 
-```python
+```
 > '木' '兰'
 SyntaxError: File "<STDIN>", line 1:5, unexpected token "STRING_LITERAL_II"
 '木' '兰'
@@ -208,7 +208,7 @@ SyntaxError: File "<STDIN>", line 1:4, unexpected token "STRING_LITERAL_II"
 
 下面和上面的拼接报错信息不同:
 
-```python
+```
 > ('长' * 6) '消'
 SyntaxError: File "<STDIN>", line 1:1, unexpected token "("
 ('长' * 6) '消'
@@ -219,14 +219,14 @@ SyntaxError: File "<STDIN>", line 1:1, unexpected token "("
 
 支持用 + 拼接:
 
-```python
+```
 > 前缀 + '兰'
 木兰
 ```
 
 支持除了负索引之外的字符串截取方式:
 
-```python
+```
 > 词 = '木兰编程语言'
 > 词[0]
 木
@@ -250,7 +250,7 @@ TypeError: object of type 'int' has no len()
 
 超出范围的索引处理相同:
 
-```python
+```
 > 词[42]
 IndexError: string index out of range
 > 词[4:42]
@@ -260,7 +260,7 @@ IndexError: string index out of range
 
 字符串修改处理相同:
 
-```python
+```
 > 词[0] = 'J'
 TypeError: 'str' object does not support item assignment
 > 词[2:] = 'py'
@@ -269,7 +269,7 @@ TypeError: 'str' object does not support item assignment
 
 同样要用+拼接:
 
-```python
+```
 > '花' + 词[1:]
 花兰编程语言
 > 词[:2] + '问好'
@@ -278,7 +278,7 @@ TypeError: 'str' object does not support item assignment
 
 取长度相同:
 
-```python
+```
 > 短语 = '迅雷不及掩耳之势'
 > len(短语)
 8
@@ -288,7 +288,7 @@ TypeError: 'str' object does not support item assignment
 
 列表赋值相同, 但与字符串类似, 不支持负索引.
 
-```python
+```
 > 平方数 = [1, 4, 9, 16, 25]
 > 平方数
 [1, 4, 9, 16, 25]
@@ -302,7 +302,7 @@ TypeError: object of type 'int' has no len()
 
 下面这些列表操作结果基本一致:
 
-```python
+```
 > 平方数[:]
 [1, 4, 9, 16, 25]
 > 平方数 + [36, 49, 64, 81, 100]
