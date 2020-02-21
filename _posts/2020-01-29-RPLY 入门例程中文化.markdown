@@ -1,0 +1,105 @@
+---
+layout: post
+comments: true
+title:  "RPLY 入门例程中文化"
+description: 
+date:   2020-01-29 00:00:00 -0700
+categories: 命名
+---
+
+为对「木兰」的 1400 多行用 rply 实现的语法规则相关代码进行分析，学习了 rply 的入门文档。详见：
+[【悬赏】对原始可执行文件的功能进行测试 · Issue #4 · MulanRevive/bounty​
+github.com](https://github.com/MulanRevive/bounty/issues/4#issuecomment-579923638)
+
+用于解析简单加减法，只需[下面的代码](https://github.com/program-in-chinese/study/blob/master/%E6%9C%A8%E5%85%B0/rply/%E5%85%A5%E9%97%A8/%E5%88%86%E8%AF%8D/%E6%88%90%E5%8A%9F.py)：
+```python
+from rply import LexerGenerator
+
+分词器母机 = LexerGenerator()
+
+分词器母机.add('数', r'\d+')
+
+分词器母机.add('加', r'\+')
+分词器母机.add('减', r'-')
+
+分词器 = 分词器母机.build()
+
+for 词 in 分词器.lex('1+1-1'):
+    print(词)
+```
+`lg`本为 `lexer generator` 的缩写，`generator` 感觉像是机床中[母机](https://baike.baidu.com/item/%E5%B7%A5%E4%BD%9C%E6%AF%8D%E6%9C%BA)的概念。
+
+在 python 3.7.4 下测试：
+```
+$ python 成功.py 
+Token('数', '1')
+Token('加', '+')
+Token('数', '1')
+Token('减', '-')
+Token('数', '1')
+```
+挺好，支持中文词名，如”数/加/减”，很齐整。
+
+下面，入门[语法分析器生成](https://rply.readthedocs.io/en/latest/users-guide/parsers.html)。
+
+目标是分析简单的四则运算：
+```
+<表达式> ::= "\d+"
+               | <表达式> "+" <表达式>
+               | <表达式> "-" <表达式>
+               | <表达式> "*" <表达式>
+               | <表达式> "/" <表达式>
+               | "(" <表达式> ")"
+```
+如前，先写[分词器](https://github.com/MulanRevive/bounty/issues/4)，发觉文档中此行lg.ignore('\s+')的正则表达式少了个 r。
+
+并编写[语法树](https://github.com/program-in-chinese/study/blob/master/%E6%9C%A8%E5%85%B0/rply/%E5%85%A5%E9%97%A8/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/%E8%AF%AD%E6%B3%95%E6%A0%91%E7%B1%BB.py)，为对应节点编写求值方法。
+
+最后是语法分析器生成。限于 python 水平，直接将分词器、语法树[写在了一起](https://github.com/program-in-chinese/study/blob/c1a53a759a92cc574bd4db4e9796ca7d155e54ed/%E6%9C%A8%E5%85%B0/rply/%E5%85%A5%E9%97%A8/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.py#L54)以便测试。
+
+感觉 rply 对中文标识符的支持很不错，基本上业务相关部分都可以中文化。还有运算符优先级部分尚未摸透，不过可以待看[「木兰」的优先级部分代码](https://github.com/MulanRevive/mulan/blob/31705846e538576c6fbe2754a919a07a86227600/ulang/parser/core.py#L200)时研究：
+```python
+分析器母机 = ParserGenerator(
+    # 所有词名
+    ['数', '左括号', '右括号',
+     '加', '减', '乘', '除'
+    ],
+    # A list of precedence rules with ascending precedence, to
+    # disambiguate ambiguous production rules.
+    precedence=[
+        ('left', ['加', '减']),
+        ('left', ['乘', '除'])
+    ]
+)
+
+@分析器母机.production('表达式 : 数')
+def 数表达式(片段):
+    # 匹配规则右部的片段列表
+    return 数(int(片段[0].getstr()))
+
+@分析器母机.production('表达式 : 左括号 表达式 右括号')
+def 括号表达式(片段):
+    return 片段[1]
+
+@分析器母机.production('表达式 : 表达式 加 表达式')
+@分析器母机.production('表达式 : 表达式 减 表达式')
+@分析器母机.production('表达式 : 表达式 乘 表达式')
+@分析器母机.production('表达式 : 表达式 除 表达式')
+def 二元运算表达式(片段):
+    左 = 片段[0]
+    右 = 片段[2]
+    运算符 = 片段[1]
+    if 运算符.gettokentype() == '加':
+        return 加(左, 右)
+    elif 运算符.gettokentype() == '减':
+        return 减(左, 右)
+    elif 运算符.gettokentype() == '乘':
+        return 乘(左, 右)
+    elif 运算符.gettokentype() == '除':
+        return 除(左, 右)
+    else:
+        raise AssertionError('不应出现')
+
+分析器 = 分析器母机.build()
+```
+27 行的规则部分大约花了一小时参透，以此速度对「木兰」的 ply 代码进行分析，最少需要50小时，嗯，可以接受。当然需要更多时间编写测试代码。
