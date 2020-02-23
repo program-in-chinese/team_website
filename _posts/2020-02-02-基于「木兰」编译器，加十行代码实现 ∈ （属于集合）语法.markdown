@@ -1,0 +1,45 @@
+---
+layout: post
+comments: true
+title:  基于「木兰」编译器，加十行代码实现 ∈ （属于集合）语法
+description: 
+date:   2020-02-02 00:00:00 -0700
+categories: 命名
+---
+
+因为[上文](https://zhuanlan.zhihu.com/p/104548740)有位在评论中提到想实现∈语法。虽然不在 [悬赏万元，重现「木兰」编程语言编译器](https://zhuanlan.zhihu.com/p/104001337) 的范畴中，但感觉可以很方便地通过『木兰』的语法定制机制实现。于是对[逆向工程](https://github.com/MulanRevive/mulan)的 ulang 下的代码作了以下修改（未提交到 git，因为很容易修改）。
+## parser/lexer.py
+
+先在 RULES 中加了 `'∈'`,接着在分词器母机中加了对应词：`lg.add('∈', '∈')`
+## parser/core.py
+
+对分析器母机添加以下语法规则：
+```python
+    @pg_.production('bin_expr : expr ∈ expr')
+    def 属于(self, 片段):
+        return ast.Compare((片段[0]),
+          [ast.In()], [片段[2]], 
+          lineno=(self.getlineno(片段)),
+          col_offset=(self.getcolno(片段)))
+```
+因为等价于 in，然后发现 python 中的 in 是[一种比较操作](https://github.com/python/cpython/blob/78c7183f470b60a39ac2dd0ad1a94d49d1e0b062/Parser/Python.asdl#L107)。
+## 运行结果
+```
+$ python3 -m ulang
+/Users/xuanwu/work/木兰/mulan_reverse/ulang/parser/core.py:1641: ParserGeneratorWarning: 24 shift/reduce conflicts
+  parser_ = LRParser(pg_.build())
+[[262, "'DOTDOTLT'", 'shift'], [262, "'DOTDOT'", 'shift'], [262, "'?'", 'shift'], [262, "'|'", 'shift'], [262, "'&'", 'shift'], [262, "'^'", 'shift'], [262, "'<<'", 'shift'], [262, "'>>'", 'shift'], [262, "'*'", 'shift'], [262, "'-'", 'shift'], [262, "'+'", 'shift'], [262, "'∈'", 'shift'], [262, "'%'", 'shift'], [262, "'/'", 'shift'], [262, "'!=='", 'shift'], [262, "'==='", 'shift'], [262, "'!='", 'shift'], [262, "'=='", 'shift'], [262, "'<='", 'shift'], [262, "'<'", 'shift'], [262, "'>='", 'shift'], [262, "'>'", 'shift'], [262, "'OR'", 'shift'], [262, "'AND'", 'shift']]
+Welcome to ulang's REPL..
+Type 'help' for more informations.
+> 3 ∈ [3]
+true
+> 1 ∈ [3]
+false
+> [1] ∈ [2, [1],  3]
+true
+> 'a' ∈ [2, 'b', [1],  3]
+false
+```
+前面那个警告不明觉厉，待研究。后面的运行结果如预期。
+
+***是不是，对「木兰」兴趣更大了呢？***
