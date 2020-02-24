@@ -1,0 +1,83 @@
+---
+layout: post
+comments: true
+title:  木兰编程语言入门教程之三——函数和类型
+description: 
+date:   2020-02-07 00:05:00 -0700
+categories:  木兰
+--- 
+
+
+之前的章节：
+
+- 一、[浅介](https://zhuanlan.zhihu.com/p/104491745)
+- 二、[控制走向](https://zhuanlan.zhihu.com/p/104548740)
+
+本章演示如何定义和使用函数和类型。
+
+## 函数
+
+无参数时，允许省去括号：
+```
+> func count {
+>>   println("123")
+>> }
+> count
+123
+```
+
+当然也可带参数：
+```
+> func person(name="小白", age=10) {
+>>   println(name + " " + str(age))
+>> }
+> person()
+小白 10
+> person("小红")
+小红 10
+> person(age=18)
+小白 18
+>
+```
+
+不带默认值亦可。
+
+## 类型
+
+演示类型变量：
+
+```
+> type Person {
+>>   {
+>>     name = "无名"
+>>   }
+>>
+>>   func $__init__(name) {
+>>     self.name = name
+>>   }
+>> }
+> mulan = Person("木兰")
+> println(mulan.name)
+木兰
+>
+```
+
+可以指定参数类型：
+```
+> func hello(p : Person) {
+>>   println("hi " + p.name)
+>> }
+```
+
+以及函数返回值类型：
+```
+> func meet : Person {
+>>   return Person("好好")
+>> }
+```
+
+这样的类型指定可为第三方工具进行类型检查提供支持。
+
+--------------
+[原文链接](
+https://github.com/MulanRevive/bounty/blob/master/%E5%A4%8D%E7%8E%B0%E6%96%87%E6%A1%A3/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/%E5%87%BD%E6%95%B0%E5%92%8C%E7%B1%BB%E5%9E%8B.md)

@@ -64,6 +64,6 @@ public class 好不键盘 extends InputMethodService {
 
 ![2020-02-05_keyboard好不]({{ "/assets/2020-02-05_keyboard好不.png" | absolute_url }})
 
-参考
+## 参考
 
 安卓官方[示例输入法项目](https://github.com/android/input-samples/tree/master/CommitContentSampleIME)
