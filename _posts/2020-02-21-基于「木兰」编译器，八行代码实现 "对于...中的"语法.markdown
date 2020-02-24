@@ -1,0 +1,36 @@
+---
+layout: post
+comments: true
+title:  基于「木兰」编译器，八行代码实现 "对于...中的"语法
+description: 
+date:   2020-02-21 00:00:00 -0700
+categories: 命名
+---
+
+早先[讨论过](https://github.com/program-in-chinese/overview/issues/40#issuecomment-337780621)如何汉化编程语言中的`for...in`关键字， 虽然有了方案，但终归受限于原英文语法的语序。之前用[很少代码](https://zhuanlan.zhihu.com/p/104723661)实现了一个新关键字，[这里试试](https://github.com/nobodxbodon/mulan/commit/555f6684a04eda4d4bc33343b19975275b934c77)实现`对于...中的`语法，仅作演示之用。 与原语法比较效果如下（由于逆向工程的[问题](https://github.com/MulanRevive/mulan/issues/6)，只能用这个用例测试。***欢迎参与解决该问题！详见文末***）：
+```
+> print(n) 对于 0..2 中的 n
+012
+> print(n) for n in 0..2
+012
+```
+修改简介如下。
+## parser/lexer.py
+
+先在 RULES 中加了`对于`和`中的`，接着在分词器母机中加了对应词。
+## parser/core.py
+
+对分析器母机的for_stmt的语法规则作了扩展，加了两条规则：
+```python
+    @pg_.production('for_stmt : 对于 loop_range 中的 iterator block')
+
+    @pg_.production('for_stmt : stmt 对于 loop_range 中的 iterator')
+```
+并在生成语法树时对参数位置作了相应对调。
+
+如果不是一个低级错误，应该是几分钟就可以完成了，只要知道在哪里改。
+
+----------
+对逆向工程问题有兴趣的请[在此](https://github.com/MulanRevive/bounty/issues/7​)跟帖。
+
+『木兰』相关文章都会发表在[《木兰编程语言》知乎专栏](https://zhuanlan.zhihu.com/ulang)
