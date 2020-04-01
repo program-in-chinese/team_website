@@ -39,6 +39,7 @@ Julia,
 [Ruby](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.rb),
 [Scala](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.scala),
 [Sqlite3](https://github.com/program-in-chinese/overview/blob/master/示例代码/sqlite脚本),
+SQL Server,
 [Swift](https://github.com/program-in-chinese/overview/blob/master/示例代码/变量.swift),
 [VBA](https://zhuanlan.zhihu.com/p/41432021)
 
