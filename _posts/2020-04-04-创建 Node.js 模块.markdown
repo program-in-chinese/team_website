@@ -1,0 +1,88 @@
+
+参考: [Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)
+
+## 创建 package.json 文件
+
+因为打算创建公开模块, 因此按[unscoped](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages)的建法:
+```
+$ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (npm-module-demo) npm模块演示
+Sorry, name can only contain URL-friendly characters.
+package name: (npm-module-demo) npm-module-demo-cn
+version: (1.0.0) 
+description: 
+entry point: (index.js) 入口.js
+test command: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /Users/xuanwu/work/javascript-apps/npm-module-demo/package.json:
+
+{
+  "name": "npm-module-demo-cn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "入口.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes)
+```
+
+## 创建入口文件
+
+入口.js:
+```javascript
+exports.回应 = function() {
+  console.log("模块演示");
+}
+```
+
+## 测试模块
+
+首先需要发布模块到 npm. 但在运行`npm publish`时, 报错:
+```
+npm ERR! code E401
+npm ERR! 401 Unauthorized - PUT https://registry.npmjs.org/npm-module-demo-cn - You must be logged in to publish packages.
+```
+发现要先运行`npm adduser`([参考](https://docs.npmjs.com/cli/adduser.html)), 创建用户账号.
+
+```
+npm ERR! code E403
+npm ERR! 403 Forbidden - PUT https://registry.npmjs.org/npm-module-demo-cn - you must verify your email before publishing a new package: https://www.npmjs.com/email-edit
+```
+还需验证电邮
+
+之后发布成功. 
+
+新建测试目录后, 添加 test.js:
+```javascript
+var 演示 = require('npm-module-demo-cn')
+
+演示.回应()
+```
+安装模块: `npm install npm-module-demo-cn`
+
+测试通过:
+```
+$ node test
+模块演示
+```
+
+✌️
