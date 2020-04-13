@@ -70,6 +70,18 @@ def 数表达式(片段):
     return 语法树.模块(主体=[表达式], 忽略类型=[])
 ```
 
+语法树构建方法是参考了 Python 的[语法描述](https://docs.python.org/3.7/library/ast.html#abstract-grammar)。
+```
+module Python
+{
+    mod = Module(stmt* body)
+    stmt = ...
+          | Expr(expr value)
+    expr = ...
+         | Num(object n) -- a number as a PyObject.
+```
+并参考了木兰逆向工程的具体调用方式。行号和列号等等参数尚未深究，暂时全部置零。
+
 到此基本完成，为了直观地测试上面的语法树生成过程的确有效，可以把这里改为负数：
 ```python
 数值 = -int(片段[0].getstr(), 0)
