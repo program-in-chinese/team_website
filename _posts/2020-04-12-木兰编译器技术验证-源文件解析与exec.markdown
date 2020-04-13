@@ -1,0 +1,96 @@
+续[前文](https://zhuanlan.zhihu.com/p/117481247)，用尽量简单的语法验证将源码转换为可用 exec 执行的 Python 语法树。
+
+## 目标
+
+解析一个源码文件，内容很简单，只有一个数，比如 3。运行效果：
+```
+$ python3 数.py 
+import sys
+from math import *
+ARGV = sys.argv[1:]
+3
+```
+显然，输出的并不是运行结果。且看下一部分。
+
+## 大致框架
+
+先看大致过程（[数.py](https://github.com/MulanRevive/prototype/blob/d21e0da0c9b7e44b2c338461490fc55efb260874/%E6%95%B0.py)）。
+```python
+源码文件 = '数.mulan'
+with open(源码文件, 'r') as f:
+    源码 = f.read()
+
+各词 = 分词器.lex(源码)
+
+节点 = 分析器.parse(各词)
+
+print(python.dump(节点))
+
+可执行码 = compile(节点, 源码文件, 'exec')
+
+exec(可执行码, {})
+```
+源码读入后，先词法分析，再语法分析生成 Python 语法树。
+
+`python.dump(节点)`是借用了木兰逆向工程中的 [python 模块](https://github.com/MulanRevive/mulan/blob/master/ulang/codegen/python.py)，将 Python 语法树转换为 Python 可执行码，为了方便确认语法树生成正确。
+
+最后调用 exec 执行。
+
+## 解析和语法树生成
+
+解析部分（[数分析器.py](https://github.com/MulanRevive/prototype/blob/d21e0da0c9b7e44b2c338461490fc55efb260874/%E6%95%B0%E5%88%86%E6%9E%90%E5%99%A8.py)）与[前文](https://zhuanlan.zhihu.com/p/104345761)类似，但砍掉了所有运算符部分，仅留着数相关部分：
+```python
+分词器母机 = LexerGenerator()
+
+分词器母机.add('数', r'\d+')
+
+分词器 = 分词器母机.build()
+
+### 语法分析器部分
+
+分析器母机 = ParserGenerator(
+    # 所有词名
+    ['数']
+)
+```
+
+如果语法分析返回的语法树不是 Module，而是比如 Expr 节点，就会报错：
+```
+    code = compile(节点, 源码文件, 'exec')
+TypeError: expected Module node, got Expr
+```
+
+于是，需要最后用 Module 再套一层（下面的语法树创建方法是用中文封装了 ast，详[见此](https://github.com/MulanRevive/prototype/blob/71199d70d472ac3bee65ecbe74b356c923186011/%E6%95%B0%E5%88%86%E6%9E%90%E5%99%A8.py#L35)）：
+```python
+@分析器母机.production('表达式 : 数')
+def 数表达式(片段):
+    数值 = int(片段[0].getstr(), 0)
+    数 = 语法树.数(数值, 行号=0, 列号=0)
+    表达式 = 语法树.表达式(值 = 数, 行号=0, 列号=0)
+    return 语法树.模块(主体=[表达式], 忽略类型=[])
+```
+
+到此基本完成，为了直观地测试上面的语法树生成过程的确有效，可以把这里改为负数：
+```python
+数值 = -int(片段[0].getstr(), 0)
+```
+再运行可见生成代码的变化：
+```
+$ python3 数.py 
+import sys
+from math import *
+ARGV = sys.argv[1:]
+-3
+```
+
+## 后记
+
+上面初步验证了生成可执行码的过程，下面是真正将其实用化的漫漫长路。由于至今积累的[大多数测试代码](https://github.com/MulanRevive/bounty/tree/master/%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81)都依赖于`print`，需要研究是否能/需要添加不依赖它的测试。
+
+再接下去，就是逐步添加语法规则，贴近木兰的实现。
+
+## 参考
+
+- [compile 方法](https://docs.python.org/3.7/library/functions.html?highlight=compile#compile)
+- [Python 可执行码](https://docs.python.org/3.7/c-api/code.html)
+- [Python 静态方法](https://www.geeksforgeeks.org/class-method-vs-static-method-python/)
