@@ -7,9 +7,9 @@ date:   2019-01-13 00:00:00 -0700
 categories: 命名 教程
 ---
 
-因为需要将之前mac下用QuickTime录屏生成的文件(mov格式)转换成gif文件, 便于传到某些博客平台, 于是找到了[这个转换工具](https://github.com/nobodxbodon/convert-mov-to-gif), 已将原代码的命名中文化并简化. Ruby和视频转换都是新手, 请多指教.
+因为需要将之前苹果系统下用 QuickTime 录屏生成的文件（mov 格式）转换成 gif 文件, 便于传到某些博客平台, 于是找到了[这个转换工具](https://github.com/nobodxbodon/convert-mov-to-gif), 已将原代码的命名中文化并简化. Ruby和视频转换都是新手, 请多指教.
 
-之前[JavaScript实现ZLOGO: 前进方向和速度](https://zhuanlan.zhihu.com/p/52434775)有两个mov文件, 下面为转换出的gif:
+之前《[JavaScript实现ZLOGO: 前进方向和速度](https://zhuanlan.zhihu.com/p/52434775)》有两个 mov 文件, 下面为转换出的 gif 动画:
 
 "轮胎":
 ![2019-01-13-logo轮胎]({{ "/assets/2019-01-13-logo轮胎.gif" | absolute_url }})
@@ -56,7 +56,7 @@ end
 Converter.new(输入,输出)
 ```
 
-### 中文命名相关问题
+### 中文命名相关注意事项
 
 开头需加`# encoding: utf-8`, 否则报错
 ```
