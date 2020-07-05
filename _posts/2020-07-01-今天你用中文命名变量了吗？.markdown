@@ -16,6 +16,6 @@
 
 最近碰到个 [pypi 在 windows 的中文名支持问题](https://github.com/pypa/pip/issues/8342)，前两天看到[被修复了](https://github.com/pypa/pip/pull/8343)。和解决之前的几次开源项目对中文支持问题（多为支持程度问题，而非支持但运行时出错）类似，在提出 issue 后都得到了及时的响应。不禁感叹，别人无偿帮铺好了路，某些人还把着/藏着路口不让人走，奇哉怪哉。
 
-无论如何，车轮已经开始转动。中文命名标识符相关实践只会越来越普及，周边生态会越来越完善。如果在实践过程中，如果有任何技术/非技术问题，欢迎到 github 组提 issue，大家一同研究一下：
+无论如何，车轮已经开始转动。中文命名标识符相关实践只会越来越普及，周边生态会越来越完善。如果在实践过程中，如果有任何技术/非技术问题，欢迎到[中文编程 github 组](https://github.com/program-in-chinese/overview)提 issue，大家一同研究一下。
 
-https://github.com/program-in-chinese/overview
+
