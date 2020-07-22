@@ -1,0 +1,69 @@
+在 1978 年 ACM 举办的“编程语言历史”会议上，Grace Hopper 海军上校作了开场讲演。作为初代程序员，加上她的特殊背景，她的自述现在看来仍有现实意义。这里对自己特别有兴趣的部分作些摘记。**有理解错谬请不吝指教**：
+
+> You're all "Establishment". And I think I spent 20 years fighting the "Establishment". In the early years of programming languages, the most frequent phrase we heard was that the only way to program a computer was in octal.
+
+开头就“开怼”台下所有，果然有初代的霸气。意思貌似是商界在 PL 早期总觉得编程就该用八进制。
+
+紧接着她说在 BINAC 上编程时就用八进制，自认为是数学出身，就自己训练八进制加减乘除，结果到月底算不对自己的收支账本了（台下笑）。三个月后在会计兄弟的帮助下才发现她不时在用八进制作减法。。这也许是她对八进制不爽的一个原因。
+
+> ...if I needed a sine subroutine, angle less than π/4, I'd whistle at Dick and say, "Can I have your sine subroutine?" and I'd copy it out of his notebook...So as early as 1944 we started putting together things which would make it easier to write more accurate programs and get them written faster.
+
+貌似是 1944 年的全手动“拷贝粘贴”代码块，还是借助纸笔的。
+
+> John Mauchly's "Short Order Code" operated on a BINAC in 1949...He wrote words, and the first word might represent the *X*; there was a sign for equals, and sign for *a*, a sign for + and a sign for *b* alpha...the subroutines were stored in the memory and reference was made to the subroutines by the symbolic code which you put in.
+
+看起来是编程语言的雏形，“子程序”像是现在的标准库。
+
+> I think Short Code was the first step in moving toward something which gave a programmer an actual power to write a program in a language which bore no resemblance whatsoever to the original machine code.
+
+接下去的几段很有意思，细节还未参透，但就看这段：
+
+> I'd love to have a good data handling generator, ... to which I can feed specifications and receive as output the required program to do the job I have specified. I don't mean languages. I don't mean compilers. I mean generators for specific jobs.
+
+怎么听着像现在所谓的“无代码”开发呢？
+
+下面说到，Mark I （1944）型计算机每秒执行23 位数字的三次加法，当时被认为是最牛的。但到了 UNIVAC I（1951），就变成了 3000 次每秒。（艹这比摩尔定律还牛）但问题是，机器能更快地执行程序，但程序员没变得更快，很明显，需要更快地写程序。
+
+接着又是段直击灵魂的话：
+
+> ...there were beginning to be more and more people who wanted to solve problems, but who were unwilling to learn octal code and manipulate bits. They wanted an easier way of getting answers out of the computer. So the primary purposes were not to develop a PL, and we didn't give a hoot about commas and colons. We were after getting correct programs written faster, and getting answers for people faster. I'm sorry that to some extent I feel the PL community has somewhat lost track of those two purposes. We were trying to solve problems and get answers. And I think we should go back somewhat to that stage.
+
+话糙理不糙。理想中的编程，不过是能够更快地编出正确的程序，并能更快地得到答案。前者是开发效率，后者是运行效率。
+
+当时编程语言不过发展三十多年，已有几百种各色编程语言出现（69 年的一部《Programming Languages: History and Fundamentals》就提到了 120 种），其中应该不乏在“commas and colons”等细节上折腾得让初代看不顺眼的。
+
+接下来是大段关于早期编程语言的介绍，比如这样的三址代码：
+```
+MUL 00Z 01T A14
+MUL 01Z 00T A15
+ADD A14 A15 01W
+```
+基本上，就是用各种符号和规则完成数学运算（比如微分，上面 01X 代表`dx`）。
+
+1953 年 12 月的一份预算申请报告中：
+
+> it defines "interpreter" and "compiler"——and then it further gives the argument of why we should write programs instead of continuing to interpret at each step, because of course then the interpretive concept was the more popular one.
+
+感觉这份报告也值得一看。
+
+> (FORTRAN) was a tremendous step. This was the first of the *true* programming languages.
+
+下面的是我尤其感兴趣的：
+
+> I find today that many people are concentrating on the languages, and not doing very much about the tools with which to implement those languages.... There are excellent ways of building compilers for FORTRAN and ALGOL and Pascal and all the rest of the mathematical, logical programs, and then people try to use those methods to build a COBOL compiler, and it does not work. They are different, and the languages are different. And the distinction has not been made between the scientific engineering work, the mathematical work, and the data processing work. And the fact remains that in many ways they are different.
+
+很明显，初代当时仍然认为不同专业领域使用不同编程语言是非常合理正常的。
+
+下面这段道出了缘由：
+
+>  Working with the people that I had worked with in data processing, I found that very few of them were symbol-oriented; very few of them were mathematically trained... There was something else that was true of the data processing world: whereas in the mathematical-engineering  world, we had a well-defined, well-known language; ... if you said "SIN" everybody knew it meant "sine". ... But there wasn't any such language for data processing. We took something over 500 data processing programs and sat down to write out what people were doing when they did data processing. We finally identified about 30 verbs which seemed to be the operators of data processing.
+
+术语，又是术语。隔行如隔山，在英语术语上体现更明显。这里的“动词”应该指的是数据处理（商界）的常用语，对于数学出身的初代来说，这无疑是全新的领域。
+
+这里不由得让我想到之前我对[中文术语优势的回答](https://www.zhihu.com/question/36407969/answer/947932151)。这是否意味着中文在尤其领域专用语言上有某些优势呢？
+
+【待续。后面内容更精彩，你知道近 70 年前的类自然语言编程是怎么设计的吗？关键字的选取有何讲究？例程如下：】
+```
+INPUT INVENTORY FILE A; PRICE FILE B; OUTPUT PRICED INVENTORY FILE C. COMPARE PRODUCT #A WITH PRODUCT #B. IF GREATER, GO TO OPERATION 10; IF EQUAL, GO TO OPERATION 5; OTHERWISE GO TO OPERATION 2. TRANSFER A TO D; WRITE ITEM D; JUMP TO OPERATION 8. REWIND B; CLOSE OUT FILE C AND D; STOP.
+```
+【提示一：当年没有任何 parsing 算法；提示二：**德语**（是的我没写错）中只有祈使句才是动词开头】
