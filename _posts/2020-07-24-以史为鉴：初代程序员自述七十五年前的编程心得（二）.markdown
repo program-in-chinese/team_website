@@ -1,0 +1,68 @@
+书接[上文](https://zhuanlan.zhihu.com/p/162410677)。
+
+> That December 1953 report proposed to management that mathematical programs should be written in mathematical notation, data processing programs should be written in English statements, ... I was promptly told that I could not do that. And this time the reason was that computers couldn't understand English words. [ Laughter]
+
+“不能用英文语句写代码，因为计算机不懂英文”——这句话听起来是那么熟悉，70 年后的今天，还有很多人拿“计算机不懂中文也不懂英文”来推出“没有英文编程，也没有中文编程”。
+
+> This is the preliminary definition of a data processing compiler, dated 31 January, 1955. The language -- the pseudo-code -- is to be variable-length English words separated by spaces, sentences terminated by periods. One of the first things we ran into was nobody believed this. So we adopted an engineering technique. It's one that I wish more people would adopt...When an engineer designs or builds something, he almost always builds either a pilot model or a bread board. He proves feasiblity, he uncovers any difficulties he hasn't thought up theoretically, and he gets valid cost estimates. Best reasons in the world for building a pilot model.
+
+这里的“伪代码”似乎是初代的自嘲，因为该语言语法与英文自然语言的相似性（词汇不等长，句号结束等等），当时看起来就像是“伪代码”。相比上文的助记符 ADD MUL 等等，明显是向自然语言语法接近了一大步。
+
+没人信，就干工程师能干的——造原型。可行性论证、发现问题、估计成本，都是好理由。至今也是如此。
+
+> An operation list, a subroutine list, a jump list, and a storage list. Of course we quickly realized that management wouldn't know what a list was, and we changed that word to the word "file" and kept "files" so they'd understand all right.
+
+在与管理层沟通时，需要用对方能理解的词汇，也是浅显但经常被忽视的道理。
+
+下面有一段插曲，由于主存放不下他们的所有“list”，他们不得不把一些部分用子程序临时放到磁带存储，需要用时，再调用子程序将其放回主存。而这一技术在 12 年后被 RCA 重造了轮子并叫做“虚拟存储”，又在六、七年后在 IBM 发现之后才被认真对待。说到这台下听众哄笑。—— 然而，好技术往往要商业推手这点在六十年后的今天仍然。
+
+下面到了关键。她们完成了个小编译器，可以接受 20 个语句。在她们的预算申请报告书上，写着：
+
+> 亲爱的管理层：如果你们到机器室来，我们很乐意为您运行这段程序：
+
+```
+（为易读我分了行）
+INPUT INVENTORY FILE A;
+PRICE FILE B;
+OUTPUT PRICED INVENTORY FILE C.
+COMPARE PRODUCT #A WITH PRODUCT #B.
+IF GREATER, GO TO OPERATION 10;
+IF EQUAL, GO TO OPERATION 5; OTHERWISE GO TO OPERATION 2.
+TRANSFER A TO D;
+WRITE ITEM D;
+JUMP TO OPERATION 8.
+REWIND B;
+CLOSE OUT FILE C AND D;
+STOP.
+```
+（所以这就是最早借鉴自然语言语法的编程语言了吧。看上去的确挺自然，尤其对商界人士来说，也没有什么费解的符号）
+
+但她们越看这段代码越觉得渺小，尤其是她们申请的金额之大是从未有过的。于是，她们把所有的英文词换成了法语。接着，又换成了德语。
+
+结果，管理层看到这里就炸了。对他们来说，一台本土制造的美国计算机，当然不可能懂得法语或者德语！导致她们花了四个月来澄清，她们并不打算用英语之外的语言来编程。
+
+这里很值得琢磨。对技术人员来说，编程语言的语法用词修改成另一种自然语言易如反掌，但对管理层来说，这却意味非常。接下去这段她的原文：
+
+> What to us had been a simple -- perfectly simple and obvious -- substitution of bit patterns, to management we'd moved into the whole world of foreign languages, which was obviously impossible. That dangerous, dangerous point of something that's obvious, evident to the researcher, to the programmer -- when it's faced by Management, is out of this world.
+
+那时美国的管理层的这种“编程不能用非英文”的思想，似乎在今天仍然盛行，即使在非英文母语的开发者中。比如前两年[关于 unicode 命名标识符的论战](https://zhuanlan.zhihu.com/p/92057476)中就很明显。
+
+下面是个有趣的技术细节：
+
+> ...we didn't know anything about parsing algorithms at that point in time -- and what happened was you picked up the verb, and then jumped to a subroutine which parsed that type of sentence. In order to do that quickly, and also to make it easy to manufacture that jump, the first and third letters of all the verbs in FLOW-MATIC were unique. That survived until last year in COBOL...
+
+就是说，不需复杂的语法分析算法，而是从每个语句开头（？）动词的第一+第三个字符映射到了对应的处理子程序。这机制也许在现在看有些原始，但抓得住老鼠就是好猫。
+
+下面是两点小结：
+
+> two things influenced FLOW-MATIC over and beyond math and beyond programming languages. One was that we wanted to write the programs in anybody's language, which meant all the statements had to be imperative statements, because that was the only type of sentence in German that began with a verb. [ Laughter]
+
+她们想支持多种自然语言语法应该是真的（选择了法语和德语，大概是由于组里有懂这两个的)。但就因为德语只有祈使句才是动词开头，决定了所有的语句都是祈使句，这听起来总有点玩笑意味。个人感觉祈使句式和之前的助记符式语法是一脉相承。
+
+> And the second was that we had to select the verbs, so that the first and third characters would be unique. One of our most difficult situations was of course display and divide, and that's why it had to be first and third characters. And there are certain of the other verbs which ran into that problem as well.
+
+选择第一和第三字符的理由没完全看明白，似乎是在选择动词和字符位置时作了综合考虑。
+
+【待续。下面一段很有意思，让我想到 UI 设计的原则，尽量让用户作选择，而不是自由输入。】
+
+>  The data descriptions in that case weren't informal. We had forms, and you entered the data description in it.
