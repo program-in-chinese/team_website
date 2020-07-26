@@ -1,0 +1,54 @@
+为避免开坑太多，赶紧看完。书接[上文](https://zhuanlan.zhihu.com/p/163651543)。
+
+>  The data descriptions in that case weren't informal. We had forms, and you entered the data description in it. ... I like the formalized things much better because I love filling in squares in answering questionnaires and things.
+
+按格式填空好过无格式输入，这与现代 Scratch 等用选项代替输入是一个思路。
+
+下面这段是我在回答[汉语编程是不是动了谁的奶酪，为什么招黑？](https://www.zhihu.com/question/407550798/answer/1353143198)时引用的：
+
+> You might be interested later in looking at the first brochure that went out to try and sell to the general public the idea of writing data processing programs in English statements. It was a long, tortuous, and difficult job to get that concept accepted, because it was of course obvious that computers couldn't understand plain English.
+
+在 70 年前，大众对计算机的认识是“它只认得天书一般的代码，但肯定不认识我们说的语言”。导致无人相信能用当时看来相当接近自然语言语法的语句编程，再贴一次上文的预算申请报告中的例程：
+```
+INPUT INVENTORY FILE A;
+PRICE FILE B;
+OUTPUT PRICED INVENTORY FILE C.
+COMPARE PRODUCT #A WITH PRODUCT #B.
+IF GREATER, GO TO OPERATION 10;
+IF EQUAL, GO TO OPERATION 5; OTHERWISE GO TO OPERATION 2.
+TRANSFER A TO D;
+WRITE ITEM D;
+JUMP TO OPERATION 8.
+REWIND B;
+CLOSE OUT FILE C AND D;
+STOP. 
+```
+很可惜，这种思想在今天的国内仍很有市场。
+
+> I also have ... the list of the original verbs; the format with which they were defined, which incidentally, has survived through into today's COBOL compilers, COBOL manuals; and the specifications that started out the world in data processing of writing programs in plain English.
+
+FLOW-MATIC 的语法很大程度影响了 COBOL 语言的设计，也开创了在数据处理领域用白话英文编写代码的时代。
+
+> Now of course, I still think we can go too far, and I would point out one thing about that language that implemented FLOW-MATIC: the fact that we could substitute those French and English words means that it was never anything but a code. It was not a language.
+
+这里初代强调了 FLOW-MATIC 和自然语言的区别。很明显，能用接近自然语言语法的语句编写程序，并不意味着这个编程语言可以作为自然语言使用。
+
+下面初代描述了一个似乎是最早的交叉编译器：
+
+> First, you ran it on the UNIVAC I which translated the English into UNICODE, which was the assembly code of the 1103; it then picked the UNICODE off the UNIVAC I and walked it over and put it on the 1103, which produced the final program.
+
+接着是第一个跨平台的编译器正确性检验体系：
+
+>  The Navy became very much interested in trying to make all the COBOL compilers give the same answers, even though they were on different computers. ... A set of programs was built which would validate a COBOL compilers. They would compare the execution of the compiler against the standard, and monitor the behavior of the actions of the compiler. It was the first set of programs that was built to try to use software to check software.
+
+下面提到有 Federal COBOL Compiler Testing System 的论文，有机会可以找一下。
+
+快结束了，初代又指出了向后兼容问题：
+
+> I'd like to insist that if they add something to a language, or change something in a language, they also provide us with the algorithm which will make the transfer in our programs so that we automatically translate our programs, say, from COBOL 68 to COBOL 74. And if they don't do something like that pretty soon, I'm personally going to go around and shoot up the members of the language defining committees
+
+初代威武！一言不合就拔枪啊。不过语言规则修改导致的代码升级的确是一个至今需要重视的问题。
+
+最后初代感谢了海军给了她 34 年的职业生涯。
+
+【长掌声。后面的问答阶段有些彩蛋的感觉，但就先这样吧】

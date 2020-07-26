@@ -63,6 +63,6 @@ STOP.
 
 选择第一和第三字符的理由没完全看明白，似乎是在选择动词和字符位置时作了综合考虑。
 
-【待续。下面一段很有意思，让我想到 UI 设计的原则，尽量让用户作选择，而不是自由输入。】
+【待续。下面一段很有意思，让我想到 UI 设计的一个原则：尽量让用户作选择，而不是自由输入。】
 
 >  The data descriptions in that case weren't informal. We had forms, and you entered the data description in it.

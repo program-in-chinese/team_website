@@ -1,0 +1,29 @@
+> 你们真该看看当初向大众推销用中文语句编写数据处理程序的宣传册。让人接受这一理念是痛苦漫长艰难的。因为很明显，电脑不能理解白话中文
+
+这是一段 1978 年一位从 1944 年开始编程的初代程序员的回忆，只不过她说的是“英文编程”：
+
+> You might be interested later in looking at the first brochure that went out to try and sell to the general public the idea of writing data processing programs in English statements. It was a long, tortuous, and difficult job to get that concept accepted, because it was of course obvious that computers couldn't understand plain English
+
+她叫 Grace Hopper。
+
+变革总是艰难的，但又是迅猛的，尤其在现代。当时似乎毋庸置疑的观念，几年后回头看简直荒唐透顶的比比皆是。
+
+近七十年前，即使在计算机技术发源初期的美国，在那个极小的圈子里，即便是已经有相当身份的大佬想要推广“英文编程”仍是困难重重。
+
+在英文编程早已根深蒂固的当今国内，中文编程又能指望得到什么厚待呢？
+
+可惜，中文编程的发展错过了技术圈更加纯粹的年代。但现在也是个人机会更多、门槛更低的年代。
+
+毕竟，需求就在那里。
+
+中文命名标识符，可以是尝鲜中文编程的第一步，也看到[越来越多人](https://zhuanlan.zhihu.com/p/153309133)加入了行列。
+
+[中文 API](https://zhuanlan.zhihu.com/p/102811665)、[IDE 辅助](https://gitee.com/Program-in-Chinese/vscode_Chinese_Input_Assistant)也是自然而然的生态成长。
+
+在这个程序员群体对“中文编程”再认识的过程中，中文编程语言的演进和成熟，不过是时间问题。
+
+当然，树欲静而风不止。即便大多数中文编程使用者宁愿闷声发财，各种[荒腔走板](https://zhuanlan.zhihu.com/p/152183403)、[风言风语](https://zhuanlan.zhihu.com/p/156085135)、[自导自演](https://www.zhihu.com/question/389714601/answer/1317618593)都会在中文编程壮大之前如影随形。
+
+这些脏水的来源和动机，我不会比题主更明白。
+
+走自己的路，就好。
