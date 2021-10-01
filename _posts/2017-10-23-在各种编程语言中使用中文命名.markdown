@@ -20,7 +20,6 @@ categories: 命名
 D([参考](https://dlang.org/spec/lex.html#identifiers)),
 [CoffeeScript](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.coffee),
 [Common Lisp](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.lisp),
-Dart,
 [FASM](https://github.com/program-in-chinese/overview/blob/master/示例代码/你好.asm),
 [Go](https://github.com/program-in-chinese/overview/blob/master/示例代码/斐波那契.go),
 [Haskell](https://github.com/program-in-chinese/overview/blob/master/示例代码/Haskell示例.hs),
