@@ -20,4 +20,9 @@ categories: 关键词
 法语 | [Linotte](http://langagelinotte.free.fr/wordpress/): [源码库](https://bitbucket.org/metalm/langagelinotte/) [v2.07 source zip](https://bitbucket.org/metalm/langagelinotte/downloads/Linotte_2.07.00_source.zip)
 拉脱维亚语 | [Dzintars](https://github.com/dzintars-valoda/dzintars)
 泰米尔语 | [Ezhil](https://sourceforge.net/p/ezhillang/code/ci/master/tree/)
-葡萄牙语 | [Potigol](https://github.com/potigol/Potigol)
+葡萄牙语 | [Potigol](https://github.com/potigol/Potigol), [gpt](https://github.com/thiago-silva/gpt)
+芬兰语 | [fergusq/tampio](https://github.com/fergusq/tampio) 以下多谢 @AlephAlpha
+苏联时期的俄语编程语言 Рапира（Rapira）| [ReRap2](https://github.com/freeduke33/rerap2), [rapture](https://github.com/mattmikolay/rapture)
+约鲁巴 | [yorlang](https://github.com/anoniscoding/yorlang)
+伊博 | [ibolang](https://github.com/ORC-1/ibolang)
+豪萨 | [hapy](https://github.com/hapy-lang/hapy)
