@@ -1,3 +1,5 @@
+https://www.zhihu.com/question/405766658/answer/1327906058
+
 和英文视频网站的弹幕功能没有兴起同理。
 
 早在近三十年前，苹果公司就开发出了 AppleScript，例程如下：
