@@ -1,5 +1,5 @@
 
-为了更明白某个广为流传的 Rust 反面例程，暂停错误处理部分学习，先看 [trait](https://doc.rust-lang.org/rust-by-example/trait.html)
+为了更明白某个广为流传的 Rust 反面例程，暂停错误处理部分学习，先看 [trait](https://doc.rust-lang.org/rust-by-example/trait.html)。仍用 [在线环境](https://play.rust-lang.org/) 运行。
 
 trait 意为 特性，初看有点像接口（interface）。
 
