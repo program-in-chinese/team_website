@@ -4,7 +4,7 @@
 
 中文化例程：
 
-```
+```rust
 // This function only gets compiled if the target OS is linux
 #[cfg(target_os = "linux")]
 fn 在跑linux() {
