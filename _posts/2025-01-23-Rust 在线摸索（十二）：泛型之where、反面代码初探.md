@@ -86,7 +86,7 @@ impl<T, S, B, X, U> ServiceFactory<(T, Option<SocketAddr>)> for H1Service<T, S, 
     <U as ServiceFactory<(Request<Pin<Box<dyn Stream<Item = Result<Bytes, PayloadError>> + 'static, Global>>>, Framed<T, Codec>)>>::InitError: Debug, 
 ```
 
-[src 链接](https://cseweb.ucsd.edu/classes/sp22/cse223B-a/tribbler/src/actix_http/h1/service.rs.html#269-333）的这段内容与 github [此段代码](https://github.com/actix/actix-web/blob/b0fe67978485b43ea11ff817dc5afaac4a12559f/actix-http/src/h1/service.rs#L446) 相同：
+[src 链接](https://cseweb.ucsd.edu/classes/sp22/cse223B-a/tribbler/src/actix_http/h1/service.rs.html#269-333) 的这段内容与 github [此段代码](https://github.com/actix/actix-web/blob/b0fe67978485b43ea11ff817dc5afaac4a12559f/actix-http/src/h1/service.rs#L446) 相同：
 
 ```rust
 impl<T, S, B, X, U> ServiceFactory<(T, Option<net::SocketAddr>)> for H1Service<T, S, B, X, U>
