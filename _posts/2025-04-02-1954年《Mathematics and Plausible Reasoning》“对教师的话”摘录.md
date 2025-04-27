@@ -6,7 +6,7 @@ Mathematics (下简称 math) has many aspects. To many students, I am afraid, ma
 ...
 To some instructors, math appears as a system of rigorous proofs
 ...  
-To a mathematician, who is active in research, mathematics may appear sometimes as a guessing game: you hav to guess a math theorem before you prove it, you have to guess the idea of the proof before you carry through the details.
+To a mathematician, who is active in research, mathematics may appear sometimes as a guessing game: you have to guess a math theorem before you prove it, you have to guess the idea of the proof before you carry through the details.
 
 It may appear a little more surprising to the layman that the mathematician is also guessing. The result of the math's creative work is demonstrative reasoning, a proof, but the proof is discovered by plausible reasoning, by guessing.
 
